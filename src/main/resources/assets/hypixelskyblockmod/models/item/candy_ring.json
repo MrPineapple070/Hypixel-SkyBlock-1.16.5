@@ -1,0 +1,6 @@
+{
+	"parent": "hypixelskyblockmod:item/custom",
+	"textures": {
+		"0": "hypixelskyblockmod:items/candy_ring"
+	}
+}

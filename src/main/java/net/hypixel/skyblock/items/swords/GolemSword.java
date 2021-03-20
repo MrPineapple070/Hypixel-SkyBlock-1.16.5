@@ -1,0 +1,51 @@
+package net.hypixel.skyblock.items.swords;
+
+import java.util.Arrays;
+import java.util.List;
+
+import net.hypixel.skyblock.items.ModItemRarity;
+import net.hypixel.skyblock.util.ItemProperties;
+import net.hypixel.skyblock.util.StatString;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
+
+/**
+ * The <a href="https://hypixel-skyblock.fandom.com/wiki/Golem_Sword">Golem
+ * Sword</a>.
+ *
+ * @author MrPineapple070
+ * @version 02 August 2019
+ * @since 11 June 2019
+ */
+public class GolemSword extends ModSwordItem {
+	private static final List<ITextComponent> tooltip = Arrays.asList(
+			item_ability.copy().append(new TranslationTextComponent("sword.golem")).withStyle(TextFormatting.GOLD),
+			new TranslationTextComponent("sword.golem.0", StatString.ability_damage));
+
+	public GolemSword() {
+		super(ModSwordTier.Golem_Sword, ItemProperties.m1, ModItemRarity.Rare);
+	}
+
+	@Override
+	public void appendHoverText(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		tooltip.addAll(GolemSword.tooltip);
+		tooltip.add(StringTextComponent.EMPTY);
+	}
+
+	@Override
+	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+		ItemStack held = playerIn.getItemInHand(handIn);
+		if (worldIn.isClientSide)
+			return ActionResult.pass(held);
+		playerIn.getCooldowns().addCooldown(this, 60);
+		return ActionResult.success(held);
+	}
+}

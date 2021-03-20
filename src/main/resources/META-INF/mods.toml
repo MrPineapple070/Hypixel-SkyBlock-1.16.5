@@ -1,0 +1,41 @@
+# This is an example mods.toml file. It contains the data relating to the loading mods.
+# There are several mandatory fields (#mandatory), and many more that are optional (#optional).
+# The overall format is standard TOML format, v0.5.0.
+# Note that there are a couple of TOML lists in this file.
+# Find more information on toml format here:  https://github.com/toml-lang/toml
+
+modLoader="javafml"
+
+loaderVersion="[36,)"
+
+license="APGL-3.0"
+
+issueTrackerURL="https://hypixel.net/forums/skyblock-bug-reports.159/"
+
+logoFile="logo.png"
+
+[[mods]] #mandatory
+
+modId="hypixelskyblockmod"
+
+version="${file.jarVersion}"
+
+displayName="Hypixel SkyBlock Mod"
+
+updateJSONURL="https://hypixel.net/forums/skyblock-patch-notes.158/"
+
+displayURL="https://hypixel.net/forums/skyblock.157/"
+
+credits="Hypixel SkyBlock Developers"
+
+authors="Hypixel SkyBlock Developers"
+
+description='''
+Hypixel SkyBlock
+
+Textures by ImperiaL_24.
+Get the pack here: https://packshq.com/content/packs/
+
+Models made with BlockBench
+Get is here: https://blockbench.net/downloads/
+'''

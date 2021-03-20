@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"0": "hypixelskyblockmod:items/medium_husbandry_sack"
+	}
+}

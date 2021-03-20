@@ -1,0 +1,6 @@
+{
+	"parent": "hypixelskyblockmod:item/custom",
+	"textures": {
+		"0": "hypixelskyblockmod:items/black_small_backpack"
+	}
+}
