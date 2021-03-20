@@ -1,7 +1,30 @@
 package net.hypixel.skyblock.items.init;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
+import net.hypixel.skyblock.items.bows.Bonemerang;
+import net.hypixel.skyblock.items.bows.DeathBow;
+import net.hypixel.skyblock.items.bows.EndStoneBow;
 import net.hypixel.skyblock.items.bows.EnderBow;
+import net.hypixel.skyblock.items.bows.ExplosiveBow;
+import net.hypixel.skyblock.items.bows.HurricaneBow;
+import net.hypixel.skyblock.items.bows.LastBreath;
+import net.hypixel.skyblock.items.bows.MachineGunBow;
+import net.hypixel.skyblock.items.bows.MagmaBow;
+import net.hypixel.skyblock.items.bows.MosquitoBow;
+import net.hypixel.skyblock.items.bows.PrismarineBow;
+import net.hypixel.skyblock.items.bows.RunaanBow;
+import net.hypixel.skyblock.items.bows.SavannaBow;
+import net.hypixel.skyblock.items.bows.ScorpionBow;
+import net.hypixel.skyblock.items.bows.SlimeBow;
+import net.hypixel.skyblock.items.bows.SniperBow;
+import net.hypixel.skyblock.items.bows.SoulsRebound;
+import net.hypixel.skyblock.items.bows.SoulstealerBow;
+import net.hypixel.skyblock.items.bows.SpiderQueenStinger;
+import net.hypixel.skyblock.items.bows.SpiritBow;
+import net.hypixel.skyblock.items.bows.SuperUndeadBow;
+import net.hypixel.skyblock.items.bows.UndeadBow;
+import net.hypixel.skyblock.items.bows.VenomTouch;
+import net.hypixel.skyblock.items.bows.WitherBow;
 import net.hypixel.skyblock.items.swords.AspectOfTheDragon;
 import net.hypixel.skyblock.items.swords.AspectOfTheEnd;
 import net.hypixel.skyblock.items.swords.AspectOfTheJerry;
@@ -113,5 +136,28 @@ public class WeaponInit {
 	public static final RegistryObject<SwordItem> zombie_sword = weapon.register("zombie_sword", ZombieSword::new);
 
 	// Bows
+	public static final RegistryObject<BowItem> bonemerang = weapon.register("bonemerang", Bonemerang::new);
+	public static final RegistryObject<BowItem> death_bow = weapon.register("death_bow", DeathBow::new);
+	public static final RegistryObject<BowItem> end_stone_bow = weapon.register("end_stone_bow", EndStoneBow::new);
 	public static final RegistryObject<BowItem> ender_bow = weapon.register("ender_bow", EnderBow::new);
+	public static final RegistryObject<BowItem> explosive_bow = weapon.register("explosive_bow", ExplosiveBow::new);
+	public static final RegistryObject<BowItem> hurricane_bow = weapon.register("hurricane_bow", HurricaneBow::new);
+	public static final RegistryObject<BowItem> last_breath = weapon.register("last_breath", LastBreath::new);
+	public static final RegistryObject<BowItem> machine_gun_bow = weapon.register("machine_gun_bow", MachineGunBow::new);
+	public static final RegistryObject<BowItem> magma_bow = weapon.register("magma_bow", MagmaBow::new);
+	public static final RegistryObject<BowItem> mosquito_bow = weapon.register("mosquito_bow", MosquitoBow::new);
+	public static final RegistryObject<BowItem> prismarine_bow = weapon.register("prismarine_bow", PrismarineBow::new);
+	public static final RegistryObject<BowItem> runaan_bow = weapon.register("runaan_bow", RunaanBow::new);
+	public static final RegistryObject<BowItem> savanna_bow = weapon.register("savanna_bow", SavannaBow::new);
+	public static final RegistryObject<BowItem> scorpion_bow = weapon.register("scorpion_bow", ScorpionBow::new);
+	public static final RegistryObject<BowItem> slime_bow = weapon.register("slime_bow", SlimeBow::new);
+	public static final RegistryObject<BowItem> sniper_bow = weapon.register("sniper_bow", SniperBow::new);
+	public static final RegistryObject<BowItem> souls_rebound = weapon.register("souls_rebound", SoulsRebound::new);
+	public static final RegistryObject<BowItem> soulstealer_bow = weapon.register("soulstealer_bow", SoulstealerBow::new);
+	public static final RegistryObject<BowItem> spider_queen_stinger = weapon.register("spider_queen_stinger", SpiderQueenStinger::new);
+	public static final RegistryObject<BowItem> spirit_bow = weapon.register("spirit_bow", SpiritBow::new);
+	public static final RegistryObject<BowItem> super_undead_bow = weapon.register("super_undead_bow", SuperUndeadBow::new);
+	public static final RegistryObject<BowItem> undead_bow = weapon.register("undead_bow", UndeadBow::new);
+	public static final RegistryObject<BowItem> venom_touch = weapon.register("venom_touch", VenomTouch::new);
+	public static final RegistryObject<BowItem> wither_bow = weapon.register("wither_bow", WitherBow::new);
 }

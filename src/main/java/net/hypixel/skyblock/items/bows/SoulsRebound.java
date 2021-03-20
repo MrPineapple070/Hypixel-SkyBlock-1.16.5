@@ -1,5 +1,6 @@
 package net.hypixel.skyblock.items.bows;
 
+import java.util.Arrays;
 import java.util.List;
 
 import net.hypixel.skyblock.items.ModItemRarity;
@@ -10,20 +11,16 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
-/**
- * @author MrPineapple070
- * @version 24 October 2020
- * @since 24 October 2020
- */
-public class WitherBow extends ModBowItem {
-	private static final ITextComponent info = new TranslationTextComponent("bow.wither");
+public class SoulsRebound extends ModBowItem {
+	private static final List<ITextComponent> info = Arrays.asList(new TranslationTextComponent("bow.soul.0"),
+			new TranslationTextComponent("bow.soul.1"));
 
-	public WitherBow() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+	public SoulsRebound() {
+		super(ItemProperties.c1, ModItemRarity.Epic);
 	}
 
 	@Override
 	public void appendHoverText(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(info);
+		tooltip.addAll(info);
 	}
 }

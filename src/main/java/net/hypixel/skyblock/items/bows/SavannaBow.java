@@ -10,15 +10,9 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
-/**
- * @author MrPineapple070
- * @version 24 October 2020
- * @since 24 October 2020
- */
-public class WitherBow extends ModBowItem {
-	private static final ITextComponent info = new TranslationTextComponent("bow.wither");
-
-	public WitherBow() {
+public class SavannaBow extends ModBowItem {
+	private static final ITextComponent info = new TranslationTextComponent("bow.savanna");
+	public SavannaBow() {
 		super(ItemProperties.c1, ModItemRarity.Uncommon);
 	}
 

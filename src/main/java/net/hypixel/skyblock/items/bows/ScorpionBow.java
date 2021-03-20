@@ -8,30 +8,23 @@ import net.hypixel.skyblock.util.ItemProperties;
 import net.hypixel.skyblock.util.StatString;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
-/**
- * @author MrPineapple070
- * @version 24 October 2020
- * @since 24 October 2020
- */
-public class EnderBow extends ModBowItem {
-	private static final List<ITextComponent> tooltip = Arrays.asList(
-			item_ability.copy().append(new TranslationTextComponent("bow.ender"))
-					.withStyle(TextFormatting.GOLD),
-			new TranslationTextComponent("bow.ender.0", Items.ENDER_PEARL.getName(ItemStack.EMPTY)),
-			new TranslationTextComponent("bow.ender.1", StatString.health));
+public class ScorpionBow extends ModBowItem {
+	private static final List<ITextComponent> info = Arrays.asList(
+			item_ability.copy().append(new TranslationTextComponent("bow.scorpion")).withStyle(TextFormatting.GOLD),
+			new TranslationTextComponent("bow.scorpion.0"), new TranslationTextComponent("bow.scorpion.1", StatString.intelligence),
+			new TranslationTextComponent("bow.scorpion.2"));
 
-	public EnderBow() {
-		super(ItemProperties.c1, ModItemRarity.Rare);
+	public ScorpionBow() {
+		super(ItemProperties.c1, ModItemRarity.Epic);
 	}
 
 	@Override
 	public void appendHoverText(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.addAll(EnderBow.tooltip);
+		tooltip.addAll(info);
 	}
 }

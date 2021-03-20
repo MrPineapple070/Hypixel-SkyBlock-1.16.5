@@ -211,13 +211,13 @@ public abstract class ModBowItem extends BowItem implements ReforgableItem, Upgr
 	protected Reforge reforge = Reforge.None;
 
 	@Nonnull
-	protected ITextComponent reforge_display = new StringTextComponent("");
+	protected ITextComponent reforge_display = StringTextComponent.EMPTY;
 
 	protected ModBowItem(Properties builder, ModItemRarity rarity) {
 		super(builder);
+		this.rarity = Objects.requireNonNull(rarity, "ModItemRarity cannot be null");
 		this.isUpgraded = false;
 		this.numPotatoBook = 0;
-		this.rarity = rarity;
 	}
 
 	@Override
