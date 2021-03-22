@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class FlamingSword extends ModSwordItem {
 	public FlamingSword() {
-		super(ModSwordTier.Flaming_Sword, ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ModSwordTier.Flaming_Sword, ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 public class SavannaBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.savanna");
 	public SavannaBow() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

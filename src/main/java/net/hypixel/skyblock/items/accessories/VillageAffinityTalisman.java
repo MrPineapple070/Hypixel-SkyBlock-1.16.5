@@ -26,7 +26,7 @@ public class VillageAffinityTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.village", StatString.speed);
 
 	public VillageAffinityTalisman() {
-		super(ItemProperties.ms1, ModItemRarity.Common);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Common);
 	}
 
 	@Override

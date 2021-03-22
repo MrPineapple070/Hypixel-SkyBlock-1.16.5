@@ -89,7 +89,7 @@ public class WeddingRing extends Accessory {
 	protected final int chance;
 
 	protected WeddingRing(ModItemRarity rarity, int chance) {
-		super(ItemProperties.ms1, rarity);
+		super(ItemProperties.miscellaneous_1, rarity);
 		this.chance = chance;
 	}
 

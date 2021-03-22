@@ -14,6 +14,6 @@ import net.minecraft.inventory.EquipmentSlotType;
  */
 public abstract class DungeonArmorItem extends ModArmorItem {
 	public DungeonArmorItem(ModArmorMaterial materialIn, EquipmentSlotType slot, ModItemRarity rarity) {
-		super(materialIn, slot, ItemProperties.d1, rarity);
+		super(materialIn, slot, ItemProperties.dungeon_1, rarity);
 	}
 }

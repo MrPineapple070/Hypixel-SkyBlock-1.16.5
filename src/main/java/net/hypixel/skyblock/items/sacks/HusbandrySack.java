@@ -22,7 +22,7 @@ public class HusbandrySack extends Sack {
 			new Item[] { Items.FEATHER, Items.LEATHER, Items.PORKCHOP, Items.CHICKEN, Items.MUTTON, Items.RABBIT });
 
 	public HusbandrySack(SackSize type) {
-		super(ItemProperties.f1, type);
+		super(ItemProperties.farm_1, type);
 	}
 
 	@Override

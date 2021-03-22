@@ -36,7 +36,7 @@ public class InkWand extends ModSwordItem {
 							.withStyle(Style.EMPTY.withColor(Color.fromRgb(Effects.BLINDNESS.getColor())))));
 
 	public InkWand() {
-		super(ModSwordTier.Ink_Wand, ItemProperties.fi1, ModItemRarity.Epic);
+		super(ModSwordTier.Ink_Wand, ItemProperties.fish_1, ModItemRarity.Epic);
 	}
 
 	@Override

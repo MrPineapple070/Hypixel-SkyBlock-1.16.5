@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class LeafletLeggings extends ModArmorItem {
 
 	public LeafletLeggings() {
-		super(LeafletSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.fg1,
+		super(LeafletSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.foraging_1,
 				LeafletSet.instance.getRarity());
 	}
 

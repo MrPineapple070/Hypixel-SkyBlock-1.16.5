@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class CrystalBoots extends ModArmorItem {
 
 	public CrystalBoots() {
-		super(CrystalSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(CrystalSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				CrystalSet.instance.getRarity());
 	}
 

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EnderLeggings extends ModArmorItem {
 	public EnderLeggings() {
-		super(EnderSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(EnderSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				EnderSet.instance.getRarity());
 	}
 

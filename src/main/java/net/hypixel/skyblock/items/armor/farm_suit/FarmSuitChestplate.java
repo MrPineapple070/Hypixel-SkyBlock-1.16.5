@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FarmSuitChestplate extends ModArmorItem {
 	public FarmSuitChestplate() {
-		super(FarmSuitSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.f1,
+		super(FarmSuitSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.farm_1,
 				FarmSuitSet.instance.getRarity());
 	}
 

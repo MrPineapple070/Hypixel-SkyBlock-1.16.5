@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class MinerBoots extends ModArmorItem {
 	public MinerBoots() {
-		super(MinerSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.m1, ModItemRarity.Rare);
+		super(MinerSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EnderChestplate extends ModArmorItem {
 	public EnderChestplate() {
-		super(EnderSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(EnderSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				EnderSet.instance.getRarity());
 	}
 

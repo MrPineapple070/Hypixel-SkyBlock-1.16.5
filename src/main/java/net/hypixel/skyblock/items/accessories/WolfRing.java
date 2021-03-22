@@ -23,7 +23,7 @@ public class WolfRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.wolf", 10);
 
 	public WolfRing() {
-		super(ItemProperties.c1, ModItemRarity.Rare);
+		super(ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

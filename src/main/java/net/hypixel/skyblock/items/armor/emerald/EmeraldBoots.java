@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class EmeraldBoots extends ModArmorItem {
 
 	public EmeraldBoots() {
-		super(EmeraldSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.m1,
+		super(EmeraldSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.mine_1,
 				EmeraldSet.instance.getRarity());
 	}
 

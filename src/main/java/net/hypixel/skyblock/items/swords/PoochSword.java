@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class PoochSword extends ModSwordItem {
 	public PoochSword() {
-		super(ModSwordTier.Pooch_Sword, ItemProperties.c1, ModItemRarity.Legendary);
+		super(ModSwordTier.Pooch_Sword, ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FarmHelmet extends ModArmorItem {
 	public FarmHelmet() {
-		super(FarmSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.f1, FarmSet.instance.getRarity());
+		super(FarmSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.farm_1, FarmSet.instance.getRarity());
 	}
 
 	@Override

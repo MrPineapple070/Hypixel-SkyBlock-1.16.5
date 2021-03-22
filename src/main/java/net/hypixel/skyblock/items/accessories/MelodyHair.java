@@ -31,7 +31,7 @@ public class MelodyHair extends Accessory {
 	private int currentPitch;
 
 	public MelodyHair() {
-		super(ItemProperties.ms1, ModItemRarity.Epic);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Epic);
 		this.currentPitch = -12;
 	}
 

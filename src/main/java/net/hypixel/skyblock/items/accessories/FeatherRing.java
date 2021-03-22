@@ -23,7 +23,7 @@ public class FeatherRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.feather_ring");
 
 	public FeatherRing() {
-		super(ItemProperties.f1, ModItemRarity.Uncommon);
+		super(ItemProperties.farm_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

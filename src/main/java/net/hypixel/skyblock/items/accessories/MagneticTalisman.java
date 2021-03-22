@@ -22,7 +22,7 @@ public class MagneticTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.magnetic");
 
 	public MagneticTalisman() {
-		super(ItemProperties.m1, ModItemRarity.Uncommon);
+		super(ItemProperties.mine_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

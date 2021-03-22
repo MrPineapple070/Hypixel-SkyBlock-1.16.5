@@ -18,7 +18,7 @@ public class RunaanBow extends ModBowItem {
 			new TranslationTextComponent("bow.runaan.0"), new TranslationTextComponent("bow.runaan.1"));
 
 	public RunaanBow() {
-		super(ItemProperties.c1, ModItemRarity.Legendary);
+		super(ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

@@ -23,7 +23,7 @@ public class PigFoot extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.pig", StatString.speed);
 
 	public PigFoot() {
-		super(ItemProperties.ms1, ModItemRarity.Rare);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Rare);
 	}
 
 	@Override

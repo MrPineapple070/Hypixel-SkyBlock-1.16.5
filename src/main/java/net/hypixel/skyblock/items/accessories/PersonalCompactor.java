@@ -38,25 +38,25 @@ import net.minecraft.world.World;
 public class PersonalCompactor extends Accessory {
 	public static class PersonalComp4000 extends PersonalCompactor {
 		public PersonalComp4000() {
-			super(ItemProperties.m1, ModItemRarity.Uncommon, 4000);
+			super(ItemProperties.mine_1, ModItemRarity.Uncommon, 4000);
 		}
 	}
 
 	public static class PersonalComp5000 extends PersonalCompactor {
 		public PersonalComp5000() {
-			super(ItemProperties.m1, ModItemRarity.Rare, 5000);
+			super(ItemProperties.mine_1, ModItemRarity.Rare, 5000);
 		}
 	}
 
 	public static class PersonalComp6000 extends PersonalCompactor {
 		public PersonalComp6000() {
-			super(ItemProperties.m1, ModItemRarity.Epic, 6000);
+			super(ItemProperties.mine_1, ModItemRarity.Epic, 6000);
 		}
 	}
 
 	public static class PersonalComp7000 extends PersonalCompactor {
 		public PersonalComp7000() {
-			super(ItemProperties.m1, ModItemRarity.Legendary, 7000);
+			super(ItemProperties.mine_1, ModItemRarity.Legendary, 7000);
 		}
 	}
 

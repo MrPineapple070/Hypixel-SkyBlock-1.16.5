@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpongeLeggings extends ModArmorItem {
 	public SpongeLeggings() {
-		super(SpongeSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.fi1,
+		super(SpongeSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.fish_1,
 				SpongeSet.instance.getRarity());
 	}
 

@@ -22,7 +22,7 @@ public class ExperienceArtifact extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.experience_artifact");
 
 	public ExperienceArtifact() {
-		super(ItemProperties.m1, ModItemRarity.Epic);
+		super(ItemProperties.mine_1, ModItemRarity.Epic);
 	}
 
 	@Override

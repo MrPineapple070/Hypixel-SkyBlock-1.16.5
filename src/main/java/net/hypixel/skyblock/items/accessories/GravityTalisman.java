@@ -28,7 +28,7 @@ public class GravityTalisman extends Accessory {
 			StatString.defense);
 
 	public GravityTalisman() {
-		super(ItemProperties.m1, ModItemRarity.Uncommon);
+		super(ItemProperties.mine_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

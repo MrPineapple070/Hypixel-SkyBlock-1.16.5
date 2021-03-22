@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class SkeletonHelmet extends ModArmorItem {
 	public SkeletonHelmet() {
-		super(MonsterHunterSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(MonsterHunterSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				MonsterHunterSet.instance.getRarity());
 	}
 

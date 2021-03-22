@@ -23,7 +23,7 @@ public class ScavengerTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.scavenger");
 
 	public ScavengerTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Common);
+		super(ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

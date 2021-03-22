@@ -31,7 +31,7 @@ public class RecluseFang extends ModSwordItem {
 			new TranslationTextComponent("sword.recluse.1", StatString.strength));
 
 	public RecluseFang() {
-		super(ModSwordTier.Recluse_Fang, ItemProperties.c1, ModItemRarity.Rare);
+		super(ModSwordTier.Recluse_Fang, ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

@@ -34,7 +34,7 @@ public class ModFishingRodItem extends FishingRodItem {
 	final ModItemRarity rarity;
 
 	public ModFishingRodItem(ModItemRarity rarity) {
-		super(ItemProperties.fi1);
+		super(ItemProperties.fish_1);
 		this.rarity = Objects.requireNonNull(rarity, "ModItemRarity must be nonnull");
 	}
 

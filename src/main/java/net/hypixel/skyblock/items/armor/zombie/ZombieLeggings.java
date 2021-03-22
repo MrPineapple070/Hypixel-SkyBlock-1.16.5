@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class ZombieLeggings extends ModArmorItem {
 	public ZombieLeggings() {
-		super(ZombieSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(ZombieSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				ZombieSet.instance.getRarity());
 	}
 

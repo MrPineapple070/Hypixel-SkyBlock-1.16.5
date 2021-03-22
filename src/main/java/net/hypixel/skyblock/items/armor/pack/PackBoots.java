@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class PackBoots extends ModArmorItem {
 	public PackBoots() {
-		super(PackSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1, PackSet.instance.getRarity());
+		super(PackSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1, PackSet.instance.getRarity());
 	}
 
 	@Override

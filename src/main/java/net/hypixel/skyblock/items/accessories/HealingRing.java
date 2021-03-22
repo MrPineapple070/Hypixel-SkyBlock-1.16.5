@@ -22,7 +22,7 @@ public class HealingRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.healing", 15);
 
 	public HealingRing() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

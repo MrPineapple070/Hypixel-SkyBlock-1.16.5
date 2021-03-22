@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EmberChestplate extends ModArmorItem {
 	public EmberChestplate() {
-		super(EmberSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(EmberSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				EmberSet.instance.getRarity());
 	}
 

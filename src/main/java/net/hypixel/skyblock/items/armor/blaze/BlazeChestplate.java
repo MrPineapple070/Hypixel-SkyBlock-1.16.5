@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class BlazeChestplate extends ModArmorItem {
 
 	public BlazeChestplate() {
-		super(BlazeSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(BlazeSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				BlazeSet.instance.getRarity());
 	}
 

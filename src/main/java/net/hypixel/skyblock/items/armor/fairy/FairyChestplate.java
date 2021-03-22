@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FairyChestplate extends ModArmorItem {
 	public FairyChestplate() {
-		super(FairySet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.ms1,
+		super(FairySet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.miscellaneous_1,
 				FairySet.instance.getRarity());
 	}
 

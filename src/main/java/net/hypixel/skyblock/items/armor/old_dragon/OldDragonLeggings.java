@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class OldDragonLeggings extends ModArmorItem {
 	public OldDragonLeggings() {
-		super(OldDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(OldDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				OldDragonSet.instance.getRarity());
 	}
 

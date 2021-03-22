@@ -22,7 +22,7 @@ public class HunterTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.hunter", 2);
 
 	public HunterTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

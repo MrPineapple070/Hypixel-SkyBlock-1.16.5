@@ -32,7 +32,7 @@ public class OrnateZombieSword extends ModSwordItem {
 			new TranslationTextComponent("sword.ornate.0", StatString.health));
 
 	public OrnateZombieSword() {
-		super(ModSwordTier.Ornate_Zombie_Sword, ItemProperties.c1, ModItemRarity.Epic);
+		super(ModSwordTier.Ornate_Zombie_Sword, ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

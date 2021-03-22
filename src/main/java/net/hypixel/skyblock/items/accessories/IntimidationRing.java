@@ -24,7 +24,7 @@ public class IntimidationRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.intimidation", 5);
 
 	public IntimidationRing() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class ShamanSword extends ModSwordItem {
 	public ShamanSword() {
-		super(ModSwordTier.Shaman_Sword, ItemProperties.c1, ModItemRarity.Epic);
+		super(ModSwordTier.Shaman_Sword, ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

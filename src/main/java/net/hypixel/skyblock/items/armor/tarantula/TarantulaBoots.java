@@ -29,7 +29,7 @@ public class TarantulaBoots extends ModArmorItem {
 	}
 
 	public TarantulaBoots() {
-		super(TarantulaSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(TarantulaSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				TarantulaSet.instance.getRarity());
 	}
 

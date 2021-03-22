@@ -26,7 +26,7 @@ public class EndSword extends ModSwordItem {
 	private static final ITextComponent tooltip = new TranslationTextComponent("sword.end");
 
 	public EndSword() {
-		super(ModSwordTier.End_Sword, ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ModSwordTier.End_Sword, ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

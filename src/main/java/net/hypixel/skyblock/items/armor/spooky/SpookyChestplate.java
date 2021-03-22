@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpookyChestplate extends ModArmorItem {
 	public SpookyChestplate() {
-		super(SpookySet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.ms1,
+		super(SpookySet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.miscellaneous_1,
 				SpookySet.instance.getRarity());
 	}
 

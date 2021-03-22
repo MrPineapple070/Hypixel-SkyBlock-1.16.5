@@ -23,7 +23,7 @@ public class TreasureTalisman extends Accessory {
 	public static final ITextComponent info = new TranslationTextComponent("accessory.treasure", 1);
 
 	public TreasureTalisman() {
-		super(ItemProperties.d1, ModItemRarity.Rare);
+		super(ItemProperties.dungeon_1, ModItemRarity.Rare);
 	}
 
 	@Override

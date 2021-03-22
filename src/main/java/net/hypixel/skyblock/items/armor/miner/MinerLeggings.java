@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class MinerLeggings extends ModArmorItem {
 	public MinerLeggings() {
-		super(MinerSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.m1, ModItemRarity.Rare);
+		super(MinerSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

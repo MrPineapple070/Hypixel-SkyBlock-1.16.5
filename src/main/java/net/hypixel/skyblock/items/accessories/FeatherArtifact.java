@@ -24,7 +24,7 @@ public class FeatherArtifact extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.feather_artifact");
 
 	public FeatherArtifact() {
-		super(ItemProperties.f1, ModItemRarity.Rare);
+		super(ItemProperties.farm_1, ModItemRarity.Rare);
 	}
 
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {

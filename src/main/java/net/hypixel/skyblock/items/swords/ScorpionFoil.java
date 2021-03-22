@@ -36,7 +36,7 @@ public class ScorpionFoil extends ModSwordItem {
 	private int tickers = 4;
 
 	public ScorpionFoil() {
-		super(ModSwordTier.Scorpion_Foil, ItemProperties.c1, ModItemRarity.Epic);
+		super(ModSwordTier.Scorpion_Foil, ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

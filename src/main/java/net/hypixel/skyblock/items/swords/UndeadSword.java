@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class UndeadSword extends ModSwordItem {
 	public UndeadSword() {
-		super(ModSwordTier.Undead_Sword, ItemProperties.c1, ModItemRarity.Common);
+		super(ModSwordTier.Undead_Sword, ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

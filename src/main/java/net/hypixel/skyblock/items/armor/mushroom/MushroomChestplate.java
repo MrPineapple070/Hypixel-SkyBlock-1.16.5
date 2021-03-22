@@ -18,7 +18,7 @@ import net.minecraft.world.World;
  */
 public class MushroomChestplate extends ModArmorItem {
 	public MushroomChestplate() {
-		super(MushroomSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.f1,
+		super(MushroomSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.farm_1,
 				MushroomSet.instance.getRarity());
 	}
 

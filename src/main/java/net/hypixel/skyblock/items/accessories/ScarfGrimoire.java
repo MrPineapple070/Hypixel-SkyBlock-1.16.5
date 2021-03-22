@@ -21,7 +21,7 @@ public class ScarfGrimoire extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.scarf", "6%");
 
 	public ScarfGrimoire() {
-		super(ItemProperties.d1, ModItemRarity.Legendary);
+		super(ItemProperties.dungeon_1, ModItemRarity.Legendary);
 	}
 
 	@Override

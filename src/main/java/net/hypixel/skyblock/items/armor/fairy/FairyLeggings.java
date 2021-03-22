@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FairyLeggings extends ModArmorItem {
 	public FairyLeggings() {
-		super(FairySet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.ms1,
+		super(FairySet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.miscellaneous_1,
 				FairySet.instance.getRarity());
 	}
 

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class DiverChestplate extends ModArmorItem {
 	public DiverChestplate() {
-		super(DiverSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.fi1,
+		super(DiverSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.fish_1,
 				DiverSet.instance.getRarity());
 	}
 

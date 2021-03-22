@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class CrystalChestplate extends ModArmorItem {
 	public CrystalChestplate() {
-		super(CrystalSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(CrystalSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				CrystalSet.instance.getRarity());
 	}
 

@@ -20,7 +20,7 @@ public class SeaCreatureArtifact extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.sea_creature", "15%");
 
 	public SeaCreatureArtifact() {
-		super(ItemProperties.fi1, ModItemRarity.Rare);
+		super(ItemProperties.fish_1, ModItemRarity.Rare);
 	}
 
 	@Override

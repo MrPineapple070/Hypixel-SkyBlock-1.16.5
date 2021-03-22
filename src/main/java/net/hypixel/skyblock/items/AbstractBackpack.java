@@ -144,7 +144,7 @@ public abstract class AbstractBackpack extends Item {
 	protected final BackpackType type;
 
 	public AbstractBackpack(BackpackType type, @Nullable DyeColor color) {
-		super(ItemProperties.ms64);
+		super(ItemProperties.miscellaneous_64);
 		this.type = Objects.requireNonNull(type, "BackpackType cannot be null.");
 		this.color = color;
 		this.items = NonNullList.withSize(type.size, ItemStack.EMPTY);

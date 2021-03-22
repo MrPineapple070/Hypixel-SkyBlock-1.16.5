@@ -20,7 +20,7 @@ public class FishingSack extends Sack {
 					Items.PRISMARINE_CRYSTALS, Items.CLAY_BALL, Items.LILY_PAD, Items.INK_SAC, Items.SPONGE });
 
 	public FishingSack(SackSize type) {
-		super(ItemProperties.fi1, type);
+		super(ItemProperties.fish_1, type);
 	}
 
 	@Override

@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class GuardianChestplate extends ModArmorItem {
 
 	public GuardianChestplate() {
-		super(MonsterHunterSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(MonsterHunterSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				MonsterHunterSet.instance.getRarity());
 	}
 

@@ -23,7 +23,7 @@ public class FrozenChicken extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.frozen", StatString.speed);
 
 	public FrozenChicken() {
-		super(ItemProperties.ms1, ModItemRarity.Rare);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Rare);
 	}
 
 	@Override

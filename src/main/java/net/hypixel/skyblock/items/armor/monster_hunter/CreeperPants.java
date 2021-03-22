@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class CreeperPants extends ModArmorItem {
 	public CreeperPants() {
-		super(MonsterHunterSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(MonsterHunterSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				MonsterHunterSet.instance.getRarity());
 	}
 

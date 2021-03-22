@@ -22,7 +22,7 @@ public class FeatherTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.feather_talisman");
 
 	public FeatherTalisman() {
-		super(ItemProperties.f1, ModItemRarity.Common);
+		super(ItemProperties.farm_1, ModItemRarity.Common);
 	}
 
 	@Override

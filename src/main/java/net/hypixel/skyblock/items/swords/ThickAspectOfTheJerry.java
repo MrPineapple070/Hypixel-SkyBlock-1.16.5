@@ -31,7 +31,7 @@ public class ThickAspectOfTheJerry extends ModSwordItem {
 			new TranslationTextComponent("sword.aotj.0"));
 
 	public ThickAspectOfTheJerry() {
-		super(ModSwordTier.Thick_AOTJ, ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ModSwordTier.Thick_AOTJ, ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

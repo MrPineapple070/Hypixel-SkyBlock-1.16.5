@@ -24,7 +24,7 @@ public class BatTalisman extends Accessory {
 			StatString.speed, StatString.intelligence);
 
 	public BatTalisman() {
-		super(ItemProperties.ms1, ModItemRarity.Rare);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Rare);
 	}
 
 	@Override

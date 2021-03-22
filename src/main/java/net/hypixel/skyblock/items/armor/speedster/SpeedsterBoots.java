@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpeedsterBoots extends ModArmorItem {
 	public SpeedsterBoots() {
-		super(SpeedsterSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.f1,
+		super(SpeedsterSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.farm_1,
 				SpeedsterSet.instance.getRarity());
 	}
 

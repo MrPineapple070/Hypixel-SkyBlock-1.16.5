@@ -23,7 +23,7 @@ public class NewYearCakeBag extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.new", StatString.speed);
 
 	public NewYearCakeBag() {
-		super(ItemProperties.ms1, ModItemRarity.Uncommon);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

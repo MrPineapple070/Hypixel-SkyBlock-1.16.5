@@ -31,7 +31,7 @@ public class GolemSword extends ModSwordItem {
 			new TranslationTextComponent("sword.golem.0", StatString.ability_damage));
 
 	public GolemSword() {
-		super(ModSwordTier.Golem_Sword, ItemProperties.m1, ModItemRarity.Rare);
+		super(ModSwordTier.Golem_Sword, ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

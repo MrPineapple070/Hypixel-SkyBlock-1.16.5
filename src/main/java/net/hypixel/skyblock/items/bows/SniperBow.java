@@ -14,7 +14,7 @@ public class SniperBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.sniper");
 
 	public SniperBow() {
-		super(ItemProperties.c1, ModItemRarity.Rare);
+		super(ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class CactusHelmet extends ModArmorItem {
 	public CactusHelmet() {
-		super(CactusSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.f1,
+		super(CactusSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.farm_1,
 				CactusSet.instance.getRarity());
 	}
 

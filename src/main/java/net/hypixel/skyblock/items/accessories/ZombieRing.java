@@ -23,7 +23,7 @@ public class ZombieRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.zombie", 10);
 
 	public ZombieRing() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

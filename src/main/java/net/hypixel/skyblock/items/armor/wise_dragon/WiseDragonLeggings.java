@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class WiseDragonLeggings extends ModArmorItem {
 	public WiseDragonLeggings() {
-		super(WiseDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(WiseDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				WiseDragonSet.instance.getRarity());
 	}
 

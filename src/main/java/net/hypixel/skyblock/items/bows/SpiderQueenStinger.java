@@ -15,7 +15,7 @@ public class SpiderQueenStinger extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.spider.0");
 
 	public SpiderQueenStinger() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

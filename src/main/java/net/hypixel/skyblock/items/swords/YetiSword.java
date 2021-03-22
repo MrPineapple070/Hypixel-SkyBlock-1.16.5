@@ -33,7 +33,7 @@ public class YetiSword extends ModSwordItem {
 			new TranslationTextComponent("sword.yeti.2"));
 
 	public YetiSword() {
-		super(ModSwordTier.Yeti_Sowrd, ItemProperties.c1, ModItemRarity.Legendary);
+		super(ModSwordTier.Yeti_Sowrd, ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

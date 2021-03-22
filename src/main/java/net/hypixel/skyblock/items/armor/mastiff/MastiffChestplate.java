@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class MastiffChestplate extends ModArmorItem {
 	public MastiffChestplate() {
-		super(MastiffSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(MastiffSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				MastiffSet.instance.getRarity());
 	}
 

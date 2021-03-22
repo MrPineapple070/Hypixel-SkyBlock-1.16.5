@@ -26,7 +26,7 @@ public class BatArtifact extends Accessory {
 			StatString.speed, StatString.intelligence);
 
 	public BatArtifact() {
-		super(ItemProperties.ms1, ModItemRarity.Legendary);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Legendary);
 	}
 
 	@Override

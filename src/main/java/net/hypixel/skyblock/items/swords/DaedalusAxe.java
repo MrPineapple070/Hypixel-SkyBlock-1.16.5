@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class DaedalusAxe extends ModSwordItem {
 	public DaedalusAxe() {
-		super(ModSwordTier.Daedalus_Axe, ItemProperties.c1, ModItemRarity.Legendary);
+		super(ModSwordTier.Daedalus_Axe, ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class RevenantChestplate extends ModArmorItem {
 	public RevenantChestplate() {
-		super(RevenantSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(RevenantSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				RevenantSet.instance.getRarity());
 	}
 

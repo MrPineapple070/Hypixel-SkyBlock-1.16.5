@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EmberBoots extends ModArmorItem {
 	public EmberBoots() {
-		super(EmberSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(EmberSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				EmberSet.instance.getRarity());
 	}
 

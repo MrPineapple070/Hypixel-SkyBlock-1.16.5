@@ -27,7 +27,7 @@ public class TarantulaLeggings extends ModArmorItem {
 	}
 
 	public TarantulaLeggings() {
-		super(TarantulaSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(TarantulaSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				TarantulaSet.instance.getRarity());
 	}
 

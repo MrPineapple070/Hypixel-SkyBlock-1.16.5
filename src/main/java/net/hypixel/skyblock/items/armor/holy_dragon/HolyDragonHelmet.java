@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class HolyDragonHelmet extends ModArmorItem {
 	public HolyDragonHelmet() {
-		super(HolyDragonSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(HolyDragonSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				HolyDragonSet.instance.getRarity());
 	}
 

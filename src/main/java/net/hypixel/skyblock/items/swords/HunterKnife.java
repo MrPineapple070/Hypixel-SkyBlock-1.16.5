@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class HunterKnife extends ModSwordItem {
 	public HunterKnife() {
-		super(ModSwordTier.Hunter_Knife, ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ModSwordTier.Hunter_Knife, ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

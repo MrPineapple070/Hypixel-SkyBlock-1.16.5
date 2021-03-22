@@ -35,7 +35,7 @@ public class NightCrystal extends Accessory {
 			StatString.strength, StatString.defense);
 
 	public NightCrystal() {
-		super(ItemProperties.m1, ModItemRarity.Rare);
+		super(ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

@@ -36,7 +36,7 @@ public class MinerOutfitSet extends ModArmorItem {
 							.withStyle(Style.EMPTY.withColor(Color.fromRgb(Effects.DIG_SPEED.getColor())))));
 
 	public MinerOutfitSet(EquipmentSlotType slot) {
-		super(ModArmorMaterial.Miner_Outfit, slot, ItemProperties.m1, ModItemRarity.Rare);
+		super(ModArmorMaterial.Miner_Outfit, slot, ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

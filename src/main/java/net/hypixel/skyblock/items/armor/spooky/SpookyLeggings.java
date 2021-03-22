@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpookyLeggings extends ModArmorItem {
 	public SpookyLeggings() {
-		super(SpookySet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.ms1,
+		super(SpookySet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.miscellaneous_1,
 				SpookySet.instance.getRarity());
 	}
 

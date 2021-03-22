@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SuperiorDragonHelmet extends ModArmorItem {
 	public SuperiorDragonHelmet() {
-		super(SuperiorDragonSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(SuperiorDragonSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				SuperiorDragonSet.instance.getRarity());
 	}
 

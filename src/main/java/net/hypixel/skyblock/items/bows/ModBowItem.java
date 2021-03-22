@@ -3,7 +3,7 @@ package net.hypixel.skyblock.items.bows;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -16,16 +16,30 @@ import net.hypixel.skyblock.items.PotatoBookableItem;
 import net.hypixel.skyblock.items.ReforgableItem;
 import net.hypixel.skyblock.items.Reforge;
 import net.hypixel.skyblock.items.UpgradableItem;
-import net.hypixel.skyblock.items.reforge_stone.ReforgeStone;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.item.ArrowItem;
 import net.minecraft.item.BowItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.ShootableItem;
+import net.minecraft.item.UseAction;
+import net.minecraft.stats.Stats;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.ForgeEventFactory;
 
 /**
  * Serve as a base for {@link BowItem}.
@@ -34,158 +48,21 @@ import net.minecraft.world.World;
  * @version 13 August 2020
  * @since 13 August 2020
  */
-public abstract class ModBowItem extends BowItem implements ReforgableItem, UpgradableItem, PotatoBookableItem {
-	/**
-	 * Handle Sword Reforges.<br>
-	 * <a href="https://hypixel-skyblock.fandom.com/wiki/Reforging">All Reforges</a>
-	 *
-	 * @version 29 July 2020
-	 * @since 11 June 2019
-	 */
-	public static enum BowReforge implements Reforge {
-		Awkward(new double[] { 0, 0, 0, 0, 10, 5, -5, 0 }, new double[] { 0, 0, 0, 0, 12, 10, -10, 0 },
-				new double[] { 0, 0, 0, 0, 15, 15, -18, 0 }, new double[] { 0, 0, 0, 0, 20, 22, -32, 0 },
-				new double[] { 0, 0, 0, 0, 25, 30, -50, 0 }),
-		Deadly(new double[] { 0, 0, 0, 0, 10, 5, 0, 0 }, new double[] { 0, 0, 0, 0, 13, 10, 0, 0 },
-				new double[] { 0, 0, 0, 0, 16, 18, 0, 0 }, new double[] { 0, 0, 0, 0, 19, 32, 0, 0 },
-				new double[] { 0, 0, 0, 0, 22, 50, 0, 0 }),
-		Fine(new double[] { 3, 0, 0, 0, 5, 2, 0, 0 }, new double[] { 7, 0, 0, 0, 7, 4, 0, 0 },
-				new double[] { 12, 0, 0, 0, 9, 7, 0, 0 }, new double[] { 18, 0, 0, 0, 12, 10, 0, 0 },
-				new double[] { 25, 0, 0, 0, 15, 15, 0, 0 }),
-		Grand(new double[] { 25, 0, 0, 0, 0, 0, 0, 0 }, new double[] { 32, 0, 0, 0, 0, 0, 0, 0 },
-				new double[] { 40, 0, 0, 0, 0, 0, 0, 0 }, new double[] { 50, 0, 0, 0, 0, 0, 0, 0 },
-				new double[] { 60, 0, 0, 0, 0, 0, 0, 0 }),
-		Hasty(new double[] { 3, 0, 0, 0, 20, 0, 0, 0 }, new double[] { 5, 0, 0, 0, 25, 0, 0, 0 },
-				new double[] { 7, 0, 0, 0, 30, 0, 0, 0 }, new double[] { 10, 0, 0, 0, 40, 0, 0, 0 },
-				new double[] { 15, 0, 0, 0, 50, 0, 0, 0 }),
-		Neat(new double[] { 0, 0, 0, 0, 10, 4, 3, 0 }, new double[] { 0, 0, 0, 0, 12, 8, 8, 0 },
-				new double[] { 0, 0, 0, 0, 14, 14, 10, 0 }, new double[] { 0, 0, 0, 0, 17, 20, 15, 0 },
-				new double[] { 0, 0, 0, 0, 20, 30, 20, 0 }),
-		/**
-		 * Unique Reforge
-		 */
-		Precise(new double[] { 3, 0, 0, 0, 8, 5, 0, 0 }, new double[] { 7, 0, 0, 0, 9, 10, 0, 0 },
-				new double[] { 12, 0, 0, 0, 10, 18, 0, 0 }, new double[] { 18, 0, 0, 0, 11, 32, 0, 0 },
-				new double[] { 25, 0, 0, 0, 13, 50, 0, 0 }),
-		Rapid(new double[] { 2, 0, 0, 0, 0, 35, 0, 0 }, new double[] { 3, 0, 0, 0, 0, 45, 0, 0 },
-				new double[] { 4, 0, 0, 0, 0, 55, 0, 0 }, new double[] { 7, 0, 0, 0, 0, 65, 0, 0 },
-				new double[] { 10, 0, 0, 0, 0, 75, 0, 0 }),
-		Rich(new double[] { 2, 0, 0, 0, 10, 1, 20, 0 }, new double[] { 3, 0, 0, 0, 12, 2, 25, 0 },
-				new double[] { 4, 0, 0, 0, 14, 4, 30, 0 }, new double[] { 7, 0, 0, 0, 17, 7, 40, 0 },
-				new double[] { 10, 0, 0, 0, 20, 10, 50, 0 }),
-		/**
-		 * Unique Reforge
-		 */
-		Spiritual(new double[] { 4, 0, 0, 0, 7, 10, 0, 0 }, new double[] { 8, 0, 0, 0, 8, 15, 0, 0 },
-				new double[] { 14, 0, 0, 0, 9, 23, 0, 0 }, new double[] { 20, 0, 0, 0, 10, 37, 0, 0 },
-				new double[] { 28, 0, 0, 0, 12, 55, 0, 0 }),
-		Unreal(new double[] { 3, 0, 0, 0, 8, 5, 0, 0 }, new double[] { 7, 0, 0, 0, 9, 10, 0, 0 },
-				new double[] { 12, 0, 0, 0, 10, 18, 0, 0 }, new double[] { 18, 0, 0, 0, 11, 32, 0, 0 },
-				new double[] { 25, 0, 0, 0, 13, 50, 0, 0 });
-
-		/**
-		 * A primative type array of {@link BowReforge} that holds all the nonunique of
-		 * {@link BowReforge}.<br>
-		 * The {@link BowReforge} in this are the ones returned from
-		 * {@link #getRandomReforge()}
-		 */
-		@Nonnull
-		private static final BowReforge[] nonunique;
-
-		/**
-		 * A primative type array of {@link BowReforge} that holds all the unique of
-		 * {@link BowReforge}.<br>
-		 * These {@link BowReforge} in this can only be applied through
-		 * {@link ReforgeStone}
-		 */
-		@Nonnull
-		private static final BowReforge[] unique;
-
-		static {
-			nonunique = new BowReforge[] { Awkward, Deadly, Fine, Grand, Hasty, Neat, Rapid, Unreal };
-			unique = new BowReforge[] { Precise, Spiritual };
-		}
-
-		public static BowReforge getRandomReforge() {
-			return nonunique[rand.nextInt(nonunique.length)];
-		}
-
-		/**
-		 * The array for {@link ModItemRarity#Common}
-		 */
-		@Nonnull
-		private final double[] common;
-
-		/**
-		 * The array for {@link ModItemRarity#Epic}
-		 */
-		@Nonnull
-		private final double[] epic;
-
-		/**
-		 * The array for {@link ModItemRarity#Legendary}
-		 */
-		@Nonnull
-		private final double[] legendary;
-
-		/**
-		 * The array for {@link ModItemRarity#Rare}
-		 */
-		@Nonnull
-		private final double[] rare;
-
-		/**
-		 * The array for {@link ModItemRarity#Uncommon}
-		 */
-		@Nonnull
-		private final double[] uncommon;
-
-		private BowReforge(double[] common, double[] uncommon, double[] rare, double[] epic, double[] legendary) {
-			this.common = Objects.requireNonNull(common, "Common buff array must be non-null.");
-			this.uncommon = Objects.requireNonNull(uncommon, "Uncommon buff array must be non-null.");
-			this.rare = Objects.requireNonNull(rare, "Rare buff array must be non-null.");
-			this.epic = Objects.requireNonNull(epic, "Epic buff array must be non-null.");
-			this.legendary = Objects.requireNonNull(legendary, "Legendary buff array must be non-null.");
-			this.log();
-		}
-
-		@Override
-		public double[] common() {
-			return this.common;
-		}
-
-		@Override
-		public double[] epic() {
-			return this.epic;
-		}
-
-		@Override
-		public double[] legendary() {
-			return this.legendary;
-		}
-
-		@Override
-		public Reforge[] nonunique() {
-			return nonunique;
-		}
-
-		@Override
-		public double[] rare() {
-			return this.rare;
-		}
-
-		@Override
-		public double[] uncommon() {
-			return this.uncommon;
-		}
-
-		@Override
-		public Reforge[] unique() {
-			return unique;
-		}
-	}
-
+public abstract class ModBowItem extends ShootableItem implements ReforgableItem, UpgradableItem, PotatoBookableItem {
 	protected static final ITextComponent item_ability = new TranslationTextComponent("bow.ability");
+	
+	/**
+	 * Calculates the power of an arrow based on how long the bow has been pulled.
+	 * @param time how long the bow has been pulled.
+	 * @return power
+	 */
+	public static float getPowerForTime(float time) {
+		float power = time / 20f;
+		power = (power * power + power * 2f) / 3f;
+		if (power > 1f)
+			power = 1f;
+		return power;
+	}
 
 	/**
 	 * Determine if {@link #rarity} has been changed.
@@ -233,8 +110,29 @@ public abstract class ModBowItem extends BowItem implements ReforgableItem, Upgr
 	}
 
 	@Override
-	public final <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
-		return super.damageItem(stack, 0, entity, onBroken);
+	public boolean canBeDepleted() {
+		return false;
+	}
+
+	/**
+	 * Creates a {@link AbstractArrowEntity} to shoot from this.<br>
+	 * By default this method does nothing.
+	 * 
+	 * @param arrow {@link AbstractArrowEntity} to modify
+	 * @return modified {@link AbstractArrowEntity}
+	 */
+	public AbstractArrowEntity customArrow(AbstractArrowEntity arrow) {
+		return arrow;
+	}
+
+	@Override
+	public final Predicate<ItemStack> getAllSupportedProjectiles() {
+		return ARROW_ONLY;
+	}
+	
+	@Override
+	public int getDefaultProjectileRange() {
+		return 15;
 	}
 
 	@Override
@@ -253,8 +151,13 @@ public abstract class ModBowItem extends BowItem implements ReforgableItem, Upgr
 	}
 
 	@Override
-	public boolean canBeDepleted() {
-		return false;
+	public final UseAction getUseAnimation(ItemStack stack) {
+		return UseAction.BOW;
+	}
+
+	@Override
+	public int getUseDuration(ItemStack stack) {
+		return 72000;
 	}
 
 	@Override
@@ -268,6 +171,61 @@ public abstract class ModBowItem extends BowItem implements ReforgableItem, Upgr
 			HypixelSkyBlockMod.LOGGER.error(e.getLocalizedMessage());
 			for (StackTraceElement element : e.getStackTrace())
 				HypixelSkyBlockMod.LOGGER.error(element.toString());
+		}
+	}
+
+	@Override
+	public final void releaseUsing(ItemStack stack, World world, LivingEntity entity, int progress) {
+		if (!(entity instanceof PlayerEntity))
+			return;
+		PlayerEntity player = (PlayerEntity) entity;
+		boolean consume_arrow = player.abilities.instabuild
+				|| EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
+		ItemStack projectile = player.getProjectile(stack);
+		Item proj_item = projectile.getItem();
+		ArrowItem arrow = (ArrowItem) (proj_item instanceof ArrowItem ? proj_item : Items.ARROW);
+		int use_duration = this.getUseDuration(stack) - progress;
+		boolean has_ammo = !projectile.isEmpty() || consume_arrow;
+		use_duration = ForgeEventFactory.onArrowLoose(stack, world, player, use_duration, has_ammo);
+		if (use_duration < 0)
+			return;
+		if (has_ammo) {
+			if (projectile.isEmpty()) {
+				projectile = new ItemStack(Items.ARROW);
+				float power = getPowerForTime(use_duration);
+				if (power >= .1f) {
+					boolean is_arrow = player.abilities.instabuild || (arrow.isInfinite(projectile, stack, player));
+					if (!world.isClientSide) {
+						AbstractArrowEntity arrow_entity = arrow.createArrow(world, projectile, player);
+						arrow_entity = customArrow(arrow_entity);
+						arrow_entity.shootFromRotation(player, player.xRot, player.yRot, 0f, power * 3f, 1f);
+						arrow_entity.setCritArrow(power == 1f);
+						int power_level = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, stack);
+						if (power_level > 0)
+							arrow_entity.setBaseDamage(arrow_entity.getBaseDamage() + (double) power_level * .5d + .5d);
+						arrow_entity.setKnockback(
+								EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PUNCH_ARROWS, stack));
+						arrow_entity.setSecondsOnFire(
+								EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FLAMING_ARROWS, stack) > 0 ? 100
+										: 0);
+						stack.hurtAndBreak(1, player, (p_220009_1_) -> {
+							p_220009_1_.broadcastBreakEvent(player.getUsedItemHand());
+						});
+						if (is_arrow || player.abilities.instabuild
+								&& (proj_item == Items.SPECTRAL_ARROW || proj_item == Items.TIPPED_ARROW))
+							arrow_entity.pickup = AbstractArrowEntity.PickupStatus.CREATIVE_ONLY;
+						world.addFreshEntity(arrow_entity);
+					}
+					world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT,
+							SoundCategory.PLAYERS, 1f, 1f / (random.nextFloat() * .4f + 1.2f) + power * .5f);
+					if (!is_arrow && !player.abilities.instabuild) {
+						projectile.shrink(1);
+						if (projectile.isEmpty())
+							player.inventory.removeItem(projectile);
+					}
+					player.awardStat(Stats.ITEM_USED.get(this));
+				}
+			}
 		}
 	}
 
@@ -288,5 +246,17 @@ public abstract class ModBowItem extends BowItem implements ReforgableItem, Upgr
 			return false;
 		this.rarity = this.rarity.getNext();
 		return true;
+	}
+
+	public final ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+		ItemStack held = player.getItemInHand(hand);
+		boolean isProjectileEmpty = !player.getProjectile(held).isEmpty();
+		ActionResult<ItemStack> nock_result = ForgeEventFactory.onArrowNock(held, world, player, hand, isProjectileEmpty);
+		if (nock_result != null)
+			return nock_result;
+		if (!player.abilities.instabuild && !isProjectileEmpty)
+			return ActionResult.fail(held);
+		player.startUsingItem(hand);
+		return ActionResult.consume(held);
 	}
 }

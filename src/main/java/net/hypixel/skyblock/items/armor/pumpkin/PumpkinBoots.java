@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class PumpkinBoots extends ModArmorItem {
 	public PumpkinBoots() {
-		super(PumpkinSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.f1,
+		super(PumpkinSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.farm_1,
 				PumpkinSet.instance.getRarity());
 	}
 

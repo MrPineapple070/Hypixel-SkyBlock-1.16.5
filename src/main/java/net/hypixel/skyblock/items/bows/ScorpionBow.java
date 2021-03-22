@@ -20,7 +20,7 @@ public class ScorpionBow extends ModBowItem {
 			new TranslationTextComponent("bow.scorpion.2"));
 
 	public ScorpionBow() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

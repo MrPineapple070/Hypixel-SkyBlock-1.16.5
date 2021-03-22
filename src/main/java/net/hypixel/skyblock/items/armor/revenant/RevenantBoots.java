@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class RevenantBoots extends ModArmorItem {
 	public RevenantBoots() {
-		super(RevenantSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(RevenantSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				RevenantSet.instance.getRarity());
 	}
 

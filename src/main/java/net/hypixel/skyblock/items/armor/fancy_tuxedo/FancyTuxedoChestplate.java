@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FancyTuxedoChestplate extends ModArmorItem {
 	public FancyTuxedoChestplate() {
-		super(FancyTuxedoSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.ms1,
+		super(FancyTuxedoSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.miscellaneous_1,
 				FancyTuxedoSet.instance.getRarity());
 	}
 

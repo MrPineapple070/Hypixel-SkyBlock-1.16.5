@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class UnstableDragonLeggings extends ModArmorItem {
 
 	public UnstableDragonLeggings() {
-		super(UnstableDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(UnstableDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				UnstableDragonSet.instance.getRarity());
 	}
 

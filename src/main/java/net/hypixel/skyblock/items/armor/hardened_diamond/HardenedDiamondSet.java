@@ -28,7 +28,7 @@ public class HardenedDiamondSet extends ModArmorItem {
 	 * @param slot {@link EquipmentSlotType}
 	 */
 	public HardenedDiamondSet(EquipmentSlotType slot) {
-		super(ModArmorMaterial.Hardened_Diamond, slot, ItemProperties.m1, ModItemRarity.Rare);
+		super(ModArmorMaterial.Hardened_Diamond, slot, ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

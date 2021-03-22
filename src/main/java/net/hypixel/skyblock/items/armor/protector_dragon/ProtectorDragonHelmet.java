@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class ProtectorDragonHelmet extends ModArmorItem {
 
 	public ProtectorDragonHelmet() {
-		super(ProtectorDragonSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(ProtectorDragonSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				ProtectorDragonSet.instance.getRarity());
 	}
 

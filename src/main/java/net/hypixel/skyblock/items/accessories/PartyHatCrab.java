@@ -36,7 +36,7 @@ public class PartyHatCrab extends Accessory {
 	 * @param color {@link DyeColor} for this.
 	 */
 	public PartyHatCrab(DyeColor color) {
-		super(ItemProperties.ms1, ModItemRarity.Common);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Common);
 		switch (Objects.requireNonNull(color, "Must have a color.")) {
 		case RED:
 		case ORANGE:

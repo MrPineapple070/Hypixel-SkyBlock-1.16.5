@@ -22,7 +22,7 @@ public class SealOfTheFamily extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.seal", "3%");
 
 	public SealOfTheFamily() {
-		super(ItemProperties.ms1, ModItemRarity.Epic);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Epic);
 	}
 
 	@Override

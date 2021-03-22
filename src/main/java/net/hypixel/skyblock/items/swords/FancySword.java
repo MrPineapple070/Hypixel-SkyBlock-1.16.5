@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class FancySword extends ModSwordItem {
 	public FancySword() {
-		super(ModSwordTier.Fancy_Sword, ItemProperties.c1, ModItemRarity.Common);
+		super(ModSwordTier.Fancy_Sword, ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

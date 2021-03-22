@@ -19,7 +19,7 @@ public class HurricaneBow extends ModBowItem {
 			new TranslationTextComponent("bow.hurricane.0"), new TranslationTextComponent("bow.hurricane.1"));
 
 	public HurricaneBow() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

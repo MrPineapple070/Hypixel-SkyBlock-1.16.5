@@ -17,7 +17,7 @@ public class DeathBow extends ModBowItem {
 			new TranslationTextComponent("bow.death.1"));
 
 	public DeathBow() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

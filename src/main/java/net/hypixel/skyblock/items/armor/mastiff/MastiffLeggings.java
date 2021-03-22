@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class MastiffLeggings extends ModArmorItem {
 	public MastiffLeggings() {
-		super(MastiffSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(MastiffSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				MastiffSet.instance.getRarity());
 	}
 

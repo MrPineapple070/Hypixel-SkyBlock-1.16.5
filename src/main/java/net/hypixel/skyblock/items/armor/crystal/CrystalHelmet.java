@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class CrystalHelmet extends ModArmorItem {
 	public CrystalHelmet() {
-		super(CrystalSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(CrystalSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				CrystalSet.instance.getRarity());
 	}
 

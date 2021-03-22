@@ -18,7 +18,7 @@ import net.minecraft.world.World;
  */
 public class MushroomLeggings extends ModArmorItem {
 	public MushroomLeggings() {
-		super(MushroomSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.f1,
+		super(MushroomSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.farm_1,
 				MushroomSet.instance.getRarity());
 	}
 

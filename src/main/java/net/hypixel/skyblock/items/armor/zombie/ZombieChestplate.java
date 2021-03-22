@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class ZombieChestplate extends ModArmorItem {
 	public ZombieChestplate() {
-		super(ZombieSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(ZombieSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				ZombieSet.instance.getRarity());
 	}
 

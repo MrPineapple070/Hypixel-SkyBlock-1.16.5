@@ -19,7 +19,7 @@ public class WitherBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.wither");
 
 	public WitherBow() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

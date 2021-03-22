@@ -23,7 +23,7 @@ public class SeaCreatureTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.sea_creature", "5%");
 
 	public SeaCreatureTalisman() {
-		super(ItemProperties.fi1, ModItemRarity.Common);
+		super(ItemProperties.fish_1, ModItemRarity.Common);
 	}
 
 	@Override

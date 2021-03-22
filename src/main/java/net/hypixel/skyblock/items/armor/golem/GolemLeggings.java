@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class GolemLeggings extends ModArmorItem {
 	public GolemLeggings() {
-		super(GolemSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.m1,
+		super(GolemSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.mine_1,
 				GolemSet.instance.getRarity());
 	}
 

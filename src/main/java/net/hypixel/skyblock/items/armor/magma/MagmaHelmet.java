@@ -21,7 +21,7 @@ import net.minecraft.world.World;
  */
 public class MagmaHelmet extends ModArmorItem {
 	public MagmaHelmet() {
-		super(MagmaSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(MagmaSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				MagmaSet.instance.getRarity());
 	}
 

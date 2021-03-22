@@ -23,7 +23,7 @@ public class ZombieTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.zombie", 5);
 
 	public ZombieTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Common);
+		super(ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class MinerHelmet extends ModArmorItem {
 	public MinerHelmet() {
-		super(MinerSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.m1, ModItemRarity.Rare);
+		super(MinerSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

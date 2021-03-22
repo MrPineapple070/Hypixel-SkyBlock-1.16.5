@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class GolemBoots extends ModArmorItem {
 	public GolemBoots() {
-		super(GolemSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.m1,
+		super(GolemSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.mine_1,
 				GolemSet.instance.getRarity());
 	}
 

@@ -31,7 +31,7 @@ public class ZombieSword extends ModSwordItem {
 			new TranslationTextComponent("sword.zombie.0", StatString.health));
 
 	public ZombieSword() {
-		super(ModSwordTier.Zombie_Sword, ItemProperties.c1, ModItemRarity.Rare);
+		super(ModSwordTier.Zombie_Sword, ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

@@ -29,7 +29,7 @@ public class Cleaver extends ModSwordItem {
 			new TranslationTextComponent("sword.cleaver.0"));
 
 	public Cleaver() {
-		super(ModSwordTier.Cleaver, ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ModSwordTier.Cleaver, ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

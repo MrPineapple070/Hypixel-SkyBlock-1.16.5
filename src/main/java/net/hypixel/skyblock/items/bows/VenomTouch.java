@@ -15,7 +15,7 @@ public class VenomTouch extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.venom.0");
 
 	public VenomTouch() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

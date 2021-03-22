@@ -33,7 +33,7 @@ public class AspectOfTheDragon extends ModSwordItem {
 			new TranslationTextComponent("sword.aotd.1"));
 
 	public AspectOfTheDragon() {
-		super(ModSwordTier.AOTD, ItemProperties.c1, ModItemRarity.Legendary);
+		super(ModSwordTier.AOTD, ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

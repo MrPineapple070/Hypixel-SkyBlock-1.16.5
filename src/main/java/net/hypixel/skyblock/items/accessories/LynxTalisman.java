@@ -37,7 +37,7 @@ public class LynxTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.lynx", StatString.speed);
 
 	public LynxTalisman() {
-		super(ItemProperties.ms1, ModItemRarity.Rare);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Rare);
 	}
 
 	@Override

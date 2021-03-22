@@ -21,7 +21,7 @@ public class ShadyRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.seal", "1%");
 
 	public ShadyRing() {
-		super(ItemProperties.ms1, ModItemRarity.Uncommon);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

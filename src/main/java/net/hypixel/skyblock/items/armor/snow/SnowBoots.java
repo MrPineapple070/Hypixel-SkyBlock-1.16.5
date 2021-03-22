@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SnowBoots extends ModArmorItem {
 	public SnowBoots() {
-		super(SnowSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.ms1, SnowSet.instance.getRarity());
+		super(SnowSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.miscellaneous_1, SnowSet.instance.getRarity());
 	}
 
 	@Override

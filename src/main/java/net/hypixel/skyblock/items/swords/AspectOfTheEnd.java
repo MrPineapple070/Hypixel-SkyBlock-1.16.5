@@ -32,7 +32,7 @@ public class AspectOfTheEnd extends ModSwordItem {
 			new TranslationTextComponent("sword.aote.0", StatString.speed));
 
 	public AspectOfTheEnd() {
-		super(ModSwordTier.AOTE, ItemProperties.c1, ModItemRarity.Rare);
+		super(ModSwordTier.AOTE, ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

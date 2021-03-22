@@ -23,7 +23,7 @@ public class SeaCreatureRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.sea_creature", "10%");
 
 	public SeaCreatureRing() {
-		super(ItemProperties.fi1, ModItemRarity.Uncommon);
+		super(ItemProperties.fish_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

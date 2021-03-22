@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class UnstableDragonChestplate extends ModArmorItem {
 
 	public UnstableDragonChestplate() {
-		super(UnstableDragonSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(UnstableDragonSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				UnstableDragonSet.instance.getRarity());
 	}
 

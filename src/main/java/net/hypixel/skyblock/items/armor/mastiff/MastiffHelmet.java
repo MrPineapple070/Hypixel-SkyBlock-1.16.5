@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class MastiffHelmet extends ModArmorItem {
 	public MastiffHelmet() {
-		super(MastiffSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(MastiffSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				MastiffSet.instance.getRarity());
 	}
 

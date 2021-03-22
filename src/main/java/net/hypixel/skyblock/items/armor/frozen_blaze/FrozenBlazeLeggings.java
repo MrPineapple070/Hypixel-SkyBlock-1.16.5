@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FrozenBlazeLeggings extends ModArmorItem {
 	public FrozenBlazeLeggings() {
-		super(FrozenBlazeSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(FrozenBlazeSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				FrozenBlazeSet.instance.getRarity());
 	}
 

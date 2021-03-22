@@ -19,7 +19,7 @@ public class ExplosiveBow extends ModBowItem {
 			new TranslationTextComponent("bow.explosive.0"), new TranslationTextComponent("bow.explosive.1"));
 
 	public ExplosiveBow() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

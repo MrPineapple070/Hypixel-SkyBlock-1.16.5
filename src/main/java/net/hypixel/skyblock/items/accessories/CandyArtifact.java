@@ -23,7 +23,7 @@ public class CandyArtifact extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.candy_artifact");
 
 	public CandyArtifact() {
-		super(ItemProperties.ms1, ModItemRarity.Epic);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Epic);
 	}
 
 	@Override

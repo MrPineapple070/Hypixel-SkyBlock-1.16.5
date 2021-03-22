@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EmeraldHelmet extends ModArmorItem {
 	public EmeraldHelmet() {
-		super(EmeraldSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.m1,
+		super(EmeraldSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.mine_1,
 				EmeraldSet.instance.getRarity());
 	}
 

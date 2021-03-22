@@ -23,7 +23,7 @@ public class SpeedArtifact extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.speed", "5%", StatString.speed);
 
 	public SpeedArtifact() {
-		super(ItemProperties.f1, ModItemRarity.Rare);
+		super(ItemProperties.farm_1, ModItemRarity.Rare);
 	}
 
 	@Override

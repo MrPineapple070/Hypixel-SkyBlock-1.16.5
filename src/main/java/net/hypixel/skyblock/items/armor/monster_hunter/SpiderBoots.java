@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 public class SpiderBoots extends ModArmorItem {
 	public SpiderBoots(ModArmorMaterial materialIn, EquipmentSlotType slot, Properties builder, ModItemRarity rarity) {
-		super(MonsterHunterSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(MonsterHunterSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				MonsterHunterSet.instance.getRarity());
 	}
 

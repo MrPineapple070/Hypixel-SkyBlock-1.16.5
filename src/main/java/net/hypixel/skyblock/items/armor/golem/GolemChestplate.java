@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class GolemChestplate extends ModArmorItem {
 	public GolemChestplate() {
-		super(GolemSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.m1,
+		super(GolemSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.mine_1,
 				GolemSet.instance.getRarity());
 	}
 

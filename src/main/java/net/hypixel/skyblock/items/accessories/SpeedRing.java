@@ -22,7 +22,7 @@ public class SpeedRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.speed", "3%", StatString.speed);
 
 	public SpeedRing() {
-		super(ItemProperties.f1, ModItemRarity.Uncommon);
+		super(ItemProperties.farm_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

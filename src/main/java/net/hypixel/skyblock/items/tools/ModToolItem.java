@@ -3,13 +3,23 @@ package net.hypixel.skyblock.items.tools;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableMultimap.Builder;
+import com.google.common.collect.Multimap;
 
-import net.hypixel.skyblock.items.ModItemRarity;
-import net.hypixel.skyblock.items.Reforge;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.Attribute;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.TieredItem;
 import net.minecraft.item.ToolItem;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 /**
  * Mod version of {@link ToolItem}
@@ -18,92 +28,53 @@ import net.minecraft.item.ToolItem;
  * @version 03 December 2020
  * @since 11 July 2019
  */
-public class ModToolItem extends ToolItem {
-	public static enum ToolReforge implements Reforge {
-		Moil(new double[0], new double[0], new double[0], new double[0], new double[0]),
-		Magnetic(new double[0], new double[0], new double[0], new double[0], new double[0]),
-		Refined(new double[0], new double[0], new double[0], new double[0], new double[0]),
-		Toil(new double[0], new double[0], new double[0], new double[0], new double[0]);
+public class ModToolItem extends TieredItem {
+	private final Set<Block> blocks;
+	protected final float speed;
+	private final float attackDamageBaseline;
+	private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-		private static final Reforge[] unique = new Reforge[] { Magnetic };
-
-		/**
-		 * The array for {@link ModItemRarity#Common}
-		 */
-		@Nonnull
-		private final double[] common;
-
-		/**
-		 * The array for {@link ModItemRarity#Epic}
-		 */
-		@Nonnull
-		private final double[] epic;
-
-		/**
-		 * The array for {@link ModItemRarity#Legendary}
-		 */
-		@Nonnull
-		private final double[] legendary;
-
-		/**
-		 * The array for {@link ModItemRarity#Rare}
-		 */
-		@Nonnull
-		private final double[] rare;
-
-		/**
-		 * The array for {@link ModItemRarity#Uncommon}
-		 */
-		@Nonnull
-		private final double[] uncommon;
-
-		private ToolReforge(double[] common, double[] uncommon, double[] rare, double[] epic, double[] legendary) {
-			this.common = Objects.requireNonNull(common, "Common buff array must be non-null.");
-			this.uncommon = Objects.requireNonNull(uncommon, "Uncommon buff array must be non-null.");
-			this.rare = Objects.requireNonNull(rare, "Rare buff array must be non-null.");
-			this.epic = Objects.requireNonNull(epic, "Epic buff array must be non-null.");
-			this.legendary = Objects.requireNonNull(legendary, "Legendary buff array must be non-null.");
-			this.log();
-		}
-
-		@Override
-		public double[] common() {
-			return this.common;
-		}
-
-		@Override
-		public double[] epic() {
-			return this.epic;
-		}
-
-		@Override
-		public double[] legendary() {
-			return this.legendary;
-		}
-
-		@Override
-		public Reforge[] nonunique() {
-			return new Reforge[0];
-		}
-
-		@Override
-		public double[] rare() {
-			return this.rare;
-		}
-
-		@Override
-		public double[] uncommon() {
-			return this.uncommon;
-		}
-
-		@Override
-		public Reforge[] unique() {
-			return unique;
-		}
+	public ModToolItem(IItemTier tier, Set<Block> effectiveOn, Properties properties) {
+		super(tier, properties);
+		this.blocks = Objects.requireNonNull(effectiveOn, "Effective blocks cannot be null");
+		this.speed = tier.getSpeed();
+		this.attackDamageBaseline = 0f;
+		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier",
+				(double) this.attackDamageBaseline, AttributeModifier.Operation.ADDITION));
+		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier",
+				Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
+		this.defaultModifiers = builder.build();
 	}
 
-	public ModToolItem(IItemTier tier, Set<Block> effectiveBlocksIn, Properties builderIn) {
-		super(0, Float.POSITIVE_INFINITY, tier, effectiveBlocksIn, builderIn);
+	public float getDestroySpeed(ItemStack stack, BlockState block) {
+		if (getToolTypes(stack).stream().anyMatch(e -> block.isToolEffective(e)))
+			return this.speed;
+		return this.blocks.contains(block.getBlock()) ? this.speed : 1f;
 	}
 
+	public boolean hurtEnemy(ItemStack stack, LivingEntity attacker, LivingEntity attacked) {
+		stack.hurtAndBreak(2, attacked, (entity) -> {
+			entity.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
+		});
+		return true;
+	}
+
+	public boolean mineBlock(ItemStack stack, World world, BlockState block, BlockPos pos, LivingEntity user) {
+		if (!world.isClientSide && block.getDestroySpeed(world, pos) != 0f)
+			stack.hurtAndBreak(1, user, (entity) -> {
+				entity.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
+			});
+		return true;
+	}
+
+	@SuppressWarnings("deprecation")
+	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlotType p_111205_1_) {
+		return p_111205_1_ == EquipmentSlotType.MAINHAND ? this.defaultModifiers
+				: super.getDefaultAttributeModifiers(p_111205_1_);
+	}
+
+	public float getAttackDamage() {
+		return this.attackDamageBaseline;
+	}
 }

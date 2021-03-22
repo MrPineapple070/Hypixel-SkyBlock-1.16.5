@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class PumpkinLeggings extends ModArmorItem {
 	public PumpkinLeggings() {
-		super(PumpkinSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.f1,
+		super(PumpkinSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.farm_1,
 				PumpkinSet.instance.getRarity());
 	}
 

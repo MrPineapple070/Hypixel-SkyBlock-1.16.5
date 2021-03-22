@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class DiverLeggings extends ModArmorItem {
 	public DiverLeggings() {
-		super(DiverSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.fi1,
+		super(DiverSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.fish_1,
 				DiverSet.instance.getRarity());
 	}
 

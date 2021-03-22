@@ -24,7 +24,7 @@ public class ForagingSack extends Sack {
 	 * @param type {@link SackSize} of this.
 	 */
 	public ForagingSack(SackSize type) {
-		super(ItemProperties.fg1, type);
+		super(ItemProperties.foraging_1, type);
 	}
 
 	@Override

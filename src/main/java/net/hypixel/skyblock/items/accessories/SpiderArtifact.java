@@ -25,7 +25,7 @@ public class SpiderArtifact extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.spider", "15%");
 
 	public SpiderArtifact() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

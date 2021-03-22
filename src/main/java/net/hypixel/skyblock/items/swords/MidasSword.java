@@ -30,7 +30,7 @@ public class MidasSword extends ModSwordItem {
 			new TranslationTextComponent("sword.midas.0"), new TranslationTextComponent("sword.midas.1"));
 
 	public MidasSword() {
-		super(ModSwordTier.Midas_Sword, ItemProperties.c1, ModItemRarity.Legendary);
+		super(ModSwordTier.Midas_Sword, ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

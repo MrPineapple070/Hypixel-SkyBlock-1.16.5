@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class PackHelmet extends ModArmorItem {
 	public PackHelmet() {
-		super(PackSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1, PackSet.instance.getRarity());
+		super(PackSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1, PackSet.instance.getRarity());
 	}
 
 	@Override

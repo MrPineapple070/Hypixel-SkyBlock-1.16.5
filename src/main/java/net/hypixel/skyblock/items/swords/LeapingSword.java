@@ -32,7 +32,7 @@ public class LeapingSword extends ModSwordItem {
 			new TranslationTextComponent("sword.leap.1"));
 
 	public LeapingSword() {
-		super(ModSwordTier.Leaping_Sword, ItemProperties.c1, ModItemRarity.Epic);
+		super(ModSwordTier.Leaping_Sword, ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

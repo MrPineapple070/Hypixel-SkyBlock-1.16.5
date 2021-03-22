@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpookyBoots extends ModArmorItem {
 	public SpookyBoots() {
-		super(SpookySet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.ms1,
+		super(SpookySet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.miscellaneous_1,
 				SpookySet.instance.getRarity());
 	}
 

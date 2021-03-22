@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class BlazeBoots extends ModArmorItem {
 
 	public BlazeBoots() {
-		super(BlazeSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(BlazeSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				BlazeSet.instance.getRarity());
 	}
 

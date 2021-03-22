@@ -18,7 +18,7 @@ public class MachineGunBow extends ModBowItem {
 			new TranslationTextComponent("bow.machine.0"), new TranslationTextComponent("bow.machine.1"));
 
 	public MachineGunBow() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

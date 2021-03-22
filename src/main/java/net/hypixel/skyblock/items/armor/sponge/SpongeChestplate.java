@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpongeChestplate extends ModArmorItem {
 	public SpongeChestplate() {
-		super(SpongeSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.fi1,
+		super(SpongeSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.fish_1,
 				SpongeSet.instance.getRarity());
 	}
 

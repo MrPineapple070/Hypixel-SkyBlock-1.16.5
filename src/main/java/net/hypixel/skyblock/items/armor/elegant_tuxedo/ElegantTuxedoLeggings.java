@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class ElegantTuxedoLeggings extends ModArmorItem {
 	public ElegantTuxedoLeggings() {
-		super(ElegantTuxedoSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.ms1,
+		super(ElegantTuxedoSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.miscellaneous_1,
 				ElegantTuxedoSet.instance.getRarity());
 	}
 

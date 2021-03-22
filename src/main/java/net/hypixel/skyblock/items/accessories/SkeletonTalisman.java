@@ -24,7 +24,7 @@ public class SkeletonTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.skeleton");
 
 	public SkeletonTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Common);
+		super(ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

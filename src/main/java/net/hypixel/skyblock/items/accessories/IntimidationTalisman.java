@@ -24,7 +24,7 @@ public class IntimidationTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.intimidation", 1);
 
 	public IntimidationTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Common);
+		super(ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

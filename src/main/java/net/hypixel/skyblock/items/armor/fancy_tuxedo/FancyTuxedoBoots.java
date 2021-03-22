@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FancyTuxedoBoots extends ModArmorItem {
 	public FancyTuxedoBoots() {
-		super(FancyTuxedoSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.ms1,
+		super(FancyTuxedoSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.miscellaneous_1,
 				FancyTuxedoSet.instance.getRarity());
 	}
 

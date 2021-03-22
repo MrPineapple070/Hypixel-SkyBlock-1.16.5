@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class ProtectorDragonChestplate extends ModArmorItem {
 
 	public ProtectorDragonChestplate() {
-		super(ProtectorDragonSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(ProtectorDragonSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				ProtectorDragonSet.instance.getRarity());
 	}
 

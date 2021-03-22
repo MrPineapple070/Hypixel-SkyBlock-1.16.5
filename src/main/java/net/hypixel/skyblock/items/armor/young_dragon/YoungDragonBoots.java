@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class YoungDragonBoots extends ModArmorItem {
 	public YoungDragonBoots() {
-		super(YoungDragonSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(YoungDragonSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				YoungDragonSet.instance.getRarity());
 	}
 

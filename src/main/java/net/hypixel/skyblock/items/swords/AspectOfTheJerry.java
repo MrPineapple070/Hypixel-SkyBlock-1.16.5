@@ -31,7 +31,7 @@ public class AspectOfTheJerry extends ModSwordItem {
 			new TranslationTextComponent("sword.aotj.0"));
 
 	public AspectOfTheJerry() {
-		super(ModSwordTier.AOTJ, ItemProperties.c1, ModItemRarity.Common);
+		super(ModSwordTier.AOTJ, ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class ProtectorDragonLeggings extends ModArmorItem {
 
 	public ProtectorDragonLeggings() {
-		super(ProtectorDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(ProtectorDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				ProtectorDragonSet.instance.getRarity());
 	}
 

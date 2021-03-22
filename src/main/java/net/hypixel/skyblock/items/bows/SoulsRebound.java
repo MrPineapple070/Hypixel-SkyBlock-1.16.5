@@ -16,7 +16,7 @@ public class SoulsRebound extends ModBowItem {
 			new TranslationTextComponent("bow.soul.1"));
 
 	public SoulsRebound() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class SpiderSword extends ModSwordItem {
 	public SpiderSword() {
-		super(ModSwordTier.Spider_Sword, ItemProperties.c1, ModItemRarity.Common);
+		super(ModSwordTier.Spider_Sword, ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

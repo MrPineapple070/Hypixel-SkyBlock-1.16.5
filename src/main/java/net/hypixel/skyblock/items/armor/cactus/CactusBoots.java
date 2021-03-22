@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class CactusBoots extends ModArmorItem {
 	public CactusBoots() {
-		super(CactusSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.f1,
+		super(CactusSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.farm_1,
 				CactusSet.instance.getRarity());
 	}
 

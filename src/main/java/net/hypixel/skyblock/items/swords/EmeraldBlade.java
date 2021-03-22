@@ -26,7 +26,7 @@ public class EmeraldBlade extends ModSwordItem {
 	private static final ITextComponent tooltip = new TranslationTextComponent("sword.emerald");
 
 	public EmeraldBlade() {
-		super(ModSwordTier.Emerald_Blade, ItemProperties.m1, ModItemRarity.Epic);
+		super(ModSwordTier.Emerald_Blade, ItemProperties.mine_1, ModItemRarity.Epic);
 	}
 
 	@Override

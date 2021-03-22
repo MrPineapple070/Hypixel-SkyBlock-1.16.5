@@ -24,7 +24,7 @@ public class WolfTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.wolf", 5);
 
 	public WolfTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Rare);
+		super(ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

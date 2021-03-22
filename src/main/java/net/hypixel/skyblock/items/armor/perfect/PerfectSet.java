@@ -94,7 +94,7 @@ public abstract class PerfectSet extends ModArmorItem {
 	}
 
 	protected PerfectSet(ModArmorMaterial materialIn, EquipmentSlotType slot, ModItemRarity rarity) {
-		super(materialIn, slot, ItemProperties.m1, rarity);
+		super(materialIn, slot, ItemProperties.mine_1, rarity);
 	}
 
 	@Override

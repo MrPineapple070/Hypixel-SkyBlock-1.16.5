@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class CheapTuxedoBoots extends ModArmorItem {
 
 	public CheapTuxedoBoots() {
-		super(CheapTuxedoSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.ms1,
+		super(CheapTuxedoSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.miscellaneous_1,
 				CheapTuxedoSet.instance.getRarity());
 	}
 

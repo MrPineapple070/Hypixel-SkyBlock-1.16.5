@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class MastiffBoots extends ModArmorItem {
 	public MastiffBoots() {
-		super(MastiffSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(MastiffSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				MastiffSet.instance.getRarity());
 	}
 

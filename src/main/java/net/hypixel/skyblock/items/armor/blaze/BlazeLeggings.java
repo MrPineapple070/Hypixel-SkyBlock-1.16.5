@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class BlazeLeggings extends ModArmorItem {
 
 	public BlazeLeggings() {
-		super(BlazeSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(BlazeSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				BlazeSet.instance.getRarity());
 	}
 

@@ -21,7 +21,7 @@ import net.minecraft.world.World;
  */
 public class GrowthBoots extends ModArmorItem {
 	public GrowthBoots() {
-		super(GrowthSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.fg1,
+		super(GrowthSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.foraging_1,
 				GrowthSet.instance.getRarity());
 	}
 

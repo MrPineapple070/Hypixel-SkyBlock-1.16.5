@@ -20,7 +20,7 @@ public class Bonemerang extends ModBowItem {
 			new TranslationTextComponent("bow.bonemerang.2"));
 
 	public Bonemerang() {
-		super(ItemProperties.c1, ModItemRarity.Legendary);
+		super(ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

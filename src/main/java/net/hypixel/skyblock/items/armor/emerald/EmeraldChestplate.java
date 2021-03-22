@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EmeraldChestplate extends ModArmorItem {
 	public EmeraldChestplate() {
-		super(EmeraldSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.m1,
+		super(EmeraldSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.mine_1,
 				EmeraldSet.instance.getRarity());
 	}
 

@@ -24,7 +24,7 @@ public class RedClawArtifact extends Accessory {
 			StatString.crit_damage, "5%");
 
 	public RedClawArtifact() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

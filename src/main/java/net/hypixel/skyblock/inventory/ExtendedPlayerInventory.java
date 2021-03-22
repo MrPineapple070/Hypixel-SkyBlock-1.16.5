@@ -6,7 +6,7 @@ import java.util.List;
 import com.google.common.collect.ImmutableList;
 
 import net.hypixel.skyblock.items.accessories.Accessory;
-import net.hypixel.skyblock.items.accessories.Accessory.AccessoryReforge;
+import net.hypixel.skyblock.items.accessories.AccessoryReforge;
 import net.hypixel.skyblock.items.bait.Bait;
 import net.hypixel.skyblock.items.sacks.Sack;
 import net.minecraft.entity.player.PlayerEntity;

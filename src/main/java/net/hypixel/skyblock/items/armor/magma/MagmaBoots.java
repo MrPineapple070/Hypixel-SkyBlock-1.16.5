@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 public class MagmaBoots extends ModArmorItem {
 
 	public MagmaBoots() {
-		super(MagmaSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(MagmaSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				MagmaSet.instance.getRarity());
 	}
 

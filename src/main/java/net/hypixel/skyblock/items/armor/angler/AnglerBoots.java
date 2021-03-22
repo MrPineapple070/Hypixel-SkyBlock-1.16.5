@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class AnglerBoots extends ModArmorItem {
 	public AnglerBoots() {
-		super(AnglerSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.fi1,
+		super(AnglerSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.fish_1,
 				AnglerSet.instance.getRarity());
 	}
 

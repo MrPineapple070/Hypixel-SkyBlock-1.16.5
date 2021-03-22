@@ -31,7 +31,7 @@ public class EndStoneSword extends ModSwordItem {
 			new TranslationTextComponent("sword.end_stone.0", StatString.intelligence));
 
 	public EndStoneSword() {
-		super(ModSwordTier.End_Stone_Sword, ItemProperties.m1, ModItemRarity.Epic);
+		super(ModSwordTier.End_Stone_Sword, ItemProperties.mine_1, ModItemRarity.Epic);
 	}
 
 	@Override

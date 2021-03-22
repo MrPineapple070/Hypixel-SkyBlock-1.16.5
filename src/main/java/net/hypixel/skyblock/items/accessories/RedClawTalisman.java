@@ -22,7 +22,7 @@ public class RedClawTalisman extends Accessory {
 			StatString.crit_damage, "1%");
 
 	public RedClawTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

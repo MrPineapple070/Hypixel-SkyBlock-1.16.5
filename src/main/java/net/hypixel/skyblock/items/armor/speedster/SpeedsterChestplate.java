@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpeedsterChestplate extends ModArmorItem {
 	public SpeedsterChestplate() {
-		super(SpeedsterSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.f1,
+		super(SpeedsterSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.farm_1,
 				SpeedsterSet.instance.getRarity());
 	}
 

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class GolemHelmet extends ModArmorItem {
 	public GolemHelmet() {
-		super(GolemSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.m1,
+		super(GolemSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.mine_1,
 				GolemSet.instance.getRarity());
 	}
 

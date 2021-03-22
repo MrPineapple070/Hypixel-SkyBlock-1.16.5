@@ -26,7 +26,7 @@ public class FarmingTalisman extends Accessory {
 			StatString.speed);
 
 	public FarmingTalisman() {
-		super(ItemProperties.f1, ModItemRarity.Common);
+		super(ItemProperties.farm_1, ModItemRarity.Common);
 	}
 
 	@Override

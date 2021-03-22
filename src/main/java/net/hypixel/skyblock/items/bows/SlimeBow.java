@@ -14,7 +14,7 @@ public class SlimeBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.slime");
 	
 	public SlimeBow() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

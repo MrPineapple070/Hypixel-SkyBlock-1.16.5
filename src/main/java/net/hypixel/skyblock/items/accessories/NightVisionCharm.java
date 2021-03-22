@@ -31,7 +31,7 @@ public class NightVisionCharm extends Accessory {
 					.withStyle(Style.EMPTY.withColor(Color.fromRgb(Effects.NIGHT_VISION.getColor()))));
 
 	public NightVisionCharm() {
-		super(ItemProperties.f1, ModItemRarity.Common);
+		super(ItemProperties.farm_1, ModItemRarity.Common);
 	}
 
 	@Override

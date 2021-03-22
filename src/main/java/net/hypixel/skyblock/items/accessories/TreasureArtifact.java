@@ -23,7 +23,7 @@ public class TreasureArtifact extends Accessory {
 	public static final ITextComponent info = new TranslationTextComponent("accessory.treasure", 3);
 
 	public TreasureArtifact() {
-		super(ItemProperties.d1, ModItemRarity.Legendary);
+		super(ItemProperties.dungeon_1, ModItemRarity.Legendary);
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class LeafletChestplate extends ModArmorItem {
 
 	public LeafletChestplate() {
-		super(LeafletSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.fg1,
+		super(LeafletSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.foraging_1,
 				LeafletSet.instance.getRarity());
 	}
 

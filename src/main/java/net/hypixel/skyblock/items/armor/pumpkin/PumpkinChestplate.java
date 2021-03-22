@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class PumpkinChestplate extends ModArmorItem {
 	public PumpkinChestplate() {
-		super(PumpkinSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.f1,
+		super(PumpkinSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.farm_1,
 				PumpkinSet.instance.getRarity());
 	}
 

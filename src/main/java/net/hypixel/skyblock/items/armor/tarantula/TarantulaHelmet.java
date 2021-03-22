@@ -30,7 +30,7 @@ public class TarantulaHelmet extends ModArmorItem {
 	}
 
 	public TarantulaHelmet() {
-		super(TarantulaSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(TarantulaSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				TarantulaSet.instance.getRarity());
 	}
 

@@ -30,7 +30,7 @@ public class EmberRod extends ModSwordItem {
 			new TranslationTextComponent("sword.ember.0"));
 
 	public EmberRod() {
-		super(ModSwordTier.Ember_Rod, ItemProperties.c1, ModItemRarity.Epic);
+		super(ModSwordTier.Ember_Rod, ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

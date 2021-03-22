@@ -27,7 +27,7 @@ public class HasteRing extends Accessory {
 					.setStyle(Style.EMPTY.withColor(Color.fromRgb(Effects.DIG_SPEED.getColor()))));
 
 	public HasteRing() {
-		super(ItemProperties.m1, ModItemRarity.Rare);
+		super(ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

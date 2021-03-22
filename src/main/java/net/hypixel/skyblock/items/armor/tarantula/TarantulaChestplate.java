@@ -31,7 +31,7 @@ public class TarantulaChestplate extends ModArmorItem {
 	}
 
 	public TarantulaChestplate() {
-		super(TarantulaSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(TarantulaSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				TarantulaSet.instance.getRarity());
 	}
 

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EmberLeggings extends ModArmorItem {
 	public EmberLeggings() {
-		super(EmberSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(EmberSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				EmberSet.instance.getRarity());
 	}
 

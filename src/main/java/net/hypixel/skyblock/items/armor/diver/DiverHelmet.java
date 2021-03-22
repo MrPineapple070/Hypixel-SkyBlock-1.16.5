@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class DiverHelmet extends ModArmorItem {
 	public DiverHelmet() {
-		super(DiverSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.fi1,
+		super(DiverSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.fish_1,
 				DiverSet.instance.getRarity());
 	}
 

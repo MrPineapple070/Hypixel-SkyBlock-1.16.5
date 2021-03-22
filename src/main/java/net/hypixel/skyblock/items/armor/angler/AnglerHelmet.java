@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class AnglerHelmet extends ModArmorItem {
 	public AnglerHelmet() {
-		super(AnglerSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.fi1,
+		super(AnglerSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.fish_1,
 				AnglerSet.instance.getRarity());
 	}
 

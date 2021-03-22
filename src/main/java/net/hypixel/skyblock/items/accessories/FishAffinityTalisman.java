@@ -25,7 +25,7 @@ public class FishAffinityTalisman extends Accessory {
 			StatString.fishing_speed);
 
 	public FishAffinityTalisman() {
-		super(ItemProperties.fi1, ModItemRarity.Rare);
+		super(ItemProperties.fish_1, ModItemRarity.Rare);
 	}
 
 	@Override

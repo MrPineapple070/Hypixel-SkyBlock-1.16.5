@@ -20,7 +20,7 @@ public class EndStoneBow extends ModBowItem {
 			new TranslationTextComponent("bow.end_stone.0", StatString.mana));
 
 	public EndStoneBow() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

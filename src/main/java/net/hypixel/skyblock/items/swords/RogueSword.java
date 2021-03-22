@@ -30,7 +30,7 @@ public class RogueSword extends ModSwordItem {
 			new TranslationTextComponent("sword.rogue.0"), new TranslationTextComponent("sword.rogue.1"));
 
 	public RogueSword() {
-		super(ModSwordTier.Rogue_Sword, ItemProperties.c1, ModItemRarity.Common);
+		super(ModSwordTier.Rogue_Sword, ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

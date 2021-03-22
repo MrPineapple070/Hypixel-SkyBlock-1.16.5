@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FrozenBlazeChestplate extends ModArmorItem {
 	public FrozenBlazeChestplate() {
-		super(FrozenBlazeSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(FrozenBlazeSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				FrozenBlazeSet.instance.getRarity());
 	}
 

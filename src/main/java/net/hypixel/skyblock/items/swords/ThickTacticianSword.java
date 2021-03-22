@@ -23,7 +23,7 @@ import net.minecraft.world.World;
  */
 public class ThickTacticianSword extends ModSwordItem {
 	public ThickTacticianSword() {
-		super(ModSwordTier.Tactician_Sword, ItemProperties.c1, ModItemRarity.Rare);
+		super(ModSwordTier.Tactician_Sword, ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

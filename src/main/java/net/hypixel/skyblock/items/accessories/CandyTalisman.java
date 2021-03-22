@@ -23,7 +23,7 @@ public class CandyTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.candy_talisman");
 
 	public CandyTalisman() {
-		super(ItemProperties.ms1, ModItemRarity.Uncommon);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

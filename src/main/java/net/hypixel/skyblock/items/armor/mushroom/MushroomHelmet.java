@@ -18,7 +18,7 @@ import net.minecraft.world.World;
  */
 public class MushroomHelmet extends ModArmorItem {
 	public MushroomHelmet() {
-		super(MushroomSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.f1,
+		super(MushroomSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.farm_1,
 				MushroomSet.instance.getRarity());
 	}
 

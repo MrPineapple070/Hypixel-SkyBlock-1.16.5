@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class SilverFang extends ModSwordItem {
 	public SilverFang() {
-		super(ModSwordTier.Silver_Fang, ItemProperties.c64, ModItemRarity.Uncommon);
+		super(ModSwordTier.Silver_Fang, ItemProperties.combat_64, ModItemRarity.Uncommon);
 	}
 
 	@Override

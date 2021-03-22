@@ -22,7 +22,7 @@ public class ScarfThesis extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.scarf", "4%");
 
 	public ScarfThesis() {
-		super(ItemProperties.d1, ModItemRarity.Epic);
+		super(ItemProperties.dungeon_1, ModItemRarity.Epic);
 	}
 
 	@Override

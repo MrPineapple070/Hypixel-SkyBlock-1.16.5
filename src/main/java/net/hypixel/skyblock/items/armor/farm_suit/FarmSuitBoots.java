@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FarmSuitBoots extends ModArmorItem {
 	public FarmSuitBoots() {
-		super(FarmSuitSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.f1,
+		super(FarmSuitSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.farm_1,
 				FarmSuitSet.instance.getRarity());
 	}
 

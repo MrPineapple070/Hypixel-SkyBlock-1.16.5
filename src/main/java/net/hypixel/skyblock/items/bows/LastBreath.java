@@ -19,7 +19,7 @@ public class LastBreath extends ModBowItem {
 			new TranslationTextComponent("bow.last.0"), new TranslationTextComponent("bow.last.1"));
 
 	public LastBreath() {
-		super(ItemProperties.c1, ModItemRarity.Legendary);
+		super(ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

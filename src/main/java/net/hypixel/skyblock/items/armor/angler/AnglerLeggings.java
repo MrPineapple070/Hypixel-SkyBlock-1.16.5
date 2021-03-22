@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class AnglerLeggings extends ModArmorItem {
 	public AnglerLeggings() {
-		super(AnglerSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.fi1,
+		super(AnglerSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.fish_1,
 				AnglerSet.instance.getRarity());
 	}
 

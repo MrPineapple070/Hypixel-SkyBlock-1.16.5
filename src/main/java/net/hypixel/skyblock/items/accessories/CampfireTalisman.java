@@ -59,7 +59,7 @@ public class CampfireTalisman extends Accessory {
 	private int tick;
 
 	public CampfireTalisman() {
-		super(ItemProperties.ms1, ModItemRarity.Common);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Common);
 		this.level = 0;
 		this.heal = health.get(this.level);
 		this.tick = 0;

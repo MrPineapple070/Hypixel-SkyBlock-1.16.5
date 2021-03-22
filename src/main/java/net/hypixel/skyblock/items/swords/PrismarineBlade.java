@@ -23,7 +23,7 @@ import net.minecraft.world.World;
  */
 public class PrismarineBlade extends ModSwordItem {
 	public PrismarineBlade() {
-		super(ModSwordTier.Prismarine_Blade, ItemProperties.fi1, ModItemRarity.Uncommon);
+		super(ModSwordTier.Prismarine_Blade, ItemProperties.fish_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

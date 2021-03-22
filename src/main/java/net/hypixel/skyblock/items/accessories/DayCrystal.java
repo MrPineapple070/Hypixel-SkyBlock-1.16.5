@@ -44,7 +44,7 @@ public class DayCrystal extends Accessory {
 			Operation.ADDITION);
 
 	public DayCrystal() {
-		super(ItemProperties.m1, ModItemRarity.Rare);
+		super(ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

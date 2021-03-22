@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class MinerChestplate extends ModArmorItem {
 	public MinerChestplate() {
-		super(MinerSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.m1, ModItemRarity.Rare);
+		super(MinerSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.mine_1, ModItemRarity.Rare);
 	}
 
 	@Override

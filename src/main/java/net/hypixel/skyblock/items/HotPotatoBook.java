@@ -13,6 +13,6 @@ import net.minecraft.item.Item;
  */
 public class HotPotatoBook extends Item {
 	public HotPotatoBook() {
-		super(ItemProperties.f1);
+		super(ItemProperties.farm_1);
 	}
 }

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EnderBoots extends ModArmorItem {
 	public EnderBoots() {
-		super(EnderSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(EnderSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				EnderSet.instance.getRarity());
 	}
 

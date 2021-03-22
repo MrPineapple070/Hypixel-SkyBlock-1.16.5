@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class StrongDragonBoots extends ModArmorItem {
 	public StrongDragonBoots() {
-		super(StrongDragonSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(StrongDragonSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				StrongDragonSet.instance.getRarity());
 	}
 

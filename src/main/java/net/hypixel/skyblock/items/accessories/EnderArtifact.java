@@ -27,7 +27,7 @@ public class EnderArtifact extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.ender_artifact");
 
 	public EnderArtifact() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

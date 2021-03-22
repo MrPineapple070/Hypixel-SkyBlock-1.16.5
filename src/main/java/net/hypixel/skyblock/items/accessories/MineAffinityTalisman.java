@@ -24,7 +24,7 @@ public class MineAffinityTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.mine", StatString.speed);
 
 	public MineAffinityTalisman() {
-		super(ItemProperties.m1, ModItemRarity.Common);
+		super(ItemProperties.mine_1, ModItemRarity.Common);
 	}
 
 	@Override

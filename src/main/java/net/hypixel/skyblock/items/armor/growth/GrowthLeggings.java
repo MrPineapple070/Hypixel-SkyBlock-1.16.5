@@ -21,7 +21,7 @@ import net.minecraft.world.World;
  */
 public class GrowthLeggings extends ModArmorItem {
 	public GrowthLeggings() {
-		super(GrowthSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.fg1,
+		super(GrowthSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.foraging_1,
 				GrowthSet.instance.getRarity());
 	}
 

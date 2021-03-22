@@ -21,7 +21,7 @@ import net.minecraft.world.World;
  */
 public class GrowthHelmet extends ModArmorItem {
 	public GrowthHelmet() {
-		super(GrowthSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.fg1,
+		super(GrowthSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.foraging_1,
 				GrowthSet.instance.getRarity());
 	}
 

@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class CrystalLeggings extends ModArmorItem {
 
 	public CrystalLeggings() {
-		super(CrystalSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(CrystalSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				CrystalSet.instance.getRarity());
 	}
 

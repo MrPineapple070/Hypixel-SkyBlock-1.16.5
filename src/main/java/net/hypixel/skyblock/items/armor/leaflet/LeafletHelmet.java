@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class LeafletHelmet extends ModArmorItem {
 
 	public LeafletHelmet() {
-		super(LeafletSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.fg1,
+		super(LeafletSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.foraging_1,
 				LeafletSet.instance.getRarity());
 	}
 

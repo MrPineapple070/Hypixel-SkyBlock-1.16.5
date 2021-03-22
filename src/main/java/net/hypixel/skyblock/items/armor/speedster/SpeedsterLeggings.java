@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpeedsterLeggings extends ModArmorItem {
 	public SpeedsterLeggings() {
-		super(SpeedsterSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.f1,
+		super(SpeedsterSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.farm_1,
 				SpeedsterSet.instance.getRarity());
 	}
 

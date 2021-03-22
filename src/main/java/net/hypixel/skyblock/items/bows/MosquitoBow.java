@@ -20,7 +20,7 @@ public class MosquitoBow extends ModBowItem {
 			new TranslationTextComponent("bow.mosquito.1", StatString.intelligence, StatString.intelligence));
 
 	public MosquitoBow() {
-		super(ItemProperties.c1, ModItemRarity.Legendary);
+		super(ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

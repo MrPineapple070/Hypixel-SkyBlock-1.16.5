@@ -28,7 +28,7 @@ public class VaccineTalisman extends Accessory {
 					.withStyle(Style.EMPTY.withColor(Color.fromRgb(Effects.POISON.getColor()))));
 
 	public VaccineTalisman() {
-		super(ItemProperties.f1, ModItemRarity.Common);
+		super(ItemProperties.farm_1, ModItemRarity.Common);
 	}
 
 	@Override

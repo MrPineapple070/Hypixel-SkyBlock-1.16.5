@@ -21,7 +21,7 @@ import net.minecraft.world.World;
  */
 public class MagmaLeggings extends ModArmorItem {
 	public MagmaLeggings() {
-		super(MagmaSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(MagmaSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				MagmaSet.instance.getRarity());
 	}
 

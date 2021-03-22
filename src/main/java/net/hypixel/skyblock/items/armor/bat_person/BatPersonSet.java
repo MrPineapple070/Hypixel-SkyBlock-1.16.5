@@ -30,7 +30,7 @@ public class BatPersonSet extends ModArmorItem {
 			new TranslationTextComponent("armor.bat_person.fsb.discription"));
 
 	public BatPersonSet(EquipmentSlotType slot) {
-		super(ModArmorMaterial.Bat_Person, slot, ItemProperties.m1, ModItemRarity.Legendary);
+		super(ModArmorMaterial.Bat_Person, slot, ItemProperties.mine_1, ModItemRarity.Legendary);
 	}
 
 	@Override

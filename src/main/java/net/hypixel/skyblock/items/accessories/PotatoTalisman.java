@@ -24,7 +24,7 @@ public class PotatoTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.potato", StatString.speed);
 
 	public PotatoTalisman() {
-		super(ItemProperties.f1, ModItemRarity.Common);
+		super(ItemProperties.farm_1, ModItemRarity.Common);
 	}
 
 	@Override

@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class RaiderAxe extends ModSwordItem {
 	public RaiderAxe() {
-		super(ModSwordTier.Raider_Axe, ItemProperties.c1, ModItemRarity.Rare);
+		super(ModSwordTier.Raider_Axe, ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

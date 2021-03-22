@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class CactusChestplate extends ModArmorItem {
 	public CactusChestplate() {
-		super(CactusSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.f1,
+		super(CactusSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.farm_1,
 				CactusSet.instance.getRarity());
 	}
 

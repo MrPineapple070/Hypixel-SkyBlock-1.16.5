@@ -23,7 +23,7 @@ public abstract class Bait extends Item {
 	 * Construct this.
 	 */
 	protected Bait() {
-		super(ItemProperties.fi64);
+		super(ItemProperties.fish_64);
 	}
 
 	@Override

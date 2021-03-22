@@ -14,7 +14,7 @@ public class PrismarineBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.prismarine");
 	
 	public PrismarineBow() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

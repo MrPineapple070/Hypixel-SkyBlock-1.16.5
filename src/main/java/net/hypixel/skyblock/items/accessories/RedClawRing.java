@@ -24,7 +24,7 @@ public class RedClawRing extends Accessory {
 			StatString.crit_damage, "3%");
 
 	public RedClawRing() {
-		super(ItemProperties.c1, ModItemRarity.Rare);
+		super(ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

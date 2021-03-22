@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FairyBoots extends ModArmorItem {
 	public FairyBoots() {
-		super(FairySet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.ms1,
+		super(FairySet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.miscellaneous_1,
 				FairySet.instance.getRarity());
 	}
 

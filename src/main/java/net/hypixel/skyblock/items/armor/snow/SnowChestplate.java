@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SnowChestplate extends ModArmorItem {
 	public SnowChestplate() {
-		super(SnowSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.ms1,
+		super(SnowSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.miscellaneous_1,
 				SnowSet.instance.getRarity());
 	}
 

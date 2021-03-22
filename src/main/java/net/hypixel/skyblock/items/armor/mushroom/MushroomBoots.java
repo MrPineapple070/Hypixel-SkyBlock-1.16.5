@@ -18,7 +18,7 @@ import net.minecraft.world.World;
  */
 public class MushroomBoots extends ModArmorItem {
 	public MushroomBoots() {
-		super(MushroomSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.f1,
+		super(MushroomSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.farm_1,
 				MushroomSet.instance.getRarity());
 	}
 

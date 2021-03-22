@@ -58,7 +58,7 @@ public class FarmerOrb extends Accessory {
 	private BlockPos pos;
 
 	public FarmerOrb() {
-		super(ItemProperties.f1, ModItemRarity.Uncommon);
+		super(ItemProperties.farm_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

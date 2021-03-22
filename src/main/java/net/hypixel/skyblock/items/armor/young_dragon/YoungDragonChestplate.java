@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class YoungDragonChestplate extends ModArmorItem {
 	public YoungDragonChestplate() {
-		super(YoungDragonSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(YoungDragonSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				YoungDragonSet.instance.getRarity());
 	}
 

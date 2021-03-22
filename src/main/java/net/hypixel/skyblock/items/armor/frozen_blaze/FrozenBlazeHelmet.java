@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FrozenBlazeHelmet extends ModArmorItem {
 	public FrozenBlazeHelmet() {
-		super(FrozenBlazeSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(FrozenBlazeSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				FrozenBlazeSet.instance.getRarity());
 	}
 

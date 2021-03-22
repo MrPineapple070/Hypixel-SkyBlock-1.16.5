@@ -37,7 +37,7 @@ public class CheetahTalisman extends Accessory {
 			StatString.speed);
 
 	public CheetahTalisman() {
-		super(ItemProperties.ms1, ModItemRarity.Epic);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Epic);
 	}
 
 	@Override

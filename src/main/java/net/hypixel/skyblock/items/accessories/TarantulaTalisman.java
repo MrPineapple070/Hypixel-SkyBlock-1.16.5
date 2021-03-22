@@ -25,7 +25,7 @@ public class TarantulaTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.tarantula");
 
 	public TarantulaTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

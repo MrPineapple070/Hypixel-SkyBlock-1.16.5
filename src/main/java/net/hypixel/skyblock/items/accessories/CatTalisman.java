@@ -36,7 +36,7 @@ public class CatTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.cat_talisman", StatString.speed);
 
 	public CatTalisman() {
-		super(ItemProperties.ms1, ModItemRarity.Uncommon);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

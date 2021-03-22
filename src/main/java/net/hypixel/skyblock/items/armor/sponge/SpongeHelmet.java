@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpongeHelmet extends ModArmorItem {
 	public SpongeHelmet() {
-		super(SpongeSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.fi1,
+		super(SpongeSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.fish_1,
 				SpongeSet.instance.getRarity());
 	}
 

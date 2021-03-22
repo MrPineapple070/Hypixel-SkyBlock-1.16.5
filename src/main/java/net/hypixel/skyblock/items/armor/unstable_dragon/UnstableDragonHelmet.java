@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class UnstableDragonHelmet extends ModArmorItem {
 
 	public UnstableDragonHelmet() {
-		super(UnstableDragonSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(UnstableDragonSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				UnstableDragonSet.instance.getRarity());
 	}
 

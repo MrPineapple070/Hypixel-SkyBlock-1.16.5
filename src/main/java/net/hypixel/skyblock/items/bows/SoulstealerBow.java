@@ -16,7 +16,7 @@ public class SoulstealerBow extends ModBowItem {
 			new TranslationTextComponent("bow.soulstealer.1"));
 
 	public SoulstealerBow() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

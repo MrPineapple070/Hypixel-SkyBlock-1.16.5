@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class HolyDragonChestplate extends ModArmorItem {
 	public HolyDragonChestplate() {
-		super(HolyDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.c1,
+		super(HolyDragonSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
 				HolyDragonSet.instance.getRarity());
 	}
 

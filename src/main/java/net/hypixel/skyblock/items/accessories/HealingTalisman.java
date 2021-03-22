@@ -22,7 +22,7 @@ public class HealingTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.healing", 5);
 
 	public HealingTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Common);
+		super(ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override

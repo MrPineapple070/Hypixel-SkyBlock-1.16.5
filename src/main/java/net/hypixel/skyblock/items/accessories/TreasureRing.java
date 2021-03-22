@@ -22,7 +22,7 @@ public class TreasureRing extends Accessory {
 	public static final ITextComponent info = new TranslationTextComponent("accessory.treasure", 2);
 
 	public TreasureRing() {
-		super(ItemProperties.d1, ModItemRarity.Epic);
+		super(ItemProperties.dungeon_1, ModItemRarity.Epic);
 	}
 
 	@Override

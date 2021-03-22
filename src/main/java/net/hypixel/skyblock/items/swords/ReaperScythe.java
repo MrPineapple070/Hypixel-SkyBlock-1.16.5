@@ -32,7 +32,7 @@ public class ReaperScythe extends ModSwordItem {
 			new TranslationTextComponent("sword.reaper.1", StatString.health));
 
 	public ReaperScythe() {
-		super(ModSwordTier.Reaper_Scythe, ItemProperties.c1, ModItemRarity.Legendary);
+		super(ModSwordTier.Reaper_Scythe, ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

@@ -25,7 +25,7 @@ public class BatRing extends Accessory {
 			StatString.speed, StatString.intelligence);
 
 	public BatRing() {
-		super(ItemProperties.ms1, ModItemRarity.Epic);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Epic);
 	}
 
 	@Override

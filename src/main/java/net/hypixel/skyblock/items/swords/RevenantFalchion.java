@@ -23,7 +23,7 @@ import net.minecraft.world.World;
  */
 public class RevenantFalchion extends ModSwordItem {
 	public RevenantFalchion() {
-		super(ModSwordTier.Revenant_Falchion, ItemProperties.c1, ModItemRarity.Rare);
+		super(ModSwordTier.Revenant_Falchion, ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

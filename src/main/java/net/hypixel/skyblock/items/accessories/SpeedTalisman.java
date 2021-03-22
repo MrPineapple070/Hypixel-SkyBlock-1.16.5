@@ -23,7 +23,7 @@ public class SpeedTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.speed", "1%", StatString.speed);
 
 	public SpeedTalisman() {
-		super(ItemProperties.f1, ModItemRarity.Common);
+		super(ItemProperties.farm_1, ModItemRarity.Common);
 	}
 
 	@Override

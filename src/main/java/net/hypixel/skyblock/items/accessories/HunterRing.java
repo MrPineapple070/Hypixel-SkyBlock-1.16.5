@@ -22,7 +22,7 @@ public class HunterRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.hunter", 5);
 
 	public HunterRing() {
-		super(ItemProperties.c1, ModItemRarity.Rare);
+		super(ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

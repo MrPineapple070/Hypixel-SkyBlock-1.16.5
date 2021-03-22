@@ -25,7 +25,7 @@ public class SpiderTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.spider", "5%");
 
 	public SpiderTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

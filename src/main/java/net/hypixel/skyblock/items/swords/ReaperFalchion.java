@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class ReaperFalchion extends ModSwordItem {
 	public ReaperFalchion() {
-		super(ModSwordTier.Reaper_Falchion, ItemProperties.c1, ModItemRarity.Epic);
+		super(ModSwordTier.Reaper_Falchion, ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public class MiningSack extends Sack {
 					Items.GLOWSTONE_DUST, Items.GRAVEL, Items.ICE, Items.NETHERRACK, Items.SAND, Items.END_STONE });
 
 	public MiningSack(SackSize type) {
-		super(ItemProperties.m1, type);
+		super(ItemProperties.mine_1, type);
 	}
 
 	@Override

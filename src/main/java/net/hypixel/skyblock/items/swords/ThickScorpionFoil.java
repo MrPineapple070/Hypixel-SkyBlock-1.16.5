@@ -38,7 +38,7 @@ public class ThickScorpionFoil extends ModSwordItem {
 	private int tickers = 4;
 
 	public ThickScorpionFoil() {
-		super(ModSwordTier.Thick_Scorpion_Foil, ItemProperties.c1, ModItemRarity.Legendary);
+		super(ModSwordTier.Thick_Scorpion_Foil, ItemProperties.combat_1, ModItemRarity.Legendary);
 	}
 
 	@Override

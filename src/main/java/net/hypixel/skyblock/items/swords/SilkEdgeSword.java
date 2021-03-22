@@ -33,7 +33,7 @@ public class SilkEdgeSword extends ModSwordItem {
 			new TranslationTextComponent("sword.silk.1"));
 
 	public SilkEdgeSword() {
-		super(ModSwordTier.Silk_Edge_Sword, ItemProperties.c1, ModItemRarity.Epic);
+		super(ModSwordTier.Silk_Edge_Sword, ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

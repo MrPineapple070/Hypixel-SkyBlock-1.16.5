@@ -14,6 +14,6 @@ import net.minecraft.item.Item;
  */
 public class Recombobulator extends Item {
 	public Recombobulator() {
-		super(ItemProperties.d1);
+		super(ItemProperties.dungeon_1);
 	}
 }

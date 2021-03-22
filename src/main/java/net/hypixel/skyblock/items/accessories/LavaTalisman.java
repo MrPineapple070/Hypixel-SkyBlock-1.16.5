@@ -22,7 +22,7 @@ public class LavaTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.lava");
 
 	public LavaTalisman() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class SpongeBoots extends ModArmorItem {
 	public SpongeBoots() {
-		super(SpongeSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.fi1,
+		super(SpongeSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.fish_1,
 				SpongeSet.instance.getRarity());
 	}
 

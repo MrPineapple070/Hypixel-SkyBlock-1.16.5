@@ -24,7 +24,7 @@ public class WitherArtifact extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.wither");
 
 	public WitherArtifact() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override

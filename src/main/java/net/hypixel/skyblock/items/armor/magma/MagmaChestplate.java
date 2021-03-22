@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 public class MagmaChestplate extends ModArmorItem {
 
 	public MagmaChestplate() {
-		super(MagmaSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.c1,
+		super(MagmaSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
 				MagmaSet.instance.getRarity());
 	}
 

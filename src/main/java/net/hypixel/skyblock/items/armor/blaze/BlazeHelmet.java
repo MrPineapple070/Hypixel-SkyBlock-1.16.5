@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class BlazeHelmet extends ModArmorItem {
 	public BlazeHelmet() {
-		super(BlazeSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.c1,
+		super(BlazeSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.combat_1,
 				BlazeSet.instance.getRarity());
 	}
 

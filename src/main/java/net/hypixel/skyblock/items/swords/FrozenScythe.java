@@ -31,7 +31,7 @@ public class FrozenScythe extends ModSwordItem {
 			new TranslationTextComponent("sword.frozen.0", StatString.ability_damage));
 
 	public FrozenScythe() {
-		super(ModSwordTier.Frozen_Scythe, ItemProperties.c1, ModItemRarity.Rare);
+		super(ModSwordTier.Frozen_Scythe, ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

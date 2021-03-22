@@ -26,7 +26,7 @@ public class WoodAffinityTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.wood", StatString.speed);
 
 	public WoodAffinityTalisman() {
-		super(ItemProperties.fg1, ModItemRarity.Uncommon);
+		super(ItemProperties.foraging_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

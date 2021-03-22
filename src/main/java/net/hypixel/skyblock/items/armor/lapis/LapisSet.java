@@ -31,7 +31,7 @@ public class LapisSet extends ModArmorItem {
 			new TranslationTextComponent("armor.lapis.fsb.discription", StatString.health));
 
 	public LapisSet(EquipmentSlotType slot) {
-		super(ModArmorMaterial.Lapis, slot, ItemProperties.m1, ModItemRarity.Uncommon);
+		super(ModArmorMaterial.Lapis, slot, ItemProperties.mine_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

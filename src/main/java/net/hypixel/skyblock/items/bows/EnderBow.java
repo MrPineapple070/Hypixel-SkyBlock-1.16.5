@@ -27,7 +27,7 @@ public class EnderBow extends ModBowItem {
 			new TranslationTextComponent("bow.ender.1", StatString.health));
 
 	public EnderBow() {
-		super(ItemProperties.c1, ModItemRarity.Rare);
+		super(ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

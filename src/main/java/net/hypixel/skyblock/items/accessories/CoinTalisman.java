@@ -28,7 +28,7 @@ public class CoinTalisman extends Accessory {
 	private int tick;
 
 	public CoinTalisman() {
-		super(ItemProperties.ms1, ModItemRarity.Common);
+		super(ItemProperties.miscellaneous_1, ModItemRarity.Common);
 		this.tick = 0;
 	}
 

@@ -23,7 +23,7 @@ public final class AgronomySack extends Sack {
 			Items.COCOA_BEANS, Items.CACTUS, Items.SUGAR_CANE, Items.NETHER_WART });
 
 	public AgronomySack(SackSize type) {
-		super(ItemProperties.f1, type);
+		super(ItemProperties.farm_1, type);
 	}
 
 	@Override

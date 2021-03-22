@@ -22,7 +22,7 @@ public class WolfPaw extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.wolf_paw", StatString.speed);
 
 	public WolfPaw() {
-		super(ItemProperties.c1, ModItemRarity.Uncommon);
+		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class AnglerChestplate extends ModArmorItem {
 	public AnglerChestplate() {
-		super(AnglerSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.fi1,
+		super(AnglerSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.fish_1,
 				AnglerSet.instance.getRarity());
 	}
 

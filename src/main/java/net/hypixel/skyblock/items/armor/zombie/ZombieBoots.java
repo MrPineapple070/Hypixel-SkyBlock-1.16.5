@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class ZombieBoots extends ModArmorItem {
 	public ZombieBoots() {
-		super(ZombieSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.c1,
+		super(ZombieSet.instance.getMaterial(), EquipmentSlotType.FEET, ItemProperties.combat_1,
 				ZombieSet.instance.getRarity());
 	}
 

@@ -29,7 +29,7 @@ public class PiggyBank extends Accessory {
 	private State state;
 
 	public PiggyBank() {
-		super(ItemProperties.m1, ModItemRarity.Uncommon);
+		super(ItemProperties.mine_1, ModItemRarity.Uncommon);
 		this.state = State.Normal;
 	}
 

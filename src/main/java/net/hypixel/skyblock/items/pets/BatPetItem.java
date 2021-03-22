@@ -37,7 +37,7 @@ public final class BatPetItem extends PetItem {
 			.withStyle(TextFormatting.GOLD);
 
 	public BatPetItem() {
-		super(ItemProperties.m1, Pets.bat);
+		super(ItemProperties.mine_1, Pets.bat);
 	}
 
 	@Override

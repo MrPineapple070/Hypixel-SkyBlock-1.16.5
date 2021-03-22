@@ -30,7 +30,7 @@ public class PigmanSword extends ModSwordItem {
 			new TranslationTextComponent("sword.pigman.0", StatString.defense, StatString.ability_damage));
 
 	public PigmanSword() {
-		super(ModSwordTier.Pigman_Sword, ItemProperties.f1, ModItemRarity.Legendary);
+		super(ModSwordTier.Pigman_Sword, ItemProperties.farm_1, ModItemRarity.Legendary);
 	}
 
 	@Override

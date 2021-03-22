@@ -23,7 +23,7 @@ public class CombatSack extends Sack {
 					Items.ENDER_PEARL, Items.GHAST_TEAR, Items.SLIME_BALL, Items.BLAZE_ROD, Items.MAGMA_CREAM });
 
 	public CombatSack(SackSize type) {
-		super(ItemProperties.c1, type);
+		super(ItemProperties.combat_1, type);
 	}
 
 	@Override

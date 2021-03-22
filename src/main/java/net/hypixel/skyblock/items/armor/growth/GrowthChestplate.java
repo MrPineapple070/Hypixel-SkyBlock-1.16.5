@@ -21,7 +21,7 @@ import net.minecraft.world.World;
  */
 public class GrowthChestplate extends ModArmorItem {
 	public GrowthChestplate() {
-		super(GrowthSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.fg1,
+		super(GrowthSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.foraging_1,
 				GrowthSet.instance.getRarity());
 	}
 

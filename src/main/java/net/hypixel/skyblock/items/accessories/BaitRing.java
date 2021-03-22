@@ -31,7 +31,7 @@ public class BaitRing extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.bait_ring");
 
 	public BaitRing() {
-		super(ItemProperties.fi1, ModItemRarity.Rare);
+		super(ItemProperties.fish_1, ModItemRarity.Rare);
 	}
 
 	@Override

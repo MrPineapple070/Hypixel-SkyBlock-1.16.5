@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EmeraldLeggings extends ModArmorItem {
 	public EmeraldLeggings() {
-		super(EmeraldSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.m1,
+		super(EmeraldSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.mine_1,
 				EmeraldSet.instance.getRarity());
 	}
 

@@ -30,7 +30,7 @@ public class EdibleMace extends ModSwordItem {
 			new TranslationTextComponent("sword.edible.0"));
 
 	public EdibleMace() {
-		super(ModSwordTier.Edible_Mace, ItemProperties.c1, ModItemRarity.Rare);
+		super(ModSwordTier.Edible_Mace, ItemProperties.combat_1, ModItemRarity.Rare);
 	}
 
 	@Override

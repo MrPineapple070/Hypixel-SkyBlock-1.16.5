@@ -14,7 +14,7 @@ public class SuperUndeadBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.super_undead");
 	
 	public SuperUndeadBow() {
-		super(ItemProperties.c1, ModItemRarity.Epic);
+		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}
 
 	@Override
