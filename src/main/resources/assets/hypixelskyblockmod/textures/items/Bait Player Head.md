@@ -1,4 +1,4 @@
-| Entity  | https://textures.minecraft.net/texture/                         |
+| Bait    | https://textures.minecraft.net/texture/                         |
 |---------|-----------------------------------------------------------------|
 | Blessed | b060a46497cee7611346c9dd8eb8f5de4483de259147211353848356de15d19 |
 | Carrot  | 4d3a6bd98ac1833c664c4909ff8d2dc62ce887bdcf3cc5b3848651ae5af6b   |
