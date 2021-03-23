@@ -57,14 +57,7 @@ public class ClientEventBusSubscriber {
 		ScreenManager.register(ModContainerTypes.small_mcc.get(), SmallMCS::new);
 		ScreenManager.register(ModContainerTypes.medium_mcc.get(), MediumMCS::new);
 		ScreenManager.register(ModContainerTypes.large_mcc.get(), LargeMCS::new);
-
-		/**
-		 * for (Field field : MinionBlockInit.class.getDeclaredFields()) if
-		 * (field.getType() == RegistryObject.class) try { RegistryObject<Block> obj =
-		 * null; obj = (RegistryObject<Block>) field.get(obj); Block block = obj.get();
-		 * RenderTypeLookup.setRenderLayer(block, RenderType.getTranslucent()); } catch
-		 * (IllegalArgumentException | IllegalAccessException e) { continue; }
-		 */
+		
 		for (RegistryObject<Block> obj : MinionBlockInit.minionBlocks.getEntries())
 			RenderTypeLookup.setRenderLayer(obj.get(), RenderType.translucent());
 
@@ -73,5 +66,6 @@ public class ClientEventBusSubscriber {
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.large_mcte.get(), ChestTileEntityRenderer::new);
 
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.Andrew.get(), VillageNPCRender::new);
+		//RenderingRegistry.registerEntityRenderingHandler(null, null);
 	}
 }

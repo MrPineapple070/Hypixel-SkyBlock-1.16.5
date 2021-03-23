@@ -3,11 +3,12 @@ package net.hypixel.skyblock.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Nonnull;
+import javax.annotation.concurrent.Immutable;
+
 import com.google.common.collect.ImmutableMap;
 
-import net.hypixel.skyblock.items.init.AccessoriesInit;
 import net.hypixel.skyblock.items.init.ItemInit;
-import net.hypixel.skyblock.items.init.WeaponInit;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 
@@ -18,17 +19,20 @@ import net.minecraft.item.Items;
  * @version 29 July 2020
  * @since 11 June 2019
  */
-public class ItemMap {
+@Immutable
+public final class ItemMap {
 	/**
 	 * Help determine how many items it takes to compact.<br>
 	 * If an {@link Item} is not in this map, the {@link Integer} will be defaulted
 	 * to 9
 	 */
+	@Nonnull
 	public static final ImmutableMap<Item, Integer> compCountMap = ImmutableMap.copyOf(compCountMapMake());
 
 	/**
 	 * Help determine what item to give when compacting.
 	 */
+	@Nonnull
 	public static final ImmutableMap<Item, Item> compMap = ImmutableMap.copyOf(compMapMake());
 
 	/**
@@ -36,11 +40,13 @@ public class ItemMap {
 	 * If an {@link Item} is not in this map, the {@link Integer} will be defaulted
 	 * to 1.
 	 */
+	@Nonnull
 	public static final ImmutableMap<Item, Integer> enchCountMap = ImmutableMap.copyOf(ItemMap.enchCountMake());
 
 	/**
 	 * Help determine what item to give when super compacting.
 	 */
+	@Nonnull
 	public static final ImmutableMap<Item, Item> enchMap = ImmutableMap.copyOf(ItemMap.enchMapMake());
 
 	/**
@@ -48,25 +54,21 @@ public class ItemMap {
 	 * If an {@link Item} is not in this map, the {@link Integer} will be defaulted
 	 * to 160
 	 */
+	@Nonnull
 	public static final ImmutableMap<Item, Integer> enchReqMap = ImmutableMap.copyOf(enchReqMake());
 
 	/**
 	 * Help determine what items to give when auto-smelting.
 	 */
+	@Nonnull
 	public static final ImmutableMap<Item, Item> smeltMap = ImmutableMap.copyOf(smeltMapMake());
-
-	/**
-	 * Help determine how many coins to give the player when selling an item to an
-	 * NPC.
-	 */
-	public static final ImmutableMap<Item, Integer> sell = ImmutableMap.copyOf(sellMap());
 
 	/**
 	 * Create {@link #compCountMap}
 	 *
 	 * @return {@link #compCountMap}
 	 */
-	private static Map<Item, Integer> compCountMapMake() {
+	private static final Map<Item, Integer> compCountMapMake() {
 		final Map<Item, Integer> temp = new HashMap<>();
 		temp.put(Items.QUARTZ, 4);
 		temp.put(Items.GLOWSTONE_DUST, 4);
@@ -80,7 +82,7 @@ public class ItemMap {
 	 *
 	 * @return {@link #compMap}
 	 */
-	private static Map<Item, Item> compMapMake() {
+	private static final Map<Item, Item> compMapMake() {
 		final Map<Item, Item> temp = new HashMap<>();
 		temp.put(Items.WHEAT, Items.HAY_BLOCK);
 		temp.put(Items.MELON_SLICE, Items.MELON);
@@ -106,7 +108,7 @@ public class ItemMap {
 	 *
 	 * @return {@link #enchCountMap}
 	 */
-	private static Map<Item, Integer> enchCountMake() {
+	private static final Map<Item, Integer> enchCountMake() {
 		final Map<Item, Integer> temp = new HashMap<>();
 		temp.put(Items.GLOWSTONE, 4);
 		temp.put(Items.BLUE_ICE, 81);
@@ -118,7 +120,7 @@ public class ItemMap {
 	 *
 	 * @return {@link #enchMap}
 	 */
-	private static Map<Item, Item> enchMapMake() {
+	private static final Map<Item, Item> enchMapMake() {
 		final Map<Item, Item> temp = new HashMap<>();
 		temp.put(Items.COBBLESTONE, ItemInit.enchanted_cobblestone.get());
 		temp.put(Items.COAL, ItemInit.enchanted_coal.get());
@@ -164,7 +166,7 @@ public class ItemMap {
 	 *
 	 * @return {@link #enchReqMap}
 	 */
-	private static Map<Item, Integer> enchReqMake() {
+	private static final Map<Item, Integer> enchReqMake() {
 		final Map<Item, Integer> temp = new HashMap<>();
 		temp.put(ItemInit.enchanted_glowstone_dust.get(), 192);
 		return temp;
@@ -175,7 +177,7 @@ public class ItemMap {
 	 *
 	 * @return {@link #smeltMap}
 	 */
-	private static Map<Item, Item> smeltMapMake() {
+	private static final Map<Item, Item> smeltMapMake() {
 		final Map<Item, Item> temp = new HashMap<>();
 		temp.put(Items.COBBLESTONE, Items.STONE);
 		temp.put(Items.IRON_ORE, Items.IRON_INGOT);
@@ -186,58 +188,6 @@ public class ItemMap {
 		temp.put(Items.CACTUS, Items.GREEN_DYE);
 		temp.put(Items.ACACIA_LOG, Items.COAL);
 		temp.put(Items.OAK_LOG, Items.COAL);
-		return temp;
-	}
-
-	/**
-	 * Create {@link #sell}
-	 * 
-	 * @return {@link #sell}
-	 */
-	private static Map<Item, Integer> sellMap() {
-		final Map<Item, Integer> temp = new HashMap<>();
-		temp.put(AccessoriesInit.bait_ring.get(), 0);
-
-		temp.put(WeaponInit.aotd.get(), 100000);
-		temp.put(WeaponInit.aote.get(), 50000);
-		temp.put(WeaponInit.aotj.get(), 0);
-		temp.put(WeaponInit.cleaver.get(), 0);
-		temp.put(WeaponInit.edible_mace.get(), 0);
-		temp.put(WeaponInit.ember_rod.get(), 0);
-		temp.put(WeaponInit.emerald_blade.get(), 0);
-		temp.put(WeaponInit.end_stone_sword.get(), 0);
-		temp.put(WeaponInit.end_sword.get(), 0);
-		temp.put(WeaponInit.fancy_sword.get(), 0);
-		temp.put(WeaponInit.flaming_sword.get(), 0);
-		temp.put(WeaponInit.frozen_scythe.get(), 0);
-		temp.put(WeaponInit.golem_sword.get(), 0);
-		temp.put(WeaponInit.hunter_knife.get(), 0);
-		temp.put(WeaponInit.ink_wand.get(), 0);
-		temp.put(WeaponInit.leaping_sword.get(), 0);
-		temp.put(WeaponInit.midas_sword.get(), 0);
-		temp.put(WeaponInit.ornate_zombie_sword.get(), 0);
-		temp.put(WeaponInit.pigman_sword.get(), 0);
-		temp.put(WeaponInit.pooch_sword.get(), 0);
-		temp.put(WeaponInit.prismarine_blade.get(), 0);
-		temp.put(WeaponInit.raider_axe.get(), 0);
-		temp.put(WeaponInit.reaper_falchion.get(), 0);
-		temp.put(WeaponInit.reaper_scythe.get(), 0);
-		temp.put(WeaponInit.recluse_fang.get(), 0);
-		temp.put(WeaponInit.revenant_falchion.get(), 0);
-		temp.put(WeaponInit.rogue_sword.get(), 0);
-		temp.put(WeaponInit.scorpion_foil.get(), 0);
-		temp.put(WeaponInit.shaman_sword.get(), 0);
-		temp.put(WeaponInit.silk_edge_sword.get(), 0);
-		temp.put(WeaponInit.silver_fang.get(), 0);
-		temp.put(WeaponInit.spider_sword.get(), 0);
-		temp.put(WeaponInit.spider_sword.get(), 0);
-		temp.put(WeaponInit.tactician_sword.get(), 0);
-		temp.put(WeaponInit.thick_aotj.get(), 0);
-		temp.put(WeaponInit.thick_scorpion_foil.get(), 0);
-		temp.put(WeaponInit.thick_tactician_sword.get(), 0);
-		temp.put(WeaponInit.undead_sword.get(), 0);
-		temp.put(WeaponInit.yeti_sword.get(), 0);
-		temp.put(WeaponInit.zombie_sword.get(), 0);
 		return temp;
 	}
 }

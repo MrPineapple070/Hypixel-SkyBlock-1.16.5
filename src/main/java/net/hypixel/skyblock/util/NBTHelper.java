@@ -1,6 +1,7 @@
 package net.hypixel.skyblock.util;
 
-import javax.annotation.Nonnull;
+import java.util.Objects;
+
 import javax.annotation.Nullable;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
@@ -24,7 +25,8 @@ public class NBTHelper {
 	 * @return the object read from {@code c}
 	 */
 	@Nullable
-	public static Object fromNBT(@Nonnull CompoundNBT c) {
+	public static ItemStack fromNBT(CompoundNBT c) {
+		Objects.requireNonNull(c, "CompoundNBT cannot be null");
 		switch (c.getByte("type")) {
 		case 0:
 			return readItemStack(c);
@@ -50,8 +52,9 @@ public class NBTHelper {
 	 *
 	 * @param o the {@link Object} to write {@code CompoundNBT} for.
 	 * @return the written {@code CompoundNBT}
+	 * @throws IllegalAccessException if {@link #writeItemStack(ItemStack)} throws
 	 */
-	public static CompoundNBT toNBT(Object o) {
+	public static CompoundNBT toNBT(Object o) throws IllegalAccessException {
 		if (o instanceof ItemStack)
 			return writeItemStack((ItemStack) o);
 		if (o instanceof AbstractMinionTileEntity)
@@ -62,13 +65,17 @@ public class NBTHelper {
 	/**
 	 * Write {@link CompoundNBT} for {@link ItemStack}
 	 *
-	 * @param i the {@code ItemStack} to write {@code CompoundNBT} for.
+	 * @param stack the {@code ItemStack} to write {@code CompoundNBT} for.
 	 * @return the written {@code CompoundNBT}
+	 * @throws IllegalAccessException if stack is {@link ItemStack#isEmpty()}
 	 */
-	private static CompoundNBT writeItemStack(ItemStack i) {
+	private static CompoundNBT writeItemStack(ItemStack stack) throws IllegalAccessException {
+		Objects.requireNonNull(stack, "ItemStack cannot be null");
+		if (stack.isEmpty())
+			throw new IllegalAccessException("ItemStack cannot be empty");;
 		final CompoundNBT c = new CompoundNBT();
-		c.putInt("count", i.getCount());
-		c.putString("item", i.getItem().getRegistryName().toString());
+		c.putInt("count", stack.getCount());
+		c.putString("item", stack.getItem().getRegistryName().toString());
 		c.putByte("type", (byte) 0);
 		return c;
 	}
@@ -81,6 +88,7 @@ public class NBTHelper {
 	 * @return the written {@code CompoundNBT}
 	 */
 	private static CompoundNBT writeMinion(AbstractMinionTileEntity minion) {
+		Objects.requireNonNull(minion, "Minion cannot be null");
 		final CompoundNBT c = new CompoundNBT();
 		c.putInt("x", minion.x);
 		c.putInt("y", minion.y);

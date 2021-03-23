@@ -1,5 +1,7 @@
 package net.hypixel.skyblock.util;
 
+import javax.annotation.concurrent.Immutable;
+
 import net.minecraft.item.DyeColor;
 import net.minecraft.util.text.TextFormatting;
 
@@ -12,6 +14,7 @@ import net.minecraft.util.text.TextFormatting;
  * @version 11 June 2019
  * @since 11 June 2019
  */
+@Immutable
 public class FormatingCodes {
 	/**
 	 * <font style="color:#55FFFF">Aqua</font>
@@ -179,7 +182,13 @@ public class FormatingCodes {
 			throw new IllegalStateException("Illegal TextFormating:\t" + format.name());
 		}
 	}
-
+	
+	/**
+	 * Convert {@link DyeColor} into {@link TextFormatting}.
+	 * 
+	 * @param color {@link DyeColor} to convert
+	 * @return {@link TextFormatting} converted
+	 */
 	public static final TextFormatting getColorCode(DyeColor color) {
 		switch (color) {
 		case BLACK:

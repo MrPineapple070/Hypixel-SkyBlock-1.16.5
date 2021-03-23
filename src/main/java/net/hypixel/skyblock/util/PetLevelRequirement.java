@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.Immutable;
 
 import com.google.common.collect.ImmutableList;
 
@@ -14,10 +15,11 @@ import net.hypixel.skyblock.pets.Pet;
  * Holds leveling up requirements for {@link Pet}
  * 
  * @author MrPineapple070
- * @version 21 February 2020
- * @since 21 February 2020
+ * @version 11 October 2019
+ * @since 11 October 2019
  */
-public class PetLevelRequirement {
+@Immutable
+public final class PetLevelRequirement {
 	@Nonnull
 	public static final ImmutableList<Integer> common = ImmutableList.copyOf(Arrays.asList(0, 100, 110, 120, 130, 145,
 			160, 175, 190, 210, 230, 250, 275, 300, 330, 360, 400, 440, 490, 540, 600, 660, 730, 800, 880, 960, 1050,
@@ -73,7 +75,7 @@ public class PetLevelRequirement {
 			return rare;
 		case Epic:
 			return epic;
-		case Legendary:
+		case Legendary: case Mythic:
 			return legendary;
 		default:
 			throw new IllegalStateException("Illegal ModItemRarity " + rarity.name());

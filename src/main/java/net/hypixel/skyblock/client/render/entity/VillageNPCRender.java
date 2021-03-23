@@ -8,19 +8,18 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import net.hypixel.skyblock.client.render.entity.model.VillageNPCModel;
 import net.hypixel.skyblock.entity.npc.VillageNPC;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.ResourceLocation;
 
-public class VillageNPCRender extends EntityRenderer<VillageNPC> {
+public class VillageNPCRender extends MobRenderer<VillageNPC, VillageNPCModel> {
 	protected static final ResourceLocation texture = new ResourceLocation("textures/entity/villager/villager.png");
 	protected static final Logger LOGGER = LogManager.getLogger();
 	protected final VillageNPCModel model = new VillageNPCModel();
 
 	public VillageNPCRender(EntityRendererManager renderManager) {
-		super(renderManager);
-		this.shadowRadius = .8f;
+		super(renderManager, new VillageNPCModel(), .5f);
 		LOGGER.info("VillageNPCRender created");
 	}
 

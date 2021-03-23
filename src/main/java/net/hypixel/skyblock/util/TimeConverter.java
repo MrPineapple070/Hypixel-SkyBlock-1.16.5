@@ -7,7 +7,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TimeZone;
+
+import javax.annotation.Nonnull;
+import javax.annotation.concurrent.Immutable;
 
 import com.google.common.collect.ImmutableList;
 
@@ -18,10 +22,12 @@ import com.google.common.collect.ImmutableList;
  * @version 11 June 2019
  * @since 11 June 2019
  */
-public class TimeConverter {
+@Immutable
+public final class TimeConverter {
 	/**
 	 * An {@link ImmutableList} that converts hours to Minecraft Ticks.<br>
 	 */
+	@Nonnull
 	public static final ImmutableList<Long> hours = ImmutableList
 			.copyOf(Arrays.asList(0x4650l, 0x4A38l, 0x4E20l, 0x5208l, 0l, 1000l, 2000l, 3000l, 4000l, 5000l, 6000l,
 					7000l, 8000l, 9000l, 0x2710l, 0x2AF8l, 0x2EE0l, 13000l, 14000l, 15000l, 15000l, 16000l, 17000l));
@@ -32,16 +38,19 @@ public class TimeConverter {
 	 * Example: the {@link Map#get(Object)} with {@code "sunrise"} as input will
 	 * return {@code 23000l}
 	 */
+	@Nonnull
 	private static final Map<String, Long> nameToTicks = new HashMap<>();
 
 	/**
 	 * A {@link SimpleDateFormat} used to format time to 12-hour format.
 	 */
+	@Nonnull
 	private static final SimpleDateFormat SDFTwelve = new SimpleDateFormat("h:mm:ss aa", Locale.ENGLISH);
 
 	/**
 	 * A {@link SimpleDateFormat} used to format time to 24-hour format.
 	 */
+	@Nonnull
 	private static final SimpleDateFormat SDFTwentyFour = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH);
 
 	/**
@@ -117,8 +126,8 @@ public class TimeConverter {
 	 * @return ticks formated.
 	 */
 	public static String formatDateFormat(final long ticks, final SimpleDateFormat format) {
-		final Date date = ticksToDate(ticks);
-		return format.format(date);
+		Objects.requireNonNull(format, "SimpleDateFormat cannot be null");
+		return format.format(ticksToDate(ticks));
 	}
 
 	/**
@@ -165,6 +174,7 @@ public class TimeConverter {
 	 * @throws NumberFormatException if {@code desc} is not valid.
 	 */
 	public static long parse(String desc) throws NumberFormatException {
+		Objects.requireNonNull(desc, "Description cannot be null");
 		desc = desc.toLowerCase(Locale.ENGLISH).replaceAll("[^A-Za-z0-9:]", "");
 		try {
 			return parseTicks(desc);
@@ -196,6 +206,7 @@ public class TimeConverter {
 	 * @throws NumberFormatException if {@code desc} is not valid.
 	 */
 	public static long parse12(String desc) throws NumberFormatException {
+		Objects.requireNonNull(desc, "Description cannot be null");
 		if (!desc.matches("^[0-9]{1,2}([^0-9]?[0-9]{2})?(pm|am)$"))
 			throw new NumberFormatException();
 
@@ -241,6 +252,7 @@ public class TimeConverter {
 	 * @throws NumberFormatException if {@code desc} is not valid.
 	 */
 	public static long parse24(String desc) throws NumberFormatException {
+		Objects.requireNonNull(desc, "Description cannot be null");
 		if (!desc.matches("^[0-9]{2}[^0-9]?[0-9]{2}$"))
 			throw new NumberFormatException(desc + " is not a valid description");
 		desc = desc.toLowerCase(Locale.ENGLISH).replaceAll("[^0-9]", "");
@@ -258,6 +270,7 @@ public class TimeConverter {
 	 * @throws NumberFormatException if {@code desc}
 	 */
 	public static long parseAlias(final String desc) throws NumberFormatException {
+		Objects.requireNonNull(desc, "Description cannot be null");
 		final Long ret = nameToTicks.get(desc);
 		if (ret == null)
 			throw new NumberFormatException(desc + " is not a valid description");
@@ -275,6 +288,7 @@ public class TimeConverter {
 	 * @throws NumberFormatException if {@code desc} is not valid.
 	 */
 	public static long parseTicks(String desc) throws NumberFormatException {
+		Objects.requireNonNull(desc, "Description cannot be null");
 		if (!desc.matches("^[0-9]+ti?c?k?s?$"))
 			throw new NumberFormatException(desc + " is not a valid description");
 		desc = desc.replaceAll("[^0-9]", "");

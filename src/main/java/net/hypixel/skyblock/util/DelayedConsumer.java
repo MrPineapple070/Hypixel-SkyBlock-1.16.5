@@ -2,6 +2,7 @@ package net.hypixel.skyblock.util;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 import com.google.common.collect.Lists;
@@ -24,11 +25,11 @@ public abstract class DelayedConsumer<T> {
 	 * @param task {@link Consumer}
 	 */
 	public void consumeWhenReady(Consumer<T> task) {
-		if (key == null) {
+		Objects.requireNonNull(task, "Consumer cannot be null");
+		if (key == null)
 			tasks.add(task);
-		} else {
+		else
 			task.accept(key);
-		}
 	}
 
 	/**

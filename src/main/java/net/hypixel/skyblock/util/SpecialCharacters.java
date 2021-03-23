@@ -1,5 +1,7 @@
 package net.hypixel.skyblock.util;
 
+import javax.annotation.concurrent.Immutable;
+
 import net.hypixel.skyblock.items.swords.ScorpionFoil;
 
 /**
@@ -9,7 +11,8 @@ import net.hypixel.skyblock.items.swords.ScorpionFoil;
  * @version 28 November 2020
  * @since 11 June 2019
  */
-public class SpecialCharacters {
+@Immutable
+public final class SpecialCharacters {
 	/**
 	 * &#x27b5;
 	 */
