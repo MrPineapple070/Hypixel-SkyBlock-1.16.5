@@ -361,3 +361,8 @@
   
 12 March 2021  
 [Changelog](https://hypixel.net/threads/march-12th-bartenders-brewery-update.3989053/)
+
+## Build 0.11.3
+![](https://hypixel.net/attachments/sb-11-3-png.2451662/)  
+30 March 2021  
+[Changelog](https://hypixel.net/threads/skyblock-0-11-3.4058260/)
