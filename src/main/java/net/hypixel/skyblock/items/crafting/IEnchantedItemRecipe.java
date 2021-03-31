@@ -4,13 +4,10 @@ import javax.annotation.Nonnull;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.hypixel.skyblock.items.enchanted_items.EnchantedItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ICraftingRecipe;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 
 /**
  * An {@link ICraftingRecipe} that handles the custom recipe for
@@ -24,19 +21,14 @@ public interface IEnchantedItemRecipe extends ICraftingRecipe {
 	/**
 	 * {@link ResourceLocation} that is the ID for this {@link IRecipe}.
 	 */
+	@Nonnull
 	ResourceLocation recipe_type_id = new ResourceLocation(HypixelSkyBlockMod.MOD_ID, "enchanted_item");
 
 	@Override
 	default boolean canCraftInDimensions(int width, int height) {
 		return width * height < 10;
 	}
-
-	@Override
-	NonNullList<Ingredient> getIngredients();
-
+	
 	@Nonnull
-	@Override
-	default IRecipeType<?> getType() {
-		return Registry.RECIPE_TYPE.get(recipe_type_id);
-	}
+	ItemStack getInput();
 }

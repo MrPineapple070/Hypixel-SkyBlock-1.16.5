@@ -3,8 +3,6 @@ package net.hypixel.skyblock.entity.npc;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.INPC;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,12 +16,9 @@ import net.minecraft.world.server.ServerWorld;
 public abstract class VillageNPC extends AbstractVillagerEntity implements INPC {
 	public VillageNPC(EntityType<? extends AbstractVillagerEntity> type, World worldIn) {
 		super(type, worldIn);
+		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(Double.POSITIVE_INFINITY);
+		this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0d);
 		LOGGER.info(type.getRegistryName().toString() + " created");
-	}
-
-	public static MutableAttribute createAttributes() {
-		return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, Double.MAX_VALUE)
-				.add(Attributes.MOVEMENT_SPEED, 0);
 	}
 
 	@Override

@@ -141,7 +141,6 @@ public enum SwordReforge implements Reforge {
 		this.rare = Objects.requireNonNull(rare, "Rare buff array must be non-null.");
 		this.epic = Objects.requireNonNull(epic, "Epic buff array must be non-null.");
 		this.legendary = Objects.requireNonNull(legendary, "Legendary buff array must be non-null.");
-		this.log();
 	}
 
 	@Override

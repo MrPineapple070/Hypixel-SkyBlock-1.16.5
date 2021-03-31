@@ -6,6 +6,7 @@ import net.hypixel.skyblock.inventory.container.AbstractBackpackContainer.JumboB
 import net.hypixel.skyblock.inventory.container.AbstractBackpackContainer.LargeBC;
 import net.hypixel.skyblock.inventory.container.AbstractBackpackContainer.MediumBC;
 import net.hypixel.skyblock.inventory.container.AbstractBackpackContainer.SmallBC;
+import net.hypixel.skyblock.inventory.container.ModRepairContainer;
 import net.hypixel.skyblock.inventory.container.minion.MinionChestContainer.LargeMCC;
 import net.hypixel.skyblock.inventory.container.minion.MinionChestContainer.MediumMCC;
 import net.hypixel.skyblock.inventory.container.minion.MinionChestContainer.SmallMCC;
@@ -35,6 +36,9 @@ public class ModContainerTypes {
 			.register("greater_backpack", () -> IForgeContainerType.create(GreaterBC::new));
 	public static final RegistryObject<ContainerType<JumboBC>> jumbo_backpack = container_types
 			.register("jumbo_backpack", () -> IForgeContainerType.create(JumboBC::new));
+
+	public static final RegistryObject<ContainerType<ModRepairContainer>> anvil = container_types.register("anvil",
+			() -> IForgeContainerType.create(ModRepairContainer::new));
 
 	public static final RegistryObject<ContainerType<SmallMCC>> small_mcc = container_types.register("small_mcc",
 			() -> IForgeContainerType.create(SmallMCC::new));

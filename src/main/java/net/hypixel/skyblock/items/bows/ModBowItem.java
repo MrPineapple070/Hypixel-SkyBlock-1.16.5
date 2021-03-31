@@ -8,7 +8,9 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import net.hypixel.skyblock.HypixelSkyBlockMod;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.hypixel.skyblock.items.HotPotatoBook;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.PotatoBookableItem;
@@ -31,6 +33,7 @@ import net.minecraft.world.World;
  * @since 13 August 2020
  */
 public abstract class ModBowItem extends BowItem implements ReforgableItem, UpgradableItem, PotatoBookableItem {
+	protected static final Logger LOGGER = LogManager.getLogger();
 	protected static final ITextComponent item_ability = new TranslationTextComponent("bow.ability");
 
 	/**
@@ -106,15 +109,15 @@ public abstract class ModBowItem extends BowItem implements ReforgableItem, Upgr
 					this.reforge.getClass().getMethod("name", (Class<?>[]) null).invoke(this.reforge) + "");
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
 				| SecurityException e) {
-			HypixelSkyBlockMod.LOGGER.error(e.getLocalizedMessage());
+			LOGGER.error(e.getLocalizedMessage());
 			for (StackTraceElement element : e.getStackTrace())
-				HypixelSkyBlockMod.LOGGER.error(element.toString());
+				LOGGER.error(element.toString());
 		}
 	}
 
 	@Override
 	public final void setRarity(ModItemRarity rarity) {
-		HypixelSkyBlockMod.LOGGER.warn("Setting rarity:\t" + rarity.getNext());
+		LOGGER.warn("Setting rarity:\t" + rarity.getNext());
 		this.rarity = rarity;
 	}
 

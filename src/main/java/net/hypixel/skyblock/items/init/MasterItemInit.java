@@ -17,6 +17,7 @@ public class MasterItemInit {
 		BackpackInit.backpack.register(bus);
 		BlockItemInit.blockItems.register(bus);
 		ItemInit.items.register(bus);
+		MenuItemInit.items.register(bus);
 		MinionBlockItemInit.minionItems.register(bus);
 		PetItemInit.pets.register(bus);
 		WeaponInit.weapon.register(bus);

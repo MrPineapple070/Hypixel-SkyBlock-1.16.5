@@ -1,0 +1,22 @@
+{
+	"type": "hypixelskyblockmod:enchantment",
+	"pattern": [
+		"PP",
+		"PE"
+	],
+	"key": {
+		"P": {
+			"item": "minecraft:paper",
+			"count": 8
+		},
+		"E": {
+			"item": "minecraft:spider_eye",
+			"count": 8
+		}
+	},
+	"result": {
+		"item": "minecraft:enchanted_book",
+		"count": 1,
+		"enchantment": "minecraft:bane_of_arthropods"
+	}
+}

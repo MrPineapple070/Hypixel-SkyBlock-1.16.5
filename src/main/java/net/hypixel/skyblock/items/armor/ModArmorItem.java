@@ -9,7 +9,9 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import net.hypixel.skyblock.HypixelSkyBlockMod;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.hypixel.skyblock.items.HotPotatoBook;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.PotatoBookableItem;
@@ -35,6 +37,8 @@ import net.minecraft.world.World;
  * @since 11 June 2019
  */
 public abstract class ModArmorItem extends ArmorItem implements ReforgableItem, PotatoBookableItem, UpgradableItem {
+	protected static final Logger LOGGER = LogManager.getLogger();
+	
 	/**
 	 * Determine if {@link #rarity} has been upgraded.
 	 */
@@ -128,14 +132,6 @@ public abstract class ModArmorItem extends ArmorItem implements ReforgableItem, 
 		return false;
 	}
 
-	public void log() {
-		HypixelSkyBlockMod.LOGGER.info(this.getClass().getSimpleName());
-		HypixelSkyBlockMod.LOGGER.info("numPotatoBooks:\t" + this.numPotatoBooks);
-		HypixelSkyBlockMod.LOGGER.info("rarity:\t\t" + this.rarity.toString());
-		HypixelSkyBlockMod.LOGGER.info("reforge:\t" + this.reforge.toString());
-		HypixelSkyBlockMod.LOGGER.info("isUpgraded:\t" + this.isUpgraded);
-	}
-
 	@Override
 	public void reforge() {
 		this.reforge = ArmorReforge.getRandomReforge();
@@ -144,15 +140,15 @@ public abstract class ModArmorItem extends ArmorItem implements ReforgableItem, 
 					this.reforge.getClass().getMethod("name", (Class<?>[]) null).invoke(this.reforge) + "");
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
 				| SecurityException e) {
-			HypixelSkyBlockMod.LOGGER.error(e.getLocalizedMessage());
+			LOGGER.error(e.getLocalizedMessage());
 			for (StackTraceElement element : e.getStackTrace())
-				HypixelSkyBlockMod.LOGGER.error(element.toString());
+				LOGGER.error(element.toString());
 		}
 	}
 
 	@Override
 	public void setRarity(ModItemRarity rarity) {
-		HypixelSkyBlockMod.LOGGER.warn("setRarity() method called.");
+		LOGGER.warn("setRarity() method called.");
 		this.rarity = Objects.requireNonNull(rarity, "New ModItemRarity cannot be null.");
 	}
 
@@ -164,9 +160,9 @@ public abstract class ModArmorItem extends ArmorItem implements ReforgableItem, 
 					this.reforge.getClass().getMethod("name", (Class<?>[]) null).invoke(this.reforge) + "");
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
 				| SecurityException e) {
-			HypixelSkyBlockMod.LOGGER.error(e.getLocalizedMessage());
+			LOGGER.error(e.getLocalizedMessage());
 			for (StackTraceElement element : e.getStackTrace())
-				HypixelSkyBlockMod.LOGGER.error(element.toString());
+				LOGGER.error(element.toString());
 		}
 	}
 
@@ -179,7 +175,7 @@ public abstract class ModArmorItem extends ArmorItem implements ReforgableItem, 
 			this.isUpgraded = true;
 			return true;
 		} catch (final IllegalStateException ise) {
-			HypixelSkyBlockMod.LOGGER.error(ise.getMessage());
+			LOGGER.error(ise.getMessage());
 			return false;
 		}
 	}

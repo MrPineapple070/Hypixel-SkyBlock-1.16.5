@@ -1,7 +1,8 @@
 {
     "type": "hypixelskyblockmod:enchanted_item",
     "input": {
-		"item": "minecraft:cobblestone"
+		"item": "minecraft:cobblestone",
+		"count": 32
 	},
     "output": {
         "item": "hypixelskyblockmod:enchanted_cobblestone",

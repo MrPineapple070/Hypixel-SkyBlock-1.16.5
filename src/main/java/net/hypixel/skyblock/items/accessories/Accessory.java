@@ -6,6 +6,9 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.ReforgableItem;
 import net.hypixel.skyblock.items.Reforge;
@@ -17,8 +20,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 /**
@@ -31,6 +34,8 @@ import net.minecraft.world.World;
  * @since 21 June 2019
  */
 public abstract class Accessory extends Item implements ReforgableItem, UpgradableItem {
+	protected static final Logger LOGGER = LogManager.getLogger();
+	
 	/**
 	 * The {@link ModItemRarity} of this.
 	 */
@@ -80,7 +85,7 @@ public abstract class Accessory extends Item implements ReforgableItem, Upgradab
 
 	@Override
 	public ITextComponent getName(ItemStack stack) {
-		return ((IFormattableTextComponent) super.getName(stack)).withStyle(this.rarity.color);
+		return new TranslationTextComponent(this.getOrCreateDescriptionId()).withStyle(this.rarity.color);
 	}
 
 	@Override

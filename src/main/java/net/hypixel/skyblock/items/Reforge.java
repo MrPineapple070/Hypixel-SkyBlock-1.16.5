@@ -1,12 +1,9 @@
 package net.hypixel.skyblock.items;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.Random;
 
 import javax.annotation.Nonnull;
 
-import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.hypixel.skyblock.items.accessories.Accessory;
 import net.hypixel.skyblock.items.armor.ModArmorItem;
 import net.hypixel.skyblock.items.bows.ModBowItem;
@@ -131,25 +128,6 @@ public interface Reforge {
 	 */
 	@Nonnull
 	double[] legendary();
-
-	/**
-	 * Logs this {@link Reforge} to {@link HypixelSkyBlockMod#LOGGER}.<br>
-	 */
-	default void log() {
-		try {
-			HypixelSkyBlockMod.LOGGER
-					.info(this.getClass().getMethod("name", (Class<?>[]) null).invoke(this) + " reforge.");
-			HypixelSkyBlockMod.LOGGER.info("Common:\t  " + Arrays.toString(this.common()));
-			HypixelSkyBlockMod.LOGGER.info("Uncommon: " + Arrays.toString(this.uncommon()));
-			HypixelSkyBlockMod.LOGGER.info("Rare:\t  " + Arrays.toString(this.rare()));
-			HypixelSkyBlockMod.LOGGER.info("Epic:\t  " + Arrays.toString(this.epic()));
-			HypixelSkyBlockMod.LOGGER.info("Legendary:" + Arrays.toString(this.legendary()));
-		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException e) {
-			for (final StackTraceElement element : e.getStackTrace())
-				HypixelSkyBlockMod.LOGGER.error(element);
-		}
-	}
 
 	/**
 	 * @return nonunique {@link Reforge} stored in {@link Enum}.

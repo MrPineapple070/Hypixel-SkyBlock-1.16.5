@@ -6,7 +6,9 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import net.hypixel.skyblock.HypixelSkyBlockMod;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.hypixel.skyblock.blocks.minion.MinionChestBlock;
 import net.hypixel.skyblock.blocks.minion.MinionChestBlock.MinionChestType;
 import net.hypixel.skyblock.inventory.container.minion.MinionChestContainer.LargeMCC;
@@ -52,6 +54,8 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 @OnlyIn(value = Dist.CLIENT, _interface = IChestLid.class)
 public abstract class AbstractMinionChestTileEntity extends LockableLootTileEntity
 		implements IChestLid, ITickableTileEntity {
+	protected static final Logger LOGGER = LogManager.getLogger();
+	
 	public static class SmallMCTE extends AbstractMinionChestTileEntity {
 		public SmallMCTE() {
 			super(ModTileEntityTypes.small_mcte.get(), MinionChestType.Small);
@@ -131,7 +135,7 @@ public abstract class AbstractMinionChestTileEntity extends LockableLootTileEnti
 
 	@Override
 	public void clearCache() {
-		HypixelSkyBlockMod.LOGGER.info("Clearing Cache.");
+		LOGGER.info("Clearing Cache.");
 		super.clearCache();
 		if (this.chestHandler != null) {
 			this.chestHandler.invalidate();
@@ -231,8 +235,8 @@ public abstract class AbstractMinionChestTileEntity extends LockableLootTileEnti
 
 	@Override
 	public void load(BlockState state, CompoundNBT compound) {
-		HypixelSkyBlockMod.LOGGER.info("AbstractMinionChestTileEntity Reading");
-		HypixelSkyBlockMod.LOGGER.info("CompoundNBT:\t" + compound.toString());
+		LOGGER.info("AbstractMinionChestTileEntity Reading");
+		LOGGER.info("CompoundNBT:\t" + compound.toString());
 		super.load(state, compound);
 		this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
 		if (!this.trySaveLootTable(compound))
@@ -276,13 +280,13 @@ public abstract class AbstractMinionChestTileEntity extends LockableLootTileEnti
 
 	@Override
 	public ItemStack removeItemNoUpdate(int index) {
-		HypixelSkyBlockMod.LOGGER.info("Remove stack form slot " + index);
+		LOGGER.info("Remove stack form slot " + index);
 		return ItemStackHelper.takeItem(this.items, index);
 	}
 
 	@Override
 	public CompoundNBT save(CompoundNBT compound) {
-		HypixelSkyBlockMod.LOGGER.info("Saving:\t" + compound.toString());
+		LOGGER.info("Saving:\t" + compound.toString());
 		super.save(compound);
 		if (!this.trySaveLootTable(compound))
 			ItemStackHelper.saveAllItems(compound, this.items);
@@ -291,7 +295,7 @@ public abstract class AbstractMinionChestTileEntity extends LockableLootTileEnti
 
 	@Override
 	public void setItem(int index, ItemStack stack) {
-		HypixelSkyBlockMod.LOGGER.info("Setting slot " + index + " to " + stack.toString());
+		LOGGER.info("Setting slot " + index + " to " + stack.toString());
 		final ItemStack indexStack = this.items.get(index);
 		final boolean flag = !stack.isEmpty() && stack.sameItem(indexStack) && ItemStack.tagMatches(stack, indexStack);
 		this.items.set(index, stack);
@@ -341,7 +345,7 @@ public abstract class AbstractMinionChestTileEntity extends LockableLootTileEnti
 
 	@Override
 	public boolean triggerEvent(int id, int MinionChestType) {
-		HypixelSkyBlockMod.LOGGER.info("Triggering event " + id + " of chest type " + MinionChestType);
+		LOGGER.info("Triggering event " + id + " of chest type " + MinionChestType);
 		if (id == 1) {
 			this.numPlayersUsing = MinionChestType;
 			return true;

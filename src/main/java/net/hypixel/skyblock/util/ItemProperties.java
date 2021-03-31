@@ -34,13 +34,13 @@ public final class ItemProperties {
 	 * {@link #combat} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties combat_1 = combat.stacksTo(1);
+	public static final Properties combat_1 = new Properties().tab(CombatGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #combat} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties combat_64 = combat.stacksTo(64);
+	public static final Properties combat_64 = new Properties().tab(CombatGroup.instance).fireResistant().stacksTo(64);
 	
 	/**
 	 * {@link Properties} for {@link Item}<br>
@@ -53,13 +53,13 @@ public final class ItemProperties {
 	 * {@link #dungeon} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties dungeon_1 = dungeon.stacksTo(1);
+	public static final Properties dungeon_1 = new Properties().tab(DungeonGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #dungeon} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties dungeon_64 = dungeon.stacksTo(64);
+	public static final Properties dungeon_64 = new Properties().tab(DungeonGroup.instance).fireResistant().stacksTo(64);
 	
 	/**
 	 * {@link Properties} for {@link Item}<br>
@@ -72,13 +72,13 @@ public final class ItemProperties {
 	 * {@link #farm} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties farm_1 = new Properties().stacksTo(0x01).tab(FarmingGroup.instance);
+	public static final Properties farm_1 = new Properties().tab(FarmingGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #farm} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties farm_64 = new Properties().stacksTo(0x40).tab(FarmingGroup.instance);
+	public static final Properties farm_64 = new Properties().tab(FarmingGroup.instance).fireResistant().stacksTo(64);
 	
 	/**
 	 * {@link Properties} for {@link Item}<br>
@@ -91,13 +91,13 @@ public final class ItemProperties {
 	 * {@link #foraging} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties foraging_1 = foraging.stacksTo(1);
+	public static final Properties foraging_1 = new Properties().tab(ForagingGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #foraging} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties foraging_64 = foraging.stacksTo(64);
+	public static final Properties foraging_64 = new Properties().tab(ForagingGroup.instance).fireResistant().stacksTo(64);
 	
 	/**
 	 * {@link Properties} for {@link Item}<br>
@@ -110,13 +110,13 @@ public final class ItemProperties {
 	 * {@link #fish} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties fish_1 = fish.stacksTo(1);
+	public static final Properties fish_1 = new Properties().tab(FishingGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #fish} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties fish_64 = fish.stacksTo(0x40);
+	public static final Properties fish_64 = new Properties().tab(FishingGroup.instance).fireResistant().stacksTo(64);
 	
 	/**
 	 * {@link Properties} for {@link Item}<br>
@@ -129,13 +129,13 @@ public final class ItemProperties {
 	 * {@link #mine} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties mine_1 = mine.stacksTo(1);
+	public static final Properties mine_1 = new Properties().tab(MiningGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #mine} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties mine_64 = mine.stacksTo(64);
+	public static final Properties mine_64 = new Properties().tab(MiningGroup.instance).fireResistant().stacksTo(64);
 	
 	/**
 	 * {@link Properties} for the {@link Item}<br>
@@ -148,13 +148,13 @@ public final class ItemProperties {
 	 * {@link #minion} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties minion_1 = minion.stacksTo(1);
+	public static final Properties minion_1 = new Properties().tab(MinionGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #minion} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties minion_64 = minion.stacksTo(64);
+	public static final Properties minion_64 = new Properties().tab(MinionGroup.instance).fireResistant().stacksTo(64);
 	
 	/**
 	 * {@link Properties} for the {@link Item}<br>
@@ -167,11 +167,11 @@ public final class ItemProperties {
 	 * {@link #miscellaneous} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties miscellaneous_1 = miscellaneous.stacksTo(1);
+	public static final Properties miscellaneous_1 = new Properties().tab(MiscellaneousGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #miscellaneous} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties miscellaneous_64 = miscellaneous.stacksTo(64);
+	public static final Properties miscellaneous_64 = new Properties().tab(MiscellaneousGroup.instance).fireResistant().stacksTo(64);
 }

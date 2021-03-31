@@ -11,7 +11,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 
 /**
@@ -39,6 +41,15 @@ public final class ListUtil {
 				ingredients.add(ingredient);
 		}
 		return ingredients;
+	}
+	
+	public static final NonNullList<ItemStack> readItemStacks(JsonArray json_array) {
+		Objects.requireNonNull(json_array, "JsonArray cannot be null");
+		HypixelSkyBlockMod.LOGGER.debug("JsonArray:\t" + json_array.toString());
+		NonNullList<ItemStack> stacks = NonNullList.create();
+		for (JsonElement json : json_array)
+			stacks.add(new ItemStack(JSONUtils.convertToItem(json, "item"), JSONUtils.convertToInt(json, "count")));
+		return stacks;
 	}
 
 	/**

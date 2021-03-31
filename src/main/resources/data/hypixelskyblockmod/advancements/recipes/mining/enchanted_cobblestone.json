@@ -1,0 +1,32 @@
+{
+	"parent": "hypixelskyblockmod:recipes/root",
+	"rewards": {
+		"recipes": [
+			"hypixelskyblockmod:enchanted_cobblestone"
+		]
+	},
+	"criteria": {
+    	"has_cobble": {
+    		"trigger": "minecraft:inventory_changed",
+    		"conditions": {
+    			"items": [
+    				{
+						"item": "minecraft:cobblestone"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "hypixelskyblockmod:enchanted_cobblestone"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_cobble",
+			"has_the_recipe"
+		]
+	]
+}

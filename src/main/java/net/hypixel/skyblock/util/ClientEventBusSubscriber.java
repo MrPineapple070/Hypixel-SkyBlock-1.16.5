@@ -2,12 +2,15 @@ package net.hypixel.skyblock.util;
 
 import java.lang.reflect.Field;
 
+import javax.annotation.concurrent.Immutable;
+
 import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.hypixel.skyblock.blocks.init.MinionBlockInit;
 import net.hypixel.skyblock.client.gui.screen.AbstractMinionScreen;
 import net.hypixel.skyblock.client.gui.screen.MinionChestScreen.LargeMCS;
 import net.hypixel.skyblock.client.gui.screen.MinionChestScreen.MediumMCS;
 import net.hypixel.skyblock.client.gui.screen.MinionChestScreen.SmallMCS;
+import net.hypixel.skyblock.client.gui.screen.ModAnvilScreen;
 import net.hypixel.skyblock.client.render.entity.VillageNPCRender;
 import net.hypixel.skyblock.entity.ModEntityTypes;
 import net.hypixel.skyblock.inventory.container.init.MinionContainerTypes;
@@ -39,10 +42,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
  * @since 11 June 2019
  */
 @Mod.EventBusSubscriber(modid = HypixelSkyBlockMod.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
-public class ClientEventBusSubscriber {
+@Immutable
+public final class ClientEventBusSubscriber {
 	@SuppressWarnings("unchecked")
 	@SubscribeEvent
-	public static void clientSetup(FMLClientSetupEvent event) {
+	public static final void clientSetup(FMLClientSetupEvent event) {
 		for (Field field : MinionContainerTypes.class.getDeclaredFields())
 			if (field.getType() == RegistryObject.class)
 				try {
@@ -57,6 +61,7 @@ public class ClientEventBusSubscriber {
 		ScreenManager.register(ModContainerTypes.small_mcc.get(), SmallMCS::new);
 		ScreenManager.register(ModContainerTypes.medium_mcc.get(), MediumMCS::new);
 		ScreenManager.register(ModContainerTypes.large_mcc.get(), LargeMCS::new);
+		ScreenManager.register(ModContainerTypes.anvil.get(), ModAnvilScreen::new);
 		
 		for (RegistryObject<Block> obj : MinionBlockInit.minionBlocks.getEntries())
 			RenderTypeLookup.setRenderLayer(obj.get(), RenderType.translucent());

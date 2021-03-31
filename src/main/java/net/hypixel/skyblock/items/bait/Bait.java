@@ -19,9 +19,6 @@ import net.minecraft.world.World;
  * @since 2 July 2019
  */
 public abstract class Bait extends Item {
-	/**
-	 * Construct this.
-	 */
 	protected Bait() {
 		super(ItemProperties.fish_64);
 	}

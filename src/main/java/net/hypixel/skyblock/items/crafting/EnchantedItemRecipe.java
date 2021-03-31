@@ -1,29 +1,24 @@
 package net.hypixel.skyblock.items.crafting;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
-import it.unimi.dsi.fastutil.ints.IntList;
 import net.hypixel.skyblock.items.enchanted_items.EnchantedItem;
-import net.hypixel.skyblock.util.ListUtil;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.RecipeItemHelper;
-import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.RecipeMatcher;
+import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 /**
@@ -40,38 +35,32 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 	 * {@link EnchantedItemRecipe}
 	 */
 	public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
-			implements IRecipeSerializer<EnchantedItemRecipe> {
+	implements IRecipeSerializer<EnchantedItemRecipe> {
 		@Override
 		public EnchantedItemRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-			final String group = JSONUtils.getAsString(json, "group", "");
-			final NonNullList<Ingredient> ingredients = ListUtil
-					.readIngredients(JSONUtils.getAsJsonArray(json, "ingredients"));
-			if (ingredients.isEmpty())
+			String group = JSONUtils.getAsString(json, "group", "");
+			ItemStack stack = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "input"), true);
+			if (stack.isEmpty())
 				throw new JsonParseException("No ingredients for recipe");
-			else if (ingredients.size() > 9)
-				throw new JsonParseException("Too many ingredients for recipe the max is " + 9);
-			else
-				return new EnchantedItemRecipe(recipeId, group, ingredients,
-						ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(json, "result")));
+			return new EnchantedItemRecipe(recipeId, group, stack,
+					CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "output"), true));
 		}
 
 		@Override
 		public EnchantedItemRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
-			final NonNullList<Ingredient> ingredients = NonNullList.withSize(buffer.readVarInt(), Ingredient.EMPTY);
-			for (int j = 0; j < ingredients.size(); ++j)
-				ingredients.set(j, Ingredient.fromNetwork(buffer));
-			return new EnchantedItemRecipe(recipeId, buffer.readUtf(0x7FFF), ingredients, buffer.readItem());
+			return new EnchantedItemRecipe(recipeId, buffer.readUtf(0x7FFF), buffer.readItem(), buffer.readItem());
 		}
 
 		@Override
 		public void toNetwork(PacketBuffer buffer, EnchantedItemRecipe recipe) {
 			buffer.writeUtf(recipe.group);
-			buffer.writeVarInt(recipe.inputs.size());
-			for (final Ingredient ingredient : recipe.inputs)
-				ingredient.toNetwork(buffer);
+			buffer.writeItem(recipe.input);
 			buffer.writeItem(recipe.output);
 		}
 	}
+
+	@Nonnull
+	protected static final Logger LOGGER = LogManager.getLogger();
 
 	/**
 	 * Group name that this is in.
@@ -86,15 +75,10 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 	private final ResourceLocation id;
 
 	/**
-	 * Input {@link Ingredient} for this {@link IEnchantedItemRecipe}.
+	 * Input {@link ItemStack} for this {@link IEnchantedItemRecipe}.
 	 */
 	@Nonnull
-	private final NonNullList<Ingredient> inputs;
-
-	/**
-	 * Determine if this is simple
-	 */
-	private final boolean isSimple;
+	private final ItemStack input;
 
 	/**
 	 * Output {@link ItemStack} for this {@link IEnchantedItemRecipe}
@@ -102,18 +86,20 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 	@Nonnull
 	private final ItemStack output;
 
-	public EnchantedItemRecipe(@Nonnull ResourceLocation id, @Nonnull String group,
-			@Nonnull NonNullList<Ingredient> inputs, @Nonnull ItemStack output) {
+	public EnchantedItemRecipe(ResourceLocation id, String group, ItemStack input, ItemStack output) {
 		this.id = Objects.requireNonNull(id, "ID ResourceLocation cannot be null");
-		this.group = group;
-		this.inputs = inputs;
-		this.output = output;
-		this.isSimple = this.inputs.stream().allMatch(Ingredient::isSimple);
+		this.group = Objects.requireNonNull(group, "Group cannot be null");
+		this.input = Objects.requireNonNull(input, "Inputs cannot be null");
+		this.output = Objects.requireNonNull(output, "Output cannot be null");
+		if (!this.group.isEmpty())
+			LOGGER.debug("Group:\t" + this.group);
+		LOGGER.debug("Input:\t" + this.input.toString());
+		LOGGER.debug("Output:\t" + this.output.toString());
 	}
 
 	@Override
-	public ItemStack assemble(CraftingInventory p_77572_1_) {
-		return this.output.copy();
+	public ItemStack assemble(CraftingInventory inv) {
+		return this.output;
 	}
 
 	@Override
@@ -127,8 +113,8 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 	}
 
 	@Override
-	public NonNullList<Ingredient> getIngredients() {
-		return this.inputs;
+	public ItemStack getInput() {
+		return this.input;
 	}
 
 	@Override
@@ -142,21 +128,16 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 	}
 
 	@Override
-	public boolean matches(CraftingInventory inv, World worldIn) {
-		final RecipeItemHelper recipeitemhelper = new RecipeItemHelper();
-		final List<ItemStack> inputs = new ArrayList<>();
+	public boolean matches(CraftingInventory inv, World world) {
 		int size = 0;
 		for (int j = 0; j < inv.getContainerSize(); ++j) {
-			final ItemStack itemstack = inv.getItem(j);
-			if (!itemstack.isEmpty()) {
-				++size;
-				if (this.isSimple)
-					recipeitemhelper.accountStack(itemstack, 1);
-				else
-					inputs.add(itemstack);
-			}
+			final ItemStack stack = inv.getItem(j);
+			if (stack.isEmpty())
+				continue;
+			LOGGER.debug(stack.toString());
+			if (this.input.sameItem(stack))
+				size += this.input.getCount() >= stack.getCount() ? 1 : 0;
 		}
-		return size == this.inputs.size() && (this.isSimple ? recipeitemhelper.canCraft(this, (IntList) null)
-				: RecipeMatcher.findMatches(inputs, this.inputs) != null);
+		return size == 5;
 	}
 }
