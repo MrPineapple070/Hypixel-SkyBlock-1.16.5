@@ -1,14 +1,19 @@
 package net.hypixel.skyblock.tileentity.minion;
 
+import net.hypixel.skyblock.inventory.container.minion.BlazeMinionContainer;
+import net.hypixel.skyblock.items.init.ItemInit;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
 
-public class BlazeMinionTileEntity extends AbstractMinionTileEntity {
+public class BlazeMinionTileEntity extends AbstractSummonerMTE {
+	protected static int[] speed = {33, 33, 31, 31, 28, 28, 25, 25, 21, 21, 16};
+	
 	public static class BlazeMTE1 extends BlazeMinionTileEntity {
 		public BlazeMTE1() {
 			super(ModTileEntityTypes.blaze_minion_1.get(), MinionTier.I);
@@ -75,28 +80,18 @@ public class BlazeMinionTileEntity extends AbstractMinionTileEntity {
 		}
 	}
 
-	public BlazeMinionTileEntity(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier) {
-		super(typeIn, tier);
+	public BlazeMinionTileEntity(TileEntityType<? extends AbstractSummonerMTE> typeIn, MinionTier tier) {
+		super(typeIn, tier, EntityType.BLAZE);
 	}
 
 	@Override
 	protected Container createMenu(int id, PlayerInventory player) {
-		return null;
-	}
-
-	@Override
-	protected Item[] getCompactor() {
-		return null;
+		return new BlazeMinionContainer(id, player, this);
 	}
 
 	@Override
 	protected Item[] getSuperCompactor() {
-		return null;
-	}
-
-	@Override
-	protected BlockPos[][][] initSurround() {
-		return null;
+		return new Item[] {Items.DIAMOND, Items.DIAMOND_BLOCK, ItemInit.enchanted_diamond.get(), Items.BLAZE_ROD};
 	}
 
 	@Override
@@ -105,24 +100,7 @@ public class BlazeMinionTileEntity extends AbstractMinionTileEntity {
 	}
 
 	@Override
-	protected BlockPos pickBlockPos() {
-		return null;
-	}
-
-	@Override
-	protected void setSurround() {
-	}
-
-	@Override
-	protected void setValidSurround() {
-	}
-
-	@Override
-	public void tick() {
-	}
-
-	@Override
 	protected int getSpeed(MinionTier tier) {
-		return 0;
+		return speed[tier.asInt];
 	}
 }

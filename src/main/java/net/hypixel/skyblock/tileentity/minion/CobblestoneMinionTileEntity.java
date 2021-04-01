@@ -5,17 +5,7 @@ import java.util.Arrays;
 import com.google.common.collect.ImmutableSet;
 
 import net.hypixel.skyblock.blocks.minion.CobblestoneMinion;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMC1;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMC2;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMC3;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMC4;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMC5;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMC6;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMC7;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMC8;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMC9;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMCa;
-import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer.CobbleMCb;
+import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer;
 import net.hypixel.skyblock.items.init.ItemInit;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
 import net.minecraft.block.Block;
@@ -123,37 +113,12 @@ public abstract class CobblestoneMinionTileEntity extends AbstractMiningMTE {
 
 	@Override
 	protected final Container createMenu(int id, PlayerInventory player) {
-		switch (this.tier) {
-		case I:
-			return new CobbleMC1(id, player, this);
-		case II:
-			return new CobbleMC2(id, player, this);
-		case III:
-			return new CobbleMC3(id, player, this);
-		case IV:
-			return new CobbleMC4(id, player, this);
-		case V:
-			return new CobbleMC5(id, player, this);
-		case VI:
-			return new CobbleMC6(id, player, this);
-		case VII:
-			return new CobbleMC7(id, player, this);
-		case VIII:
-			return new CobbleMC8(id, player, this);
-		case IX:
-			return new CobbleMC9(id, player, this);
-		case X:
-			return new CobbleMCa(id, player, this);
-		case XI:
-			return new CobbleMCb(id, player, this);
-		default:
-			throw new IllegalStateException("Illegal Minion Tier:\t" + this.tier.name());
-		}
+		return new CobblestoneMinionContainer(id, player, this);
 	}
 
 	@Override
 	protected final Item[] getCompactor() {
-		return new Item[] { Items.DIAMOND };
+		return COMP;
 	}
 
 	@Override

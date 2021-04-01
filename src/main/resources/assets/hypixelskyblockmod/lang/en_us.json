@@ -27,6 +27,7 @@
 	"item.hypixelskyblockmod.enchanted_glowstone_dust": "Enchanted Glowstone Dust",
 	"item.hypixelskyblockmod.enchanted_flint": "Enchanted Flint",
 	"item.hypixelskyblockmod.magical_water_bucket": "Magical Water Bucket",
+	"item.hypixelskyblockmod.hyper_catalyst": "Hyper Catalyst",
 	
 	"item.hypixelskyblockmod.bait_ring": "Bait Ring",
 	"item.hypixelskyblockmod.bat_artifact": "Bat Artifact",
@@ -2079,7 +2080,7 @@
 	"stat.ability_damage": "✹ Ability Damage",
 	"stat.breaking_power": "⛏ Breaking Power",
 	"stat.crit_chance": "☣ Crit Chance",
-	"stat.crit_damage": "☠  Crit Damage",
+	"stat.crit_damage": "☠ Crit Damage",
 	"stat.defense": "❈ Defense",
 	"stat.farming_fortune": "☘ Farming Fortune",
 	"stat.ferocity": "⫽ Ferocity",

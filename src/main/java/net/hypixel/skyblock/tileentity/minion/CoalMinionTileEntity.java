@@ -4,17 +4,7 @@ import java.util.Arrays;
 
 import com.google.common.collect.ImmutableSet;
 
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC1;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC2;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC3;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC4;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC5;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC6;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC7;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC8;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC9;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMCa;
-import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMCb;
+import net.hypixel.skyblock.inventory.container.minion.CobblestoneMinionContainer;
 import net.hypixel.skyblock.items.init.ItemInit;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
 import net.minecraft.block.Block;
@@ -103,9 +93,10 @@ public class CoalMinionTileEntity extends AbstractMiningMTE {
 	private static final ImmutableSet<Block> validBlocks = ImmutableSet
 			.copyOf(Arrays.asList(Blocks.AIR, Blocks.COAL_ORE));
 
-	private static final Item[] comp = new Item[] { Items.COAL, Items.DIAMOND };
-	private static final Item[] sup = new Item[] { Items.COAL, Items.COAL_BLOCK, Items.DIAMOND, Items.DIAMOND_BLOCK,
+	protected static final Item[] comp = new Item[] { Items.COAL, Items.DIAMOND };
+	protected static final Item[] sup = new Item[] { Items.COAL, Items.COAL_BLOCK, Items.DIAMOND, Items.DIAMOND_BLOCK,
 			ItemInit.enchanted_coal.get(), ItemInit.enchanted_diamond.get() };
+	protected static final int[] speed = {};
 
 	protected CoalMinionTileEntity(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier) {
 		super(typeIn, tier);
@@ -113,32 +104,7 @@ public class CoalMinionTileEntity extends AbstractMiningMTE {
 
 	@Override
 	protected Container createMenu(int id, PlayerInventory player) {
-		switch (this.tier) {
-		case I:
-			return new CoalMC1(id, player, this);
-		case II:
-			return new CoalMC2(id, player, this);
-		case III:
-			return new CoalMC3(id, player, this);
-		case IV:
-			return new CoalMC4(id, player, this);
-		case V:
-			return new CoalMC5(id, player, this);
-		case VI:
-			return new CoalMC6(id, player, this);
-		case VII:
-			return new CoalMC7(id, player, this);
-		case VIII:
-			return new CoalMC8(id, player, this);
-		case IX:
-			return new CoalMC9(id, player, this);
-		case X:
-			return new CoalMCa(id, player, this);
-		case XI:
-			return new CoalMCb(id, player, this);
-		default:
-			throw new IllegalStateException("Illegal Minion Tier:\t" + this.tier.name());
-		}
+		return new CobblestoneMinionContainer(id, player, this);
 	}
 
 	@Override
@@ -158,7 +124,7 @@ public class CoalMinionTileEntity extends AbstractMiningMTE {
 
 	@Override
 	protected int getSpeed(MinionTier tier) {
-		return 0;
+		return speed[tier.asInt];
 	}
 
 	@Override

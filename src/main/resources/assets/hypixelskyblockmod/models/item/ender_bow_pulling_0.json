@@ -1,5 +1,5 @@
 {
-    "parent": "hypixelskyblockmod:item/ender_bow",
+    "parent": "item/generated",
     "textures": {
         "0": "hypixelskyblockmod:items/ender_bow_pulling_0"
     }

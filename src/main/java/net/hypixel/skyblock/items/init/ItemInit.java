@@ -54,7 +54,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> enchanted_acacia = items.register("enchanted_acacia",
 			() -> new EnchantedItem(ItemProperties.foraging_64));
 	public static final RegistryObject<Item> enchanted_bread = items.register("enchanted_bread",
-			() -> new Item(ItemProperties.farm_64));
+			() -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_charcoal = items.register("enchanted_charcoal",
 			() -> new EnchantedFuelItem(ItemProperties.mine_64, 2592000, .8));
 	public static final RegistryObject<Item> enchanted_coal = items.register("enchanted_coal",
@@ -68,7 +68,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> enchanted_diamond_block = items.register("enchanted_diamond_block",
 			() -> new EnchantedItem(ItemProperties.mine_64));
 	public static final RegistryObject<Item> enchanted_egg = items.register("enchanted_egg",
-			() -> new Item(ItemProperties.farm_64));
+			() -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_emerald = items.register("enchanted_emerald",
 			() -> new EnchantedItem(ItemProperties.mine_64));
 	public static final RegistryObject<Item> enchanted_emerald_block = items.register("enchanted_emerald_block",

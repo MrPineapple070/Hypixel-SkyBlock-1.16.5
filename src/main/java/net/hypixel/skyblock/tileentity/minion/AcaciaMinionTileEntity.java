@@ -5,6 +5,7 @@ import java.util.Arrays;
 import com.google.common.collect.ImmutableSet;
 
 import net.hypixel.skyblock.blocks.minion.AcaciaMinion;
+import net.hypixel.skyblock.inventory.container.minion.AcaciaMinionContainer;
 import net.hypixel.skyblock.items.init.ItemInit;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
 import net.minecraft.block.Block;
@@ -97,7 +98,7 @@ public class AcaciaMinionTileEntity extends AbstractForagingMTE {
 
 	@Override
 	protected Container createMenu(int id, PlayerInventory player) {
-		return null;
+		return new AcaciaMinionContainer(id, player, this);
 	}
 
 	@Override

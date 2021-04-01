@@ -6,7 +6,6 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.ImmutableSet;
 
-import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.hypixel.skyblock.items.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -87,7 +86,7 @@ public abstract class AbstractPlacerMTE extends AbstractMinionTileEntity {
 	protected boolean interact(BlockPos pos) {
 		if (pos == null)
 			return false;
-		HypixelSkyBlockMod.LOGGER.info("Interacting with " + pos.toString());
+		LOGGER.info("Interacting with " + pos.toString());
 		final BlockState state = this.level.getBlockState(pos);
 		if (state.getMaterial() == Material.AIR) {
 			this.level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), this.getSoundEventPlacing(),
@@ -125,8 +124,8 @@ public abstract class AbstractPlacerMTE extends AbstractMinionTileEntity {
 	 * 
 	 * @return a random {@link BlockPos}
 	 */
-	protected final BlockPos pickBlockPos() {
-		HypixelSkyBlockMod.LOGGER.info("Picking a BlockPos");
+	protected BlockPos pickBlockPos() {
+		LOGGER.info("Picking a BlockPos");
 		this.setValidSurround();
 		this.setAirSurround();
 		if (!this.airSurround.isEmpty())
@@ -144,7 +143,7 @@ public abstract class AbstractPlacerMTE extends AbstractMinionTileEntity {
 			this.init();
 		if (this.isCompletlyFull())
 			return;
-		this.tick = ++this.tick % (int) (getSpeed(this.tier) * this.getFuelSpeed());
+		this.tick = ++this.tick % (int) (this.getSpeed(this.tier) * this.getFuelSpeed());
 		if (this.tick == 0)
 			this.interact(this.pickBlockPos());
 	}

@@ -1,36 +1,21 @@
 package net.hypixel.skyblock.tileentity.minion;
 
+import java.util.Arrays;
+
 import com.google.common.collect.ImmutableSet;
 
-import net.hypixel.skyblock.HypixelSkyBlockMod;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMC1;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMC2;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMC3;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMC4;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMC5;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMC6;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMC7;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMC8;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMC9;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMCa;
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer.WheatMCb;
+import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer;
 import net.hypixel.skyblock.items.init.ItemInit;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.world.server.ServerWorld;
 
 /**
  * The {@link AbstractMinionTileEntity} for the
@@ -41,7 +26,7 @@ import net.minecraft.world.server.ServerWorld;
  * @version 11 July 2019
  * @since 11 July 2019
  */
-public class WheatMinionTileEntity extends AbstractPlacerMTE {
+public class WheatMinionTileEntity extends AbstractFarmingPlacerMTE {
 	public static class WheatMTE1 extends WheatMinionTileEntity {
 		public WheatMTE1() {
 			super(ModTileEntityTypes.wheat_minion_1.get(), MinionTier.I);
@@ -107,6 +92,10 @@ public class WheatMinionTileEntity extends AbstractPlacerMTE {
 			super(ModTileEntityTypes.wheat_minion_b.get(), MinionTier.XI);
 		}
 	}
+	
+	protected static final ImmutableSet<Block> valid = ImmutableSet.copyOf(Arrays.asList(Blocks.WHEAT));
+	
+	protected static final int[] speed = {15, 15, 13, 13, 11, 11, 10, 10, 9, 9, 8};
 
 	public WheatMinionTileEntity(TileEntityType<? extends WheatMinionTileEntity> typeIn, MinionTier tier) {
 		super(typeIn, tier);
@@ -114,32 +103,7 @@ public class WheatMinionTileEntity extends AbstractPlacerMTE {
 
 	@Override
 	protected Container createMenu(int id, PlayerInventory player) {
-		switch (this.tier) {
-		case I:
-			return new WheatMC1(id, player, this);
-		case II:
-			return new WheatMC2(id, player, this);
-		case III:
-			return new WheatMC3(id, player, this);
-		case IV:
-			return new WheatMC4(id, player, this);
-		case V:
-			return new WheatMC5(id, player, this);
-		case VI:
-			return new WheatMC6(id, player, this);
-		case VII:
-			return new WheatMC7(id, player, this);
-		case VIII:
-			return new WheatMC8(id, player, this);
-		case IX:
-			return new WheatMC9(id, player, this);
-		case X:
-			return new WheatMCa(id, player, this);
-		case XI:
-			return new WheatMCb(id, player, this);
-		default:
-			throw new IllegalStateException("Illegal Minion MinionTier " + this.tier.name());
-		}
+		return new WheatMinionContainer(id, player, this);
 	}
 
 	@Override
@@ -149,7 +113,7 @@ public class WheatMinionTileEntity extends AbstractPlacerMTE {
 
 	@Override
 	protected int getSpeed(MinionTier tier) {
-		return 0;
+		return speed[tier.asInt];
 	}
 
 	@Override
@@ -165,81 +129,11 @@ public class WheatMinionTileEntity extends AbstractPlacerMTE {
 
 	@Override
 	protected ImmutableSet<Block> getValidBlocks() {
-		return null;
+		return valid;
 	}
 
 	@Override
 	protected StringTextComponent initDisplayName() {
 		return new StringTextComponent("Wheat Minion Tier " + this.tier.name());
-	}
-
-	@Override
-	protected BlockPos[][][] initSurround() {
-		return new BlockPos[1][7][7];
-	}
-
-	@Override
-	protected boolean interact(BlockPos pos) {
-		if (pos == null)
-			return false;
-		HypixelSkyBlockMod.LOGGER.info("Interacting with " + pos.toString());
-		final BlockState state = this.level.getBlockState(pos);
-		if (state.getMaterial() == Material.AIR) {
-			this.level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), this.getSoundEventPlacing(),
-					SoundCategory.BLOCKS, 1f, 1f, true);
-			this.level.setBlockAndUpdate(pos, Blocks.WHEAT.defaultBlockState());
-		} else {
-			this.addItemStacks(Block.getDrops(state, (ServerWorld) this.level, pos, this));
-			this.level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), this.getSoundEventBreaking(),
-					SoundCategory.BLOCKS, 1f, 1f, true);
-			this.level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
-		}
-		return true;
-	}
-
-	@Override
-	protected void setAirSurround() {
-		HypixelSkyBlockMod.LOGGER.info("Gathering air BlockPos.");
-		this.airSurround.clear();
-		for (BlockPos pos : this.validSurround) {
-			final BlockPos up = pos.above();
-			if (this.level.getBlockState(up).getMaterial() == Material.AIR)
-				this.airSurround.add(pos);
-		}
-	}
-
-	@Override
-	protected void setSurround() {
-		HypixelSkyBlockMod.LOGGER.info("Gathering Surrounding BlockPos.");
-		final int[] dx = this.hasUpgrade(ItemInit.minion_expander.get()) ? expanded_size : default_size;
-
-		for (int i = 0; i < this.surround[0].length; i++)
-			for (int j = 0; j < this.surround[0][i].length; j++)
-				this.surround[0][i][j] = dx[i] == 0 && dx[j] == 0 ? null
-						: new BlockPos(this.x + dx[j], this.y - 1, this.z + dx[i]);
-	}
-
-	@Override
-	protected void setValidSurround() {
-		HypixelSkyBlockMod.LOGGER.info("Gathering Surrounding BlockPos.");
-		final boolean hasExpander = this.hasUpgrade(ItemInit.minion_expander.get());
-		final int[] dx = hasExpander ? expanded_size : default_size;
-		final int iStart = hasExpander ? 1 : 0, iEnd = hasExpander ? this.surround.length : this.surround.length - 1;
-		final int jStart = hasExpander ? 1 : 0, jEnd = hasExpander ? this.surround.length : this.surround.length - 1;
-
-		for (int i = iStart; i < iEnd; i++)
-			for (int j = jStart; j < jEnd; j++)
-				this.surround[0][i][j] = dx[i] == 0 && dx[j] == 0 ? null
-						: new BlockPos(this.x + dx[j], this.y - 1, this.z + dx[i]);
-	}
-
-	@Override
-	protected SoundEvent getSoundEventPlacing() {
-		return SoundEvents.CROP_PLANTED;
-	}
-
-	@Override
-	protected SoundEvent getSoundEventBreaking() {
-		return SoundEvents.CROP_BREAK;
 	}
 }

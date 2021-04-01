@@ -25,7 +25,7 @@ import net.minecraft.util.IWorldPosCallable;
  * @author MrPineapple070
  * @version 3 July 2020
  */
-public abstract class AbstractMinionContainer extends Container {
+public class AbstractMinionContainer extends Container {
 	/**
 	 * Retrieves a {@link AbstractMinionTileEntity} located at a position read from
 	 * {@link PacketBuffer}.
@@ -73,7 +73,7 @@ public abstract class AbstractMinionContainer extends Container {
 	 * @param pInvIn     the {@link PlayerInventory}.
 	 * @param tileEntity the {@link TileEntity} for {@code this}.
 	 */
-	protected AbstractMinionContainer(ContainerType<? extends AbstractMinionContainer> type, int windowId,
+	public AbstractMinionContainer(ContainerType<? extends AbstractMinionContainer> type, int windowId,
 			PlayerInventory pInvIn, AbstractMinionTileEntity tileEntity) {
 		super(type, windowId);
 		this.minion = tileEntity;
@@ -107,22 +107,24 @@ public abstract class AbstractMinionContainer extends Container {
 			this.addSlot(new Slot(pInvIn, column, 8 + column * 18, 160));
 	}
 
-	protected AbstractMinionContainer(ContainerType<? extends AbstractMinionContainer> type, int windowId,
+	public AbstractMinionContainer(ContainerType<? extends AbstractMinionContainer> type, int windowId,
 			PlayerInventory pInvIn, PacketBuffer data) {
 		this(type, windowId, pInvIn, getTileEntity(pInvIn, data));
 	}
 
 	@Override
-	public abstract boolean stillValid(PlayerEntity playerIn);
+	public final boolean stillValid(PlayerEntity playerIn) {
+		return true;
+	}
 
 	@Override
-	public void removed(PlayerEntity playerIn) {
+	public final void removed(PlayerEntity playerIn) {
 		super.removed(playerIn);
 		this.inventory.stillValid(playerIn);
 	}
 
 	@Override
-	public ItemStack quickMoveStack(PlayerEntity playerIn, int index) {
+	public final ItemStack quickMoveStack(PlayerEntity playerIn, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		final Slot slot = this.slots.get(index);
 		if (slot != null && slot.hasItem()) {
