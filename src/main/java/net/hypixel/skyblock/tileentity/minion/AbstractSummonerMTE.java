@@ -72,7 +72,7 @@ public abstract class AbstractSummonerMTE extends AbstractMinionTileEntity {
 		else {
 			LivingEntity killed = (LivingEntity) this.summoned.poll();
 			LootTable table = killed.level.getServer().getLootTables().get(killed.getLootTable());
-			LootContext.Builder builder = (new LootContext.Builder((ServerWorld) this.level))
+			LootContext.Builder builder = new LootContext.Builder((ServerWorld) this.level)
 					.withRandom(killed.getRandom()).withParameter(LootParameters.THIS_ENTITY, killed)
 					.withParameter(LootParameters.ORIGIN, killed.position())
 					.withParameter(LootParameters.DAMAGE_SOURCE, DamageSource.GENERIC);
