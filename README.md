@@ -10,11 +10,11 @@ Also visit the unofficial Wiki here:
 
 ## Read the License
 [![GitHub](https://img.shields.io/badge/license-APGL--3-red)](./LICENSE.md)  
-[![GitHub](https://img.shields.io/badge/forge%20license-APGL--3-red)](./FORGE_LICENSE.md)
+[![GitHub](https://img.shields.io/badge/forge%20license-APGL--3-red)](./Forge%20Documents/FORGE_LICENSE.md)
 
 ## Credits
 [![GitHub](https://img.shields.io/badge/-Credits-green)](./CREDITS.md)  
-[![GitHub](https://img.shields.io/badge/-Forge%20Credits-green)](./FORGE_CREDITS.md)
+[![GitHub](https://img.shields.io/badge/-Forge%20Credits-green)](./Forge%20Documents/FORGE_CREDITS.md)
 
 ## Read the Documentation
 [![Read the Docs](https://img.shields.io/badge/-Documentation-blue)](https://mrpineapple070.github.io/Hypixel-SkyBlock-1.16.4/doc/)
