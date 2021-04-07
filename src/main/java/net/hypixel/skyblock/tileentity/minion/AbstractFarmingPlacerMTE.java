@@ -2,6 +2,7 @@ package net.hypixel.skyblock.tileentity.minion;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -32,9 +33,12 @@ public abstract class AbstractFarmingPlacerMTE extends AbstractPlacerMTE {
 		 */
 		Normal;
 	}
-
-	public AbstractFarmingPlacerMTE(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier) {
+	
+	protected final PlacingMethods method;
+	
+	public AbstractFarmingPlacerMTE(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier, PlacingMethods method) {
 		super(typeIn, tier);
+		this.method = Objects.requireNonNull(method, "PlacingMethod cannot be null");
 	}
 
 	@Override

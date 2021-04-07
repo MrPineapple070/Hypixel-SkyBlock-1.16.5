@@ -5,7 +5,6 @@ import java.lang.reflect.Field;
 import javax.annotation.concurrent.Immutable;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
-import net.hypixel.skyblock.blocks.init.MinionBlockInit;
 import net.hypixel.skyblock.client.gui.screen.AbstractMinionScreen;
 import net.hypixel.skyblock.client.gui.screen.MinionChestScreen.LargeMCS;
 import net.hypixel.skyblock.client.gui.screen.MinionChestScreen.MediumMCS;
@@ -17,10 +16,7 @@ import net.hypixel.skyblock.inventory.container.init.MinionContainerTypes;
 import net.hypixel.skyblock.inventory.container.init.ModContainerTypes;
 import net.hypixel.skyblock.inventory.container.minion.AbstractMinionContainer;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
-import net.minecraft.block.Block;
 import net.minecraft.client.gui.ScreenManager;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.tileentity.ChestTileEntityRenderer;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -63,8 +59,8 @@ public final class ClientEventBusSubscriber {
 		ScreenManager.register(ModContainerTypes.large_mcc.get(), LargeMCS::new);
 		ScreenManager.register(ModContainerTypes.anvil.get(), ModAnvilScreen::new);
 		
-		for (RegistryObject<Block> obj : MinionBlockInit.minionBlocks.getEntries())
-			RenderTypeLookup.setRenderLayer(obj.get(), RenderType.translucent());
+		//for (RegistryObject<Block> obj : MinionBlockInit.minionBlocks.getEntries())
+		//	RenderTypeLookup.setRenderLayer(obj.get(), RenderType.translucentNoCrumbling());
 
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.small_mcte.get(), ChestTileEntityRenderer::new);
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.medium_mcte.get(), ChestTileEntityRenderer::new);

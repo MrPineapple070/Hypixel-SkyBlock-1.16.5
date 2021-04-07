@@ -16,7 +16,6 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.text.StringTextComponent;
 
 /**
@@ -28,87 +27,18 @@ import net.minecraft.util.text.StringTextComponent;
  * @version 11 June 2019
  * @since 11 June 2019
  */
-public abstract class CobblestoneMinionTileEntity extends AbstractMiningMTE {
-	public static class CobbleMTE1 extends CobblestoneMinionTileEntity {
-		public CobbleMTE1() {
-			super(ModTileEntityTypes.cobblestone_minion_1.get(), MinionTier.I);
-		}
-	}
-
-	public static class CobbleMTE2 extends CobblestoneMinionTileEntity {
-		public CobbleMTE2() {
-			super(ModTileEntityTypes.cobblestone_minion_2.get(), MinionTier.II);
-		}
-	}
-
-	public static class CobbleMTE3 extends CobblestoneMinionTileEntity {
-		public CobbleMTE3() {
-			super(ModTileEntityTypes.cobblestone_minion_3.get(), MinionTier.III);
-		}
-	}
-
-	public static class CobbleMTE4 extends CobblestoneMinionTileEntity {
-		public CobbleMTE4() {
-			super(ModTileEntityTypes.cobblestone_minion_4.get(), MinionTier.IV);
-		}
-	}
-
-	public static class CobbleMTE5 extends CobblestoneMinionTileEntity {
-		public CobbleMTE5() {
-			super(ModTileEntityTypes.cobblestone_minion_5.get(), MinionTier.V);
-		}
-	}
-
-	public static class CobbleMTE6 extends CobblestoneMinionTileEntity {
-		public CobbleMTE6() {
-			super(ModTileEntityTypes.cobblestone_minion_6.get(), MinionTier.VI);
-		}
-	}
-
-	public static class CobbleMTE7 extends CobblestoneMinionTileEntity {
-		public CobbleMTE7() {
-			super(ModTileEntityTypes.cobblestone_minion_7.get(), MinionTier.VII);
-		}
-	}
-
-	public static class CobbleMTE8 extends CobblestoneMinionTileEntity {
-		public CobbleMTE8() {
-			super(ModTileEntityTypes.cobblestone_minion_8.get(), MinionTier.VIII);
-		}
-	}
-
-	public static class CobbleMTE9 extends CobblestoneMinionTileEntity {
-		public CobbleMTE9() {
-			super(ModTileEntityTypes.cobblestone_minion_9.get(), MinionTier.IX);
-		}
-	}
-
-	public static class CobbleMTEa extends CobblestoneMinionTileEntity {
-		public CobbleMTEa() {
-			super(ModTileEntityTypes.cobblestone_minion_a.get(), MinionTier.X);
-		}
-	}
-
-	public static class CobbleMTEb extends CobblestoneMinionTileEntity {
-		public CobbleMTEb() {
-			super(ModTileEntityTypes.cobblestone_minion_b.get(), MinionTier.XI);
-		}
-	}
-
+public class CobblestoneMinionTileEntity extends AbstractMiningMTE {
 	/**
 	 * {@link ImmutableSet} of {@link Block} that this places.
 	 */
-	protected static final ImmutableSet<Block> validBlocks = ImmutableSet
-			.copyOf(Arrays.asList(Blocks.AIR, Blocks.COBBLESTONE));
+	protected static final ImmutableSet<Block> valid = ImmutableSet.copyOf(Arrays.asList(Blocks.COBBLESTONE));
 
-	/**
-	 * Constructs {@code this}
-	 *
-	 * @param typeIn {@link TileEntityType}
-	 * @param tier   {@link MinionTier}
-	 */
-	protected CobblestoneMinionTileEntity(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier) {
-		super(typeIn, tier);
+	public CobblestoneMinionTileEntity(MinionTier tier) {
+		super(ModTileEntityTypes.cobblestone_minion.get(), tier);
+	}
+
+	public CobblestoneMinionTileEntity() {
+		this(MinionTier.I);
 	}
 
 	@Override
@@ -141,6 +71,6 @@ public abstract class CobblestoneMinionTileEntity extends AbstractMiningMTE {
 	}
 
 	public final ImmutableSet<Block> getValidBlocks() {
-		return validBlocks;
+		return valid;
 	}
 }

@@ -8,80 +8,17 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.text.StringTextComponent;
 
 public class BlazeMinionTileEntity extends AbstractSummonerMTE {
 	protected static int[] speed = {33, 33, 31, 31, 28, 28, 25, 25, 21, 21, 16};
 	
-	public static class BlazeMTE1 extends BlazeMinionTileEntity {
-		public BlazeMTE1() {
-			super(ModTileEntityTypes.blaze_minion_1.get(), MinionTier.I);
-		}
+	public BlazeMinionTileEntity(MinionTier tier) {
+		super(ModTileEntityTypes.blaze_minion_1.get(), tier, EntityType.BLAZE);
 	}
-
-	public static class BlazeMTE2 extends BlazeMinionTileEntity {
-		public BlazeMTE2() {
-			super(ModTileEntityTypes.blaze_minion_2.get(), MinionTier.II);
-		}
-	}
-
-	public static class BlazeMTE3 extends BlazeMinionTileEntity {
-		public BlazeMTE3() {
-			super(ModTileEntityTypes.blaze_minion_3.get(), MinionTier.III);
-		}
-	}
-
-	public static class BlazeMTE4 extends BlazeMinionTileEntity {
-		public BlazeMTE4() {
-			super(ModTileEntityTypes.blaze_minion_4.get(), MinionTier.IV);
-		}
-	}
-
-	public static class BlazeMTE5 extends BlazeMinionTileEntity {
-		public BlazeMTE5() {
-			super(ModTileEntityTypes.blaze_minion_5.get(), MinionTier.V);
-		}
-	}
-
-	public static class BlazeMTE6 extends BlazeMinionTileEntity {
-		public BlazeMTE6() {
-			super(ModTileEntityTypes.blaze_minion_6.get(), MinionTier.VI);
-		}
-	}
-
-	public static class BlazeMTE7 extends BlazeMinionTileEntity {
-		public BlazeMTE7() {
-			super(ModTileEntityTypes.blaze_minion_7.get(), MinionTier.VII);
-		}
-	}
-
-	public static class BlazeMTE8 extends BlazeMinionTileEntity {
-		public BlazeMTE8() {
-			super(ModTileEntityTypes.blaze_minion_8.get(), MinionTier.VIII);
-		}
-	}
-
-	public static class BlazeMTE9 extends BlazeMinionTileEntity {
-		public BlazeMTE9() {
-			super(ModTileEntityTypes.blaze_minion_9.get(), MinionTier.IX);
-		}
-	}
-
-	public static class BlazeMTEa extends BlazeMinionTileEntity {
-		public BlazeMTEa() {
-			super(ModTileEntityTypes.blaze_minion_a.get(), MinionTier.X);
-		}
-	}
-
-	public static class BlazeMTEb extends BlazeMinionTileEntity {
-		public BlazeMTEb() {
-			super(ModTileEntityTypes.blaze_minion_b.get(), MinionTier.XI);
-		}
-	}
-
-	public BlazeMinionTileEntity(TileEntityType<? extends AbstractSummonerMTE> typeIn, MinionTier tier) {
-		super(typeIn, tier, EntityType.BLAZE);
+	
+	public BlazeMinionTileEntity() {
+		this(MinionTier.I);
 	}
 
 	@Override

@@ -247,10 +247,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 			int i;
 			while (true) {
 				i = stack.getCount();
-				if (slotIn == -1)
-					stack.setCount(this.storePartialItemStack(stack));
-				else
-					stack.setCount(this.addResource(slotIn, stack));
+				stack.setCount(slotIn == -1 ? this.storePartialItemStack(stack) : this.addResource(slotIn, stack));
 				if (stack.isEmpty() || stack.getCount() >= i)
 					break;
 			}

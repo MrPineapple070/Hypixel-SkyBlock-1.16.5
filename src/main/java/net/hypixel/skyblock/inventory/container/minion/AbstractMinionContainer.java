@@ -4,6 +4,9 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.hypixel.skyblock.tileentity.minion.AbstractMinionTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -26,26 +29,8 @@ import net.minecraft.util.IWorldPosCallable;
  * @version 3 July 2020
  */
 public class AbstractMinionContainer extends Container {
-	/**
-	 * Retrieves a {@link AbstractMinionTileEntity} located at a position read from
-	 * {@link PacketBuffer}.
-	 *
-	 * @param <T>             a sub-class of {@link AbstractMinionTileEntity}
-	 * @param playerInventory {@link PlayerInventory} of player interacting with the
-	 *                        tile entity.
-	 * @param data            {@link PacketBuffer} to read from.
-	 * @return {@link AbstractMinionTileEntity} read from {@link PacketBuffer}.
-	 */
-	@SuppressWarnings("unchecked")
-	protected static <T extends AbstractMinionTileEntity> T getTileEntity(final PlayerInventory playerInventory,
-			final PacketBuffer data) {
-		Objects.requireNonNull(playerInventory, "playerInventory cannot be null");
-		Objects.requireNonNull(data, "data cannot be null");
-		final TileEntity tileAtPos = playerInventory.player.level.getBlockEntity(data.readBlockPos());
-		if (tileAtPos instanceof AbstractMinionTileEntity)
-			return (T) tileAtPos;
-		throw new IllegalStateException("Tile entity is not correct! " + tileAtPos.toString());
-	}
+	@Nonnull
+	protected static final Logger LOGGER = LogManager.getLogger();
 
 	/**
 	 * The {@link IWorldPosCallable} of this.
@@ -76,10 +61,11 @@ public class AbstractMinionContainer extends Container {
 	public AbstractMinionContainer(ContainerType<? extends AbstractMinionContainer> type, int windowId,
 			PlayerInventory pInvIn, AbstractMinionTileEntity tileEntity) {
 		super(type, windowId);
-		this.minion = tileEntity;
+		this.minion = Objects.requireNonNull(tileEntity, "AbstractMinionTileEntity cannot be null");
 		this.inventory = new Inventory(
 				this.minion.minionContents.toArray(new ItemStack[this.minion.getContainerSize()]));
 		this.canInteractWithCallable = IWorldPosCallable.create(this.minion.getLevel(), this.minion.getBlockPos());
+		LOGGER.debug(this.toString());
 
 		this.addSlot(new FuelSlot(this.minion));
 		this.addSlot(new SellerSlot(this.minion));
@@ -105,11 +91,6 @@ public class AbstractMinionContainer extends Container {
 		// Player HotBar
 		for (int column = 0; column < 9; ++column)
 			this.addSlot(new Slot(pInvIn, column, 8 + column * 18, 160));
-	}
-
-	public AbstractMinionContainer(ContainerType<? extends AbstractMinionContainer> type, int windowId,
-			PlayerInventory pInvIn, PacketBuffer data) {
-		this(type, windowId, pInvIn, getTileEntity(pInvIn, data));
 	}
 
 	@Override

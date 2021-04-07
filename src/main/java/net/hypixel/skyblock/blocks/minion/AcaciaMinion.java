@@ -30,6 +30,11 @@ public class AcaciaMinion extends AbstractMinionBlock {
 
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+		return this.newBlockEntity(world);
+	}
+
+	@Override
+	public TileEntity newBlockEntity(IBlockReader world) {
 		switch (this.tier) {
 		case I:
 			return ModTileEntityTypes.acacia_minion_1.get().create();
@@ -39,27 +44,22 @@ public class AcaciaMinion extends AbstractMinionBlock {
 			return ModTileEntityTypes.acacia_minion_3.get().create();
 		case IV:
 			return ModTileEntityTypes.acacia_minion_4.get().create();
-		case IX:
-			return ModTileEntityTypes.acacia_minion_5.get().create();
 		case V:
-			return ModTileEntityTypes.acacia_minion_6.get().create();
+			return ModTileEntityTypes.acacia_minion_5.get().create();
 		case VI:
-			return ModTileEntityTypes.acacia_minion_7.get().create();
+			return ModTileEntityTypes.acacia_minion_6.get().create();
 		case VII:
-			return ModTileEntityTypes.acacia_minion_8.get().create();
+			return ModTileEntityTypes.acacia_minion_7.get().create();
 		case VIII:
+			return ModTileEntityTypes.acacia_minion_8.get().create();
+		case IX:
 			return ModTileEntityTypes.acacia_minion_9.get().create();
 		case X:
 			return ModTileEntityTypes.acacia_minion_a.get().create();
 		case XI:
 			return ModTileEntityTypes.acacia_minion_b.get().create();
 		default:
-			throw new IllegalStateException("Illegal Minion Tier:\t" + this.tier.name());
+			throw new IllegalStateException("Illegal MinionTier:\t" + this.tier.name());
 		}
-	}
-
-	@Override
-	public TileEntity newBlockEntity(IBlockReader world) {
-		return this.createTileEntity(null, world);
 	}
 }

@@ -14,7 +14,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.text.StringTextComponent;
 
 /**
@@ -27,78 +26,16 @@ import net.minecraft.util.text.StringTextComponent;
  * @since 11 July 2019
  */
 public class WheatMinionTileEntity extends AbstractFarmingPlacerMTE {
-	public static class WheatMTE1 extends WheatMinionTileEntity {
-		public WheatMTE1() {
-			super(ModTileEntityTypes.wheat_minion_1.get(), MinionTier.I);
-		}
-	}
-
-	public static class WheatMTE2 extends WheatMinionTileEntity {
-		public WheatMTE2() {
-			super(ModTileEntityTypes.wheat_minion_2.get(), MinionTier.II);
-		}
-	}
-
-	public static class WheatMTE3 extends WheatMinionTileEntity {
-		public WheatMTE3() {
-			super(ModTileEntityTypes.wheat_minion_3.get(), MinionTier.III);
-		}
-	}
-
-	public static class WheatMTE4 extends WheatMinionTileEntity {
-		public WheatMTE4() {
-			super(ModTileEntityTypes.wheat_minion_4.get(), MinionTier.IV);
-		}
-	}
-
-	public static class WheatMTE5 extends WheatMinionTileEntity {
-		public WheatMTE5() {
-			super(ModTileEntityTypes.wheat_minion_5.get(), MinionTier.V);
-		}
-	}
-
-	public static class WheatMTE6 extends WheatMinionTileEntity {
-		public WheatMTE6() {
-			super(ModTileEntityTypes.wheat_minion_6.get(), MinionTier.VI);
-		}
-	}
-
-	public static class WheatMTE7 extends WheatMinionTileEntity {
-		public WheatMTE7() {
-			super(ModTileEntityTypes.wheat_minion_7.get(), MinionTier.VII);
-		}
-	}
-
-	public static class WheatMTE8 extends WheatMinionTileEntity {
-		public WheatMTE8() {
-			super(ModTileEntityTypes.wheat_minion_8.get(), MinionTier.VIII);
-		}
-	}
-
-	public static class WheatMTE9 extends WheatMinionTileEntity {
-		public WheatMTE9() {
-			super(ModTileEntityTypes.wheat_minion_9.get(), MinionTier.IX);
-		}
-	}
-
-	public static class WheatMTEa extends WheatMinionTileEntity {
-		public WheatMTEa() {
-			super(ModTileEntityTypes.wheat_minion_a.get(), MinionTier.X);
-		}
-	}
-
-	public static class WheatMTEb extends WheatMinionTileEntity {
-		public WheatMTEb() {
-			super(ModTileEntityTypes.wheat_minion_b.get(), MinionTier.XI);
-		}
-	}
-	
 	protected static final ImmutableSet<Block> valid = ImmutableSet.copyOf(Arrays.asList(Blocks.WHEAT));
 	
 	protected static final int[] speed = {15, 15, 13, 13, 11, 11, 10, 10, 9, 9, 8};
 
-	public WheatMinionTileEntity(TileEntityType<? extends WheatMinionTileEntity> typeIn, MinionTier tier) {
-		super(typeIn, tier);
+	public WheatMinionTileEntity(MinionTier tier) {
+		super(ModTileEntityTypes.wheat_minion.get(), tier, PlacingMethods.Normal);
+	}
+	
+	public WheatMinionTileEntity() {
+		this(MinionTier.I);
 	}
 
 	@Override

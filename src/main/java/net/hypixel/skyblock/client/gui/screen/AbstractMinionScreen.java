@@ -25,6 +25,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -114,6 +115,11 @@ public final class AbstractMinionScreen extends ContainerScreen<AbstractMinionCo
 	public static final ResourceLocation background_texture = new ResourceLocation(HypixelSkyBlockMod.MOD_ID,
 			"textures/gui/abstract_minion_screen.png");
 
+	protected static final TranslationTextComponent fuel = new TranslationTextComponent("gui.minion.fuel");
+	protected static final TranslationTextComponent seller = new TranslationTextComponent("gui.minion.seller");
+	protected static final TranslationTextComponent boost_0 = new TranslationTextComponent("gui.minion.boost.0");
+	protected static final TranslationTextComponent boost_1 = new TranslationTextComponent("gui.minion.boost.1");
+
 	/**
 	 * {@link Logger} for this
 	 */
@@ -146,8 +152,10 @@ public final class AbstractMinionScreen extends ContainerScreen<AbstractMinionCo
 		super(screenContainer, inv, titleIn);
 		this.leftPos = 0;
 		this.topPos = 0;
-		this.width = 176;
-		this.height = 184;
+		this.imageHeight = 184;
+		this.imageWidth = 176;
+		this.width = 256;
+		this.height = 256;
 		this.menu.addSlotListener(new IContainerListener() {
 			@Override
 			public void refreshContainer(Container p_71110_1_, NonNullList<ItemStack> p_71110_2_) {
@@ -191,11 +199,12 @@ public final class AbstractMinionScreen extends ContainerScreen<AbstractMinionCo
 
 	@Override
 	protected void renderLabels(MatrixStack stack, int mouseX, int mouseY) {
-		super.renderLabels(stack, mouseX, mouseY);
-		this.font.draw(stack, "Fuel", 8, 19, 0x404040);
-		this.font.draw(stack, "Seller", 8, 37, 0x404040);
-		this.font.draw(stack, "Boost0", 8, 55, 0x404040);
-		this.font.draw(stack, "Boost1", 8, 73, 0x404040);
+		this.font.draw(stack, this.title, 8, 3, 0x404040);
+		this.font.draw(stack, fuel, 8, 19, 0x404040);
+		this.font.draw(stack, seller, 8, 37, 0x404040);
+		this.font.draw(stack, boost_0, 8, 55, 0x404040);
+		this.font.draw(stack, boost_1, 8, 73, 0x404040);
+		this.font.draw(stack, this.inventory.getDisplayName(), 8, 91, 0x404040);
 	}
 
 	@Override

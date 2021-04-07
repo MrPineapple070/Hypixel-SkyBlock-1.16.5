@@ -13,80 +13,57 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.text.StringTextComponent;
 
 public class BirchMinionTileEntity extends AbstractForagingMTE {
-	public static class BirchMTE1 extends BirchMinionTileEntity {
-		public BirchMTE1() {
-			super(ModTileEntityTypes.birch_minion_1.get(), MinionTier.I);
-		}
+	protected static final ImmutableSet<Block> valid = ImmutableSet.copyOf(Arrays.asList(Blocks.BIRCH_LOG));
+	
+	public static final BirchMinionTileEntity tier2() {
+		return new BirchMinionTileEntity(MinionTier.II);
 	}
-
-	public static class BirchMTE2 extends BirchMinionTileEntity {
-		public BirchMTE2() {
-			super(ModTileEntityTypes.birch_minion_2.get(), MinionTier.II);
-		}
+	
+	public static final BirchMinionTileEntity tier3() {
+		return new BirchMinionTileEntity(MinionTier.III);
 	}
-
-	public static class BirchMTE3 extends BirchMinionTileEntity {
-		public BirchMTE3() {
-			super(ModTileEntityTypes.birch_minion_3.get(), MinionTier.III);
-		}
+	
+	public static final BirchMinionTileEntity tier4() {
+		return new BirchMinionTileEntity(MinionTier.IV);
 	}
-
-	public static class BirchMTE4 extends BirchMinionTileEntity {
-		public BirchMTE4() {
-			super(ModTileEntityTypes.birch_minion_4.get(), MinionTier.IV);
-		}
+	
+	public static final BirchMinionTileEntity tier5() {
+		return new BirchMinionTileEntity(MinionTier.V);
 	}
-
-	public static class BirchMTE5 extends BirchMinionTileEntity {
-		public BirchMTE5() {
-			super(ModTileEntityTypes.birch_minion_5.get(), MinionTier.V);
-		}
+	
+	public static final BirchMinionTileEntity tier6() {
+		return new BirchMinionTileEntity(MinionTier.VI);
 	}
-
-	public static class BirchMTE6 extends BirchMinionTileEntity {
-		public BirchMTE6() {
-			super(ModTileEntityTypes.birch_minion_6.get(), MinionTier.VI);
-		}
+	
+	public static final BirchMinionTileEntity tier7() {
+		return new BirchMinionTileEntity(MinionTier.VII);
 	}
-
-	public static class BirchMTE7 extends BirchMinionTileEntity {
-		public BirchMTE7() {
-			super(ModTileEntityTypes.birch_minion_7.get(), MinionTier.VII);
-		}
+	
+	public static final BirchMinionTileEntity tier8() {
+		return new BirchMinionTileEntity(MinionTier.VIII);
 	}
-
-	public static class BirchMTE8 extends BirchMinionTileEntity {
-		public BirchMTE8() {
-			super(ModTileEntityTypes.birch_minion_8.get(), MinionTier.VIII);
-		}
+	
+	public static final BirchMinionTileEntity tier9() {
+		return new BirchMinionTileEntity(MinionTier.IX);
 	}
-
-	public static class BirchMTE9 extends BirchMinionTileEntity {
-		public BirchMTE9() {
-			super(ModTileEntityTypes.birch_minion_9.get(), MinionTier.IX);
-		}
+	
+	public static final BirchMinionTileEntity tiera() {
+		return new BirchMinionTileEntity(MinionTier.X);
 	}
-
-	public static class BirchMTEa extends BirchMinionTileEntity {
-		public BirchMTEa() {
-			super(ModTileEntityTypes.birch_minion_a.get(), MinionTier.X);
-		}
+	
+	public static final BirchMinionTileEntity tierb() {
+		return new BirchMinionTileEntity(MinionTier.XII);
 	}
-
-	public static class BirchMTEb extends BirchMinionTileEntity {
-		public BirchMTEb() {
-			super(ModTileEntityTypes.birch_minion_b.get(), MinionTier.XI);
-		}
+	
+	public BirchMinionTileEntity(MinionTier tier) {
+		super(ModTileEntityTypes.birch_minion.get(), tier);
 	}
-
-	protected static final ImmutableSet<Block> validBlocks = ImmutableSet.copyOf(Arrays.asList(Blocks.BIRCH_LOG));
-
-	public BirchMinionTileEntity(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier) {
-		super(typeIn, tier);
+	
+	public BirchMinionTileEntity() {
+		this(MinionTier.I);
 	}
 
 	@Override
@@ -111,7 +88,7 @@ public class BirchMinionTileEntity extends AbstractForagingMTE {
 
 	@Override
 	protected ImmutableSet<Block> getValidBlocks() {
-		return validBlocks;
+		return valid;
 	}
 
 	@Override
