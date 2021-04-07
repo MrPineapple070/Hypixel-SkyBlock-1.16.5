@@ -16,7 +16,6 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
 
@@ -26,9 +25,13 @@ import net.minecraft.util.IWorldPosCallable;
  * description of Minions.</a>
  *
  * @author MrPineapple070
- * @version 3 July 2020
+ * @version 11 July 2019
+ * @since 11 July 2019
  */
 public class AbstractMinionContainer extends Container {
+	/**
+	 * {@link Logger} for this.
+	 */
 	@Nonnull
 	protected static final Logger LOGGER = LogManager.getLogger();
 
@@ -36,7 +39,7 @@ public class AbstractMinionContainer extends Container {
 	 * The {@link IWorldPosCallable} of this.
 	 */
 	@Nonnull
-	protected final IWorldPosCallable canInteractWithCallable;
+	protected final IWorldPosCallable access;
 
 	/**
 	 * The {@link IInventory} of this.
@@ -64,7 +67,7 @@ public class AbstractMinionContainer extends Container {
 		this.minion = Objects.requireNonNull(tileEntity, "AbstractMinionTileEntity cannot be null");
 		this.inventory = new Inventory(
 				this.minion.minionContents.toArray(new ItemStack[this.minion.getContainerSize()]));
-		this.canInteractWithCallable = IWorldPosCallable.create(this.minion.getLevel(), this.minion.getBlockPos());
+		this.access = IWorldPosCallable.create(this.minion.getLevel(), this.minion.getBlockPos());
 		LOGGER.debug(this.toString());
 
 		this.addSlot(new FuelSlot(this.minion));
