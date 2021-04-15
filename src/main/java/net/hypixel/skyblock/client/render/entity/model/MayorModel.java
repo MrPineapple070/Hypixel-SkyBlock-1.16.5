@@ -57,12 +57,14 @@ public class MayorModel extends EntityModel<Entity> {
 	}
 
 	@Override
-	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-		//previously the render function, render code was moved to a method below
+	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
+			float headPitch) {
+		// previously the render function, render code was moved to a method below
 	}
 
 	@Override
-	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay,
+			float red, float green, float blue, float alpha) {
 		Head.render(matrixStack, buffer, packedLight, packedOverlay);
 		Body.render(matrixStack, buffer, packedLight, packedOverlay);
 		RightArm.render(matrixStack, buffer, packedLight, packedOverlay);

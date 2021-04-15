@@ -143,7 +143,8 @@ public class WeaponInit {
 	public static final RegistryObject<BowItem> explosive_bow = weapon.register("explosive_bow", ExplosiveBow::new);
 	public static final RegistryObject<BowItem> hurricane_bow = weapon.register("hurricane_bow", HurricaneBow::new);
 	public static final RegistryObject<BowItem> last_breath = weapon.register("last_breath", LastBreath::new);
-	public static final RegistryObject<BowItem> machine_gun_bow = weapon.register("machine_gun_bow", MachineGunBow::new);
+	public static final RegistryObject<BowItem> machine_gun_bow = weapon.register("machine_gun_bow",
+			MachineGunBow::new);
 	public static final RegistryObject<BowItem> magma_bow = weapon.register("magma_bow", MagmaBow::new);
 	public static final RegistryObject<BowItem> mosquito_bow = weapon.register("mosquito_bow", MosquitoBow::new);
 	public static final RegistryObject<BowItem> prismarine_bow = weapon.register("prismarine_bow", PrismarineBow::new);
@@ -153,10 +154,13 @@ public class WeaponInit {
 	public static final RegistryObject<BowItem> slime_bow = weapon.register("slime_bow", SlimeBow::new);
 	public static final RegistryObject<BowItem> sniper_bow = weapon.register("sniper_bow", SniperBow::new);
 	public static final RegistryObject<BowItem> souls_rebound = weapon.register("souls_rebound", SoulsRebound::new);
-	public static final RegistryObject<BowItem> soulstealer_bow = weapon.register("soulstealer_bow", SoulstealerBow::new);
-	public static final RegistryObject<BowItem> spider_queen_stinger = weapon.register("spider_queen_stinger", SpiderQueenStinger::new);
+	public static final RegistryObject<BowItem> soulstealer_bow = weapon.register("soulstealer_bow",
+			SoulstealerBow::new);
+	public static final RegistryObject<BowItem> spider_queen_stinger = weapon.register("spider_queen_stinger",
+			SpiderQueenStinger::new);
 	public static final RegistryObject<BowItem> spirit_bow = weapon.register("spirit_bow", SpiritBow::new);
-	public static final RegistryObject<BowItem> super_undead_bow = weapon.register("super_undead_bow", SuperUndeadBow::new);
+	public static final RegistryObject<BowItem> super_undead_bow = weapon.register("super_undead_bow",
+			SuperUndeadBow::new);
 	public static final RegistryObject<BowItem> undead_bow = weapon.register("undead_bow", UndeadBow::new);
 	public static final RegistryObject<BowItem> venom_touch = weapon.register("venom_touch", VenomTouch::new);
 	public static final RegistryObject<BowItem> wither_bow = weapon.register("wither_bow", WitherBow::new);

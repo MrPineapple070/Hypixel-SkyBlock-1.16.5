@@ -13,7 +13,8 @@ import net.minecraft.world.World;
 
 public class SnowHelmet extends ModArmorItem {
 	public SnowHelmet() {
-		super(SnowSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.miscellaneous_1, SnowSet.instance.getRarity());
+		super(SnowSet.instance.getMaterial(), EquipmentSlotType.HEAD, ItemProperties.miscellaneous_1,
+				SnowSet.instance.getRarity());
 	}
 
 	@Override

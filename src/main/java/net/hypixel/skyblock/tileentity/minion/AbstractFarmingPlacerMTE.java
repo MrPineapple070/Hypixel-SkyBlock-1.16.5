@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
+import javax.annotation.Nonnull;
+
 import com.google.common.collect.ImmutableMap;
 
 import net.minecraft.block.Block;
@@ -33,10 +35,12 @@ public abstract class AbstractFarmingPlacerMTE extends AbstractPlacerMTE {
 		 */
 		Normal;
 	}
-	
+
+	@Nonnull
 	protected final PlacingMethods method;
-	
-	public AbstractFarmingPlacerMTE(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier, PlacingMethods method) {
+
+	public AbstractFarmingPlacerMTE(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier,
+			PlacingMethods method) {
 		super(typeIn, tier);
 		this.method = Objects.requireNonNull(method, "PlacingMethod cannot be null");
 	}
@@ -62,11 +66,14 @@ public abstract class AbstractFarmingPlacerMTE extends AbstractPlacerMTE {
 		int s, e;
 		switch (this.countExpander()) {
 		default:
-			s = 2; e = 7;
+			s = 2;
+			e = 7;
 		case 1:
-			s = 1; e = 8;
+			s = 1;
+			e = 8;
 		case 2:
-			s = 0; e = 9;
+			s = 0;
+			e = 9;
 		}
 		for (int x = s; x < e; ++x)
 			for (int z = s; z < e; ++z) {
@@ -80,7 +87,7 @@ public abstract class AbstractFarmingPlacerMTE extends AbstractPlacerMTE {
 			}
 		LOGGER.debug(this.validSurround.toString());
 	}
-	
+
 	@Override
 	protected boolean interact(BlockPos pos) {
 		if (pos == null)
@@ -99,7 +106,7 @@ public abstract class AbstractFarmingPlacerMTE extends AbstractPlacerMTE {
 		}
 		return true;
 	}
-	
+
 	@Override
 	protected SoundEvent getSoundEventPlacing() {
 		return SoundEvents.CROP_PLANTED;

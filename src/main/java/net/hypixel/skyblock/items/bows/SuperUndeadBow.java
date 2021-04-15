@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class SuperUndeadBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.super_undead");
-	
+
 	public SuperUndeadBow() {
 		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}

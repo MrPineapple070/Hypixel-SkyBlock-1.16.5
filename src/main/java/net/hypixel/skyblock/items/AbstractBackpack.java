@@ -42,37 +42,37 @@ public abstract class AbstractBackpack extends Item {
 			this.size = size;
 		}
 	}
-	
+
 	public static class GreaterBackpack extends AbstractBackpack {
 		public GreaterBackpack(DyeColor color) {
 			super(BackpackType.Greater, color);
 		}
 	}
-	
+
 	public static class JumboBackpack extends AbstractBackpack {
 		public JumboBackpack(DyeColor color) {
 			super(BackpackType.Greater, color);
 		}
 	}
-	
+
 	public static class LargeBackpack extends AbstractBackpack {
 		public LargeBackpack(DyeColor color) {
 			super(BackpackType.Large, color);
 		}
 	}
-	
+
 	public static class MediumBackpack extends AbstractBackpack {
 		public MediumBackpack(DyeColor color) {
 			super(BackpackType.Medium, color);
 		}
 	}
-	
+
 	public static class SmallBackpack extends AbstractBackpack {
 		public SmallBackpack(DyeColor color) {
 			super(BackpackType.Small, color);
 		}
 	}
-	
+
 	public static final List<RegistryObject<Item>> black = Arrays.asList(BackpackInit.black_small_backpack,
 			BackpackInit.black_medium_backpack, BackpackInit.black_large_backpack, BackpackInit.black_greater_backpack,
 			BackpackInit.black_jumbo_backpack);
@@ -124,11 +124,11 @@ public abstract class AbstractBackpack extends Item {
 	public static final List<RegistryObject<Item>> yellow = Arrays.asList(BackpackInit.yellow_small_backpack,
 			BackpackInit.yellow_medium_backpack, BackpackInit.yellow_large_backpack,
 			BackpackInit.yellow_greater_backpack, BackpackInit.yellow_jumbo_backpack);
-	
+
 	public static ItemStack getBackpackStack(BackpackType type, DyeColor color) {
 		return new ItemStack(getBackpack(type, color));
 	}
-	
+
 	public static Item getBackpack(BackpackType type, DyeColor color) {
 		int size;
 		switch (type) {
@@ -282,7 +282,7 @@ public abstract class AbstractBackpack extends Item {
 	public int getSizeInventory() {
 		return this.type.size;
 	}
-	
+
 	public BackpackType getType() {
 		return this.type;
 	}

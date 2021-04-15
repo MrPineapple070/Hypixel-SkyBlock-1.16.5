@@ -28,6 +28,31 @@ public class BirchMinion extends AbstractMinionBlock {
 
 	@Override
 	public TileEntity newBlockEntity(IBlockReader world) {
-		return ModTileEntityTypes.birch_minion.get().create();
+		switch (this.tier) {
+		case I:
+			return ModTileEntityTypes.birch_minion_1.get().create();
+		case II:
+			return ModTileEntityTypes.birch_minion_2.get().create();
+		case III:
+			return ModTileEntityTypes.birch_minion_3.get().create();
+		case IV:
+			return ModTileEntityTypes.birch_minion_4.get().create();
+		case IX:
+			return ModTileEntityTypes.birch_minion_5.get().create();
+		case V:
+			return ModTileEntityTypes.birch_minion_6.get().create();
+		case VI:
+			return ModTileEntityTypes.birch_minion_7.get().create();
+		case VII:
+			return ModTileEntityTypes.birch_minion_8.get().create();
+		case VIII:
+			return ModTileEntityTypes.birch_minion_9.get().create();
+		case X:
+			return ModTileEntityTypes.birch_minion_a.get().create();
+		case XI:
+			return ModTileEntityTypes.birch_minion_b.get().create();
+		default:
+			throw new IllegalStateException("Illegal MinionTier:\t" + this.tier.name());
+		}
 	}
 }

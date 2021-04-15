@@ -16,7 +16,8 @@ import net.minecraft.world.World;
 public class ScorpionBow extends ModBowItem {
 	private static final List<ITextComponent> info = Arrays.asList(
 			item_ability.copy().append(new TranslationTextComponent("bow.scorpion")).withStyle(TextFormatting.GOLD),
-			new TranslationTextComponent("bow.scorpion.0"), new TranslationTextComponent("bow.scorpion.1", StatString.intelligence),
+			new TranslationTextComponent("bow.scorpion.0"),
+			new TranslationTextComponent("bow.scorpion.1", StatString.intelligence),
 			new TranslationTextComponent("bow.scorpion.2"));
 
 	public ScorpionBow() {

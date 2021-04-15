@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 
 public class SpiritBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.spirit");
+
 	public SpiritBow() {
 		super(ItemProperties.combat_1, ModItemRarity.Legendary);
 	}

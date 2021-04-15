@@ -13,7 +13,8 @@ import net.minecraft.world.World;
 
 public class PackLeggings extends ModArmorItem {
 	public PackLeggings() {
-		super(PackSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1, PackSet.instance.getRarity());
+		super(PackSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.combat_1,
+				PackSet.instance.getRarity());
 	}
 
 	@Override

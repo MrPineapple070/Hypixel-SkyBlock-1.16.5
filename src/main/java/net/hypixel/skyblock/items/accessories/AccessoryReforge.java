@@ -112,8 +112,8 @@ public enum AccessoryReforge implements Reforge {
 	private static final AccessoryReforge[] unique;
 
 	static {
-		nonunique = new AccessoryReforge[] { Bizarre, Demonic, Forceful, Godly, Hurtful, Itchy, Keen, Ominous,
-				Pleasant, Pretty, Shiny, Simple, Strange, Strong, Superior, Unpleasant, Vivid };
+		nonunique = new AccessoryReforge[] { Bizarre, Demonic, Forceful, Godly, Hurtful, Itchy, Keen, Ominous, Pleasant,
+				Pretty, Shiny, Simple, Strange, Strong, Superior, Unpleasant, Vivid };
 		unique = new AccessoryReforge[] { Bloody, Shaded, Silky };
 	}
 

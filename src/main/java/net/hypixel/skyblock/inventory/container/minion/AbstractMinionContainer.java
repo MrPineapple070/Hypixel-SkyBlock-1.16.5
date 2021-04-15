@@ -68,7 +68,7 @@ public class AbstractMinionContainer extends Container {
 		this.inventory = new Inventory(
 				this.minion.minionContents.toArray(new ItemStack[this.minion.getContainerSize()]));
 		this.access = IWorldPosCallable.create(this.minion.getLevel(), this.minion.getBlockPos());
-		LOGGER.debug(this.toString());
+		LOGGER.debug(this.getType().getRegistryName().toString());
 
 		this.addSlot(new FuelSlot(this.minion));
 		this.addSlot(new SellerSlot(this.minion));

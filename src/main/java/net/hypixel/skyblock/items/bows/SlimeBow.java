@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class SlimeBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.slime");
-	
+
 	public SlimeBow() {
 		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}

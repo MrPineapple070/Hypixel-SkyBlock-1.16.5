@@ -15,13 +15,13 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 public abstract class MayorEntityRender extends EntityRenderer<MayorEntity> {
 	protected static final Logger LOGGER = LogManager.getLogger();
 	protected final MayorModel model = new MayorModel();
-	
+
 	public MayorEntityRender(EntityRendererManager manager) {
 		super(manager);
 		LOGGER.info("MoyorEntityRender created");
 		this.shadowRadius = .8f;
 	}
-	
+
 	@Override
 	public void render(MayorEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn,
 			IRenderTypeBuffer bufferIn, int packedLightIn) {

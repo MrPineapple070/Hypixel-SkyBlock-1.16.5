@@ -20,13 +20,14 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
  * @since 11 October 2020
  */
 public interface IEnchantmentRecipe extends ICraftingRecipe {
-	public static final ResourceLocation recipe_type_id = new ResourceLocation(HypixelSkyBlockMod.MOD_ID, "enchantment");
-	
+	public static final ResourceLocation recipe_type_id = new ResourceLocation(HypixelSkyBlockMod.MOD_ID,
+			"enchantment");
+
 	@Override
 	default boolean canCraftInDimensions(int width, int height) {
 		return true;
 	}
-	
+
 	@Nonnull
 	NonNullList<ItemStack> getInputs();
 }

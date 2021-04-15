@@ -35,7 +35,7 @@ import net.minecraft.world.World;
  */
 public abstract class Accessory extends Item implements ReforgableItem, UpgradableItem {
 	protected static final Logger LOGGER = LogManager.getLogger();
-	
+
 	/**
 	 * The {@link ModItemRarity} of this.
 	 */

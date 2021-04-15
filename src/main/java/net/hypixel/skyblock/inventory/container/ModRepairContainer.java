@@ -108,10 +108,10 @@ public class ModRepairContainer extends Container {
 		this.player = Objects.requireNonNull(inventory, "PlayerInventory cannot be null").player;
 		this.addSlot(new Slot(inputSlots, 0, 0, 0));
 		this.addSlot(new GUISlot(close, 4, 0, 0, MenuItemInit.close.get()));
-		for(int i = 0; i < 3; ++i)
-			for(int j = 0; j < 9; ++j)
+		for (int i = 0; i < 3; ++i)
+			for (int j = 0; j < 9; ++j)
 				this.addSlot(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-		for(int k = 0; k < 9; ++k)
+		for (int k = 0; k < 9; ++k)
 			this.addSlot(new Slot(inventory, k, 8 + k * 18, 142));
 		LOGGER.debug(this.getType().toString());
 	}
@@ -170,7 +170,8 @@ public class ModRepairContainer extends Container {
 				if (left_copy.isDamageableItem() && !isBook) {
 					int left_damage = left.getMaxDamage() - left.getDamageValue();
 					int right_damage = right.getMaxDamage() - right.getDamageValue();
-					int damage = left_copy.getMaxDamage() - (left_damage + right_damage + left_copy.getMaxDamage() * 12 / 100);
+					int damage = left_copy.getMaxDamage()
+							- (left_damage + right_damage + left_copy.getMaxDamage() * 12 / 100);
 					if (damage < 0)
 						damage = 0;
 

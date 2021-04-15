@@ -28,7 +28,7 @@ public interface IEnchantedItemRecipe extends ICraftingRecipe {
 	default boolean canCraftInDimensions(int width, int height) {
 		return width * height < 10;
 	}
-	
+
 	@Nonnull
 	ItemStack getInput();
 }

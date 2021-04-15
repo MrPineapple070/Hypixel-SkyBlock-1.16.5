@@ -75,7 +75,8 @@ public final class PetLevelRequirement {
 			return rare;
 		case Epic:
 			return epic;
-		case Legendary: case Mythic:
+		case Legendary:
+		case Mythic:
 			return legendary;
 		default:
 			throw new IllegalStateException("Illegal ModItemRarity " + rarity.name());

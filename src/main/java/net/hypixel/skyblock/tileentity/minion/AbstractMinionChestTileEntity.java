@@ -55,7 +55,7 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 public abstract class AbstractMinionChestTileEntity extends LockableLootTileEntity
 		implements IChestLid, ITickableTileEntity {
 	protected static final Logger LOGGER = LogManager.getLogger();
-	
+
 	public static class SmallMCTE extends AbstractMinionChestTileEntity {
 		public SmallMCTE() {
 			super(ModTileEntityTypes.small_mcte.get(), MinionChestType.Small);

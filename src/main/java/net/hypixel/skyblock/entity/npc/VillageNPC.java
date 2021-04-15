@@ -28,7 +28,7 @@ public abstract class VillageNPC extends AbstractVillagerEntity implements INPC 
 		this.setSilent(true);
 		this.setCustomNameVisible(true);
 	}
-	
+
 	@Override
 	protected abstract ActionResultType mobInteract(PlayerEntity player, Hand hand);
 
@@ -41,7 +41,7 @@ public abstract class VillageNPC extends AbstractVillagerEntity implements INPC 
 	public void addAdditionalSaveData(CompoundNBT compound) {
 		LOGGER.info("Writing:\t" + compound.toString());
 	}
-	
+
 	@Override
 	protected void rewardTradeXp(MerchantOffer p_213713_1_) {
 	}

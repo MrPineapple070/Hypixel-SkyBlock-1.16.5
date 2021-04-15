@@ -22,10 +22,11 @@ import net.minecraft.world.server.ServerWorld;
 
 public abstract class AbstractSummonerMTE extends AbstractMinionTileEntity {
 	protected final EntityType<? extends Entity> summon;
-	
+
 	protected final Queue<Entity> summoned = new LinkedList<>();
-	
-	public AbstractSummonerMTE(TileEntityType<? extends AbstractSummonerMTE> typeIn, MinionTier tier, EntityType<? extends Entity> summon) {
+
+	public AbstractSummonerMTE(TileEntityType<? extends AbstractSummonerMTE> typeIn, MinionTier tier,
+			EntityType<? extends Entity> summon) {
 		super(typeIn, tier);
 		this.summon = Objects.requireNonNull(summon, "Entity to summon cannot be null");
 	}
@@ -68,7 +69,8 @@ public abstract class AbstractSummonerMTE extends AbstractMinionTileEntity {
 			return;
 		LOGGER.debug(this.summoned.toString());
 		if (this.summoned.isEmpty())
-			this.summoned.offer(summon.spawn((ServerWorld) this.level, null, null, null, this.pickBlockPos(), SpawnReason.TRIGGERED, true, true));
+			this.summoned.offer(summon.spawn((ServerWorld) this.level, null, null, null, this.pickBlockPos(),
+					SpawnReason.TRIGGERED, true, true));
 		else {
 			LivingEntity killed = (LivingEntity) this.summoned.poll();
 			LootTable table = killed.level.getServer().getLootTables().get(killed.getLootTable());

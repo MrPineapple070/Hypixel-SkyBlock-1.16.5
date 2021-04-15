@@ -176,7 +176,7 @@ public abstract class MinionChestBlock extends AbstractChestBlock<AbstractMinion
 			boolean override) {
 		return TileEntityMerger.ICallback::acceptNone;
 	}
-	
+
 	@Override
 	public void createBlockStateDefinition(Builder<Block, BlockState> builder) {
 		builder.add(facing);

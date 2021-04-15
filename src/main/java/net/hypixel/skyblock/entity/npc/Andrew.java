@@ -21,11 +21,11 @@ public class Andrew extends VillageNPC {
 	public static final TranslationTextComponent name = new TranslationTextComponent("npc.andrew");
 	public static final List<TranslationTextComponent> speach = Arrays
 			.asList(new TranslationTextComponent("npc.andrew.0"), new TranslationTextComponent("npc.andrew.1"));
-	
+
 	public Andrew(EntityType<? extends VillageNPC> entityType, World world) {
 		this(world);
 	}
-	
+
 	public Andrew(World worldIn) {
 		super(ModEntityTypes.Andrew.get(), worldIn);
 		this.setPosRaw(38, 68, -46);

@@ -21,8 +21,7 @@ import net.minecraft.world.World;
  */
 public class EnderBow extends ModBowItem {
 	private static final List<ITextComponent> tooltip = Arrays.asList(
-			item_ability.copy().append(new TranslationTextComponent("bow.ender"))
-					.withStyle(TextFormatting.GOLD),
+			item_ability.copy().append(new TranslationTextComponent("bow.ender")).withStyle(TextFormatting.GOLD),
 			new TranslationTextComponent("bow.ender.0", Items.ENDER_PEARL.getName(ItemStack.EMPTY)),
 			new TranslationTextComponent("bow.ender.1", StatString.health));
 

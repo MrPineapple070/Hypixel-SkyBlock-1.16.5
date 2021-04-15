@@ -27,7 +27,7 @@ public class BackpackColorRecipe extends SpecialRecipe {
 			ItemStack itemstack = inv.getItem(k);
 			if (itemstack.isEmpty())
 				continue;
-			
+
 			if (itemstack.getItem() instanceof AbstractBackpack)
 				++i;
 			else {
@@ -57,8 +57,7 @@ public class BackpackColorRecipe extends SpecialRecipe {
 					color = tmp;
 			}
 		}
-		ItemStack output = AbstractBackpack.getBackpackStack(((AbstractBackpack) original.getItem()).getType(),
-				color);
+		ItemStack output = AbstractBackpack.getBackpackStack(((AbstractBackpack) original.getItem()).getType(), color);
 		if (original.hasTag())
 			output.setTag(original.getTag().copy());
 		return output;

@@ -38,7 +38,7 @@ import net.minecraft.world.World;
  */
 public abstract class ModArmorItem extends ArmorItem implements ReforgableItem, PotatoBookableItem, UpgradableItem {
 	protected static final Logger LOGGER = LogManager.getLogger();
-	
+
 	/**
 	 * Determine if {@link #rarity} has been upgraded.
 	 */

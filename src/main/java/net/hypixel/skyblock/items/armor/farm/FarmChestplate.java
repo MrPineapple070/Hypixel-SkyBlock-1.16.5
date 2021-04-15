@@ -13,7 +13,8 @@ import net.minecraft.world.World;
 
 public class FarmChestplate extends ModArmorItem {
 	public FarmChestplate() {
-		super(FarmSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.farm_1, FarmSet.instance.getRarity());
+		super(FarmSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.farm_1,
+				FarmSet.instance.getRarity());
 	}
 
 	@Override

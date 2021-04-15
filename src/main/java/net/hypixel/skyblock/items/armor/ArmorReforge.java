@@ -108,9 +108,8 @@ public enum ArmorReforge implements Reforge {
 	 * Unique
 	 */
 	Submerged(new double[0], new double[0], new double[0], new double[0], new double[0]),
-	Superior(AccessoryReforge.Superior.common(), AccessoryReforge.Superior.uncommon(),
-			AccessoryReforge.Superior.rare(), AccessoryReforge.Superior.epic(),
-			AccessoryReforge.Superior.legendary()),
+	Superior(AccessoryReforge.Superior.common(), AccessoryReforge.Superior.uncommon(), AccessoryReforge.Superior.rare(),
+			AccessoryReforge.Superior.epic(), AccessoryReforge.Superior.legendary()),
 	Titanic(new double[] { 0, 10, 0, 2, 0, 0, 0, 0 }, new double[] { 0, 15, 0, 3, 0, 0, 0, 0 },
 			new double[] { 0, 20, 0, 4, 0, 0, 0, 0 }, new double[] { 0, 25, 0, 5, 0, 0, 0, 0 },
 			new double[] { 0, 35, 0, 7, 0, 0, 0, 0 }),

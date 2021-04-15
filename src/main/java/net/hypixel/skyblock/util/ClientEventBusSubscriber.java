@@ -48,8 +48,7 @@ public final class ClientEventBusSubscriber {
 				try {
 					RegistryObject<ContainerType<AbstractMinionContainer>> obj = null;
 					obj = (RegistryObject<ContainerType<AbstractMinionContainer>>) field.get(obj);
-					ContainerType<AbstractMinionContainer> screen = obj.get();
-					ScreenManager.register(screen, AbstractMinionScreen::new);
+					ScreenManager.register(obj.get(), AbstractMinionScreen::new);
 				} catch (IllegalArgumentException | IllegalAccessException e) {
 					continue;
 				}
@@ -58,15 +57,16 @@ public final class ClientEventBusSubscriber {
 		ScreenManager.register(ModContainerTypes.medium_mcc.get(), MediumMCS::new);
 		ScreenManager.register(ModContainerTypes.large_mcc.get(), LargeMCS::new);
 		ScreenManager.register(ModContainerTypes.anvil.get(), ModAnvilScreen::new);
-		
-		//for (RegistryObject<Block> obj : MinionBlockInit.minionBlocks.getEntries())
-		//	RenderTypeLookup.setRenderLayer(obj.get(), RenderType.translucentNoCrumbling());
+
+		// for (RegistryObject<Block> obj : MinionBlockInit.minionBlocks.getEntries())
+		// RenderTypeLookup.setRenderLayer(obj.get(),
+		// RenderType.translucentNoCrumbling());
 
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.small_mcte.get(), ChestTileEntityRenderer::new);
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.medium_mcte.get(), ChestTileEntityRenderer::new);
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.large_mcte.get(), ChestTileEntityRenderer::new);
 
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.Andrew.get(), VillageNPCRender::new);
-		//RenderingRegistry.registerEntityRenderingHandler(null, null);
+		// RenderingRegistry.registerEntityRenderingHandler(null, null);
 	}
 }

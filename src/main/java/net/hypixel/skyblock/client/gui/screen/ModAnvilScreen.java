@@ -14,7 +14,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class ModAnvilScreen extends ContainerScreen<ModRepairContainer> {
-	private static final ResourceLocation texture = new ResourceLocation(HypixelSkyBlockMod.MOD_ID, "textures/gui/container/anvil.png");
+	private static final ResourceLocation texture = new ResourceLocation(HypixelSkyBlockMod.MOD_ID,
+			"textures/gui/container/anvil.png");
 
 	public ModAnvilScreen(ModRepairContainer container, PlayerInventory inventory, ITextComponent title) {
 		super(container, inventory, title);

@@ -88,11 +88,12 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 			this.asInt = asInt;
 		}
 	}
-	
+
 	/**
-	 * Holds a primitive type array of {@link Items} that holds the minimum requirement for {@link #compactor()}
+	 * Holds a primitive type array of {@link Items} that holds the minimum
+	 * requirement for {@link #compactor()}
 	 */
-	protected static final Item[] COMP = new Item[] {Items.DIAMOND};
+	protected static final Item[] COMP = new Item[] { Items.DIAMOND };
 
 	/**
 	 * Fuel Slot index.
@@ -125,7 +126,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * Upgrade 1 Slot index.
 	 */
 	protected static final int UPGRADE_1_INDEX = 0x2;
-	
+
 	/**
 	 * Upgrade 2 Slot index.
 	 */
@@ -224,10 +225,12 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 */
 	protected AbstractMinionTileEntity(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier) {
 		super(typeIn);
-		this.tier = Objects.requireNonNull(tier, "Illegal Minion Tier");
+		this.tier = Objects.requireNonNull(tier, "MinionTier cannot be null");
 		this.minionContents = NonNullList.withSize(4 + this.tier.size, ItemStack.EMPTY);
 		this.surround = this.initSurround();
 		this.display_name = this.initDisplayName();
+		LOGGER.debug(this.getType().getRegistryName().toString());
+		LOGGER.debug(this.tier.name());
 	}
 
 	/**
@@ -433,7 +436,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 			this.removeItem(FUEL_INDEX, 1);
 		}
 	}
-	
+
 	/**
 	 * Counts the number of {@link ItemInit#minion_expander} this holds.<br>
 	 * This method only looks at the {@link Slot} where this item should be.<br>

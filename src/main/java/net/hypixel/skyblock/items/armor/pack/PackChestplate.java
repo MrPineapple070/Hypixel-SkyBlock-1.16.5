@@ -22,7 +22,8 @@ import net.minecraft.world.World;
  */
 public class PackChestplate extends ModArmorItem {
 	public PackChestplate() {
-		super(PackSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1, PackSet.instance.getRarity());
+		super(PackSet.instance.getMaterial(), EquipmentSlotType.CHEST, ItemProperties.combat_1,
+				PackSet.instance.getRarity());
 	}
 
 	@Override

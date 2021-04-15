@@ -35,7 +35,7 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 	 * {@link EnchantedItemRecipe}
 	 */
 	public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
-	implements IRecipeSerializer<EnchantedItemRecipe> {
+			implements IRecipeSerializer<EnchantedItemRecipe> {
 		@Override
 		public EnchantedItemRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
 			String group = JSONUtils.getAsString(json, "group", "");

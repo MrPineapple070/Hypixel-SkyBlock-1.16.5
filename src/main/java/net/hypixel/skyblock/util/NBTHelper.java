@@ -72,7 +72,8 @@ public class NBTHelper {
 	private static CompoundNBT writeItemStack(ItemStack stack) throws IllegalAccessException {
 		Objects.requireNonNull(stack, "ItemStack cannot be null");
 		if (stack.isEmpty())
-			throw new IllegalAccessException("ItemStack cannot be empty");;
+			throw new IllegalAccessException("ItemStack cannot be empty");
+		;
 		final CompoundNBT c = new CompoundNBT();
 		c.putInt("count", stack.getCount());
 		c.putString("item", stack.getItem().getRegistryName().toString());

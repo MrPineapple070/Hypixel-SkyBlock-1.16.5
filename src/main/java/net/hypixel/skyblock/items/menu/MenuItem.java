@@ -13,11 +13,11 @@ import net.minecraft.world.World;
 public class MenuItem extends Item {
 	protected static final Logger LOGGER = LogManager.getLogger();
 	protected static final Properties properties = new Properties().stacksTo(1);
-	
+
 	public MenuItem() {
 		super(properties);
 	}
-	
+
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int p_77663_4_, boolean selected) {
 		if (world.isClientSide)
 			return;
@@ -25,6 +25,7 @@ public class MenuItem extends Item {
 		if (!(entity instanceof PlayerEntity))
 			return;
 		PlayerEntity player = (PlayerEntity) entity;
-		player.inventory.clearOrCountMatchingItems(new ItemInput(this, null), Integer.MAX_VALUE, player.inventoryMenu.getCraftSlots());
+		player.inventory.clearOrCountMatchingItems(new ItemInput(this, null), Integer.MAX_VALUE,
+				player.inventoryMenu.getCraftSlots());
 	}
 }

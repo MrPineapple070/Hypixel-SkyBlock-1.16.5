@@ -182,7 +182,7 @@ public class FormatingCodes {
 			throw new IllegalStateException("Illegal TextFormating:\t" + format.name());
 		}
 	}
-	
+
 	/**
 	 * Convert {@link DyeColor} into {@link TextFormatting}.
 	 * 

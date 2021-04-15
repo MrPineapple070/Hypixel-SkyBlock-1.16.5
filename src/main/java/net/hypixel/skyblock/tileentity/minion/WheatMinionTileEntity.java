@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import com.google.common.collect.ImmutableSet;
 
-import net.hypixel.skyblock.inventory.container.minion.WheatMinionContainer;
 import net.hypixel.skyblock.items.init.ItemInit;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
 import net.minecraft.block.Block;
@@ -14,6 +13,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.text.StringTextComponent;
 
 /**
@@ -27,20 +27,85 @@ import net.minecraft.util.text.StringTextComponent;
  */
 public class WheatMinionTileEntity extends AbstractFarmingPlacerMTE {
 	protected static final ImmutableSet<Block> valid = ImmutableSet.copyOf(Arrays.asList(Blocks.WHEAT));
-	
-	protected static final int[] speed = {15, 15, 13, 13, 11, 11, 10, 10, 9, 9, 8};
 
-	public WheatMinionTileEntity(MinionTier tier) {
-		super(ModTileEntityTypes.wheat_minion.get(), tier, PlacingMethods.Normal);
+	protected static final int[] speed = { 15, 15, 13, 13, 11, 11, 10, 10, 9, 9, 8 };
+
+	public static class WheatMTE1 extends WheatMinionTileEntity {
+		public WheatMTE1() {
+			super(ModTileEntityTypes.wheat_minion_1.get(), MinionTier.I);
+		}
 	}
-	
-	public WheatMinionTileEntity() {
-		this(MinionTier.I);
+
+	public static class WheatMTE2 extends WheatMinionTileEntity {
+		public WheatMTE2() {
+			super(ModTileEntityTypes.wheat_minion_2.get(), MinionTier.I);
+		}
+	}
+
+	public static class WheatMTE3 extends WheatMinionTileEntity {
+		public WheatMTE3() {
+			super(ModTileEntityTypes.wheat_minion_3.get(), MinionTier.I);
+		}
+	}
+
+	public static class WheatMTE4 extends WheatMinionTileEntity {
+		public WheatMTE4() {
+			super(ModTileEntityTypes.wheat_minion_4.get(), MinionTier.I);
+		}
+	}
+
+	public static class WheatMTE5 extends WheatMinionTileEntity {
+		public WheatMTE5() {
+			super(ModTileEntityTypes.wheat_minion_5.get(), MinionTier.I);
+		}
+	}
+
+	public static class WheatMTE6 extends WheatMinionTileEntity {
+		public WheatMTE6() {
+			super(ModTileEntityTypes.wheat_minion_6.get(), MinionTier.I);
+		}
+	}
+
+	public static class WheatMTE7 extends WheatMinionTileEntity {
+		public WheatMTE7() {
+			super(ModTileEntityTypes.wheat_minion_7.get(), MinionTier.I);
+		}
+	}
+
+	public static class WheatMTE8 extends WheatMinionTileEntity {
+		public WheatMTE8() {
+			super(ModTileEntityTypes.wheat_minion_8.get(), MinionTier.I);
+		}
+	}
+
+	public static class WheatMTE9 extends WheatMinionTileEntity {
+		public WheatMTE9() {
+			super(ModTileEntityTypes.wheat_minion_9.get(), MinionTier.I);
+		}
+	}
+
+	public static class WheatMTEa extends WheatMinionTileEntity {
+		public WheatMTEa() {
+			super(ModTileEntityTypes.wheat_minion_a.get(), MinionTier.I);
+		}
+	}
+
+	public static class WheatMTEb extends WheatMinionTileEntity {
+		public WheatMTEb() {
+			super(ModTileEntityTypes.wheat_minion_b.get(), MinionTier.I);
+		}
+	}
+
+	public WheatMinionTileEntity(TileEntityType<? extends AbstractMinionTileEntity> type, MinionTier tier) {
+		super(type, tier, PlacingMethods.Normal);
 	}
 
 	@Override
 	protected Container createMenu(int id, PlayerInventory player) {
-		return new WheatMinionContainer(id, player, this);
+		switch (this.tier) {
+		default:
+			throw new IllegalStateException("Illegal MinionTier:\t" + this.tier.name());
+		}
 	}
 
 	@Override

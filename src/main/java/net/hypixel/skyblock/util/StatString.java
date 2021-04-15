@@ -9,6 +9,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 
 /**
  * Holds commonly used {@link String} and {@link TranslationTextComponent}
+ * 
  * @author MrPineapple070
  * @version 12 March 2021
  * @since 11 July 2019

@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class MagmaBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.magma");
-	
+
 	public MagmaBow() {
 		super(ItemProperties.combat_1, ModItemRarity.Epic);
 	}

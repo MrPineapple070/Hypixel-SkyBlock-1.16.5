@@ -42,7 +42,7 @@ public final class ListUtil {
 		}
 		return ingredients;
 	}
-	
+
 	public static final NonNullList<ItemStack> readItemStacks(JsonArray json_array) {
 		Objects.requireNonNull(json_array, "JsonArray cannot be null");
 		HypixelSkyBlockMod.LOGGER.debug("JsonArray:\t" + json_array.toString());
@@ -59,7 +59,7 @@ public final class ListUtil {
 	 * @param list     privative type array to edit.
 	 * @param elements elements to remove
 	 * @return elements removed from list
-	 * @throws IllegalAccessException 
+	 * @throws IllegalAccessException
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <E extends Object> E[] removeAll(E[] list, E... elements) throws IllegalAccessException {

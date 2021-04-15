@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class PrismarineBow extends ModBowItem {
 	private static final ITextComponent info = new TranslationTextComponent("bow.prismarine");
-	
+
 	public PrismarineBow() {
 		super(ItemProperties.combat_1, ModItemRarity.Uncommon);
 	}

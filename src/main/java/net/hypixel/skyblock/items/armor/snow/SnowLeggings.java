@@ -13,7 +13,8 @@ import net.minecraft.world.World;
 
 public class SnowLeggings extends ModArmorItem {
 	public SnowLeggings() {
-		super(SnowSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.miscellaneous_1, SnowSet.instance.getRarity());
+		super(SnowSet.instance.getMaterial(), EquipmentSlotType.LEGS, ItemProperties.miscellaneous_1,
+				SnowSet.instance.getRarity());
 	}
 
 	@Override

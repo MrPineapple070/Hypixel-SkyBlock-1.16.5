@@ -38,6 +38,31 @@ public class CobblestoneMinion extends AbstractMinionBlock {
 
 	@Override
 	public TileEntity newBlockEntity(IBlockReader world) {
-		return ModTileEntityTypes.cobblestone_minion.get().create();
+		switch (this.tier) {
+		case I:
+			ModTileEntityTypes.cobblestone_minion_1.get().create();
+		case II:
+			ModTileEntityTypes.cobblestone_minion_2.get().create();
+		case III:
+			ModTileEntityTypes.cobblestone_minion_3.get().create();
+		case IV:
+			ModTileEntityTypes.cobblestone_minion_4.get().create();
+		case V:
+			ModTileEntityTypes.cobblestone_minion_5.get().create();
+		case VI:
+			ModTileEntityTypes.cobblestone_minion_6.get().create();
+		case VII:
+			ModTileEntityTypes.cobblestone_minion_7.get().create();
+		case VIII:
+			ModTileEntityTypes.cobblestone_minion_8.get().create();
+		case IX:
+			ModTileEntityTypes.cobblestone_minion_9.get().create();
+		case X:
+			ModTileEntityTypes.cobblestone_minion_a.get().create();
+		case XI:
+			ModTileEntityTypes.cobblestone_minion_b.get().create();
+		default:
+			throw new IllegalStateException("Illegal MinionTier:\t" + this.tier.name());
+		}
 	}
 }
