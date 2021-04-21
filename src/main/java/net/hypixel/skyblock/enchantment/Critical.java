@@ -14,7 +14,7 @@ import net.minecraft.util.DamageSource;
  */
 public class Critical extends ModEnchantment {
 	protected Critical() {
-		super(Rarity.UNCOMMON, EnchantmentType.WEAPON, new EquipmentSlotType[] { EquipmentSlotType.MAINHAND });
+		super(Rarity.UNCOMMON, EnchantmentType.WEAPON, EquipmentSlotType.MAINHAND);
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class Critical extends ModEnchantment {
 
 	@Override
 	public int getMaxLevel() {
-		return 6;
+		return 5;
 	}
 
 	@Override

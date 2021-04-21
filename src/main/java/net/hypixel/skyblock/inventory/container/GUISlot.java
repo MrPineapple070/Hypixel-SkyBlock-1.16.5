@@ -4,13 +4,18 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public final class GUISlot extends Slot {
+public abstract class GUISlot extends Slot {
+	protected static final Logger LOGGER = LogManager.getLogger();
+	
 	@Nonnull
 	protected final ItemStack stack;
 
@@ -25,15 +30,19 @@ public final class GUISlot extends Slot {
 	public GUISlot(IInventory inv, int slot, int x, int y, ItemStack stack) {
 		super(inv, slot, x, y);
 		this.stack = Objects.requireNonNull(stack, "ItemStack cannot be null");
+		this.set(this.stack);
+	}
+	
+	@Override
+	public void set(ItemStack stack) {
+		super.set(this.stack);
 	}
 
 	@Override
-	public boolean mayPickup(PlayerEntity p_82869_1_) {
-		return false;
-	}
+	public abstract boolean mayPickup(PlayerEntity player);
 
 	@Override
-	public boolean mayPlace(ItemStack p_75214_1_) {
+	public boolean mayPlace(ItemStack stack) {
 		return false;
 	}
 }

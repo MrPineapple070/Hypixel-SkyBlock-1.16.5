@@ -2,7 +2,9 @@ package net.hypixel.skyblock.enchantment;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantment.Rarity;
 import net.minecraft.enchantment.EnchantmentType;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -24,25 +26,55 @@ public class EnchantmentInit {
 			.create(ForgeRegistries.ENCHANTMENTS, HypixelSkyBlockMod.MOD_ID);
 
 	// Sword
-	// public static final RegistryObject<Enchantment> critical =
-	// enchantments.register("critical" , () -> new Enchantment ());
-	// public static final RegistryObjcet<Enchantment> cubism =
-	// enchantments.register("cubism" , () -> new Enchantment ());
+	public static final RegistryObject<Enchantment> critical = enchantments.register("critical", Critical::new);
+	public static final RegistryObject<ModDamageEnchantment> cubism = enchantments.register("cubism",
+			() -> new ModDamageEnchantment(Rarity.COMMON, 3, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> dragon_hunter = enchantments.register("dragon_hunter",
+			() -> new ModDamageEnchantment(Rarity.VERY_RARE, 4, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> ender_slayer = enchantments.register("ender_slayer",
+			() -> new ModDamageEnchantment(Rarity.UNCOMMON, 5, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> execute = enchantments.register("execute", Execute::new);
+	public static final RegistryObject<Enchantment> experience = enchantments.register("experience", Experience::new);
+	public static final RegistryObject<Enchantment> first_strike = enchantments.register("first_strike",
+			FirstStrike::new);
+	public static final RegistryObject<Enchantment> giant_killer = enchantments.register("giant_killer",
+			GiantKiller::new);
+	public static final RegistryObject<Enchantment> impaling = enchantments.register("impaling", Impaling::new);
+	public static final RegistryObject<Enchantment> lethality = enchantments.register("lethality", Lethality::new);
+	public static final RegistryObject<Enchantment> life_steal = enchantments.register("life_steal", LifeSteal::new);
+	public static final RegistryObject<Enchantment> luck = enchantments.register("luck", Luck::new);
+	public static final RegistryObject<Enchantment> prosecute = enchantments.register("prosecute", Prosecute::new);
+	public static final RegistryObject<Enchantment> scavenger = enchantments.register("prosecute", Scavenger::new);
+	public static final RegistryObject<Enchantment> syphon = enchantments.register("syphon", Syphon::new);
+	public static final RegistryObject<Enchantment> telekinesis_weapon = enchantments.register("telekinesis_weapon",
+			() -> new Telekinesis(EnchantmentType.WEAPON));
+	public static final RegistryObject<Enchantment> thunderbolt = enchantments.register("thunderbolt",
+			Thunderbolt::new);
+	public static final RegistryObject<Enchantment> thunderlord = enchantments.register("thunderlord",
+			Thunderlord::new);
+	public static final RegistryObject<Enchantment> titan_killer = enchantments.register("titan_killer",
+			TitanKiller::new);
+	public static final RegistryObject<Enchantment> triple_strike = enchantments.register("triple_strike",
+			TripleStrike::new);
+	public static final RegistryObject<Enchantment> vampirism = enchantments.register("vampirism", Vampirism::new);
+	public static final RegistryObject<Enchantment> venomous = enchantments.register("venomous", Venomous::new);
+	public static final RegistryObject<Enchantment> vicious = enchantments.register("vicious", Vicious::new);
+
+	// Bow
+	// public static final RegistryObject<Enchantment> aiming = enchantments.register("aiming", Aiming::new);
+	// public static final RegistryObject<Enchantment> chance = enchantments.register("chance", Chance::new);
+	// public static final RegistryObject<Enchantment> cubism = enchantments.register("cubism" , () -> new Enchantment());
 	// public static final RegistryObject<Enchantment> dragon_hunter =
 	// enchantments.register("dragon_hunter" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> ender_slayer =
-	// enchantments.register("ender_slayer" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> execute =
-	// enchantments.register("execute" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> experience =
-	// enchantments.register("experience" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> first_strike =
-	// enchantments.register("first_strike" , () -> new Enchantment());
 	// public static final RegistryObject<Enchantment> impaling =
 	// enchantments.register("impaling" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> lethality =
-	// enchantments.register("lethality" , () -> new Enchantment());
-	public static final RegistryObject<Enchantment> life_steal = enchantments.register("life_steal", LifeSteal::new);
+	// public static final RegistryObject<Enchantment> piercing =
+	// enchantments.register("piercing" , () -> new Enchantment());
+	// public static final RegistryObject<Enchantment> snipe =
+	// enchantments.register("snipe" , () -> new Enchantment());
+	public static final RegistryObject<Enchantment> telekinesis_bow = enchantments.register("telekinesis_bow",
+			() -> new Telekinesis(EnchantmentType.BOW));
+
 	// Tools
 	// public static final RegistryObject<Enchantment> experience =
 	// enchantments.register("experience" , () -> new Enchantment());
@@ -54,22 +86,6 @@ public class EnchantmentInit {
 	// enchantments.register("replenish" , () -> new Enchantment());
 	public static final RegistryObject<Enchantment> smelting_touch = enchantments.register("smelting_touch",
 			SmeltingTouch::new);
-
-	// Bow
-	// public static final RegistryObject<Enchantment> aiming =
-	// enchantments.register("aiming" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> cubism =
-	// enchantments.register("cubism" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> dragon_hunter =
-	// enchantments.register("dragon_hunter" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> impaling =
-	// enchantments.register("impaling" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> piercing =
-	// enchantments.register("piercing" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> snipe =
-	// enchantments.register("snipe" , () -> new Enchantment());
-	public static final RegistryObject<Enchantment> telekinesis_bow = enchantments.register("telekinesis_bow",
-			() -> new Telekinesis(EnchantmentType.BOW));
 
 	// Armor
 	public static final RegistryObject<Enchantment> growth = enchantments.register("growth", Growth::new);
@@ -96,17 +112,6 @@ public class EnchantmentInit {
 			() -> new Telekinesis(EnchantmentType.FISHING_ROD));
 	public static final RegistryObject<Enchantment> telekinesis_tool = enchantments.register("telekinesis_tool",
 			() -> new Telekinesis(EnchantmentType.DIGGER));
-
-	// public static final RegistryObject<Enchantment> luck =
-	// enchantments.register("luck" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> scavenger =
-	// enchantments.register("scavenger" , () -> new Enchantment());
-	public static final RegistryObject<Enchantment> telekinesis_weapon = enchantments.register("telekinesis_weapon",
-			() -> new Telekinesis(EnchantmentType.WEAPON));
-	// public static final RegistryObject<Enchantment> vampirism =
-	// enchantments.register("vampirism" , () -> new Enchantment());
-	// public static final RegistryObject<Enchantment> venomous =
-	// enchantments.register("venomous" , () -> new Enchantment());
 
 	public static final RegistryObject<Enchantment> bank = enchantments.register("bank", Bank::new);
 }

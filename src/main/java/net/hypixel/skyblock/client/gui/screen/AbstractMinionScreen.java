@@ -9,22 +9,11 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
-import net.hypixel.skyblock.blocks.minion.AbstractMinionBlock;
-import net.hypixel.skyblock.blocks.minion.MinionChestBlock;
 import net.hypixel.skyblock.inventory.container.minion.AbstractMinionContainer;
-import net.hypixel.skyblock.tileentity.minion.AbstractMinionTileEntity.MinionTier;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
-import net.minecraft.client.gui.widget.button.AbstractButton;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.IContainerListener;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -38,76 +27,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
  */
 @OnlyIn(Dist.CLIENT)
 public final class AbstractMinionScreen extends ContainerScreen<AbstractMinionContainer> {
-	/**
-	 * Serve as a base for buttons to be displayed on this screen.
-	 */
-	@OnlyIn(Dist.CLIENT)
-	abstract static class Button extends AbstractButton {
-		/**
-		 * Construct this.
-		 *
-		 * @param xIn  x coordinate
-		 * @param yIn  y coordinate
-		 * @param name {@link String} to display on the button.
-		 */
-		public Button(int xIn, int yIn, String name) {
-			super(xIn, yIn + 77, 18, 18, new StringTextComponent(name));
-		}
-	}
-
-	/**
-	 * When this {@link Button} is pressed, automatically empty all {@link Item}
-	 * from this {@link AbstractMinionBlock}.<br>
-	 * Also empties {@link MinionChestBlock} if the {@link AbstractMinionBlock} has
-	 * one. This {@link Button} will not do anything is the
-	 * {@link AbstractMinionBlock} is empty.
-	 */
-	class EmptyButton extends Button {
-		private final StringTextComponent tooltip = new StringTextComponent("Empty the Minion of contents");
-
-		public EmptyButton(int x, int y) {
-			super(x + 126, y, "\u2193");
-		}
-
-		@Override
-		public void onPress() {
-			LOGGER.info(EmptyButton.class.getSimpleName() + " pressed.");
-			// AbstractMinionScreen.this.minecraft.getConnection().sendPacket(null);
-		}
-
-		@Override
-		public void renderToolTip(MatrixStack stack, int x, int y) {
-			AbstractMinionScreen.this.renderTooltip(stack, tooltip, x, y);
-		}
-	}
-
-	/**
-	 * When this {@link Button} is pressed, automatically upgrade this
-	 * {@link AbstractMinionBlock} to the next {@link MinionTier}.<br>
-	 * This {@link Button} will not do anything if the {@link AbstractMinionBlock}
-	 * is at the maximum {@link MinionTier}<br>
-	 * or if the {@link PlayerEntity} does not have the required materials.
-	 */
-	class UpgradeButton extends Button {
-		private final StringTextComponent tooltip = new StringTextComponent("Upgrade to next Tier");
-
-		public UpgradeButton(int x, int y) {
-			super(x + 90, y, "\u2191");
-		}
-
-		@Override
-		public void onPress() {
-			LOGGER.info(UpgradeButton.class.getSimpleName() + " pressed.");
-			// AbstractMinionScreen.this.minecraft.getConnection().sendPacket(new
-			// CEmptyMinionPacket());
-		}
-
-		@Override
-		public void renderToolTip(MatrixStack stack, int x, int y) {
-			AbstractMinionScreen.this.renderTooltip(stack, tooltip, x, y);
-		}
-	}
-
 	/**
 	 * The texture for this screen.
 	 */
@@ -127,21 +46,6 @@ public final class AbstractMinionScreen extends ContainerScreen<AbstractMinionCo
 	protected static final Logger LOGGER = LogManager.getLogger();
 
 	/**
-	 * Determine if {@link #upgrade} and {@link #empty} are drawn to the screen.
-	 */
-	private boolean buttonsNotDrawn;
-
-	/**
-	 * {@link EmptyButton} to display on this screen.
-	 */
-	private EmptyButton empty;
-
-	/**
-	 * {@link UpgradeButton} to display on this screen.
-	 */
-	private UpgradeButton upgrade;
-
-	/**
 	 * Construct this.
 	 *
 	 * @param screenContainer {@link AbstractMinionContainer} to holds this.
@@ -156,30 +60,6 @@ public final class AbstractMinionScreen extends ContainerScreen<AbstractMinionCo
 		this.imageWidth = 176;
 		this.width = 256;
 		this.height = 256;
-		this.menu.addSlotListener(new IContainerListener() {
-			@Override
-			public void refreshContainer(Container p_71110_1_, NonNullList<ItemStack> p_71110_2_) {
-			}
-
-			@Override
-			public void setContainerData(Container p_71112_1_, int p_71112_2_, int p_71112_3_) {
-				AbstractMinionScreen.this.buttonsNotDrawn = true;
-			}
-
-			@Override
-			public void slotChanged(Container p_71111_1_, int p_71111_2_, ItemStack p_71111_3_) {
-			}
-		});
-	}
-
-	@Override
-	protected void init() {
-		super.init();
-		this.upgrade = this.addButton(new UpgradeButton(this.leftPos, this.topPos));
-		this.empty = this.addButton(new EmptyButton(this.leftPos, this.topPos));
-		this.buttonsNotDrawn = true;
-		this.upgrade.active = true;
-		this.empty.active = true;
 	}
 
 	@Override
@@ -205,12 +85,5 @@ public final class AbstractMinionScreen extends ContainerScreen<AbstractMinionCo
 		this.font.draw(stack, boost_0, 8, 55, 0x404040);
 		this.font.draw(stack, boost_1, 8, 73, 0x404040);
 		this.font.draw(stack, this.inventory.getDisplayName(), 8, 91, 0x404040);
-	}
-
-	@Override
-	public void tick() {
-		super.tick();
-		if (this.buttonsNotDrawn)
-			this.buttonsNotDrawn = false;
 	}
 }

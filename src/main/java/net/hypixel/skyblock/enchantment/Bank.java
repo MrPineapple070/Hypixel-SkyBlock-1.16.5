@@ -6,8 +6,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 
 public class Bank extends ModEnchantment {
 	public Bank() {
-		super(Rarity.VERY_RARE, EnchantmentType.ARMOR, new EquipmentSlotType[] { EquipmentSlotType.HEAD,
-				EquipmentSlotType.CHEST, EquipmentSlotType.LEGS, EquipmentSlotType.FEET });
+		super(Rarity.VERY_RARE, EnchantmentType.ARMOR, armor);
 	}
 
 	@Override

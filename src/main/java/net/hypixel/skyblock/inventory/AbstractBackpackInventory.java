@@ -39,6 +39,12 @@ public abstract class AbstractBackpackInventory extends Inventory {
 			super(BackpackType.Small);
 		}
 	}
+	
+	public static class JumboBI extends AbstractBackpackInventory {
+		public JumboBI() {
+			super(BackpackType.Jumbo);
+		}
+	}
 
 	/**
 	 * Construct this

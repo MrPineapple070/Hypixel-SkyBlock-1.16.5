@@ -1,0 +1,27 @@
+package net.hypixel.skyblock.enchantment;
+
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentType;
+import net.minecraft.inventory.EquipmentSlotType;
+
+public class Impaling extends ModEnchantment {
+
+	public Impaling() {
+		super(Rarity.RARE, EnchantmentType.WEAPON, EquipmentSlotType.MAINHAND);
+	}
+
+	@Override
+	protected boolean checkCompatibility(Enchantment ench) {
+		return true;
+	}
+
+	@Override
+	public int getMaxLevel() {
+		return 3;
+	}
+
+	@Override
+	public boolean isAllowedOnBooks() {
+		return true;
+	}
+}

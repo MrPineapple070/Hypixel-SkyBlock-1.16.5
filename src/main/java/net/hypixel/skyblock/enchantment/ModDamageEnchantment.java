@@ -4,11 +4,7 @@ import net.hypixel.skyblock.entity.ModCreatureAttribute;
 import net.minecraft.enchantment.DamageEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 
 /**
  * @author MrPineapple070
@@ -54,7 +50,7 @@ public class ModDamageEnchantment extends DamageEnchantment {
 
 	@Override
 	public boolean checkCompatibility(Enchantment ench) {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -70,16 +66,5 @@ public class ModDamageEnchantment extends DamageEnchantment {
 	@Override
 	public int getMinCost(int enchantmentLevel) {
 		return MIN_COST[this.type] + (enchantmentLevel - 1) * LEVEL_COST[this.type];
-	}
-
-	@Override
-	public void doPostAttack(LivingEntity user, Entity target, int level) {
-		if (target instanceof LivingEntity) {
-			final LivingEntity livingentity = (LivingEntity) target;
-			if (this.type == 2 && livingentity.getMobType() == CreatureAttribute.ARTHROPOD) {
-				final int i = 20 + user.getRandom().nextInt(10 * level);
-				livingentity.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, i, 3));
-			}
-		}
 	}
 }

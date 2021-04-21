@@ -7,7 +7,6 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.hypixel.skyblock.inventory.container.AbstractBackpackContainer;
 import net.hypixel.skyblock.inventory.container.init.ModContainerTypes;
 import net.hypixel.skyblock.items.init.BackpackInit;
@@ -18,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -72,66 +70,101 @@ public abstract class AbstractBackpack extends Item {
 			super(BackpackType.Small, color);
 		}
 	}
-
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> black = Arrays.asList(BackpackInit.black_small_backpack,
 			BackpackInit.black_medium_backpack, BackpackInit.black_large_backpack, BackpackInit.black_greater_backpack,
 			BackpackInit.black_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> blue = Arrays.asList(BackpackInit.blue_small_backpack,
 			BackpackInit.blue_medium_backpack, BackpackInit.blue_large_backpack, BackpackInit.blue_greater_backpack,
 			BackpackInit.blue_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> brown = Arrays.asList(BackpackInit.brown_small_backpack,
 			BackpackInit.brown_medium_backpack, BackpackInit.brown_large_backpack, BackpackInit.brown_greater_backpack,
 			BackpackInit.brown_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> cyan = Arrays.asList(BackpackInit.cyan_small_backpack,
 			BackpackInit.cyan_medium_backpack, BackpackInit.cyan_large_backpack, BackpackInit.cyan_greater_backpack,
 			BackpackInit.cyan_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> gray = Arrays.asList(BackpackInit.gray_small_backpack,
 			BackpackInit.gray_medium_backpack, BackpackInit.gray_large_backpack, BackpackInit.gray_greater_backpack,
 			BackpackInit.gray_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> green = Arrays.asList(BackpackInit.green_small_backpack,
 			BackpackInit.green_medium_backpack, BackpackInit.green_large_backpack, BackpackInit.green_greater_backpack,
 			BackpackInit.green_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> light_blue = Arrays.asList(BackpackInit.light_blue_small_backpack,
 			BackpackInit.light_blue_medium_backpack, BackpackInit.light_blue_large_backpack,
 			BackpackInit.light_blue_greater_backpack, BackpackInit.light_blue_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> light_gray = Arrays.asList(BackpackInit.light_gray_small_backpack,
 			BackpackInit.light_gray_medium_backpack, BackpackInit.light_gray_large_backpack,
 			BackpackInit.light_gray_greater_backpack, BackpackInit.light_gray_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> lime = Arrays.asList(BackpackInit.lime_small_backpack,
 			BackpackInit.lime_medium_backpack, BackpackInit.lime_large_backpack, BackpackInit.lime_greater_backpack,
 			BackpackInit.lime_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> magenta = Arrays.asList(BackpackInit.magenta_small_backpack,
 			BackpackInit.magenta_medium_backpack, BackpackInit.magenta_large_backpack,
 			BackpackInit.magenta_greater_backpack, BackpackInit.magenta_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> none = Arrays.asList(BackpackInit.small_backpack,
 			BackpackInit.medium_backpack, BackpackInit.large_backpack, BackpackInit.greater_backpack,
 			BackpackInit.jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> orange = Arrays.asList(BackpackInit.orange_small_backpack,
 			BackpackInit.orange_medium_backpack, BackpackInit.orange_large_backpack,
 			BackpackInit.orange_greater_backpack, BackpackInit.orange_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> pink = Arrays.asList(BackpackInit.pink_small_backpack,
 			BackpackInit.pink_medium_backpack, BackpackInit.pink_large_backpack, BackpackInit.pink_greater_backpack,
 			BackpackInit.pink_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> purple = Arrays.asList(BackpackInit.purple_small_backpack,
 			BackpackInit.purple_medium_backpack, BackpackInit.purple_large_backpack,
 			BackpackInit.purple_greater_backpack, BackpackInit.purple_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> red = Arrays.asList(BackpackInit.red_small_backpack,
 			BackpackInit.red_medium_backpack, BackpackInit.red_large_backpack, BackpackInit.red_greater_backpack,
 			BackpackInit.red_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> white = Arrays.asList(BackpackInit.white_small_backpack,
 			BackpackInit.white_medium_backpack, BackpackInit.white_large_backpack, BackpackInit.white_greater_backpack,
 			BackpackInit.white_jumbo_backpack);
+	
+	@Nonnull
 	public static final List<RegistryObject<Item>> yellow = Arrays.asList(BackpackInit.yellow_small_backpack,
 			BackpackInit.yellow_medium_backpack, BackpackInit.yellow_large_backpack,
 			BackpackInit.yellow_greater_backpack, BackpackInit.yellow_jumbo_backpack);
 
+	@Nonnull
 	public static ItemStack getBackpackStack(BackpackType type, DyeColor color) {
 		return new ItemStack(getBackpack(type, color));
 	}
-
+	
+	@Nonnull
 	public static Item getBackpack(BackpackType type, DyeColor color) {
 		int size;
-		switch (type) {
+		switch (Objects.requireNonNull(type, "BackpackType cannot be null")) {
 		case Small:
 			size = 0;
 			break;
@@ -218,25 +251,18 @@ public abstract class AbstractBackpack extends Item {
 	 * The {@link DyeColor} of this.
 	 */
 	@Nullable
-	protected final DyeColor color;
-
-	/**
-	 * A {@link NonNullList} of {@link ItemStack} that this will hold.
-	 */
-	@Nonnull
-	protected NonNullList<ItemStack> items;
+	public final DyeColor color;
 
 	/**
 	 * The {@link BackpackType} of this.
 	 */
 	@Nonnull
-	protected final BackpackType type;
+	public final BackpackType type;
 
 	public AbstractBackpack(BackpackType type, @Nullable DyeColor color) {
 		super(ItemProperties.miscellaneous_64);
 		this.type = Objects.requireNonNull(type, "BackpackType cannot be null.");
 		this.color = color;
-		this.items = NonNullList.withSize(type.size, ItemStack.EMPTY);
 	}
 
 	/**
@@ -253,6 +279,7 @@ public abstract class AbstractBackpack extends Item {
 	 * @param player {@link PlayerEntity} opening this.
 	 * @return {@link AbstractBackpackContainer} associated with this.
 	 */
+	@Nonnull
 	public AbstractBackpackContainer getContainer(PlayerEntity player) {
 		switch (this.type) {
 		case Small:
@@ -269,30 +296,11 @@ public abstract class AbstractBackpack extends Item {
 		}
 	}
 
-	/**
-	 * @return {@link #items}
-	 */
-	public NonNullList<ItemStack> getItems() {
-		return this.items;
-	}
-
-	/**
-	 * @return {@link BackpackType#size}
-	 */
-	public int getSizeInventory() {
-		return this.type.size;
-	}
-
-	public BackpackType getType() {
-		return this.type;
-	}
-
 	@Override
 	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		final ItemStack heldItem = playerIn.getItemInHand(handIn);
 		if (worldIn.isClientSide)
 			return ActionResult.pass(heldItem);
-		HypixelSkyBlockMod.LOGGER.info(this.getRegistryName().toString() + " right clicked");
 		final AbstractBackpack backpack = (AbstractBackpack) heldItem.getItem();
 		playerIn.openMenu(backpack.getContainer(playerIn));
 		return ActionResult.success(heldItem);

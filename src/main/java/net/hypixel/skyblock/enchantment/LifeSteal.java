@@ -14,32 +14,16 @@ import net.minecraft.inventory.EquipmentSlotType;
  */
 public class LifeSteal extends ModEnchantment {
 	public LifeSteal() {
-		super(Rarity.VERY_RARE, EnchantmentType.WEAPON, new EquipmentSlotType[] { EquipmentSlotType.MAINHAND });
-		this.descriptionId = "Life Steal";
+		super(Rarity.VERY_RARE, EnchantmentType.WEAPON, EquipmentSlotType.MAINHAND);
 	}
 
 	@Override
 	protected boolean checkCompatibility(Enchantment ench) {
-		return true;
-	}
-
-	@Override
-	public int getMaxCost(int enchantmentLevel) {
-		return this.getMinCost(enchantmentLevel) + 10;
+		return ench != EnchantmentInit.syphon.get();
 	}
 
 	@Override
 	public int getMaxLevel() {
 		return 3;
-	}
-
-	@Override
-	public int getMinCost(int enchantmentLevel) {
-		return 11 * enchantmentLevel;
-	}
-
-	@Override
-	public boolean isAllowedOnBooks() {
-		return true;
 	}
 }

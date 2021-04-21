@@ -1,13 +1,20 @@
 package net.hypixel.skyblock.inventory.container;
 
+import java.util.Objects;
+
 import javax.annotation.Nonnull;
 
+import net.hypixel.skyblock.inventory.AbstractBackpackInventory.GreaterBI;
+import net.hypixel.skyblock.inventory.AbstractBackpackInventory.JumboBI;
+import net.hypixel.skyblock.inventory.AbstractBackpackInventory.LargeBI;
+import net.hypixel.skyblock.inventory.AbstractBackpackInventory.MediumBI;
+import net.hypixel.skyblock.inventory.AbstractBackpackInventory.SmallBI;
 import net.hypixel.skyblock.inventory.container.init.ModContainerTypes;
 import net.hypixel.skyblock.items.AbstractBackpack.BackpackType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.container.ChestContainer;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.inventory.container.INamedContainerProvider;
@@ -96,10 +103,28 @@ public class AbstractBackpackContainer extends Container implements INamedContai
 	 * @param type          the {@link BackpackType}
 	 */
 	private AbstractBackpackContainer(ContainerType<? extends AbstractBackpackContainer> containerType, int id,
-			PlayerInventory pInvIn, @Nonnull BackpackType type) {
+			PlayerInventory pInvIn, BackpackType type) {
 		super(containerType, id);
-		this.type = type;
-		this.bpInv = new Inventory(this.type.size);
+		this.type = Objects.requireNonNull(type, "BackpackType cannot be null");
+		switch (this.type) {
+		case Small:
+			this.bpInv = new SmallBI();
+			break;
+		case Medium:
+			this.bpInv = new MediumBI();
+			break;
+		case Large:
+			this.bpInv = new LargeBI();
+			break;
+		case Greater:
+			this.bpInv = new GreaterBI();
+			break;
+		case Jumbo:
+			this.bpInv = new JumboBI();
+			break;
+		default:
+			throw new IllegalStateException("Illegal BackpackType:\t" + this.type.name());
+		}
 		Container.checkContainerSize(this.bpInv, this.type.size);
 		this.bpInv.startOpen(pInvIn.player);
 
@@ -152,14 +177,26 @@ public class AbstractBackpackContainer extends Container implements INamedContai
 				slot.set(ItemStack.EMPTY);
 			else
 				slot.setChanged();
-			;
 		}
 		return copy;
 	}
 
 	@Override
-	public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
-		return this;
+	public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
+		switch (this.type) {
+		case Small:
+			return ChestContainer.oneRow(player.containerMenu.containerId, player.inventory);
+		case Medium:
+			return ChestContainer.twoRows(player.containerMenu.containerId, player.inventory);
+		case Large:
+			return ChestContainer.threeRows(player.containerMenu.containerId, player.inventory);
+		case Greater:
+			return ChestContainer.fourRows(player.containerMenu.containerId, player.inventory);
+		case Jumbo:
+			return ChestContainer.fiveRows(player.containerMenu.containerId, player.inventory);
+		default:
+			throw new IllegalStateException("Illegal BackpackType:\t" + this.type.name());
+		}
 	}
 
 	@Override

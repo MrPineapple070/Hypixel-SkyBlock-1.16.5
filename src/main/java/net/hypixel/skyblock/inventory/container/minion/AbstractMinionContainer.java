@@ -1,5 +1,6 @@
 package net.hypixel.skyblock.inventory.container.minion;
 
+import java.awt.MenuItem;
 import java.util.Objects;
 
 import javax.annotation.Nonnull;
@@ -7,6 +8,7 @@ import javax.annotation.Nonnull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.hypixel.skyblock.inventory.container.CloseSlot;
 import net.hypixel.skyblock.tileentity.minion.AbstractMinionTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -46,6 +48,12 @@ public class AbstractMinionContainer extends Container {
 	 */
 	@Nonnull
 	protected final IInventory inventory;
+	
+	/**
+	 * The {@link IInventory} that hold {@link MenuItem}
+	 */
+	@Nonnull
+	protected final IInventory menu;
 
 	/**
 	 * The {@link AbstractMinionTileEntity} of this,
@@ -67,6 +75,7 @@ public class AbstractMinionContainer extends Container {
 		this.minion = Objects.requireNonNull(tileEntity, "AbstractMinionTileEntity cannot be null");
 		this.inventory = new Inventory(
 				this.minion.minionContents.toArray(new ItemStack[this.minion.getContainerSize()]));
+		this.menu = new Inventory(2);
 		this.access = IWorldPosCallable.create(this.minion.getLevel(), this.minion.getBlockPos());
 		LOGGER.debug(this.getType().getRegistryName().toString());
 
@@ -85,6 +94,9 @@ public class AbstractMinionContainer extends Container {
 					this.addSlot(new MinionSlot(this.minion, row, col));
 					num--;
 				}
+		
+		// Menu Inventory
+		this.addSlot(new CloseSlot(this.menu, 0, 80, 72));
 
 		// Player Inventory
 		for (int row = 0; row < 3; ++row)

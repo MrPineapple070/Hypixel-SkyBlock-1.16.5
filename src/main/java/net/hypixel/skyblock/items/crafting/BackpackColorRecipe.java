@@ -57,7 +57,7 @@ public class BackpackColorRecipe extends SpecialRecipe {
 					color = tmp;
 			}
 		}
-		ItemStack output = AbstractBackpack.getBackpackStack(((AbstractBackpack) original.getItem()).getType(), color);
+		ItemStack output = AbstractBackpack.getBackpackStack(((AbstractBackpack) original.getItem()).type, color);
 		if (original.hasTag())
 			output.setTag(original.getTag().copy());
 		return output;

@@ -133,7 +133,6 @@ public class AbstractBackpackScreen extends ContainerScreen<AbstractBackpackCont
 			break;
 		}
 		this.minecraft.getTextureManager().bind(rl);
-		;
 		this.blit(stack, (this.width - this.imageWidth) / 2, (this.height - this.imageHeight) / 2, 0, 0,
 				this.imageWidth, this.imageHeight);
 	}

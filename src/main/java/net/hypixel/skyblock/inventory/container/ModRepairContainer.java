@@ -7,7 +7,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.hypixel.skyblock.inventory.container.init.ModContainerTypes;
-import net.hypixel.skyblock.items.init.MenuItemInit;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
@@ -107,7 +106,7 @@ public class ModRepairContainer extends Container {
 		this.access = Objects.requireNonNull(access, "IWorldPosCallable cannot be null");
 		this.player = Objects.requireNonNull(inventory, "PlayerInventory cannot be null").player;
 		this.addSlot(new Slot(inputSlots, 0, 0, 0));
-		this.addSlot(new GUISlot(close, 4, 0, 0, MenuItemInit.close.get()));
+		this.addSlot(new CloseSlot(close, 0, 0, 0));
 		for (int i = 0; i < 3; ++i)
 			for (int j = 0; j < 9; ++j)
 				this.addSlot(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
