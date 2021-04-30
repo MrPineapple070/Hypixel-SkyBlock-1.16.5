@@ -2,7 +2,6 @@ package net.hypixel.skyblock.enchantment;
 
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -23,11 +22,10 @@ public class Telekinesis extends ModEnchantment {
 	/**
 	 * Construct {@code this}
 	 *
-	 * @param typeIn {@link EnchantmentType} of this.
+	 * @param type {@link ModEnchantmentType} of this.
 	 */
-	public Telekinesis(EnchantmentType typeIn) {
-		super(Rarity.COMMON, typeIn, new EquipmentSlotType[] { EquipmentSlotType.MAINHAND });
-		this.descriptionId = "Telekinesis";
+	public Telekinesis() {
+		super(Rarity.COMMON, ModEnchantmentType.NONARMOR, EquipmentSlotType.MAINHAND);
 	}
 
 	@Override

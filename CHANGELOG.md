@@ -366,3 +366,8 @@
 ![](https://hypixel.net/attachments/sb-11-3-png.2451662/)  
 30 March 2021  
 [Changelog](https://hypixel.net/threads/skyblock-0-11-3.4058260/)
+
+## Build 0.11.4
+![](https://hypixel.net/attachments/skyblock-with-art-2021-png.2503403/)
+21 April 2021
+[Changelog](https://hypixel.net/threads/skyblock-0-11-4.4145813/)

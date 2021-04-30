@@ -16,8 +16,8 @@ public class ModDamageEnchantment extends DamageEnchantment {
 	private static final int[] LEVEL_COST_SPAN = { 20, 20, 20, 20 };
 	private static final int[] MIN_COST = { 1, 5, 5, 5 };
 
-	public ModDamageEnchantment(Rarity rarityIn, int damageTypeIn, EquipmentSlotType... slots) {
-		super(rarityIn, damageTypeIn, slots);
+	public ModDamageEnchantment(Rarity rarityIn, int damageTypeIn) {
+		super(rarityIn, damageTypeIn, EquipmentSlotType.MAINHAND);
 	}
 
 	/**

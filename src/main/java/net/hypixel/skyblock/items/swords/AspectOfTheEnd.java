@@ -6,11 +6,13 @@ import java.util.List;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.util.ItemProperties;
 import net.hypixel.skyblock.util.StatString;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -36,31 +38,33 @@ public class AspectOfTheEnd extends ModSwordItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+	public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
 		tooltip.addAll(AspectOfTheEnd.tooltip);
 		tooltip.add(StringTextComponent.EMPTY);
 	}
 
 	@Override
-	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		ItemStack held = playerIn.getItemInHand(handIn);
-		if (!worldIn.isClientSide)
+	public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+		ItemStack held = player.getItemInHand(hand);
+		if (!world.isClientSide)
 			return ActionResult.pass(held);
-
-		double x = playerIn.getX(), y = playerIn.getY(), z = playerIn.getZ();
-		float phi = playerIn.yRot, theta = playerIn.xRot;
-		phi *= Math.PI / 180f;
-		theta *= Math.PI / 180f;
-
-		x += Math.sin(theta);
-		y += Math.sin(phi) * Math.cos(theta);
-		z += Math.cos(phi) * Math.cos(theta);
-
-		x *= 8;
-		y *= 8;
-		z *= 8;
-
-		playerIn.setPos(x, y, z);
+		
+		double x = player.getX(), y = player.getY(), z = player.getZ();
+		float yaw = player.yHeadRot, pitch = player.xRot;
+		yaw *= Math.PI / 180f;
+		pitch *= Math.PI / 180f;
+		
+		for (int i = 0; i < 8; ++i) {
+			if (world.getBlockState(new BlockPos(x, y, z)).getMaterial() != Material.AIR)
+				break;
+			x -= Math.sin(yaw) * Math.cos(pitch);
+			y -= Math.sin(pitch);
+			z += Math.cos(yaw) * Math.cos(pitch);
+		}
+		
+		y = pitch > 0 ? Math.ceil(y) : Math.floor(y) - 1;
+		
+		player.setPos(x, y, z);
 		return ActionResult.success(held);
 	}
 }

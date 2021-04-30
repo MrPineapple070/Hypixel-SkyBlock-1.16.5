@@ -45,11 +45,7 @@ public class TelekinesisEvent {
 		final PlayerEntity player = event.getPlayer();
 		if (player.isCreative() || player.isSpectator())
 			return;
-		final int lt = EnchantmentHelper.getItemEnchantmentLevel(EnchantmentInit.telekinesis_tool.get(),
-				player.getMainHandItem());
-		final int lw = EnchantmentHelper.getItemEnchantmentLevel(EnchantmentInit.telekinesis_weapon.get(),
-				player.getMainHandItem());
-		if (lt <= 0 && lw <= 0)
+		if (EnchantmentHelper.getItemEnchantmentLevel(EnchantmentInit.telekinesis.get(), player.getMainHandItem()) < 1)
 			return;
 		final IWorld world = event.getWorld();
 		final BlockPos pos = event.getPos();
@@ -79,11 +75,9 @@ public class TelekinesisEvent {
 		final PlayerEntity player = (PlayerEntity) attacker;
 		if (player.isCreative() || player.isSpectator())
 			return;
-		final int lt = EnchantmentHelper.getItemEnchantmentLevel(EnchantmentInit.telekinesis_tool.get(),
+		final int lt = EnchantmentHelper.getItemEnchantmentLevel(EnchantmentInit.telekinesis.get(),
 				player.getMainHandItem());
-		final int lw = EnchantmentHelper.getItemEnchantmentLevel(EnchantmentInit.telekinesis_weapon.get(),
-				player.getMainHandItem());
-		if (lt <= 0 && lw <= 0)
+		if (lt <= 0)
 			return;
 		LootTable table = entity.level.getServer().getLootTables().get(entity.getLootTable());
 		LootContext.Builder builder = (new LootContext.Builder((ServerWorld) entity.level))

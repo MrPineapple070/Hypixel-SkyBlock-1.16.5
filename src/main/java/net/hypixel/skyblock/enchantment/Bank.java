@@ -2,7 +2,6 @@ package net.hypixel.skyblock.enchantment;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentType;
-import net.minecraft.inventory.EquipmentSlotType;
 
 public class Bank extends ModEnchantment {
 	public Bank() {

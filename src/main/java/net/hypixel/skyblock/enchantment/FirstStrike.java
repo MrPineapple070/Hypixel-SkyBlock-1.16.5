@@ -2,12 +2,17 @@ package net.hypixel.skyblock.enchantment;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentType;
+import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.inventory.EquipmentSlotType;
 
 public class FirstStrike extends ModEnchantment {
-
 	public FirstStrike() {
 		super(Rarity.COMMON, EnchantmentType.WEAPON, EquipmentSlotType.MAINHAND);
+	}
+	
+	@Override
+	public float getDamageBonus(int lvl, CreatureAttribute attribute) {
+		return 1.25f * lvl;
 	}
 
 	@Override
