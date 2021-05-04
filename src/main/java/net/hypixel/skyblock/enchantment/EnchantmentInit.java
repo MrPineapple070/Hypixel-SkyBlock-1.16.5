@@ -69,14 +69,14 @@ public class EnchantmentInit {
 
 	// Tools
 	// public static final RegistryObject<Enchantment> experience = enchantments.register("experience" , Experience::new);
-	// public static final RegistryObject<Enchantment> harvesting = enchantments.register("harvesting" , Hatvesting::new);
+	// public static final RegistryObject<Enchantment> harvesting = enchantments.register("harvesting" , Harvesting::new);
 	// public static final RegistryObject<Enchantment> rainbow = enchantments.register("rainbow" , Rainbow::new);
 	// public static final RegistryObject<Enchantment> replenish = enchantments.register("replenish" , Replenish::new);
 	public static final RegistryObject<Enchantment> smelting_touch = enchantments.register("smelting_touch", SmeltingTouch::new);
 
 	// Armor
-	//public static final RegistryObject<Enchantment> big_brain = enchantments.register("big_brain", BigBrain::new);
-	//public static final RegistryObject<Enchantment> counter_strike = enchantments.register("counter_strike", CounterStrike::new);
+	// public static final RegistryObject<Enchantment> big_brain = enchantments.register("big_brain", BigBrain::new);
+	// public static final RegistryObject<Enchantment> counter_strike = enchantments.register("counter_strike", CounterStrike::new);
 	public static final RegistryObject<Enchantment> growth = enchantments.register("growth", Growth::new);
 	// public static final RegistryObject<Enchantment> rejuvenate = enchantments.register("rejuvenate", Rejuvenate::new);
 	// public static final RegistryObject<Enchantment> true_protection = enchantments.register("true_protection", TrueProtection::new);
@@ -92,15 +92,16 @@ public class EnchantmentInit {
 	
 	//Ultimate Enchantment
 	public static final RegistryObject<Enchantment> bank = enchantments.register("bank", Bank::new);
-	//public static final RegistryObject<Enchantment> chimera = enchantments.register("chimera", Chimera::new);
-	//public static final RegistryObject<Enchantment> combo = enchantments.register("combo", Combo::new);
-	//public static final RegistryObject<Enchantment> last_stand = enchantments.register("last_stand", LastStand::new);
-	//public static final RegistryObject<Enchantment> legion = enchantments.register("legion", Legion::new);
-	//public static final RegistryObject<Enchantment> npng = enchantments.register("npng", NoPainNoGain::new);
-	//public static final RegistryObject<Enchantment> rend = enchantments.register("rend", Rend::new);
-	//public static final RegistryObject<Enchantment> soul_eater = enchantments.register("soul_eater", SoulEater::new);
-	//public static final RegistryObject<Enchantment> swarm = enchantments.register("swarm", Swarm::new);
-	//public static final RegistryObject<Enchantment> ult_jerry = enchantments.register("ult_jerry", UltJerry::new);
-	//public static final RegistryObject<Enchantment> ult_wise = enchantments.register("ult_wise", UltWise::new);
-	//public static final RegistryObject<Enchantment> wisdom = enchantments.register("wisdom", Wisdom::new);
+	public static final RegistryObject<Enchantment> chimera = enchantments.register("chimera", Chimera::new);
+	public static final RegistryObject<Enchantment> combo = enchantments.register("combo", Combo::new);
+	public static final RegistryObject<Enchantment> last_stand = enchantments.register("last_stand", LastStand::new);
+	public static final RegistryObject<Enchantment> legion = enchantments.register("legion", Legion::new);
+	public static final RegistryObject<Enchantment> npng = enchantments.register("npng", NoPainNoGain::new);
+	public static final RegistryObject<Enchantment> ofa = enchantments.register("ofa", OneForAll::new);
+	public static final RegistryObject<Enchantment> rend = enchantments.register("rend", Rend::new);
+	public static final RegistryObject<Enchantment> soul_eater = enchantments.register("soul_eater", SoulEater::new);
+	public static final RegistryObject<Enchantment> swarm = enchantments.register("swarm", Swarm::new);
+	public static final RegistryObject<Enchantment> ult_jerry = enchantments.register("ult_jerry", UltJerry::new);
+	public static final RegistryObject<Enchantment> ult_wise = enchantments.register("ult_wise", UltWise::new);
+	public static final RegistryObject<Enchantment> wisdom = enchantments.register("wisdom", Wisdom::new);
 }
