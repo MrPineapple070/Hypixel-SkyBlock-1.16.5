@@ -28,3 +28,6 @@ Also visit the unofficial Wiki here:
 ## Code of Conduct
 [![GitHub](https://img.shields.io/badge/-Citizen%20Code%20of%20Conduct-blue)](./community/CITIZEN_CODE_OF_CONDUCT.md)  
 [![GitHub](https://img.shields.io/badge/-Contributor%20Covenant%20Code%20of%20Conduct-blue)](./community/CONTRIBUTOR_COVENANT_CODE_OF_CONDUCT.md)
+
+## Changelogs
+[![GitHub](https://img.shields.io/badge/-Changelog-blue)](./Change%20Logs/CHANGELOG.md)  
