@@ -50,9 +50,9 @@ public class AspectOfTheEnd extends ModSwordItem {
 			return ActionResult.pass(held);
 		
 		double x = player.getX(), y = player.getY(), z = player.getZ();
-		float yaw = player.yHeadRot, pitch = player.xRot;
-		yaw *= Math.PI / 180f;
-		pitch *= Math.PI / 180f;
+		double yaw = (double) player.yHeadRot, pitch = (double) player.xRot;
+		yaw *= Math.PI / 180d;
+		pitch *= Math.PI / 180d;
 		
 		for (int i = 0; i < 8; ++i) {
 			if (world.getBlockState(new BlockPos(x, y, z)).getMaterial() != Material.AIR)
