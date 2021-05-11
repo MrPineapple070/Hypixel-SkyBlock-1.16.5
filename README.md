@@ -17,17 +17,17 @@ Also visit the unofficial Wiki here:
 [![GitHub](https://img.shields.io/badge/-Forge%20Credits-green)](./Forge%20Documents/FORGE_CREDITS.md)
 
 ## Read the Documentation
-[![Read the Docs](https://img.shields.io/badge/-Documentation-blue)](https://mrpineapple070.github.io/Hypixel-SkyBlock-1.16.4/doc/)
+[![Read the Docs](https://img.shields.io/badge/-Documentation-blue)](https://mrpineapple070.github.io/Hypixel-SkyBlock-1.16.5/doc/)
 
 ## Contributing
-[![GitHub](https://img.shields.io/badge/-Contributing-blue)](./CONTRIBUTING.md)
+[![GitHub](https://img.shields.io/badge/-Contributing-blue)](./Mod%20Documents/CONTRIBUTING.md)
 
 ## Security Policy
-[![GitHub](https://img.shields.io/badge/-Security%20Policy-green)](./community/SECURITY.md)
+[![GitHub](https://img.shields.io/badge/-Security%20Policy-green)](./Mod%20Documents/SECURITY.md)
 
 ## Code of Conduct
-[![GitHub](https://img.shields.io/badge/-Citizen%20Code%20of%20Conduct-blue)](./community/CITIZEN_CODE_OF_CONDUCT.md)  
-[![GitHub](https://img.shields.io/badge/-Contributor%20Covenant%20Code%20of%20Conduct-blue)](./community/CONTRIBUTOR_COVENANT_CODE_OF_CONDUCT.md)
+[![GitHub](https://img.shields.io/badge/-Citizen%20Code%20of%20Conduct-blue)](./Mod%20Documents/CITIZEN_CODE_OF_CONDUCT.md)  
+[![GitHub](https://img.shields.io/badge/-Contributor%20Covenant%20Code%20of%20Conduct-blue)](./Mod%20Documents/CONTRIBUTOR_COVENANT_CODE_OF_CONDUCT.md)
 
 ## Changelogs
-[![GitHub](https://img.shields.io/badge/-Changelog-blue)](./Change%20Logs/CHANGELOG.md)  
+[![GitHub](https://img.shields.io/badge/-Changelog-blue)](./Mod%20Documents/CHANGELOG.md)  
