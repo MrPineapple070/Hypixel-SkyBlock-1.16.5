@@ -274,7 +274,8 @@ public abstract class AbstractBackpack extends Item {
 	}
 
 	/**
-	 * Gets {@link AbstractBackpackContainer}
+	 * Gets {@link AbstractBackpackContainer}<br>
+	 * TODO Deprecate this as <a href="https://hypixel.net/threads/april-20-backpacks-revamp.4142765/">Patch v0.11.3.2021.04.20</a>
 	 * 
 	 * @param player {@link PlayerEntity} opening this.
 	 * @return {@link AbstractBackpackContainer} associated with this.
