@@ -29,5 +29,5 @@ Also visit the unofficial Wiki here:
 [![GitHub](https://img.shields.io/badge/-Citizen%20Code%20of%20Conduct-blue)](./Mod%20Documents/CITIZEN_CODE_OF_CONDUCT.md)  
 [![GitHub](https://img.shields.io/badge/-Contributor%20Covenant%20Code%20of%20Conduct-blue)](./Mod%20Documents/CONTRIBUTOR_COVENANT_CODE_OF_CONDUCT.md)
 
-## Changelogs
+## Change Logs
 [![GitHub](https://img.shields.io/badge/-Changelog-blue)](./Mod%20Documents/CHANGELOG.md)  
