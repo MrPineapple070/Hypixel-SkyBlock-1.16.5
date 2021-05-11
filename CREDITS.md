@@ -15,7 +15,7 @@ Blockbench for Models.
 ## Minecraft Forge
 Forge Team for providing this mod's framework.  
 [Forge Credits](./FORGE_CREDITS.md)  
-[![Minecraft Forge Logo](https://files.minecraftforge.net/maven/manage/static/images/logo.svg "Get Minecraft Forge here")](http://files.minecraftforge.net/)
+[![Minecraft Forge Logo](https://files.minecraftforge.net/static/images/logo.svg "Get Minecraft Forge here")](http://files.minecraftforge.net/)
 
 ## Textures
 ### ImperiaL
