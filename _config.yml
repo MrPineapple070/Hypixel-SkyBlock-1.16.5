@@ -2,7 +2,7 @@ baseURL: https://mrpineapple070.github.io/Hypixel-SkyBlock-1.16.5/
 languageCode: en-us
 title: Hypixel SkyBlock for Minecraft 1.16.5
 
-theme: jekyll-theme-architect
+theme: jekyll-theme-cayman
 
 # Required to get well formatted code blocks
 pygmentsUseClasses: true
