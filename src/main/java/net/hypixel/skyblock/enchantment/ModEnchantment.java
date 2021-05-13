@@ -22,11 +22,6 @@ public abstract class ModEnchantment extends Enchantment {
 	
 	protected final ModEnchantmentType type;
 	
-	/**
-	 * @param rarityIn {@link Rarity} of this
-	 * @param typeIn   {@link EnchantmentType} of this
-	 * @param slots    {@link EquipmentSlotType}[] of this
-	 */
 	protected ModEnchantment(Rarity rarity, EnchantmentType type, EquipmentSlotType slots) {
 		this(rarity, type, new EquipmentSlotType[] { slots });
 	}

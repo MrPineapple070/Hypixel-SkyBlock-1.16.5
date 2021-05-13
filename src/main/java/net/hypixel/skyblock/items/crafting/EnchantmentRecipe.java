@@ -231,8 +231,8 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 	/**
 	 * Shrinks an array of {@link String} to exclude space characters
 	 * 
-	 * @param inputs
-	 * @return
+	 * @param inputs {@link String} to shrink down
+	 * @return shrunk
 	 */
 	@VisibleForTesting
 	public static final String[] shrink(String... inputs) {

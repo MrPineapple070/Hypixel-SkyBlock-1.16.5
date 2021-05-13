@@ -27,19 +27,19 @@ public abstract class AbstractForagingMTE extends AbstractPlacerMTE {
 	protected static final Item[] comp = new Item[] { Items.DIAMOND };
 
 	/**
-	 * Array of differentials when {@link #count(Item)} of
+	 * Array of differentials when {@link #countItem(Item)} of
 	 * {@link ItemInit#minion_expander} == 0
 	 */
 	protected static final int[] default_size = { -2, 0, 2 };
 
 	/**
-	 * Array of differentials when {@link #count(Item)} of
+	 * Array of differentials when {@link #countItem(Item)} of
 	 * {@link ItemInit#minion_expander} == 2
 	 */
 	protected static final int[] expanded_1_size = { -4, -2, 0, 2, 4 };
 
 	/**
-	 * Array of differentials when {@link #count(Item)} of
+	 * Array of differentials when {@link #countItem(Item)} of
 	 * {@link ItemInit#minion_expander} == 1
 	 */
 	protected static final int[] expanded_size = { -3, -1, 1, 3 };

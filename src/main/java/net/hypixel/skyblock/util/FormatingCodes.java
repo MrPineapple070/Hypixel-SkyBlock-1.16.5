@@ -117,7 +117,7 @@ public class FormatingCodes {
 	public static final String reset = "\u00A7r";
 
 	/**
-	 * <s>Strikethrough</s>
+	 * <del>Strikethrough</del>
 	 */
 	public static final String strikethrough = "\u00A7m";
 

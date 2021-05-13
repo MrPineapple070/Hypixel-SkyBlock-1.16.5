@@ -27,21 +27,21 @@ import net.minecraft.world.server.ServerWorld;
  */
 public abstract class AbstractPlacerMTE extends AbstractMinionTileEntity {
 	/**
-	 * Differentials from the center {@link BlockPos} when {@link #count(Item)}
+	 * Differentials from the center {@link BlockPos} when {@link #countItem(Item)}
 	 * using {@link ItemInit#minion_expander} is 0
 	 */
 	@Nonnull
 	protected static final int[] default_size = { -2, -1, 0, 1, 2 };
 
 	/**
-	 * Differentials from the center {@link BlockPos} when {@link #count(Item)}
+	 * Differentials from the center {@link BlockPos} when {@link #countItem(Item)}
 	 * using {@link ItemInit#minion_expander} is 2
 	 */
 	@Nonnull
 	protected static final int[] expanded_2_size = { -4, -3, -2, -1, 0, 1, 2, 3, 4 };
 
 	/**
-	 * Differentials from the center {@link BlockPos} when {@link #count(Item)}
+	 * Differentials from the center {@link BlockPos} when {@link #countItem(Item)}
 	 * using {@link ItemInit#minion_expander} is 1
 	 */
 	@Nonnull

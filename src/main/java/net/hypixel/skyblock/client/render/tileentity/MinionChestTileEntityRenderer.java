@@ -138,7 +138,7 @@ public class MinionChestTileEntityRenderer<T extends TileEntity & IChestLid> ext
 	 * 
 	 * @param tileEntity {@link TileEntity} to render
 	 * @param chestType  {@link ChestType} of tileEntity
-	 * @return {@link Atlases#getChestMaterial(TileEntity, ChestType, boolean)}
+	 * @return {@link Atlases#chooseMaterial(TileEntity, ChestType, boolean)}
 	 */
 	protected RenderMaterial getMaterial(T tileEntity, ChestType chestType) {
 		return Atlases.chooseMaterial(tileEntity, chestType, this.isChristmas);

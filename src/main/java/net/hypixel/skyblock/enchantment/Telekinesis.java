@@ -19,11 +19,6 @@ import net.minecraft.item.ItemStack;
  * @version 16 May 2020
  */
 public class Telekinesis extends ModEnchantment {
-	/**
-	 * Construct {@code this}
-	 *
-	 * @param type {@link ModEnchantmentType} of this.
-	 */
 	public Telekinesis() {
 		super(Rarity.COMMON, ModEnchantmentType.NONARMOR, EquipmentSlotType.MAINHAND);
 	}

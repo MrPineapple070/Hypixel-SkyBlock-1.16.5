@@ -59,7 +59,7 @@ public final class ListUtil {
 	 * @param list     privative type array to edit.
 	 * @param elements elements to remove
 	 * @return elements removed from list
-	 * @throws IllegalAccessException
+	 * @throws IllegalAccessException when elements has a length of zero
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <E extends Object> E[] removeAll(E[] list, E... elements) throws IllegalAccessException {

@@ -190,8 +190,8 @@ public class ModShapedRecipe implements ICraftingRecipe {
 	/**
 	 * Shrinks an array of {@link String} to exclude space characters
 	 * 
-	 * @param inputs
-	 * @return
+	 * @param inputs {@link String} array
+	 * @return array shrunk
 	 */
 	@VisibleForTesting
 	public static final String[] shrink(String... inputs) {

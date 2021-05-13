@@ -24,8 +24,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 /**
- * Handle {@link EnchantmentInit#telekinesis_tool} and
- * {@link EnchantmentInit#telekinesis_weapon}.
+ * Handle {@link EnchantmentInit#telekinesis}
  *
  * @author MrPineapple070
  * @version 16 May 2020
