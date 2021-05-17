@@ -10,24 +10,24 @@ Also visit the unofficial Wiki here:
 
 ## Read the License
 [![GitHub](https://img.shields.io/badge/license-APGL--3-red)](./LICENSE.md)  
-[![GitHub](https://img.shields.io/badge/forge%20license-APGL--3-red)](./Forge%20Documents/FORGE_LICENSE.md)
+[![GitHub](https://img.shields.io/badge/forge%20license-APGL--3-red)](./Forge%20Documents/FORGE_LICENSE.html)
 
 ## Credits
 [![GitHub](https://img.shields.io/badge/-Credits-green)](./CREDITS.md)  
-[![GitHub](https://img.shields.io/badge/-Forge%20Credits-green)](./Forge%20Documents/FORGE_CREDITS.md)
+[![GitHub](https://img.shields.io/badge/-Forge%20Credits-green)](./Forge%20Documents/FORGE_CREDITS.html)
 
 ## Read the Documentation
 [![Read the Docs](https://img.shields.io/badge/-Documentation-blue)](https://mrpineapple070.github.io/Hypixel-SkyBlock-1.16.5/doc/)
 
 ## Contributing
-[![GitHub](https://img.shields.io/badge/-Contributing-blue)](./Mod%20Documents/CONTRIBUTING.md)
+[![GitHub](https://img.shields.io/badge/-Contributing-blue)](./Mod%20Documents/CONTRIBUTING.html)
 
 ## Security Policy
-[![GitHub](https://img.shields.io/badge/-Security%20Policy-green)](./Mod%20Documents/SECURITY.md)
+[![GitHub](https://img.shields.io/badge/-Security%20Policy-green)](./Mod%20Documents/SECURITY.html)
 
 ## Code of Conduct
-[![GitHub](https://img.shields.io/badge/-Citizen%20Code%20of%20Conduct-blue)](./Mod%20Documents/CITIZEN_CODE_OF_CONDUCT.md)  
-[![GitHub](https://img.shields.io/badge/-Contributor%20Covenant%20Code%20of%20Conduct-blue)](./Mod%20Documents/CONTRIBUTOR_COVENANT_CODE_OF_CONDUCT.md)
+[![GitHub](https://img.shields.io/badge/-Citizen%20Code%20of%20Conduct-blue)](./Mod%20Documents/CITIZEN_CODE_OF_CONDUCT.html)  
+[![GitHub](https://img.shields.io/badge/-Contributor%20Covenant%20Code%20of%20Conduct-blue)](./Mod%20Documents/CONTRIBUTOR_COVENANT_CODE_OF_CONDUCT.html)
 
 ## Change Logs
-[![GitHub](https://img.shields.io/badge/-Changelog-blue)](./Mod%20Documents/CHANGELOG.md)  
+[![GitHub](https://img.shields.io/badge/-Changelog-blue)](./Mod%20Documents/CHANGELOG.html)  
