@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Read Me</title>
+<link rel="icon"		href="https://avatars.githubusercontent.com/u/1390178?s=280&v=4">
+<link rel="stylesheet"	href="./forge.css">
+</head>
+
+<body>
+<h1>Source installation information for modders</h1>
+
+This code follows the Minecraft Forge installation methodology. It will apply
+some small patches to the vanilla MCP source code, giving you and it access 
+to some of the data and functions you need to build a successful mod.
+
+Note also that the patches are built against *"unrenamed"* MCP source code (aka
+srgnames) - this means that you will not be able to read them directly against
+normal code.
+
+<hr>
+<h1>Source pack installation information:<h1>
+<h2>Standalone source installation</h2>
+
+See the Forge Documentation online for more detailed instructions:
+<a href="http://mcforge.readthedocs.io/en/latest/gettingstarted/">
+<span title="Click for more instructions"><img src="https://mcforge.readthedocs.io/en/1.15.x/images/logo.svg" alt="Forge Documentation"></span>
+</a><br>
+
+<p>
+Step 1: Open your command-line and browse to the folder where you extracted the zip file.
+</p><p>
+Step 2: You're left with a choice.
+If you prefer to use Eclipse:
+<ol>
+<li>Run the following command: "gradlew genEclipseRuns" (./gradlew genEclipseRuns if you are on Mac/Linux)</li>
+<li>Open Eclipse, Import &rarr; Existing Gradle Project &rarr; Select Folder or run "gradlew eclipse" to generate the project. (Current Issue)</li>
+<li>Open Project &rarr; Run/Debug Settings &rarr; Edit runClient and runServer &rarr; Environment</li>
+<li>Edit MOD_CLASSES to show [modid]%%[Path]; 2 times rather then the generated 4.</li>
+</ol>
+</p><p>
+If you prefer to use IntelliJ:
+<ol>
+<li>Open IDEA, and import project.</li>
+<li>Select your build.gradle file and have it import.</li>
+<li>Run the following command: "gradlew genIntellijRuns" (./gradlew genIntellijRuns if you are on Mac/Linux)</li>
+<li>Refresh the Gradle Project in IDEA if required.</li>
+</ol>
+</p><p>
+If at any point you are missing libraries in your IDE, or you've run into problems you can run "gradlew --refresh-dependencies" to refresh the local cache. "gradlew clean" to reset everything {this does not affect your code} and then start the processs again.
+</p><p>
+Should it still not work, 
+Refer to #ForgeGradle on EsperNet for more information about the gradle environment.  
+Or the <a href="https://discord.gg/UvedJ9m">Forge Project Discord</a>
+</p>
+<hr>
+<h1>Forge source installation</h1>
+
+<p>
+MinecraftForge ships with this code and installs it as part of the forge
+installation process, no further action is required on your part.
+</p>
+
+<h2>LexManos' Install Video</h2>
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/8VEdtQLuLO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+For more details update more often refer to the <a href="https://www.minecraftforge.net/forum/index.php/topic,14048.0.html">Forge Forums</a>
+</p>
+
+</body>
+</html>

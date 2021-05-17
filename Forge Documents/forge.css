@@ -1,0 +1,23 @@
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+header {
+    color: #f9f7f7;
+    background: #2e4460;
+    margin-bottom: 1rem;
+}
+
+body {
+    font-family: "Source Sans Pro",sans-serif;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #bbb;
+    background-color: #2B2B2B;
+}
+
+a {
+    color: #378eda;
+}
