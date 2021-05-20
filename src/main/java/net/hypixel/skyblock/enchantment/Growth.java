@@ -19,9 +19,4 @@ public class Growth extends ModEnchantment {
 	public int getMaxLevel() {
 		return 4;
 	}
-
-	@Override
-	public boolean isAllowedOnBooks() {
-		return true;
-	}
 }

@@ -1,11 +1,24 @@
 package net.hypixel.skyblock.potion;
 
+import java.util.Objects;
+
+import javax.annotation.Nonnull;
+
 import net.hypixel.skyblock.HypixelSkyBlockMod;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionUtils;
+import net.minecraft.potion.Potions;
+import net.minecraft.util.IItemProvider;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.common.brewing.IBrewingRecipe;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -43,6 +56,9 @@ public class PotionInit {
 	 * 2400 seconds.
 	 */
 	private static final int duration_3 = 0xBB80;
+	
+	@Nonnull
+	private static final ItemStack potion = new ItemStack(Items.POTION);
 
 	public static final DeferredRegister<Effect> effects = DeferredRegister.create(ForgeRegistries.POTIONS,
 			HypixelSkyBlockMod.MOD_ID);
@@ -355,4 +371,80 @@ public class PotionInit {
 
 	public static final RegistryObject<Potion> wounded_00 = potions.register("wounded_00",
 			() -> new Potion(new EffectInstance(wounded_effect.get(), duration_0, 0)));
+	
+	private static final class ModBrewingRecipe implements IBrewingRecipe {
+		private final Potion potion;
+		private final Item input;
+		private final ItemStack output;
+		
+		public ModBrewingRecipe(Potion potion, Item input, Potion output) {
+			this.potion = Objects.requireNonNull(potion, "potion cannot be null");
+			this.input = Objects.requireNonNull(input, "input cannot be null");
+			this.output = PotionUtils.setPotion(PotionInit.potion, Objects.requireNonNull(potion, "output cannot be null"));
+		}
+
+		@Override
+		public boolean isInput(ItemStack input) {
+			return PotionUtils.getPotion(input).equals(this.potion);
+		}
+
+		@Override
+		public boolean isIngredient(ItemStack ingredient) {
+			return ingredient.getItem().equals(this.input);
+		}
+
+		@Override
+		public ItemStack getOutput(ItemStack input, ItemStack ingredient) {
+			if (this.isInput(input) && this.isIngredient(ingredient))
+				return this.output.copy();
+			return ItemStack.EMPTY;
+		}
+	}
+	
+	/**
+	 * Adds all potion recipies using
+	 * {@link BrewingRecipeRegistry#addRecipe(Ingredient, Ingredient, ItemStack)}.
+	 * Also includes {@link Ingredient#of(IItemProvider...)},
+	 * {@link Ingredient#of(ItemStack...)}, and
+	 * {@link PotionUtils#setPotion(ItemStack, Potion)}
+	 */
+	public static void addRecipies() {
+		HypixelSkyBlockMod.LOGGER.info("Adding Potion Recipies");
+		
+		// Adrenaline I
+		BrewingRecipeRegistry.addRecipe(new ModBrewingRecipe(Potions.AWKWARD, Items.GOLD_INGOT, adrenaline_00.get()));
+		/**
+		
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion, absorption_00.get())), Ingredient.of(Items.GLOWSTONE_DUST),
+				PotionUtils.setPotion(potion, absorption_01.get()));
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion, absorption_00.get())), Ingredient.of(ItemInit.enchanted_glowstone_dust.get()),
+				PotionUtils.setPotion(potion, absorption_02.get()));
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion, absorption_00.get())), Ingredient.of(ItemInit.enchanted_glowstone.get()),
+				PotionUtils.setPotion(potion, absorption_03.get()));
+
+		// Adrenaline II
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion, adrenaline_00.get())),
+				Ingredient.of(Items.GLOWSTONE_DUST), PotionUtils.setPotion(potion, absorption_10.get()));
+
+		// Adrenaline III
+		BrewingRecipeRegistry.addRecipe(awk, Ingredient.of(ItemInit.enchanted_gold_ingot.get()),
+				PotionUtils.setPotion(potion, absorption_20.get()));
+
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion, adrenaline_20.get())),
+				Ingredient.of(Items.GLOWSTONE_DUST), PotionUtils.setPotion(potion, absorption_30.get()));
+
+		BrewingRecipeRegistry.addRecipe(awk, Ingredient.of(ItemInit.enchanted_gold_block.get()),
+				PotionUtils.setPotion(potion, absorption_40.get()));
+
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion, absorption_40.get())),
+				Ingredient.of(Items.GLOWSTONE_DUST), PotionUtils.setPotion(potion, absorption_50.get()));
+
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion, absorption_40.get())),
+				Ingredient.of(ItemInit.enchanted_glowstone_dust.get()),
+				PotionUtils.setPotion(potion, absorption_60.get()));
+
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion, absorption_40.get())),
+				Ingredient.of(ItemInit.enchanted_glowstone.get()), PotionUtils.setPotion(potion, absorption_70.get()));
+				*/
+	}
 }

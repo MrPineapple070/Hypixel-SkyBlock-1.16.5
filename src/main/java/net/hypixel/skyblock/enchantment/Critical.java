@@ -28,11 +28,6 @@ public class Critical extends ModEnchantment {
 	}
 
 	@Override
-	public boolean isAllowedOnBooks() {
-		return true;
-	}
-
-	@Override
 	public void doPostAttack(LivingEntity user, Entity target, int damage) {
 		target.hurt(DamageSource.mobAttack(user), 1.1f * damage);
 	}

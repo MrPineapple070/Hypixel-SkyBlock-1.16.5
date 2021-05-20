@@ -47,9 +47,4 @@ public class Telekinesis extends ModEnchantment {
 	public int getMinCost(int enchantmentLevel) {
 		return 0;
 	}
-
-	@Override
-	public boolean isAllowedOnBooks() {
-		return true;
-	}
 }

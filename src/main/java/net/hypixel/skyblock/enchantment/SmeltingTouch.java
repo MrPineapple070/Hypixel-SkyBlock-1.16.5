@@ -37,9 +37,4 @@ public class SmeltingTouch extends ModEnchantment {
 	public int getMinCost(int enchantmentLevel) {
 		return 11 * enchantmentLevel;
 	}
-
-	@Override
-	public boolean isAllowedOnBooks() {
-		return true;
-	}
 }

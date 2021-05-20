@@ -19,9 +19,4 @@ public class GiantKiller extends ModEnchantment {
 	public int getMaxLevel() {
 		return 5;
 	}
-
-	@Override
-	public boolean isAllowedOnBooks() {
-		return true;
-	}
 }

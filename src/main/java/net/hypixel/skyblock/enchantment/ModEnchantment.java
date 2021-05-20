@@ -43,7 +43,7 @@ public abstract class ModEnchantment extends Enchantment {
 	public abstract int getMaxLevel();
 
 	@Override
-	public boolean isAllowedOnBooks() {
+	public final boolean isAllowedOnBooks() {
 		return true;
 	}
 }

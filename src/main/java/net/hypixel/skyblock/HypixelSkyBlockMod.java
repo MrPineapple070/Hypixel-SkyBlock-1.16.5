@@ -11,6 +11,7 @@ import net.hypixel.skyblock.entity.ModEntityTypes;
 import net.hypixel.skyblock.inventory.container.init.MasterContainerInit;
 import net.hypixel.skyblock.items.crafting.RecipeSerializerInit;
 import net.hypixel.skyblock.items.init.MasterItemInit;
+import net.hypixel.skyblock.potion.PotionInit;
 import net.hypixel.skyblock.proxy.ClientProxy;
 import net.hypixel.skyblock.proxy.CommonProxy;
 import net.hypixel.skyblock.proxy.ServerProxy;
@@ -64,8 +65,9 @@ public class HypixelSkyBlockMod {
 
 		// ParticleInit.particle_types.register(bus);
 		// SoundInit.sounds.register(bus);
-		// PotionInit.effects.register(bus);
-		// PotionInit.potions.register(bus);
+		
+		PotionInit.effects.register(bus);
+		PotionInit.potions.register(bus);
 
 		EnchantmentInit.enchantments.register(bus);
 
@@ -73,7 +75,9 @@ public class HypixelSkyBlockMod {
 		RecipeSerializerInit.recipe_serializer.register(bus);
 		// FluidInit.fluids.register(bus);
 		MasterBlockInit.register(bus);
-
+		
+		PotionInit.addRecipies();
+		
 		ModEntityTypes.entities.register(bus);
 		ModTileEntityTypes.tile_entity_types.register(bus);
 		MasterContainerInit.register(bus);
@@ -89,5 +93,6 @@ public class HypixelSkyBlockMod {
 
 	private void setup(final FMLCommonSetupEvent event) {
 		proxy.init();
+		PotionInit.addRecipies();
 	}
 }

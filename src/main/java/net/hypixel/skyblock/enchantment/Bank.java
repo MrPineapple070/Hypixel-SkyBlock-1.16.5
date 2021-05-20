@@ -11,9 +11,4 @@ public class Bank extends UltimateEnchantment {
 	public int getMaxLevel() {
 		return 5;
 	}
-
-	@Override
-	public boolean isAllowedOnBooks() {
-		return true;
-	}
 }

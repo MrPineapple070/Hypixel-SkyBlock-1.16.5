@@ -18,9 +18,4 @@ public class SugarRush extends ModEnchantment {
 	public int getMaxLevel() {
 		return 3;
 	}
-
-	@Override
-	public boolean isAllowedOnBooks() {
-		return true;
-	}
 }
