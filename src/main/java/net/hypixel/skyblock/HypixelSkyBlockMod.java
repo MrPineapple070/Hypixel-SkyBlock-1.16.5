@@ -17,6 +17,7 @@ import net.hypixel.skyblock.proxy.CommonProxy;
 import net.hypixel.skyblock.proxy.ServerProxy;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -61,13 +62,12 @@ public class HypixelSkyBlockMod {
 
 	public HypixelSkyBlockMod() {
 		final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-		bus.addListener(this::setup);
+		bus.addListener(EventPriority.HIGH, this::setup);
 
 		// ParticleInit.particle_types.register(bus);
 		// SoundInit.sounds.register(bus);
 		
-		PotionInit.effects.register(bus);
-		PotionInit.potions.register(bus);
+		PotionInit.register(bus);
 
 		EnchantmentInit.enchantments.register(bus);
 
@@ -75,8 +75,6 @@ public class HypixelSkyBlockMod {
 		RecipeSerializerInit.recipe_serializer.register(bus);
 		// FluidInit.fluids.register(bus);
 		MasterBlockInit.register(bus);
-		
-		PotionInit.addRecipies();
 		
 		ModEntityTypes.entities.register(bus);
 		ModTileEntityTypes.tile_entity_types.register(bus);
@@ -90,8 +88,9 @@ public class HypixelSkyBlockMod {
 		instance = this;
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-
+	
 	private void setup(final FMLCommonSetupEvent event) {
+		LOGGER.debug("setup called");
 		proxy.init();
 		PotionInit.addRecipies();
 	}

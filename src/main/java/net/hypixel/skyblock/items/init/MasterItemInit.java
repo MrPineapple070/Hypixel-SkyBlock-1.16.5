@@ -1,5 +1,6 @@
 package net.hypixel.skyblock.items.init;
 
+import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 
@@ -12,6 +13,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
  */
 public class MasterItemInit {
 	public static void register(final IEventBus bus) {
+		HypixelSkyBlockMod.LOGGER.debug("MasterItemInit registering");
 		AccessoriesInit.accessories.register(bus);
 		ArmorInit.armor.register(bus);
 		BackpackInit.backpack.register(bus);

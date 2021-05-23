@@ -2,6 +2,7 @@ package net.hypixel.skyblock.items.biomestick;
 
 import java.util.List;
 
+import net.hypixel.skyblock.util.ItemProperties;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -14,8 +15,8 @@ import net.minecraft.world.World;
 public class DesertBiomeStick extends AbstractBiomeStick {
 	private static final ITextComponent info = new TranslationTextComponent(String.format(translate, "desert"));
 
-	public DesertBiomeStick(Properties properties) {
-		super(properties);
+	public DesertBiomeStick() {
+		super(ItemProperties.mine_1);
 	}
 
 	@Override

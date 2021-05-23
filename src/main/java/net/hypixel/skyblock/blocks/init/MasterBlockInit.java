@@ -1,5 +1,6 @@
 package net.hypixel.skyblock.blocks.init;
 
+import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.minecraft.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 
@@ -13,6 +14,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
  */
 public class MasterBlockInit {
 	public static void register(final IEventBus bus) {
+		HypixelSkyBlockMod.LOGGER.debug("MasterBlockInit registering");
 		BlockInit.blocks.register(bus);
 		MinionBlockInit.minionBlocks.register(bus);
 	}

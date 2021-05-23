@@ -1,21 +1,31 @@
 {
-	"type": "hypixelskyblockmod:private_island",
-	"generator": {
-		"type": "minecraft:flat",
-		"settings": {
-			"layers": [
-				{
-					"height": 5,
-					"block": "minecraft:air"
-				}
-			],
-			"biome": "minecraft:plains",
-			"lakes": false,
-			"features": false,
-			"structures": {
-				"structures": {
-				}
-			}
-		}
-	}
+  "type": "minecraft:overworld",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:plains",
+      "lakes": false,
+      "features": false,
+      "layers": [
+        {
+          "block": "minecraft:grass_block",
+          "height": 1
+        }
+      ],
+      "structures": {
+        "stronghold": {
+          "distance": 0,
+          "spread": 0,
+          "count": 1
+        },
+        "structures": {
+          "minecraft:village": {
+            "spacing": 10,
+            "separation": 5,
+            "salt": 0
+          }
+        }
+      }
+    }
+  }
 }
