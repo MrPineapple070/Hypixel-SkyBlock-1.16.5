@@ -1,6 +1,5 @@
 package net.hypixel.skyblock.items.crafting;
 
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -105,25 +104,21 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 	 */
 	private static final NonNullList<ItemStack> dissolvePattern(String[] pattern, Map<String, ItemStack> patternMap,
 			int width, int height) {
-		LOGGER.debug("Dissolving");
 		NonNullList<ItemStack> inputs = NonNullList.withSize(width * height, ItemStack.EMPTY);
 		Set<String> set = Sets.newHashSet(patternMap.keySet());
 		set.remove(" ");
 		for (int i = 0; i < pattern.length; ++i)
 			for (int j = 0; j < pattern[i].length(); ++j) {
 				String key = pattern[i].substring(j, j + 1);
-				LOGGER.debug("Key:\t" + key);
 				ItemStack stack = patternMap.get(key);
 				if (stack == null)
 					throw new JsonSyntaxException(
 							"Pattern references symbol '" + key + "' but it's not defined in the key");
-				LOGGER.debug("ItemStack:\t" + stack.toString());
 				set.remove(key);
 				inputs.set(j + width * i, stack);
 			}
 		if (!set.isEmpty())
 			throw new JsonSyntaxException("Key defines symbols that aren't used in pattern: " + set);
-		LOGGER.debug("List:\t" + inputs.toString());
 		return inputs;
 	}
 
@@ -172,7 +167,6 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 			map.put(key, CraftingHelper.getItemStack(entry.getValue().getAsJsonObject(), true));
 		}
 		map.put(" ", ItemStack.EMPTY);
-		LOGGER.debug("Map:\t" + map.toString());
 		return map;
 	}
 
@@ -209,7 +203,6 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 				throw new JsonSyntaxException("Invalid pattern: each row must be the same width");
 			astring[i] = pattern;
 		}
-		LOGGER.debug("Patterns:\t" + Arrays.deepToString(astring));
 		return astring;
 	}
 
@@ -236,12 +229,10 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 	 */
 	@VisibleForTesting
 	public static final String[] shrink(String... inputs) {
-		LOGGER.debug("Shrinking:\t" + Arrays.deepToString(inputs));
 		int firstNonSpace = Integer.MAX_VALUE, lastNonSpace = 0;
 		int index = 0, length = 0;
 		for (int i = 0; i < inputs.length; ++i) {
 			String line = inputs[i];
-			LOGGER.debug("Line:\t" + line);
 			firstNonSpace = Math.min(firstNonSpace, firstNonSpace(line));
 			int j = lastNonSpace(line);
 			lastNonSpace = Math.max(lastNonSpace, j);
@@ -257,7 +248,6 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 		String[] astring = new String[inputs.length - length - index];
 		for (int k1 = 0; k1 < astring.length; ++k1)
 			astring[k1] = inputs[k1 + index].substring(firstNonSpace, lastNonSpace + 1);
-		LOGGER.debug("Shrunk:\t" + Arrays.asList(astring));
 		return astring;
 	}
 
@@ -304,6 +294,8 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 		this.height = height;
 		this.inputs = Objects.requireNonNull(input, "Inputs cannot be null");
 		this.output = Objects.requireNonNull(output, "Output cannot be null");
+		LOGGER.debug(this.inputs.toString());
+		LOGGER.debug(this.output.toString());
 	}
 
 	@Override
@@ -337,7 +329,6 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 			ItemStack stack = inv.getItem(i);
 			if (stack.isEmpty())
 				continue;
-			LOGGER.debug(stack.toString());
 		}
 		return false;
 	}

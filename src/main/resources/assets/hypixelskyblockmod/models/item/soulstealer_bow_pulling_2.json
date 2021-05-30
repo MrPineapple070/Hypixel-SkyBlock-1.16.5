@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"0": "hypixelskyblockmod:items/soulstealer_bow_pulling_2"
+	}
+}

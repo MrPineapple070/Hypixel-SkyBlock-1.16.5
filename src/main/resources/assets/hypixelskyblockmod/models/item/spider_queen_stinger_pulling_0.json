@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"0": "hypixelskyblockmod:items/spider_queen_stinger_pulling_0"
+	}
+}

@@ -8,8 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class MenuItemInit {
-	public static final DeferredRegister<Item> items = DeferredRegister.create(ForgeRegistries.ITEMS,
-			HypixelSkyBlockMod.MOD_ID);
+	public static final DeferredRegister<Item> items = DeferredRegister.create(ForgeRegistries.ITEMS, HypixelSkyBlockMod.MOD_ID);
 
 	public static final RegistryObject<MenuItem> close = items.register("close", MenuItem::new);
 }

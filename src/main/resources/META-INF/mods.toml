@@ -18,11 +18,9 @@ logoFile="logo.png"
 
 modId="hypixelskyblockmod"
 
-version="${file.jarVersion}"
+version="0.11.4"
 
 displayName="Hypixel SkyBlock Mod"
-
-updateJSONURL="https://hypixel.net/forums/skyblock-patch-notes.158/"
 
 displayURL="https://hypixel.net/forums/skyblock.157/"
 
@@ -32,10 +30,5 @@ authors="Hypixel SkyBlock Developers"
 
 description='''
 Hypixel SkyBlock
-
-Textures by ImperiaL_24.
-Get the pack here: https://packshq.com/content/packs/
-
-Models made with BlockBench
-Get is here: https://blockbench.net/downloads/
+Be sure to read all the information located in ../Mod%20Documents/
 '''

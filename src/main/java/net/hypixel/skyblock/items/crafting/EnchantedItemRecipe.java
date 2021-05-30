@@ -91,8 +91,6 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 		this.group = Objects.requireNonNull(group, "Group cannot be null");
 		this.input = Objects.requireNonNull(input, "Inputs cannot be null");
 		this.output = Objects.requireNonNull(output, "Output cannot be null");
-		if (!this.group.isEmpty())
-			LOGGER.debug("Group:\t" + this.group);
 		LOGGER.debug("Input:\t" + this.input.toString());
 		LOGGER.debug("Output:\t" + this.output.toString());
 	}
@@ -133,8 +131,6 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 		for (int j = 0; j < inv.getContainerSize(); ++j) {
 			final ItemStack stack = inv.getItem(j);
 			if (stack.isEmpty())
-				continue;
-			LOGGER.debug(stack.toString());
 			if (this.input.sameItem(stack))
 				size += this.input.getCount() >= stack.getCount() ? 1 : 0;
 		}

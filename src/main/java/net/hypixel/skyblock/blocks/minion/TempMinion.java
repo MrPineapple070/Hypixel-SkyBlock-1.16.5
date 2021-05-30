@@ -13,11 +13,6 @@ public class TempMinion extends AbstractMinionBlock {
 	}
 
 	@Override
-	public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-		return null;
-	}
-
-	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
 		return null;
 	}

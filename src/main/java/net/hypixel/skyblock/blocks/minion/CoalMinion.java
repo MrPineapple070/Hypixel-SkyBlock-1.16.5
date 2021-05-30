@@ -32,11 +32,6 @@ public class CoalMinion extends AbstractMinionBlock {
 
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		return this.newBlockEntity(world);
-	}
-
-	@Override
-	public TileEntity newBlockEntity(IBlockReader world) {
 		switch (this.tier) {
 		case I:
 			return ModTileEntityTypes.coal_minion_1.get().create();

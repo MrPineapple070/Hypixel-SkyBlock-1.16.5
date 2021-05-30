@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"0": "hypixelskyblockmod:items/souls_rebound_pulling_0"
+	}
+}

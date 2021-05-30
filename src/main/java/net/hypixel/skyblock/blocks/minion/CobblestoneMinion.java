@@ -33,11 +33,6 @@ public class CobblestoneMinion extends AbstractMinionBlock {
 
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		return this.newBlockEntity(world);
-	}
-
-	@Override
-	public TileEntity newBlockEntity(IBlockReader world) {
 		switch (this.tier) {
 		case I:
 			ModTileEntityTypes.cobblestone_minion_1.get().create();

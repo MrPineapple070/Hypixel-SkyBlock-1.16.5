@@ -59,8 +59,7 @@ public final class ClientEventBusSubscriber {
 		ScreenManager.register(ModContainerTypes.anvil.get(), ModAnvilScreen::new);
 
 		// for (RegistryObject<Block> obj : MinionBlockInit.minionBlocks.getEntries())
-		// RenderTypeLookup.setRenderLayer(obj.get(),
-		// RenderType.translucentNoCrumbling());
+		// RenderTypeLookup.setRenderLayer(obj.get(), RenderType.translucentNoCrumbling());
 
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.small_mcte.get(), ChestTileEntityRenderer::new);
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.medium_mcte.get(), ChestTileEntityRenderer::new);

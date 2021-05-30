@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"0": "hypixelskyblockmod:items/slime_bow_pulling_1"
+	}
+}

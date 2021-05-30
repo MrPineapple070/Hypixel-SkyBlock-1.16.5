@@ -59,8 +59,7 @@ public final class ItemProperties {
 	 * {@link #dungeon} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties dungeon_64 = new Properties().tab(DungeonGroup.instance).fireResistant()
-			.stacksTo(64);
+	public static final Properties dungeon_64 = new Properties().tab(DungeonGroup.instance).fireResistant().stacksTo(64);
 
 	/**
 	 * {@link Properties} for {@link Item}<br>
@@ -92,15 +91,13 @@ public final class ItemProperties {
 	 * {@link #foraging} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties foraging_1 = new Properties().tab(ForagingGroup.instance).fireResistant()
-			.stacksTo(1);
+	public static final Properties foraging_1 = new Properties().tab(ForagingGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #foraging} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties foraging_64 = new Properties().tab(ForagingGroup.instance).fireResistant()
-			.stacksTo(64);
+	public static final Properties foraging_64 = new Properties().tab(ForagingGroup.instance).fireResistant().stacksTo(64);
 
 	/**
 	 * {@link Properties} for {@link Item}<br>
@@ -170,13 +167,11 @@ public final class ItemProperties {
 	 * {@link #miscellaneous} that {@link Properties#stacksTo(int)} 1
 	 */
 	@Nonnull
-	public static final Properties miscellaneous_1 = new Properties().tab(MiscellaneousGroup.instance).fireResistant()
-			.stacksTo(1);
+	public static final Properties miscellaneous_1 = new Properties().tab(MiscellaneousGroup.instance).fireResistant().stacksTo(1);
 
 	/**
 	 * {@link #miscellaneous} that {@link Properties#stacksTo(int)} 64
 	 */
 	@Nonnull
-	public static final Properties miscellaneous_64 = new Properties().tab(MiscellaneousGroup.instance).fireResistant()
-			.stacksTo(64);
+	public static final Properties miscellaneous_64 = new Properties().tab(MiscellaneousGroup.instance).fireResistant().stacksTo(64);
 }

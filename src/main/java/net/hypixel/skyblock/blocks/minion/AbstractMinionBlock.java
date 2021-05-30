@@ -53,11 +53,26 @@ public abstract class AbstractMinionBlock extends ContainerBlock {
 	}
 
 	@Override
-	public abstract TileEntity createTileEntity(BlockState state, IBlockReader world);
-
-	@Override
 	protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
 		builder.add(facing);
+	}
+
+	@Override
+	public abstract TileEntity createTileEntity(BlockState state, IBlockReader world);
+	
+	@Override
+	@Deprecated
+	public final TileEntity newBlockEntity(IBlockReader world) {
+		return this.createTileEntity(null, world);
+	}
+
+	@Override
+	public void destroy(IWorld world, BlockPos pos, BlockState state) {
+		if (world.isClientSide())
+			return;
+		final TileEntity te = world.getBlockEntity(pos);
+		if (te instanceof AbstractMinionTileEntity)
+			InventoryHelper.dropContents((World) world, pos, ((AbstractMinionTileEntity) te).getItems());
 	}
 
 	@Override
@@ -77,34 +92,23 @@ public abstract class AbstractMinionBlock extends ContainerBlock {
 	}
 
 	@Override
-	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand hand,
-			BlockRayTraceResult result) {
-		if (worldIn.isClientSide)
-			return ActionResultType.SUCCESS;
-		else if (player.isSpectator())
-			return ActionResultType.SUCCESS;
-		else {
-			final TileEntity tileentity = worldIn.getBlockEntity(pos);
-			if (tileentity instanceof AbstractMinionTileEntity) {
-				player.openMenu((AbstractMinionTileEntity) tileentity);
-				return ActionResultType.SUCCESS;
-			}
-			return ActionResultType.PASS;
-		}
-	}
-
-	@Override
-	public void destroy(IWorld world, BlockPos pos, BlockState state) {
-		if (world.isClientSide())
-			return;
-		final TileEntity te = world.getBlockEntity(pos);
-		if (te instanceof AbstractMinionTileEntity)
-			InventoryHelper.dropContents((World) world, pos, ((AbstractMinionTileEntity) te).getItems());
-	}
-
-	@Override
 	@Deprecated
 	public BlockState rotate(BlockState state, Rotation rot) {
 		return state.setValue(facing, rot.rotate(state.getValue(facing)));
+	}
+
+	@Override
+	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand hand,
+			BlockRayTraceResult result) {
+		if (worldIn.isClientSide)
+			return ActionResultType.PASS;
+		else if (player.isSpectator())
+			return ActionResultType.PASS;
+		final TileEntity tileentity = worldIn.getBlockEntity(pos);
+		if (tileentity instanceof AbstractMinionTileEntity) {
+			player.openMenu((AbstractMinionTileEntity) tileentity);
+			return ActionResultType.SUCCESS;
+		}
+		return ActionResultType.PASS;
 	}
 }

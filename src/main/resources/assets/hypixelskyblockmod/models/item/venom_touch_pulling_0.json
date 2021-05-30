@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"0": "hypixelskyblockmod:items/venom_touch_pulling_0"
+	}
+}

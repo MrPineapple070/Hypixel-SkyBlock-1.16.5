@@ -15,12 +15,7 @@ public class IronMinion extends AbstractMinionBlock {
 	}
 
 	@Override
-	public TileEntity newBlockEntity(IBlockReader world) {
-		return new IronMinionTileEntity(this.tier);
-	}
-
-	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		return this.newBlockEntity(world);
+		return new IronMinionTileEntity(this.tier);
 	}
 }
