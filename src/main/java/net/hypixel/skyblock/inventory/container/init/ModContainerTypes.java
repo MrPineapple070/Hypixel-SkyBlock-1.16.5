@@ -7,6 +7,7 @@ import net.hypixel.skyblock.inventory.container.AbstractBackpackContainer.LargeB
 import net.hypixel.skyblock.inventory.container.AbstractBackpackContainer.MediumBC;
 import net.hypixel.skyblock.inventory.container.AbstractBackpackContainer.SmallBC;
 import net.hypixel.skyblock.inventory.container.ModRepairContainer;
+import net.hypixel.skyblock.inventory.container.TimeSaverContainer;
 import net.hypixel.skyblock.inventory.container.minion.MinionChestContainer.LargeMCC;
 import net.hypixel.skyblock.inventory.container.minion.MinionChestContainer.MediumMCC;
 import net.hypixel.skyblock.inventory.container.minion.MinionChestContainer.SmallMCC;
@@ -39,6 +40,9 @@ public class ModContainerTypes {
 
 	public static final RegistryObject<ContainerType<ModRepairContainer>> anvil = container_types.register("anvil",
 			() -> IForgeContainerType.create(ModRepairContainer::new));
+
+	public static final RegistryObject<ContainerType<TimeSaverContainer>> time_saver = container_types
+			.register("time_saver", () -> IForgeContainerType.create(TimeSaverContainer::new));
 
 	public static final RegistryObject<ContainerType<SmallMCC>> small_mcc = container_types.register("small_mcc",
 			() -> IForgeContainerType.create(SmallMCC::new));

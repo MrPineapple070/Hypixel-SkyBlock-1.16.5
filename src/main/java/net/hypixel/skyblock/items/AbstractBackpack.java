@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -24,23 +25,50 @@ import net.minecraftforge.fml.RegistryObject;
  * Server as a base for Backpacks.
  *
  * @author MrPineapple070
- * @version 20 September 2020
+ * @version 20 April 2021
  * @since 11 July 2019
  */
 public abstract class AbstractBackpack extends Item {
+	
+	/**
+	 * Enumerative type that holds sizes of {@link AbstractBackpack}.
+	 * 
+	 * @author MrPineapple070
+	 * @version 08 September 2020
+	 * @since 11 July 2019
+	 */
 	public static enum BackpackType {
-		Greater(36), Jumbo(54), Large(27), Medium(18), Small(9);
+		Small(9), Medium(18), Large(27), Greater(36), Jumbo(54);
 
 		/**
 		 * The size of this.
 		 */
+		@Nonnegative
 		public final int size;
-
+		
 		private BackpackType(int size) {
 			this.size = size;
 		}
 	}
-
+	
+	public static class SmallBackpack extends AbstractBackpack {
+		public SmallBackpack(DyeColor color) {
+			super(BackpackType.Small, color);
+		}
+	}
+	
+	public static class MediumBackpack extends AbstractBackpack {
+		public MediumBackpack(DyeColor color) {
+			super(BackpackType.Medium, color);
+		}
+	}
+	
+	public static class LargeBackpack extends AbstractBackpack {
+		public LargeBackpack(DyeColor color) {
+			super(BackpackType.Large, color);
+		}
+	}
+	
 	public static class GreaterBackpack extends AbstractBackpack {
 		public GreaterBackpack(DyeColor color) {
 			super(BackpackType.Greater, color);
@@ -52,105 +80,138 @@ public abstract class AbstractBackpack extends Item {
 			super(BackpackType.Greater, color);
 		}
 	}
-
-	public static class LargeBackpack extends AbstractBackpack {
-		public LargeBackpack(DyeColor color) {
-			super(BackpackType.Large, color);
-		}
-	}
-
-	public static class MediumBackpack extends AbstractBackpack {
-		public MediumBackpack(DyeColor color) {
-			super(BackpackType.Medium, color);
-		}
-	}
-
-	public static class SmallBackpack extends AbstractBackpack {
-		public SmallBackpack(DyeColor color) {
-			super(BackpackType.Small, color);
-		}
-	}
 	
+	/**
+	 * Holds all {@link DyeColor#BLACK} backpacks. 
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> black = Arrays.asList(BackpackInit.black_small_backpack,
 			BackpackInit.black_medium_backpack, BackpackInit.black_large_backpack, BackpackInit.black_greater_backpack,
 			BackpackInit.black_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#BLUE} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> blue = Arrays.asList(BackpackInit.blue_small_backpack,
 			BackpackInit.blue_medium_backpack, BackpackInit.blue_large_backpack, BackpackInit.blue_greater_backpack,
 			BackpackInit.blue_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#BROWN} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> brown = Arrays.asList(BackpackInit.brown_small_backpack,
 			BackpackInit.brown_medium_backpack, BackpackInit.brown_large_backpack, BackpackInit.brown_greater_backpack,
 			BackpackInit.brown_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#CYAN} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> cyan = Arrays.asList(BackpackInit.cyan_small_backpack,
 			BackpackInit.cyan_medium_backpack, BackpackInit.cyan_large_backpack, BackpackInit.cyan_greater_backpack,
 			BackpackInit.cyan_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#GRAY} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> gray = Arrays.asList(BackpackInit.gray_small_backpack,
 			BackpackInit.gray_medium_backpack, BackpackInit.gray_large_backpack, BackpackInit.gray_greater_backpack,
 			BackpackInit.gray_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#GREEN} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> green = Arrays.asList(BackpackInit.green_small_backpack,
 			BackpackInit.green_medium_backpack, BackpackInit.green_large_backpack, BackpackInit.green_greater_backpack,
 			BackpackInit.green_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#LIGHT_BLUE} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> light_blue = Arrays.asList(BackpackInit.light_blue_small_backpack,
 			BackpackInit.light_blue_medium_backpack, BackpackInit.light_blue_large_backpack,
 			BackpackInit.light_blue_greater_backpack, BackpackInit.light_blue_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#LIGHT_GRAY} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> light_gray = Arrays.asList(BackpackInit.light_gray_small_backpack,
 			BackpackInit.light_gray_medium_backpack, BackpackInit.light_gray_large_backpack,
 			BackpackInit.light_gray_greater_backpack, BackpackInit.light_gray_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#LIME} backpack.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> lime = Arrays.asList(BackpackInit.lime_small_backpack,
 			BackpackInit.lime_medium_backpack, BackpackInit.lime_large_backpack, BackpackInit.lime_greater_backpack,
 			BackpackInit.lime_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#MAGENTA} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> magenta = Arrays.asList(BackpackInit.magenta_small_backpack,
 			BackpackInit.magenta_medium_backpack, BackpackInit.magenta_large_backpack,
 			BackpackInit.magenta_greater_backpack, BackpackInit.magenta_jumbo_backpack);
 	
+	/**
+	 * Holds all colorless backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> none = Arrays.asList(BackpackInit.small_backpack,
 			BackpackInit.medium_backpack, BackpackInit.large_backpack, BackpackInit.greater_backpack,
 			BackpackInit.jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#ORANGE} backpack.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> orange = Arrays.asList(BackpackInit.orange_small_backpack,
 			BackpackInit.orange_medium_backpack, BackpackInit.orange_large_backpack,
 			BackpackInit.orange_greater_backpack, BackpackInit.orange_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#PINK} backpack.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> pink = Arrays.asList(BackpackInit.pink_small_backpack,
 			BackpackInit.pink_medium_backpack, BackpackInit.pink_large_backpack, BackpackInit.pink_greater_backpack,
 			BackpackInit.pink_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#PURPLE} backpack.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> purple = Arrays.asList(BackpackInit.purple_small_backpack,
 			BackpackInit.purple_medium_backpack, BackpackInit.purple_large_backpack,
 			BackpackInit.purple_greater_backpack, BackpackInit.purple_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#RED}
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> red = Arrays.asList(BackpackInit.red_small_backpack,
 			BackpackInit.red_medium_backpack, BackpackInit.red_large_backpack, BackpackInit.red_greater_backpack,
 			BackpackInit.red_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#WHITE} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> white = Arrays.asList(BackpackInit.white_small_backpack,
 			BackpackInit.white_medium_backpack, BackpackInit.white_large_backpack, BackpackInit.white_greater_backpack,
 			BackpackInit.white_jumbo_backpack);
 	
+	/**
+	 * Holds all {@link DyeColor#YELLOW} backpacks.
+	 */
 	@Nonnull
 	public static final List<RegistryObject<Item>> yellow = Arrays.asList(BackpackInit.yellow_small_backpack,
 			BackpackInit.yellow_medium_backpack, BackpackInit.yellow_large_backpack,

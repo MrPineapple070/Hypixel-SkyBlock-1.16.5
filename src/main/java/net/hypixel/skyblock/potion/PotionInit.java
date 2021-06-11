@@ -539,7 +539,7 @@ public class PotionInit {
 			this.output = PotionUtils.setPotion(PotionInit.potion.copy(),
 					Objects.requireNonNull(output, "output cannot be null"));
 			LOGGER.debug("I effects:\t"	+ this.potion.getEffects().toString());
-			LOGGER.debug("Ingredient:\t"	+ this.input.toString());
+			LOGGER.debug("Ingredient:\t"+ this.input.toString());
 			LOGGER.debug("O effects:\t"	+ PotionUtils.getPotion(this.output).getEffects().toString());
 
 		}

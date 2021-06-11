@@ -1,16 +1,17 @@
 package net.hypixel.skyblock.blocks;
 
+import java.util.Objects;
 import java.util.Random;
 
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
-import net.hypixel.skyblock.tileentity.minion.AbstractMinionTileEntity;
+import net.hypixel.skyblock.tileentity.TimeSaverTileEntity;
 import net.hypixel.skyblock.util.TimeConverter;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ContainerBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.world.ClientWorld.ClientWorldInfo;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -37,118 +38,101 @@ import net.minecraftforge.common.ToolType;
  * @version 07 October 2020
  * @since 07 October 2020
  */
-public abstract class TimeSaver extends ContainerBlock {
-	/**
-	 * While this block exists in the world, the world will remain at the indicated
-	 * day time.
-	 */
-	public static class DaySaver extends TimeSaver {
-		public DaySaver() {
-			super();
-		}
-
-		@Override
-		public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		}
-
-		@Override
-		public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-			return this.newBlockEntity(world);
-		}
-
-		@Override
-		public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-			IWorldInfo info = worldIn.getLevelData();
-			if (info instanceof IServerWorldInfo)
-				((IServerWorldInfo) info).setGameTime(TimeConverter.hours.get(0));
-			else if (info instanceof ClientWorldInfo)
-				((ClientWorldInfo) info).setGameTime(TimeConverter.hours.get(0));
-			return;
-		}
-
-		@Override
-		public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-			return ModTileEntityTypes.day_saver.get().create();
-		}
-	}
-
-	/**
-	 * While this block exists in the world, the world will remain at the indicated
-	 * night time.
-	 */
-	public static class NightSaver extends TimeSaver {
-		public NightSaver() {
-			super();
-		}
-
-		@Override
-		public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		}
-
-		@Override
-		public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-			return this.newBlockEntity(world);
-		}
-
-		@Override
-		public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-			IWorldInfo info = worldIn.getLevelData();
-			if (info instanceof IServerWorldInfo)
-				((IServerWorldInfo) info).setGameTime(TimeConverter.hours.get(0));
-			else if (info instanceof ClientWorldInfo)
-				((ClientWorldInfo) info).setGameTime(TimeConverter.hours.get(0));
-			return;
-		}
-
-		@Override
-		public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-			return ModTileEntityTypes.night_saver.get().create();
-		}
+public class TimeSaver extends ContainerBlock {
+	public static enum TimeSaverType {
+		Day,
+		Night;
 	}
 
 	/**
 	 * A {@link VoxelShape}
 	 */
 	protected static final VoxelShape shape = Block.box(0d, 0d, 0d, 16d, 6d, 16d);
-
-	protected TimeSaver() {
+	
+	public final TimeSaverType type;
+	
+	protected int selected;
+	
+	public TimeSaver(TimeSaverType type) {
 		super(Properties.of(Material.WOOD).strength(.2f, .2f).sound(SoundType.WOOD).harvestTool(ToolType.AXE));
+		this.type = Objects.requireNonNull(type, "TimeSaverType cannot be null");
 	}
 
 	@Override
-	public abstract void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand);
+	public final void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+		if (worldIn.isClientSide)
+			return;
+		IWorldInfo info = worldIn.getLevelData();
+		int hour = this.selected;
+		hour += this.type == TimeSaverType.Day ? 0 : 12;
+		if (info instanceof IServerWorldInfo)
+			((IServerWorldInfo) info).setGameTime(TimeConverter.hours.get(hour));
+		return;
+	}
 
 	@Override
-	public abstract TileEntity createTileEntity(BlockState state, IBlockReader world);
-
+	public final TileEntity createTileEntity(BlockState state, IBlockReader world) {
+		switch (this.type) {
+		case Day:
+			return ModTileEntityTypes.day_saver.get().create(); 
+		case Night:
+			return ModTileEntityTypes.night_saver.get().create();
+		default:
+			throw new IllegalStateException("Illegal TimeSaverType:\t" + this.type.name());
+		}
+	}
+	
 	@Override
-	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+	public final VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		return shape;
 	}
-
+	
 	@Override
-	public boolean hasTileEntity(BlockState state) {
+	public BlockRenderType getRenderShape(BlockState p_149645_1_) {
+		return BlockRenderType.MODEL;
+	}
+	
+	@Override
+	public final boolean hasTileEntity(BlockState state) {
 		return true;
 	}
 
 	@Override
-	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand hand,
-			BlockRayTraceResult result) {
+	@Deprecated
+	public final TileEntity newBlockEntity(IBlockReader world) {
+		return createTileEntity(null, world);
+	}
+	
+	@Override
+	public final void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
 		if (worldIn.isClientSide)
-			return ActionResultType.SUCCESS;
-		else if (player.isSpectator())
-			return ActionResultType.SUCCESS;
-		else {
-			final TileEntity tileentity = worldIn.getBlockEntity(pos);
-			if (tileentity instanceof AbstractMinionTileEntity) {
-				player.openMenu((AbstractMinionTileEntity) tileentity);
-				return ActionResultType.SUCCESS;
-			}
-			return ActionResultType.PASS;
-		}
+			return;
+		IWorldInfo info = worldIn.getLevelData();
+		int hour = this.selected;
+		hour += this.type == TimeSaverType.Day ? 0 : 12;
+		if (info instanceof IServerWorldInfo)
+			((IServerWorldInfo) info).setGameTime(TimeConverter.hours.get(hour));
+		return;
+	}
+
+	public void setSelected(int index) {
+		this.selected = index;
 	}
 
 	@Override
-	public abstract void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer,
-			ItemStack stack);
+	public final ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand hand,
+			BlockRayTraceResult result) {
+		if (worldIn.isClientSide)
+			return ActionResultType.SUCCESS;
+		final TileEntity te = worldIn.getBlockEntity(pos);
+		LOGGER.debug(te.toString());
+		if (te instanceof TimeSaverTileEntity)
+			player.openMenu((TimeSaverTileEntity) te);
+		return ActionResultType.CONSUME;
+	}
+	
+	@Override
+	public boolean useShapeForLightOcclusion(BlockState p_220074_1_) {
+		return true;
+	}
 }

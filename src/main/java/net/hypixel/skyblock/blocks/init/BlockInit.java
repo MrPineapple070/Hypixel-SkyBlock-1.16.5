@@ -1,8 +1,8 @@
 package net.hypixel.skyblock.blocks.init;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
-import net.hypixel.skyblock.blocks.TimeSaver.DaySaver;
-import net.hypixel.skyblock.blocks.TimeSaver.NightSaver;
+import net.hypixel.skyblock.blocks.TimeSaver;
+import net.hypixel.skyblock.blocks.TimeSaver.TimeSaverType;
 import net.hypixel.skyblock.blocks.minion.MinionChestBlock.LargeMCB;
 import net.hypixel.skyblock.blocks.minion.MinionChestBlock.MediumMCB;
 import net.hypixel.skyblock.blocks.minion.MinionChestBlock.SmallMCB;
@@ -31,8 +31,8 @@ public class BlockInit {
 	public static final RegistryObject<Block> hard_glass	= blocks.register("hard_glass"		, () -> new Block(Properties.of(Material.GLASS).strength(.3f, 1200f).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE)));
 	public static final RegistryObject<Block> haste_block	= blocks.register("haste_block"		, () -> new Block(Properties.of(Material.STONE).strength(3f, 9f).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE)));
 	public static final RegistryObject<Block> silence_block = blocks.register("silence_block"	, () -> new Block(Properties.of(Material.WOOD).strength(.8f, .8f).sound(SoundType.WOOD).harvestTool(ToolType.AXE)));
-	public static final RegistryObject<Block> night_saver	= blocks.register("night_saver"		, NightSaver::new);
-	public static final RegistryObject<Block> day_saver		= blocks.register("day_saver"		, DaySaver::new);
+	public static final RegistryObject<Block> night_saver	= blocks.register("night_saver"		, () -> new TimeSaver(TimeSaverType.Night));
+	public static final RegistryObject<Block> day_saver		= blocks.register("day_saver"		, () -> new TimeSaver(TimeSaverType.Day));
 	
 	public static final RegistryObject<Block> small_mcb		= blocks.register("small_mcb"	, SmallMCB::new);
 	public static final RegistryObject<Block> medium_mcb	= blocks.register("medium_mcb"	, MediumMCB::new);
