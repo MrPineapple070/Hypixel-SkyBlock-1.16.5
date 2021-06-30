@@ -148,7 +148,7 @@ public class AcaciaMinionTileEntity extends AbstractForagingMTE {
 
 	@Override
 	protected Item[] getSuperCompactor() {
-		return new Item[] { Items.DIAMOND, Items.ACACIA_LOG, ItemInit.enchanted_diamond.get() };
+		return new Item[] { Items.DIAMOND, Items.ACACIA_LOG, ItemInit.enchanted_diamond.get()};
 	}
 
 	@Override

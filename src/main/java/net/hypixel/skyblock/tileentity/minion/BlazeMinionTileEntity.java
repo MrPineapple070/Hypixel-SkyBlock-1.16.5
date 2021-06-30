@@ -1,5 +1,7 @@
 package net.hypixel.skyblock.tileentity.minion;
 
+import javax.annotation.Nonnull;
+
 import net.hypixel.skyblock.inventory.container.minion.BlazeMinionContainer.BlazeMC1;
 import net.hypixel.skyblock.inventory.container.minion.BlazeMinionContainer.BlazeMC2;
 import net.hypixel.skyblock.inventory.container.minion.BlazeMinionContainer.BlazeMC3;
@@ -17,12 +19,17 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.text.StringTextComponent;
 
 public class BlazeMinionTileEntity extends AbstractSummonerMTE {
-	protected static int[] speed = { 33, 33, 31, 31, 28, 28, 25, 25, 21, 21, 16 };
+	@Nonnull
+	protected static final int[] speed = { 660, 660, 620, 620, 570, 570, 500, 500, 420, 420, 330 };
+	
+	@Nonnull
+	protected static final ItemStack drop = new ItemStack(Items.BLAZE_ROD);
 
 	public static class BlazeMTE1 extends BlazeMinionTileEntity {
 		public BlazeMTE1() {
@@ -137,5 +144,11 @@ public class BlazeMinionTileEntity extends AbstractSummonerMTE {
 	@Override
 	protected int getSpeed(MinionTier tier) {
 		return speed[tier.asInt];
+	}
+
+	@Override
+	protected void removeEntity() {
+		this.summoned.poll().remove();
+		this.addItemStacks(drop);
 	}
 }

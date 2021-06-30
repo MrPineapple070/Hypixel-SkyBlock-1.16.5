@@ -55,7 +55,7 @@ public abstract class AbstractFarmingPlacerMTE extends AbstractPlacerMTE {
 		for (int x = 0; x < 9; ++x)
 			for (int z = 0; z < 9; ++z)
 				this.surround[0][x][z] = expanded_2_size[x] == 0 && expanded_2_size[z] == 0 ? null
-						: new BlockPos(this.x + expanded_2_size[x], this.y, this.z + expanded_2_size[z]);
+						: this.worldPosition.offset(expanded_2_size[x], 0, expanded_2_size[z]);
 		for (BlockPos[] x : this.surround[0])
 			LOGGER.debug(Arrays.deepToString(x));
 	}
@@ -75,6 +75,7 @@ public abstract class AbstractFarmingPlacerMTE extends AbstractPlacerMTE {
 			s = 0;
 			e = 9;
 		}
+		
 		for (int x = s; x < e; ++x)
 			for (int z = s; z < e; ++z) {
 				BlockPos pos = this.surround[0][x][z];

@@ -205,17 +205,23 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	/**
 	 * X coordinate of this.
 	 */
-	public int x;
+	@SuppressWarnings("unused")
+	@Deprecated
+	private int x;
 
 	/**
 	 * Y coordinate of this.
 	 */
-	public int y;
+	@SuppressWarnings("unused")
+	@Deprecated
+	private int y;
 
 	/**
 	 * Z coordinate of this.
 	 */
-	public int z;
+	@SuppressWarnings("unused")
+	@Deprecated
+	private int z;
 
 	/**
 	 * Create an Abstract {@link TileEntity} for {@code this}.
@@ -243,7 +249,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 *         inventory.
 	 */
 	protected final boolean add(int slotIn, ItemStack stack) {
-		LOGGER.info("Adding " + stack.toString() + " to slot " + slotIn);
+		LOGGER.debug("Adding " + stack.toString() + " to slot " + slotIn);
 		if (stack.isEmpty())
 			return false;
 		try {
@@ -277,14 +283,14 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * @param drops the items to add.
 	 */
 	protected final void addItemStacks(ItemStack... drops) {
-		LOGGER.info("Adding " + Arrays.deepToString(drops) + " to inventory.");
+		LOGGER.debug("Adding " + Arrays.deepToString(drops) + " to inventory.");
 		this.compactor();
 		this.autoSmelt();
 		this.superCompactor();
 		for (ItemStack stack : drops)
 			this.add(-1, stack);
 		this.diamondSpreading();
-		LOGGER.info(this.minionContents.toString());
+		LOGGER.debug(this.minionContents.toString());
 	}
 
 	/**
@@ -304,8 +310,8 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * @param stack the {@code ItemStack} to add.
 	 * @return the number of items remaining after capping an {@code ItemStack}.
 	 */
-	protected final int addResource(int index, ItemStack stack) {
-		LOGGER.info("Adding " + stack.toString() + " to slot " + index);
+	private final int addResource(int index, ItemStack stack) {
+		LOGGER.debug("Adding " + stack.toString() + " to slot " + index);
 		int i = stack.getCount();
 		ItemStack itemstack = this.getItem(index);
 		if (itemstack.isEmpty()) {
@@ -338,10 +344,10 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * <a href="https://hypixel-skyblock.fandom.com/wiki/Auto_Smelter">Auto
 	 * Smelter.</a>
 	 */
-	protected final void autoSmelt() {
+	private final void autoSmelt() {
 		if (!this.hasUpgrade(ItemInit.auto_smelter.get()))
 			return;
-		LOGGER.info("Auto smelting contents");
+		LOGGER.debug("Auto smelting contents");
 		final NonNullList<ItemStack> inv = this.getInventory();
 		for (final ItemStack stack : inv) {
 			final Item smelt = ItemMap.smeltMap.get(stack.getItem());
@@ -369,7 +375,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	public final boolean canPlaceItem(int index, ItemStack stack) {
 		Objects.requireNonNull(stack, "cannot set slot to null");
 		final Item item = stack.getItem();
-		LOGGER.info(item.getTags().toString());
+		LOGGER.debug(item.getTags().toString());
 		switch (index) {
 		case FUEL_INDEX:
 			return item.is(ModItemTags.fuel);
@@ -385,7 +391,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 
 	@Override
 	public final void clearCache() {
-		LOGGER.info("Clearing Cache");
+		LOGGER.debug("Clearing Cache");
 		super.clearCache();
 		if (this.minionHandler != null) {
 			this.minionHandler.invalidate();
@@ -406,17 +412,16 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * spreading</a>.<br>
 	 * <a href="https://hypixel-skyblock.fandom.com/wiki/Compactor">Compactor</a>
 	 */
-	@SuppressWarnings("unlikely-arg-type")
-	protected final void compactor() {
+	private final void compactor() {
 		if (!this.hasUpgrade(ItemInit.compactor.get()))
 			return;
-		LOGGER.info("Compacting contents");
+		LOGGER.debug("Compacting contents");
 		for (final Item item : this.getCompactor()) {
 			Integer count = ItemMap.compCountMap.get(item);
 			count = count == null ? 9 : count;
 			if (this.countItem(item) == count) {
-				this.removeItem(this.minionContents.lastIndexOf(item), count);
-				this.add(-1, new ItemStack(ItemMap.compMap.get(item), 1));
+				this.removeItem(this.lastIndexOfItem(item), count);
+				this.add(-1, new ItemStack(ItemMap.compMap.get(item)));
 			}
 		}
 	}
@@ -432,7 +437,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 			return;
 		this.fuelTick = (++this.fuelTick) % time;
 		if (this.fuelTick == 0) {
-			LOGGER.info("Consuming fuel: " + fuel.toString());
+			LOGGER.debug("Consuming fuel: " + fuel.toString());
 			this.removeItem(FUEL_INDEX, 1);
 		}
 	}
@@ -460,10 +465,10 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * <a href="https://hypixel-skyblock.fandom.com/wiki/Diamond_Spreading">Diamond
 	 * Spreading</a>
 	 */
-	protected final void diamondSpreading() {
+	private final void diamondSpreading() {
 		if (!this.hasUpgrade(ItemInit.diamond_spreading.get()))
 			return;
-		LOGGER.info("Diamond Spreading Loggic");
+		LOGGER.debug("Diamond Spreading Loggic");
 		if (rand.nextInt(10) == 0)
 			this.add(-1, new ItemStack(Items.DIAMOND));
 	}
@@ -504,7 +509,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * @return the index of empty stack.
 	 */
 	protected final int getFirstEmptyStack() {
-		LOGGER.info("Getting the index of the first empty stack.");
+		LOGGER.debug("Getting the index of the first empty stack.");
 		for (int i = 4; i < this.minionContents.size(); ++i)
 			if (this.minionContents.get(i).isEmpty())
 				return i;
@@ -593,7 +598,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * @return the indexes
 	 */
 	protected final int[] getSuperCompIndex(Item item) {
-		LOGGER.info("Finding super compactor indexes for: " + item.getRegistryName().toString());
+		LOGGER.debug("Finding super compactor indexes for: " + item.getRegistryName().toString());
 		final int[] indexs = new int[3];
 		int index = 0;
 		boolean half = false;
@@ -688,7 +693,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 		this.z = this.worldPosition.getZ();
 		this.tick = 0;
 		this.fuelTick = 0;
-		LOGGER.info(this.toString());
+		LOGGER.debug(this.toString());
 		this.setSurround();
 	}
 
@@ -756,11 +761,19 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 				return false;
 		return true;
 	}
+	
+	private int lastIndexOfItem(Item item) {
+		for (int i = this.minionContents.size() - 1; i > -1; i--) {
+			if (this.minionContents.get(i).getItem().equals(item))
+				return i;
+		}
+		return -1;
+	}
 
 	@Override
-	public final void load(BlockState blockState, CompoundNBT compound) {
-		LOGGER.info("Saving");
-		LOGGER.info("CompoundNBT:\t" + compound.toString());
+	public void load(BlockState blockState, CompoundNBT compound) {
+		LOGGER.debug("Loading");
+		LOGGER.debug("CompoundNBT:\t" + compound.toString());
 		super.load(blockState, compound);
 		this.minionContents = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
 		ItemStackHelper.loadAllItems(compound, this.minionContents);
@@ -768,8 +781,8 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 
 	@Override
 	public final void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-		LOGGER.info("NetworkManager:\t" + net.toString());
-		LOGGER.info("SUpdateTileEntityPacket:\t" + pkt.toString());
+		LOGGER.debug("NetworkManager:\t" + net.toString());
+		LOGGER.debug("SUpdateTileEntityPacket:\t" + pkt.toString());
 		this.load(this.getBlockState(), pkt.getTag());
 	}
 
@@ -789,7 +802,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 
 	@Override
 	public final ItemStack removeItemNoUpdate(int index) {
-		LOGGER.info("Removing stack from slot " + index);
+		LOGGER.debug("Removing stack from slot " + index);
 		return ItemStackHelper.takeItem(this.minionContents, index);
 	}
 
@@ -800,7 +813,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * @return primitive type array of {@link ItemStack} removed.
 	 */
 	protected final ItemStack[] removeStacksFromSlot(int... indexes) {
-		LOGGER.info("Removing stacks from slots " + Arrays.toString(indexes));
+		LOGGER.debug("Removing stacks from slots " + Arrays.toString(indexes));
 		final ItemStack[] temp = new ItemStack[indexes.length];
 		for (int i = 0; i < indexes.length; i++)
 			temp[i] = this.getItem(i).getCount() == 32 ? this.removeItem(i, 32) : this.removeItemNoUpdate(i);
@@ -808,10 +821,11 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	}
 
 	@Override
-	public final CompoundNBT save(CompoundNBT compound) {
-		LOGGER.info("Saving:\t" + compound.toString());
+	public CompoundNBT save(CompoundNBT compound) {
+		LOGGER.debug("Saving");
 		super.save(compound);
 		ItemStackHelper.saveAllItems(compound, this.minionContents);
+		LOGGER.debug("NBT:\t" + compound.toString());
 		return compound;
 	}
 
@@ -819,20 +833,20 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * Determine all surround {@link BlockPos} that equal {@link Material#AIR}.
 	 */
 	protected void setAirSurround() {
-		LOGGER.info("Finding Air in valid BlockPos");
+		LOGGER.debug("Finding Air in valid BlockPos");
 		this.airSurround.clear();
 		for (final BlockPos pos : this.validSurround) {
 			BlockState state = this.level.getBlockState(pos);
 			if (state.getMaterial() == Material.AIR)
 				this.airSurround.add(pos);
 		}
-		LOGGER.info(this.airSurround.toString());
+		LOGGER.debug(this.airSurround.toString());
 	}
 
 	@Override
 	public final void setItem(int index, ItemStack stack) {
 		Objects.requireNonNull(stack, "ItemStack cannot be null");
-		LOGGER.info("Setting slot" + index + " to " + stack.toString());
+		LOGGER.debug("Setting slot" + index + " to " + stack.toString());
 		final ItemStack indexStack = this.minionContents.get(index);
 		final boolean flag = !stack.isEmpty() && stack.sameItem(indexStack) && ItemStack.tagMatches(stack, indexStack);
 		this.minionContents.set(index, stack);
@@ -853,13 +867,13 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * @param mcte the new {@link AbstractMinionChestTileEntity}
 	 */
 	public final void setMcte(@Nullable AbstractMinionChestTileEntity mcte) {
-		LOGGER.info("Setting AbstractMinionChestTileEntity");
+		LOGGER.debug("Setting AbstractMinionChestTileEntity");
 		this.mcte = mcte;
 	}
 
 	@Override
 	public final void setRemoved() {
-		LOGGER.info("Removing " + this.getClass().getSimpleName());
+		LOGGER.debug("Removing " + this.getClass().getSimpleName());
 		super.setRemoved();
 		if (this.minionHandler != null)
 			this.minionHandler.invalidate();
@@ -885,8 +899,8 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * @return {@code true} if equal.<br>
 	 *         {@code false} otherwise.
 	 */
-	protected final boolean stackEqualExact(ItemStack stack1, ItemStack stack2) {
-		LOGGER.info("Determining if " + stack1.toString() + " is exactly equal to " + stack2.toString());
+	private final boolean stackEqualExact(ItemStack stack1, ItemStack stack2) {
+		LOGGER.debug("Determining if " + stack1.toString() + " is exactly equal to " + stack2.toString());
 		return stack1.getItem() == stack2.getItem() && ItemStack.tagMatches(stack1, stack2);
 	}
 
@@ -907,8 +921,8 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * @param stack {@link ItemStack} to add.
 	 * @return index of stack
 	 */
-	protected final int storeItemStack(ItemStack stack) {
-		LOGGER.info("Storing " + stack.toString());
+	private final int storeItemStack(ItemStack stack) {
+		LOGGER.debug("Storing " + stack.toString());
 		if (this.canMergeStacks(this.getItem(this.currentItem), stack))
 			return this.currentItem;
 		for (int i = 4; i < this.minionContents.size(); ++i)
@@ -924,8 +938,8 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * @param stack {@code ItemStack} to store.
 	 * @return the quantity of left over {@code Item}
 	 */
-	protected final int storePartialItemStack(ItemStack stack) {
-		LOGGER.info("Storing partially " + stack.toString());
+	private final int storePartialItemStack(ItemStack stack) {
+		LOGGER.debug("Storing partially " + stack.toString());
 		int i = this.storeItemStack(stack);
 		if (i == -1)
 			i = this.getFirstEmptyStack();
@@ -937,10 +951,10 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * <a href="https://hypixel-skyblock.fandom.com/wiki/Super_Compactor_3000">Super
 	 * Compactor 3000</a>
 	 */
-	protected final void superCompactor() {
+	private final void superCompactor() {
 		if (!this.hasUpgrade(ItemInit.super_compactor_3000.get()))
 			return;
-		LOGGER.info("Super Compacting contents");
+		LOGGER.debug("Super Compacting contents");
 		for (final Item item : this.getSuperCompactor()) {
 			Integer count = ItemMap.enchCountMap.get(item);
 			count = count == null ? 160 : count;
@@ -956,13 +970,13 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 
 	@Override
 	public final String toString() {
-		return this.getClass().getSimpleName() + " [x=" + this.x + ", y=" + this.y + ", z=" + this.z + ", tier="
+		return this.getClass().getSimpleName() + " [worldPosition=" + this.worldPosition.toString() + ", tier="
 				+ this.tier + "]";
 	}
 
 	@Override
 	public final boolean triggerEvent(int id, int type) {
-		LOGGER.info("Triggering Event. id:\t" + id + " type:\t" + type);
+		LOGGER.debug("Triggering Event. id:\t" + id + " type:\t" + type);
 		if (id == 1) {
 			this.numPlayersUsing = type;
 			return true;

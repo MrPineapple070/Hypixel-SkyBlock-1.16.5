@@ -12,6 +12,7 @@ import net.hypixel.skyblock.tileentity.minion.AbstractMinionTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.Items;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IWorldPosCallable;
@@ -23,7 +24,7 @@ import net.minecraft.util.IWorldPosCallable;
  */
 public class TimeSaverContainer extends Container {
 	protected static final Logger LOGGER = LogManager.getLogger();
-	
+
 	/**
 	 * The {@link IWorldPosCallable} of this.
 	 */
@@ -47,9 +48,16 @@ public class TimeSaverContainer extends Container {
 		for (int i = 0; i < 7; i++)
 			this.addSlot(new TimeSelectorSlot(this.time_saver, i + 9, 26 + 18 * i, 36, Items.DAYLIGHT_DETECTOR));
 		
-		LOGGER.debug(this.getType().getRegistryName().toString());
+		// Player Inventory
+		for (int row = 0; row < 3; ++row)
+			for (int column = 0; column < 9; ++column)
+				this.addSlot(new Slot(pInvIn, 9 + row * 9 + column, 8 + column * 18, 72 + row * 18));
+
+		// Player HotBar
+		for (int column = 0; column < 9; ++column)
+			this.addSlot(new Slot(pInvIn, column, 8 + column * 18, 130));
 	}
-	
+
 	public TimeSaverContainer(int windowId, PlayerInventory inventory, PacketBuffer data) {
 		this(windowId, inventory, ModTileEntityTypes.day_saver.get().create());
 	}

@@ -29,22 +29,12 @@ public class NBTHelper {
 		Objects.requireNonNull(c, "CompoundNBT cannot be null");
 		switch (c.getByte("type")) {
 		case 0:
-			return readItemStack(c);
+			return new ItemStack(
+					ForgeRegistries.ITEMS.getValue(new ResourceLocation(HypixelSkyBlockMod.MOD_ID, c.getString("item"))),
+					c.getInt("count"));
 		default:
 			return null;
 		}
-	}
-
-	/**
-	 * Read {@code c}. The reverse of {@link #writeItemStack(ItemStack)}
-	 *
-	 * @param c the {@link CompoundNBT} to read from.
-	 * @return the {@link ItemStack} read from {@code c}
-	 */
-	private static ItemStack readItemStack(CompoundNBT c) {
-		return new ItemStack(
-				ForgeRegistries.ITEMS.getValue(new ResourceLocation(HypixelSkyBlockMod.MOD_ID, c.getString("item"))),
-				c.getInt("count"));
 	}
 
 	/**
@@ -54,7 +44,9 @@ public class NBTHelper {
 	 * @return the written {@code CompoundNBT}
 	 * @throws IllegalAccessException if {@link #writeItemStack(ItemStack)} throws
 	 */
-	public static CompoundNBT toNBT(Object o) throws IllegalAccessException {
+	@SuppressWarnings("unused")
+	@Deprecated
+	private static CompoundNBT toNBT(Object o) throws IllegalAccessException {
 		if (o instanceof ItemStack)
 			return writeItemStack((ItemStack) o);
 		if (o instanceof AbstractMinionTileEntity)
@@ -69,7 +61,7 @@ public class NBTHelper {
 	 * @return the written {@code CompoundNBT}
 	 * @throws IllegalAccessException if stack is {@link ItemStack#isEmpty()}
 	 */
-	private static CompoundNBT writeItemStack(ItemStack stack) throws IllegalAccessException {
+	public static CompoundNBT writeItemStack(ItemStack stack) throws IllegalAccessException {
 		Objects.requireNonNull(stack, "ItemStack cannot be null");
 		if (stack.isEmpty())
 			throw new IllegalAccessException("ItemStack cannot be empty");
@@ -88,12 +80,13 @@ public class NBTHelper {
 	 *               {@code CompoundNBT} for.
 	 * @return the written {@code CompoundNBT}
 	 */
+	@Deprecated
 	private static CompoundNBT writeMinion(AbstractMinionTileEntity minion) {
 		Objects.requireNonNull(minion, "Minion cannot be null");
 		final CompoundNBT c = new CompoundNBT();
-		c.putInt("x", minion.x);
-		c.putInt("y", minion.y);
-		c.putInt("z", minion.z);
+		// c.putInt("x", minion.x);
+		// c.putInt("y", minion.y);
+		// c.putInt("z", minion.z);
 		return c;
 	}
 }

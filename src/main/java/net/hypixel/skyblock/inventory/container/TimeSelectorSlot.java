@@ -21,8 +21,11 @@ public class TimeSelectorSlot extends GUISlot {
 
 	@Override
 	public boolean mayPickup(PlayerEntity player) {
-		if (this.container instanceof TimeSaverTileEntity)
-			((TimeSaverTileEntity) this.container).setSelected(this.index);
+		if (this.container instanceof TimeSaverTileEntity) {
+			TimeSaverTileEntity time = (TimeSaverTileEntity) this.container;
+			time.setLevelAndPosition(player.level, time.getBlockPos());
+			time.setSelected(this.index);
+		}
 		return false;
 	}
 }

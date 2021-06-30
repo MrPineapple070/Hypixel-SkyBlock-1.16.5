@@ -10,8 +10,6 @@ import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.widget.Widget;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -54,12 +52,6 @@ public class TimeSaverScreen extends ContainerScreen<TimeSaverContainer> {
 		this.minecraft.getTextureManager().bind(background_texture);
 		this.blit(stack, (this.width - this.imageWidth) / 2, (this.height - this.imageHeight) / 2, 0, 0,
 				this.imageWidth, this.imageHeight);
-		this.itemRenderer.blitOffset = 100f;
-		for (int t = 0; t < 9; t++)
-			this.itemRenderer.renderGuiItem(new ItemStack(Items.DAYLIGHT_DETECTOR), 48 + 18 * t, 51);
-		for (int t = 0; t < 7; t++)
-			this.itemRenderer.renderGuiItem(new ItemStack(Items.DAYLIGHT_DETECTOR), 66 + 18 * t, 69);
-		this.itemRenderer.blitOffset = 0f;
 	}
 
 	@Override
@@ -72,19 +64,9 @@ public class TimeSaverScreen extends ContainerScreen<TimeSaverContainer> {
 	}
 
 	@Override
-	protected void init() {
-		super.init();
-	}
-
-	@Override
 	public void render(MatrixStack stack, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(stack);
 		super.render(stack, mouseX, mouseY, partialTicks);
 		this.renderTooltip(stack, mouseX, mouseY);
-	}
-
-	@Override
-	public void tick() {
-		super.tick();
 	}
 }

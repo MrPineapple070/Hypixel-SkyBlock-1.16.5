@@ -2,7 +2,6 @@ package net.hypixel.skyblock.tileentity.minion;
 
 import java.util.Arrays;
 
-import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.hypixel.skyblock.items.init.ItemInit;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
@@ -43,6 +42,8 @@ public abstract class AbstractForagingMTE extends AbstractPlacerMTE {
 	 * {@link ItemInit#minion_expander} == 1
 	 */
 	protected static final int[] expanded_size = { -3, -1, 1, 3 };
+	
+	protected final BlockPos[] large = new BlockPos[16], medium = new BlockPos[12], small = new BlockPos[8];
 
 	public AbstractForagingMTE(TileEntityType<? extends AbstractMinionTileEntity> typeIn, MinionTier tier) {
 		super(typeIn, tier);
@@ -70,13 +71,12 @@ public abstract class AbstractForagingMTE extends AbstractPlacerMTE {
 
 	@Override
 	protected final void setSurround() {
-		HypixelSkyBlockMod.LOGGER.info("Gathering Surrounding BlockPos.");
+		LOGGER.debug("Gathering Surrounding BlockPos.");
 		int index_x = 0;
 		for (int x : expanded_1_size) {
 			int index_z = 0;
 			for (int z : expanded_1_size) {
-				this.surround[0][index_x][index_z] = x == 0 && z == 0 ? null
-						: new BlockPos(this.x + x, this.y, this.z + z);
+				this.surround[0][index_x][index_z] = x == 0 && z == 0 ? null : this.worldPosition.offset(x, 0, z);
 				index_z += 2;
 			}
 			index_x += 1;
@@ -86,19 +86,47 @@ public abstract class AbstractForagingMTE extends AbstractPlacerMTE {
 			int index_z = 1;
 			for (int z : expanded_size) {
 				this.surround[0][index_x][index_z] = Math.abs(x) <= 1 && Math.abs(z) <= 1 ? null
-						: new BlockPos(this.x + x, this.y, this.z + z);
+						: this.worldPosition.offset(x, 0, z);
 				index_z += 2;
 			}
 			index_x += 1;
 		}
 
-		for (BlockPos[] row : this.surround[0])
-			HypixelSkyBlockMod.LOGGER.info(Arrays.deepToString(row));
+		int index = 0;
+		for (int i = 0; i < this.surround[0].length; i++)
+			for (int j = 0; j < this.surround[0][i].length; j += 2)
+				switch (i) {
+				case 1: case 2: case 3:
+					if (!(j == 0 || j == 8))
+						continue;
+				default:
+					large[index++] = this.surround[0][i][j];
+					continue;
+				}
+		
+		index = 0;
+		for (int i = 0; i < this.surround[0].length; i++)
+			for (int j = 1; j < this.surround[0][i].length; j += 2)
+				if (this.surround[0][i][j] == null)
+					continue;
+				else
+					this.medium[index++] = this.surround[0][i][j];
+		
+		index = 0;
+		for (int i = 1; i < 4; i++)
+			for (int j : new int[] {2, 4, 6})
+				if (this.surround[0][i][j] != null)
+					this.small[index++] = this.surround[0][i][j];
+		
+		LOGGER.debug(Arrays.deepToString(this.surround));
+		LOGGER.debug(Arrays.deepToString(this.large));
+		LOGGER.debug(Arrays.deepToString(this.medium));
+		LOGGER.debug(Arrays.deepToString(this.small));
 	}
 
 	@Override
 	protected void setValidSurround() {
-		HypixelSkyBlockMod.LOGGER.info("Gathering valid BlockPos");
+		LOGGER.debug("Gathering valid BlockPos");
 		this.validSurround.clear();
 		for (BlockPos[][] y : this.surround)
 			for (BlockPos[] x : y)
@@ -106,13 +134,14 @@ public abstract class AbstractForagingMTE extends AbstractPlacerMTE {
 					if (pos == null)
 						continue;
 					BlockState state = this.level.getBlockState(pos);
-					if (state.getMaterial() == Material.AIR)
-						this.validSurround.add(pos);
-					else if (this.isBlockValid(state.getBlock()))
+					if (state.getMaterial() == Material.AIR) {
+						if (this.level.getBlockState(pos.below()).getMaterial() == Material.DIRT)
+							this.validSurround.add(pos);
+					} else if (this.isBlockValid(state.getBlock()))
 						this.validSurround.add(pos);
 					else
 						continue;
 				}
-		HypixelSkyBlockMod.LOGGER.info(this.validSurround.toString());
+		LOGGER.debug(this.validSurround.toString());
 	}
 }

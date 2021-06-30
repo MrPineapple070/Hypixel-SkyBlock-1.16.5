@@ -1,20 +1,16 @@
 package net.hypixel.skyblock.blocks;
 
 import java.util.Objects;
-import java.util.Random;
 
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
 import net.hypixel.skyblock.tileentity.TimeSaverTileEntity;
-import net.hypixel.skyblock.util.TimeConverter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ContainerBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -24,8 +20,6 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.IServerWorldInfo;
-import net.minecraft.world.storage.IWorldInfo;
 import net.minecraftforge.common.ToolType;
 
 /**
@@ -51,23 +45,9 @@ public class TimeSaver extends ContainerBlock {
 	
 	public final TimeSaverType type;
 	
-	protected int selected;
-	
 	public TimeSaver(TimeSaverType type) {
 		super(Properties.of(Material.WOOD).strength(.2f, .2f).sound(SoundType.WOOD).harvestTool(ToolType.AXE));
 		this.type = Objects.requireNonNull(type, "TimeSaverType cannot be null");
-	}
-
-	@Override
-	public final void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		if (worldIn.isClientSide)
-			return;
-		IWorldInfo info = worldIn.getLevelData();
-		int hour = this.selected;
-		hour += this.type == TimeSaverType.Day ? 0 : 12;
-		if (info instanceof IServerWorldInfo)
-			((IServerWorldInfo) info).setGameTime(TimeConverter.hours.get(hour));
-		return;
 	}
 
 	@Override
@@ -102,22 +82,6 @@ public class TimeSaver extends ContainerBlock {
 	public final TileEntity newBlockEntity(IBlockReader world) {
 		return createTileEntity(null, world);
 	}
-	
-	@Override
-	public final void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-		if (worldIn.isClientSide)
-			return;
-		IWorldInfo info = worldIn.getLevelData();
-		int hour = this.selected;
-		hour += this.type == TimeSaverType.Day ? 0 : 12;
-		if (info instanceof IServerWorldInfo)
-			((IServerWorldInfo) info).setGameTime(TimeConverter.hours.get(hour));
-		return;
-	}
-
-	public void setSelected(int index) {
-		this.selected = index;
-	}
 
 	@Override
 	public final ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand hand,
@@ -125,7 +89,6 @@ public class TimeSaver extends ContainerBlock {
 		if (worldIn.isClientSide)
 			return ActionResultType.SUCCESS;
 		final TileEntity te = worldIn.getBlockEntity(pos);
-		LOGGER.debug(te.toString());
 		if (te instanceof TimeSaverTileEntity)
 			player.openMenu((TimeSaverTileEntity) te);
 		return ActionResultType.CONSUME;

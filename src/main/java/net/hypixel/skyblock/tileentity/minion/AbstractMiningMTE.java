@@ -37,8 +37,7 @@ public abstract class AbstractMiningMTE extends AbstractPlacerMTE {
 		final int[] dx = expanded_2_size.clone();
 		for (int x = 0; x < this.surround[0].length; x++)
 			for (int y = 0; y < this.surround[0][x].length; y++)
-				this.surround[0][x][y] = dx[x] == 0 && dx[y] == 0 ? null
-						: new BlockPos(this.x + dx[y], this.y - 1, this.z + dx[x]);
+				this.surround[0][x][y] = dx[x] == 0 && dx[y] == 0 ? null : this.worldPosition.offset(dx[y], -1, dx[x]);
 		for (BlockPos[] row : this.surround[0])
 			HypixelSkyBlockMod.LOGGER.info(Arrays.deepToString(row));
 	}
