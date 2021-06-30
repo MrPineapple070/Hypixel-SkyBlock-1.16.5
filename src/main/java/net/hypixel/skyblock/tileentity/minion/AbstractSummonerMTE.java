@@ -71,7 +71,7 @@ public abstract class AbstractSummonerMTE extends AbstractMinionTileEntity {
 		for (int i = 0; i < list.size(); ++i)
 			this.summoned.offer(world.getEntity(list.getCompound(i).getUUID("UUID")));
 		
-		LOGGER.debug(this.summon.toString());
+		LOGGER.debug(this.summoned.toString());
 	}
 
 	@Override
@@ -98,8 +98,7 @@ public abstract class AbstractSummonerMTE extends AbstractMinionTileEntity {
 		if (this.summoned.size() < 5)
 			this.summoned.offer(summon.spawn((ServerWorld) this.level, null, null, null, this.pickBlockPos(),
 					SpawnReason.TRIGGERED, true, true));
-		else {
+		else
 			this.removeEntity();
-		}
 	}
 }
