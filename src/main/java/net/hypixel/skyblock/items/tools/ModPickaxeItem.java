@@ -34,11 +34,12 @@ public class ModPickaxeItem extends ModToolItem {
 			Blocks.LIME_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.PINK_SHULKER_BOX,
 			Blocks.PURPLE_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.WHITE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX,
 			Blocks.PISTON, Blocks.STICKY_PISTON, Blocks.PISTON_HEAD);
-
+	
 	public ModPickaxeItem(IItemTier tier, Properties properties) {
 		super(tier, DIGGABLES, properties.addToolType(ToolType.PICKAXE, tier.getLevel()));
 	}
 
+	@Override
 	public boolean isCorrectToolForDrops(BlockState state) {
 		int level = this.getTier().getLevel();
 		if (state.getHarvestTool() == ToolType.PICKAXE)
@@ -46,7 +47,8 @@ public class ModPickaxeItem extends ModToolItem {
 		Material material = state.getMaterial();
 		return material == Material.STONE || material == Material.METAL || material == Material.HEAVY_METAL;
 	}
-
+	
+	@Override
 	public float getDestroySpeed(ItemStack stack, BlockState state) {
 		Material material = state.getMaterial();
 		return material != Material.METAL && material != Material.HEAVY_METAL && material != Material.STONE

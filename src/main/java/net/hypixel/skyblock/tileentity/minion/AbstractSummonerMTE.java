@@ -56,6 +56,7 @@ public abstract class AbstractSummonerMTE extends AbstractMinionTileEntity {
 		}
 		
 		compound.put("Entities", listnbt);
+		LOGGER.debug("NBT:\t" + compound.toString());
 		return compound;
 	}
 	

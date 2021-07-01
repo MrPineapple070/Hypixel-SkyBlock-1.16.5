@@ -185,6 +185,12 @@
 	"item.hypixelskyblockmod.flint_shovel": "Flint Shovel",
 	"item.hypixelskyblockmod.rookie_hoe": "Rookie How",
 	
+	"item.hypixelskyblockmod.drill.0": "Mithril Drill SX-R226",
+	"item.hypixelskyblockmod.drill.1": "Mithril Drill SX-R326",
+	"item.hypixelskyblockmod.drill.2": "Titanium Drill DR-X355",
+	"item.hypixelskyblockmod.drill.3": "Titanium Drill DR-X455",
+	"item.hypixelskyblockmod.drill.4": "Titanium Drill DR-X555",
+	
 	"item.hypixelskyblockmod.prismarine_rod": "Prismarine Rod",
 	"item.hypixelskyblockmod.sponge_rod": "Sponge Rod",
 	"item.hypixelskyblockmod.speedster_rod": "Speedster Rod",

@@ -762,6 +762,13 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 		return true;
 	}
 	
+	/**
+	 * Finds the last index of a given {@link Item} in {@link #minionContents}.
+	 * Since {@link #minionContents} is composed of {@link ItemStack} this method is preferred.
+	 * 
+	 * @param item {@link Item} to find
+	 * @return index
+	 */
 	private int lastIndexOfItem(Item item) {
 		for (int i = this.minionContents.size() - 1; i > -1; i--) {
 			if (this.minionContents.get(i).getItem().equals(item))
