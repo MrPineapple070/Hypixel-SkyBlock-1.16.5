@@ -136,7 +136,7 @@ public class CoalMinionContainer extends AbstractMinionContainer {
 		}
 	}
 
-	protected CoalMinionContainer(ContainerType<? extends AbstractMinionContainer> container, int windowId,
+	protected CoalMinionContainer(ContainerType<CoalMinionContainer> container, int windowId,
 			PlayerInventory player, AbstractMinionTileEntity minion) {
 		super(container, windowId, player, minion);
 	}

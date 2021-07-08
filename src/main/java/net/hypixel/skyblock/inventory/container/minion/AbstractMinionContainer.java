@@ -64,15 +64,15 @@ public class AbstractMinionContainer extends Container {
 	/**
 	 * Construct this
 	 *
-	 * @param type       the {@link ContainerType}.
-	 * @param windowId   the unique window id.
-	 * @param pInvIn     the {@link PlayerInventory}.
-	 * @param tileEntity the {@link TileEntity} for {@code this}.
+	 * @param type		the {@link ContainerType}.
+	 * @param id		the unique window id.
+	 * @param player	the {@link PlayerInventory}.
+	 * @param minion	the {@link TileEntity} for {@code this}.
 	 */
-	public AbstractMinionContainer(ContainerType<? extends AbstractMinionContainer> type, int windowId,
-			PlayerInventory pInvIn, AbstractMinionTileEntity tileEntity) {
-		super(type, windowId);
-		this.minion = Objects.requireNonNull(tileEntity, "AbstractMinionTileEntity cannot be null");
+	public AbstractMinionContainer(ContainerType<? extends AbstractMinionContainer> type, int id,
+			PlayerInventory player, AbstractMinionTileEntity minion) {
+		super(type, id);
+		this.minion = Objects.requireNonNull(minion, "AbstractMinionTileEntity cannot be null");
 		this.inventory = new Inventory(
 				this.minion.minionContents.toArray(new ItemStack[this.minion.getContainerSize()]));
 		this.menu = new Inventory(2);
@@ -101,11 +101,11 @@ public class AbstractMinionContainer extends Container {
 		// Player Inventory
 		for (int row = 0; row < 3; ++row)
 			for (int column = 0; column < 9; ++column)
-				this.addSlot(new Slot(pInvIn, 9 + row * 9 + column, 8 + column * 18, 102 + row * 18));
+				this.addSlot(new Slot(player, 9 + row * 9 + column, 8 + column * 18, 102 + row * 18));
 
 		// Player HotBar
 		for (int column = 0; column < 9; ++column)
-			this.addSlot(new Slot(pInvIn, column, 8 + column * 18, 160));
+			this.addSlot(new Slot(player, column, 8 + column * 18, 160));
 	}
 
 	@Override

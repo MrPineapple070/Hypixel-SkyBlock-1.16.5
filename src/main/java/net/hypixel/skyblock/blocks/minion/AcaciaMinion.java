@@ -1,9 +1,5 @@
 package net.hypixel.skyblock.blocks.minion;
 
-import java.util.Arrays;
-
-import com.google.common.collect.ImmutableList;
-
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
 import net.hypixel.skyblock.tileentity.minion.AbstractMinionTileEntity.MinionTier;
 import net.minecraft.block.BlockState;
@@ -21,9 +17,6 @@ import net.minecraft.world.IBlockReader;
  * @since 11 July 2019
  */
 public class AcaciaMinion extends AbstractMinionBlock {
-	public static final ImmutableList<Integer> speed = ImmutableList
-			.copyOf(Arrays.asList(960, 960, 900, 900, 840, 840, 760, 760, 660, 660, 540));
-
 	public AcaciaMinion(MinionTier tier) {
 		super(Properties.of(Material.WOOD).sound(SoundType.WOOD), tier);
 	}

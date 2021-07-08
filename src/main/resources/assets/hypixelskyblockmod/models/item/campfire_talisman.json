@@ -1,6 +1,0 @@
-{
-	"parent": "hypixelskyblockmod:item/custom",
-	"textures": {
-		"0": "hypixelskyblockmod:items/campfire_talisman_0"
-	}
-}

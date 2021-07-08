@@ -132,17 +132,17 @@ public class MinionBlockInit {
 	public static final RegistryObject<Block> coal_minion_a = minionBlocks.register("coal_minion_a", () -> new CoalMinion(MinionTier.X));
 	public static final RegistryObject<Block> coal_minion_b = minionBlocks.register("coal_minion_b", () -> new CoalMinion(MinionTier.XI));
 
-	public static final RegistryObject<Block> cobblestone_minion_1 = minionBlocks.register("cobblestone_minion_1", () -> new CobblestoneMinion(MinionTier.I));
-	public static final RegistryObject<Block> cobblestone_minion_2 = minionBlocks.register("cobblestone_minion_2", () -> new CobblestoneMinion(MinionTier.II));
-	public static final RegistryObject<Block> cobblestone_minion_3 = minionBlocks.register("cobblestone_minion_3", () -> new CobblestoneMinion(MinionTier.III));
-	public static final RegistryObject<Block> cobblestone_minion_4 = minionBlocks.register("cobblestone_minion_4", () -> new CobblestoneMinion(MinionTier.IV));
-	public static final RegistryObject<Block> cobblestone_minion_5 = minionBlocks.register("cobblestone_minion_5", () -> new CobblestoneMinion(MinionTier.V));
-	public static final RegistryObject<Block> cobblestone_minion_6 = minionBlocks.register("cobblestone_minion_6", () -> new CobblestoneMinion(MinionTier.VI));
-	public static final RegistryObject<Block> cobblestone_minion_7 = minionBlocks.register("cobblestone_minion_7", () -> new CobblestoneMinion(MinionTier.VII));
-	public static final RegistryObject<Block> cobblestone_minion_8 = minionBlocks.register("cobblestone_minion_8", () -> new CobblestoneMinion(MinionTier.VIII));
-	public static final RegistryObject<Block> cobblestone_minion_9 = minionBlocks.register("cobblestone_minion_9", () -> new CobblestoneMinion(MinionTier.IX));
-	public static final RegistryObject<Block> cobblestone_minion_a = minionBlocks.register("cobblestone_minion_a", () -> new CobblestoneMinion(MinionTier.X));
-	public static final RegistryObject<Block> cobblestone_minion_b = minionBlocks.register("cobblestone_minion_b", () -> new CobblestoneMinion(MinionTier.XI));
+	public static final RegistryObject<Block> cobble_minion_1 = minionBlocks.register("cobble_minion_1", () -> new CobblestoneMinion(MinionTier.I));
+	public static final RegistryObject<Block> cobble_minion_2 = minionBlocks.register("cobble_minion_2", () -> new CobblestoneMinion(MinionTier.II));
+	public static final RegistryObject<Block> cobble_minion_3 = minionBlocks.register("cobble_minion_3", () -> new CobblestoneMinion(MinionTier.III));
+	public static final RegistryObject<Block> cobble_minion_4 = minionBlocks.register("cobble_minion_4", () -> new CobblestoneMinion(MinionTier.IV));
+	public static final RegistryObject<Block> cobble_minion_5 = minionBlocks.register("cobble_minion_5", () -> new CobblestoneMinion(MinionTier.V));
+	public static final RegistryObject<Block> cobble_minion_6 = minionBlocks.register("cobble_minion_6", () -> new CobblestoneMinion(MinionTier.VI));
+	public static final RegistryObject<Block> cobble_minion_7 = minionBlocks.register("cobble_minion_7", () -> new CobblestoneMinion(MinionTier.VII));
+	public static final RegistryObject<Block> cobble_minion_8 = minionBlocks.register("cobble_minion_8", () -> new CobblestoneMinion(MinionTier.VIII));
+	public static final RegistryObject<Block> cobble_minion_9 = minionBlocks.register("cobble_minion_9", () -> new CobblestoneMinion(MinionTier.IX));
+	public static final RegistryObject<Block> cobble_minion_a = minionBlocks.register("cobble_minion_a", () -> new CobblestoneMinion(MinionTier.X));
+	public static final RegistryObject<Block> cobble_minion_b = minionBlocks.register("cobble_minion_b", () -> new CobblestoneMinion(MinionTier.XI));
 
 	public static final RegistryObject<Block> cocoa_beans_minion_1 = minionBlocks.register("cocoa_beans_minion_1", () -> new TempMinion(MinionTier.I));
 	public static final RegistryObject<Block> cocoa_beans_minion_2 = minionBlocks.register("cocoa_beans_minion_2", () -> new TempMinion(MinionTier.II));

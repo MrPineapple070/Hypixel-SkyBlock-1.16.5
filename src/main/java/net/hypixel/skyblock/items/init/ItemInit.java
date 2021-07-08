@@ -46,6 +46,8 @@ public class ItemInit {
 	public static final RegistryObject<Item> desert_biome_stick					= items.register("desert_biome_stick"				, DesertBiomeStick::new);
 	public static final RegistryObject<Item> diamond_spreading					= items.register("diamond_spreading"				, () -> new UpgradeItem(ItemProperties.mine_64));
 	public static final RegistryObject<Item> enchanted_acacia					= items.register("enchanted_acacia"					, () -> new EnchantedItem(ItemProperties.foraging_64));
+	public static final RegistryObject<Item> enchanted_blaze_rod				= items.register("enchanted_blaze_rod"				, EnchantedItem.combat_64::asItem);
+	public static final RegistryObject<Item> enchanted_blaze_powder				= items.register("enchanted_blaze_powder"			, () -> new EnchantedItem(ItemProperties.combat_64));
 	public static final RegistryObject<Item> enchanted_bread					= items.register("enchanted_bread"					, () -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_cactus					= items.register("enchanted_cactus"					, () -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_cake						= items.register("enchanted_cake"					, () -> new EnchantedItem(ItemProperties.farm_1));

@@ -2,6 +2,8 @@ package net.hypixel.skyblock.tileentity.minion;
 
 import java.util.Arrays;
 
+import javax.annotation.Nonnull;
+
 import com.google.common.collect.ImmutableSet;
 
 import net.hypixel.skyblock.inventory.container.minion.BirchMinionContainer.BirchMC1;
@@ -25,6 +27,7 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 public class BirchMinionTileEntity extends AbstractForagingMTE {
@@ -93,10 +96,19 @@ public class BirchMinionTileEntity extends AbstractForagingMTE {
 			super(ModTileEntityTypes.birch_minion_1.get(), MinionTier.XI);
 		}
 	}
-
+	
+	/**
+	 * Primitive type array of int holding how frequently to interact.
+	 */
+	@Nonnull
+	protected static final int[] speed = { 960, 960, 900, 900, 840, 840, 760, 760, 660, 660, 540};
+	
+	/**
+	 * {@link ImmutableSet} of {@link Block} holding valid {@link Block} to break.
+	 */
+	@Nonnull
 	protected static final ImmutableSet<Block> valid = ImmutableSet.copyOf(Arrays.asList(Blocks.BIRCH_LOG));
-	protected static final int[] speed = {};
-
+	
 	public BirchMinionTileEntity(TileEntityType<? extends AbstractMinionTileEntity> type, MinionTier tier) {
 		super(type, tier);
 	}
@@ -152,7 +164,7 @@ public class BirchMinionTileEntity extends AbstractForagingMTE {
 	}
 
 	@Override
-	protected StringTextComponent initDisplayName() {
+	protected ITextComponent initDisplayName() {
 		return new StringTextComponent("Birch Minion Tier " + this.tier.name());
 	}
 }

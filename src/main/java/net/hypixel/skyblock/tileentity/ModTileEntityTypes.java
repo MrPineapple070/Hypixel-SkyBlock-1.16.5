@@ -63,6 +63,17 @@ import net.hypixel.skyblock.tileentity.minion.CobblestoneMinionTileEntity.Cobble
 import net.hypixel.skyblock.tileentity.minion.CobblestoneMinionTileEntity.CobbleMTE9;
 import net.hypixel.skyblock.tileentity.minion.CobblestoneMinionTileEntity.CobbleMTEa;
 import net.hypixel.skyblock.tileentity.minion.CobblestoneMinionTileEntity.CobbleMTEb;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTE1;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTE2;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTE3;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTE4;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTE5;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTE6;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTE7;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTE8;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTE9;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTEa;
+import net.hypixel.skyblock.tileentity.minion.IronMinionTileEntity.IronMTEb;
 import net.hypixel.skyblock.tileentity.minion.WheatMinionTileEntity.WheatMTE1;
 import net.hypixel.skyblock.tileentity.minion.WheatMinionTileEntity.WheatMTE2;
 import net.hypixel.skyblock.tileentity.minion.WheatMinionTileEntity.WheatMTE3;
@@ -183,39 +194,51 @@ public class ModTileEntityTypes {
 	public static final RegistryObject<TileEntityType<CoalMTEb>> coal_minion_b = tile_entity_types.register(
 			"coal_minion_b", () -> Builder.of(CoalMTEb::new, MinionBlockInit.coal_minion_b.get()).build(null));
 
-	public static final RegistryObject<TileEntityType<CobbleMTE1>> cobblestone_minion_1 = tile_entity_types.register(
-			"cobblestone_minion_1",
-			() -> Builder.of(CobbleMTE1::new, MinionBlockInit.cobblestone_minion_1.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTE2>> cobblestone_minion_2 = tile_entity_types.register(
-			"cobblestone_minion_2",
-			() -> Builder.of(CobbleMTE2::new, MinionBlockInit.cobblestone_minion_2.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTE3>> cobblestone_minion_3 = tile_entity_types.register(
-			"cobblestone_minion_3",
-			() -> Builder.of(CobbleMTE3::new, MinionBlockInit.cobblestone_minion_3.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTE4>> cobblestone_minion_4 = tile_entity_types.register(
-			"cobblestone_minion_4",
-			() -> Builder.of(CobbleMTE4::new, MinionBlockInit.cobblestone_minion_4.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTE5>> cobblestone_minion_5 = tile_entity_types.register(
-			"cobblestone_minion_5",
-			() -> Builder.of(CobbleMTE5::new, MinionBlockInit.cobblestone_minion_5.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTE6>> cobblestone_minion_6 = tile_entity_types.register(
-			"cobblestone_minion_6",
-			() -> Builder.of(CobbleMTE6::new, MinionBlockInit.cobblestone_minion_6.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTE7>> cobblestone_minion_7 = tile_entity_types.register(
-			"cobblestone_minion_7",
-			() -> Builder.of(CobbleMTE7::new, MinionBlockInit.cobblestone_minion_7.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTE8>> cobblestone_minion_8 = tile_entity_types.register(
-			"cobblestone_minion_8",
-			() -> Builder.of(CobbleMTE8::new, MinionBlockInit.cobblestone_minion_8.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTE9>> cobblestone_minion_9 = tile_entity_types.register(
-			"cobblestone_minion_9",
-			() -> Builder.of(CobbleMTE9::new, MinionBlockInit.cobblestone_minion_9.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTEa>> cobblestone_minion_a = tile_entity_types.register(
-			"cobblestone_minion_a",
-			() -> Builder.of(CobbleMTEa::new, MinionBlockInit.cobblestone_minion_a.get()).build(null));
-	public static final RegistryObject<TileEntityType<CobbleMTEb>> cobblestone_minion_b = tile_entity_types.register(
-			"cobblestone_minion_b",
-			() -> Builder.of(CobbleMTEb::new, MinionBlockInit.cobblestone_minion_b.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTE1>> cobble_minion_1 = tile_entity_types.register(
+			"cobble_minion_1", () -> Builder.of(CobbleMTE1::new, MinionBlockInit.cobble_minion_1.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTE2>> cobble_minion_2 = tile_entity_types.register(
+			"cobble_minion_2", () -> Builder.of(CobbleMTE2::new, MinionBlockInit.cobble_minion_2.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTE3>> cobble_minion_3 = tile_entity_types.register(
+			"cobble_minion_3", () -> Builder.of(CobbleMTE3::new, MinionBlockInit.cobble_minion_3.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTE4>> cobble_minion_4 = tile_entity_types.register(
+			"cobble_minion_4", () -> Builder.of(CobbleMTE4::new, MinionBlockInit.cobble_minion_4.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTE5>> cobble_minion_5 = tile_entity_types.register(
+			"cobble_minion_5", () -> Builder.of(CobbleMTE5::new, MinionBlockInit.cobble_minion_5.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTE6>> cobble_minion_6 = tile_entity_types.register(
+			"cobble_minion_6", () -> Builder.of(CobbleMTE6::new, MinionBlockInit.cobble_minion_6.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTE7>> cobble_minion_7 = tile_entity_types.register(
+			"cobble_minion_7", () -> Builder.of(CobbleMTE7::new, MinionBlockInit.cobble_minion_7.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTE8>> cobble_minion_8 = tile_entity_types.register(
+			"cobble_minion_8", () -> Builder.of(CobbleMTE8::new, MinionBlockInit.cobble_minion_8.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTE9>> cobble_minion_9 = tile_entity_types.register(
+			"cobble_minion_9", () -> Builder.of(CobbleMTE9::new, MinionBlockInit.cobble_minion_9.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTEa>> cobble_minion_a = tile_entity_types.register(
+			"cobble_minion_a", () -> Builder.of(CobbleMTEa::new, MinionBlockInit.cobble_minion_a.get()).build(null));
+	public static final RegistryObject<TileEntityType<CobbleMTEb>> cobble_minion_b = tile_entity_types.register(
+			"cobble_minion_b", () -> Builder.of(CobbleMTEb::new, MinionBlockInit.cobble_minion_b.get()).build(null));
+
+	public static final RegistryObject<TileEntityType<IronMTE1>> iron_minion_1 = tile_entity_types.register(
+			"iron_minion_1", () -> Builder.of(IronMTE1::new, MinionBlockInit.iron_minion_1.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTE2>> iron_minion_2 = tile_entity_types.register(
+			"iron_minion_2", () -> Builder.of(IronMTE2::new, MinionBlockInit.iron_minion_2.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTE3>> iron_minion_3 = tile_entity_types.register(
+			"iron_minion_3", () -> Builder.of(IronMTE3::new, MinionBlockInit.iron_minion_3.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTE4>> iron_minion_4 = tile_entity_types.register(
+			"iron_minion_4", () -> Builder.of(IronMTE4::new, MinionBlockInit.iron_minion_4.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTE5>> iron_minion_5 = tile_entity_types.register(
+			"iron_minion_5", () -> Builder.of(IronMTE5::new, MinionBlockInit.iron_minion_5.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTE6>> iron_minion_6 = tile_entity_types.register(
+			"iron_minion_6", () -> Builder.of(IronMTE6::new, MinionBlockInit.iron_minion_6.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTE7>> iron_minion_7 = tile_entity_types.register(
+			"iron_minion_7", () -> Builder.of(IronMTE7::new, MinionBlockInit.iron_minion_7.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTE8>> iron_minion_8 = tile_entity_types.register(
+			"iron_minion_8", () -> Builder.of(IronMTE8::new, MinionBlockInit.iron_minion_8.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTE9>> iron_minion_9 = tile_entity_types.register(
+			"iron_minion_9", () -> Builder.of(IronMTE9::new, MinionBlockInit.iron_minion_9.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTEa>> iron_minion_a = tile_entity_types.register(
+			"iron_minion_a", () -> Builder.of(IronMTEa::new, MinionBlockInit.iron_minion_a.get()).build(null));
+	public static final RegistryObject<TileEntityType<IronMTEb>> iron_minion_b = tile_entity_types.register(
+			"iron_minion_b", () -> Builder.of(IronMTEb::new, MinionBlockInit.iron_minion_b.get()).build(null));
 
 	public static final RegistryObject<TileEntityType<WheatMTE1>> wheat_minion_1 = tile_entity_types.register(
 			"wheat_minion_1", () -> Builder.of(WheatMTE1::new, MinionBlockInit.wheat_minion_1.get()).build(null));

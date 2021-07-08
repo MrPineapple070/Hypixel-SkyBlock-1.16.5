@@ -2,9 +2,10 @@ package net.hypixel.skyblock.tileentity.minion;
 
 import java.util.Arrays;
 
+import javax.annotation.Nonnull;
+
 import com.google.common.collect.ImmutableSet;
 
-import net.hypixel.skyblock.blocks.minion.AcaciaMinion;
 import net.hypixel.skyblock.inventory.container.minion.AcaciaMinionContainer.AcaciaMC1;
 import net.hypixel.skyblock.inventory.container.minion.AcaciaMinionContainer.AcaciaMC2;
 import net.hypixel.skyblock.inventory.container.minion.AcaciaMinionContainer.AcaciaMC3;
@@ -26,6 +27,7 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 /**
@@ -39,7 +41,7 @@ public class AcaciaMinionTileEntity extends AbstractForagingMTE {
 			super(ModTileEntityTypes.acacia_minion_1.get(), MinionTier.I);
 		}
 	}
-
+	
 	public static class AcaciaMTE2 extends AcaciaMinionTileEntity {
 		public AcaciaMTE2() {
 			super(ModTileEntityTypes.acacia_minion_2.get(), MinionTier.II);
@@ -100,6 +102,16 @@ public class AcaciaMinionTileEntity extends AbstractForagingMTE {
 		}
 	}
 
+	/**
+	 * Primitive type array of int holding how frequently this will interact.
+	 */
+	@Nonnull
+	private static final int[] speed = { 960, 960, 900, 900, 840, 840, 760, 760, 660, 660, 540 };
+	
+	/**
+	 * {@link ImmutableSet} of {@link Block} holding the valid {@link Block} to break.
+	 */
+	@Nonnull
 	protected static final ImmutableSet<Block> valid = ImmutableSet.copyOf(Arrays.asList(Blocks.ACACIA_LOG));
 
 	protected AcaciaMinionTileEntity(TileEntityType<? extends AbstractMinionTileEntity> type, MinionTier tier) {
@@ -138,7 +150,7 @@ public class AcaciaMinionTileEntity extends AbstractForagingMTE {
 
 	@Override
 	protected int getSpeed(MinionTier tier) {
-		return AcaciaMinion.speed.get(tier.asInt);
+		return speed[tier.asInt];
 	}
 
 	@Override
@@ -148,7 +160,7 @@ public class AcaciaMinionTileEntity extends AbstractForagingMTE {
 
 	@Override
 	protected Item[] getSuperCompactor() {
-		return new Item[] { Items.DIAMOND, Items.ACACIA_LOG, ItemInit.enchanted_diamond.get()};
+		return new Item[] { Items.DIAMOND, Items.DIAMOND_BLOCK, Items.ACACIA_LOG, ItemInit.enchanted_diamond.get()};
 	}
 
 	@Override
@@ -157,7 +169,7 @@ public class AcaciaMinionTileEntity extends AbstractForagingMTE {
 	}
 
 	@Override
-	public StringTextComponent initDisplayName() {
+	public ITextComponent initDisplayName() {
 		return new StringTextComponent("Acacia Minion Tier " + this.tier.name());
 	}
 }

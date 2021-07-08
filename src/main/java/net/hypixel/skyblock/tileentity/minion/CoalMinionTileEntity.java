@@ -2,6 +2,8 @@ package net.hypixel.skyblock.tileentity.minion;
 
 import java.util.Arrays;
 
+import javax.annotation.Nonnull;
+
 import com.google.common.collect.ImmutableSet;
 
 import net.hypixel.skyblock.inventory.container.minion.CoalMinionContainer.CoalMC1;
@@ -25,6 +27,7 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 /**
@@ -99,12 +102,31 @@ public class CoalMinionTileEntity extends AbstractMiningMTE {
 			super(ModTileEntityTypes.coal_minion_b.get(), MinionTier.XI);
 		}
 	}
-
-	private static final ImmutableSet<Block> valid = ImmutableSet.copyOf(Arrays.asList(Blocks.AIR, Blocks.COAL_ORE));
-	protected static final Item[] comp = new Item[] { Items.COAL, Items.DIAMOND };
-	protected static final Item[] sup = new Item[] { Items.COAL, Items.COAL_BLOCK, Items.DIAMOND, Items.DIAMOND_BLOCK,
+	
+	/**
+	 * Holds {@link Item} to compact using {@link #compactor()}
+	 */
+	@Nonnull
+	private static final Item[] comp = new Item[] { Items.COAL, Items.DIAMOND };
+	
+	/**
+	 * Holds how frequently to interact.
+	 */
+	@Nonnull
+	private static final int[] speed = { 300, 300, 260, 260, 240, 240, 200, 200, 180, 180, 140, 120 };
+	
+	/**
+	 * Holds {@link Item} to super compact using {@link #superCompactor()}
+	 */
+	@Nonnull
+	private static final Item[] sup = new Item[] { Items.COAL, Items.COAL_BLOCK, Items.DIAMOND, Items.DIAMOND_BLOCK,
 			ItemInit.enchanted_coal.get(), ItemInit.enchanted_diamond.get() };
-	protected static final int[] speed = {};
+	
+	/**
+	 * {@link ImmutableSet} of {@link Block} holding valid {@link Block} to interact.
+	 */
+	@Nonnull
+	private static final ImmutableSet<Block> valid = ImmutableSet.copyOf(Arrays.asList(Blocks.AIR, Blocks.COAL_ORE));
 
 	public CoalMinionTileEntity(TileEntityType<? extends AbstractMinionTileEntity> type, MinionTier tier) {
 		super(type, tier);
@@ -146,6 +168,11 @@ public class CoalMinionTileEntity extends AbstractMiningMTE {
 	}
 
 	@Override
+	protected int getSpeed(MinionTier tier) {
+		return speed[tier.asInt];
+	}
+
+	@Override
 	protected BlockState getState() {
 		return Blocks.COAL_ORE.defaultBlockState();
 	}
@@ -156,17 +183,12 @@ public class CoalMinionTileEntity extends AbstractMiningMTE {
 	}
 
 	@Override
-	protected int getSpeed(MinionTier tier) {
-		return speed[tier.asInt];
-	}
-
-	@Override
 	protected ImmutableSet<Block> getValidBlocks() {
 		return valid;
 	}
 
 	@Override
-	protected StringTextComponent initDisplayName() {
+	protected ITextComponent initDisplayName() {
 		return new StringTextComponent("Coal Minion Tier " + this.tier.name());
 	}
 }

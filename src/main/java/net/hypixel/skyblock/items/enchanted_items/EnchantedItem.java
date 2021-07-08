@@ -1,10 +1,13 @@
 package net.hypixel.skyblock.items.enchanted_items;
 
+import net.hypixel.skyblock.util.ItemProperties;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class EnchantedItem extends Item {
+	public static final EnchantedItem combat_64 = new EnchantedItem(ItemProperties.combat_64);
+	
 	public EnchantedItem(Properties properties) {
 		super(properties);
 	}

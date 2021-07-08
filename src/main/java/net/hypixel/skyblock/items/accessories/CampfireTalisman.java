@@ -2,6 +2,9 @@ package net.hypixel.skyblock.items.accessories;
 
 import java.util.List;
 
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+
 import com.google.common.collect.ImmutableList;
 
 import net.hypixel.skyblock.items.ModItemRarity;
@@ -12,6 +15,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
@@ -36,20 +40,68 @@ public class CampfireTalisman extends Accessory {
 	 * A {@link ImmutableList} of {@link Float} for {@link #heal} based on
 	 * {@link #level}
 	 */
-	private static final ImmutableList<Float> health = ImmutableList
-			.copyOf(new Float[] { .8f, 1.2f, 1.6f, 2f, 2.4f, 2.8f, 3.2f, 3.6f, 4f, 4.4f, 4.8f, 5.2f, 5.6f, 6f, 6.4f,
-					6.8f, 7.2f, 7.6f, 8f, 8.4f, 8.8f, 9.2f, 9.6f, 10f, 10.4f, 10.8f, 11.2f, 11.6f, 12f });
+	@Nonnull
+	private static final ImmutableList<Float> health = ImmutableList.of(.8f, 1.2f, 1.6f, 2f, 2.4f, 2.8f, 3.2f, 3.6f, 4f,
+			4.4f, 4.8f, 5.2f, 5.6f, 6f, 6.4f, 6.8f, 7.2f, 7.6f, 8f, 8.4f, 8.8f, 9.2f, 9.6f, 10f, 10.4f, 10.8f, 11.2f,
+			11.6f, 12f);
+	
+	@Nonnull
+	private static final ITextComponent level_0 = new TranslationTextComponent("campfire_talisman.0").withStyle(ModItemRarity.Common.color);
+	
+	@Nonnull
+	private static final ITextComponent level_1 = new TranslationTextComponent("campfire_talisman.1").withStyle(ModItemRarity.Uncommon.color);
+	
+	@Nonnull
+	private static final ITextComponent level_2 = new TranslationTextComponent("campfire_talisman.2").withStyle(ModItemRarity.Rare.color);
+	
+	@Nonnull
+	private static final ITextComponent level_3 = new TranslationTextComponent("campfire_talisman.3").withStyle(ModItemRarity.Epic.color);
+	
+	@Nonnull
+	private static final ITextComponent level_4 = new TranslationTextComponent("campfire_talisman.4").withStyle(ModItemRarity.Legendary.color);
 
+	public static class CampfireTalisman0 extends CampfireTalisman {
+		public CampfireTalisman0() {
+			super(ModItemRarity.Common, 0);
+		}
+	}
+	
+	public static class CampfireTalisman1 extends CampfireTalisman {
+		public CampfireTalisman1() {
+			super(ModItemRarity.Uncommon, 4);
+		}
+	}
+	
+	public static class CampfireTalisman2 extends CampfireTalisman {
+		public CampfireTalisman2() {
+			super(ModItemRarity.Rare, 8);
+		}
+	}
+	
+	public static class CampfireTalisman3 extends CampfireTalisman {
+		public CampfireTalisman3() {
+			super(ModItemRarity.Epic, 13);
+		}
+	}
+	
+	public static class CampfireTalisman4 extends CampfireTalisman {
+		public CampfireTalisman4() {
+			super(ModItemRarity.Legendary, 21);
+		}
+	}
+	
 	/**
 	 * The amount of health points this heals per second.<br>
 	 * This number must be positive.
 	 */
+	@Nonnegative
 	private final float heal;
 
 	/**
 	 * The level of this.<br>
 	 * This number must be between 0 and 29 (inclusive)
 	 */
+	@Nonnegative
 	private final int level;
 
 	/**
@@ -58,9 +110,9 @@ public class CampfireTalisman extends Accessory {
 	 */
 	private int tick;
 
-	public CampfireTalisman() {
-		super(ItemProperties.miscellaneous_1, ModItemRarity.Common);
-		this.level = 0;
+	public CampfireTalisman(ModItemRarity rarity, int level) {
+		super(ItemProperties.miscellaneous_1, rarity);
+		this.level = level;
 		this.heal = health.get(this.level);
 		this.tick = 0;
 	}
@@ -68,6 +120,7 @@ public class CampfireTalisman extends Accessory {
 	@Override
 	public void appendHoverText(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		tooltip.add(new TranslationTextComponent("accessory.campfire", this.heal, StatString.health));
+		tooltip.add(new StringTextComponent(String.valueOf(this.level)));
 	}
 
 	/**
@@ -75,6 +128,19 @@ public class CampfireTalisman extends Accessory {
 	 */
 	public int getLevel() {
 		return this.level;
+	}
+	
+	@Override
+	public ITextComponent getName(ItemStack stack) {
+		if (this.level < 4)
+			return level_0;
+		else if (this.level < 8)
+			return level_1;
+		else if (this.level < 13)
+			return level_2;
+		else if (this.level < 21)
+			return level_3;
+		return level_4;
 	}
 
 	@Override

@@ -147,7 +147,7 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	 * {@link StringTextComponent} used in {@link #getDisplayName()}.
 	 */
 	@Nonnull
-	protected final StringTextComponent display_name;
+	protected final ITextComponent display_name;
 
 	/**
 	 * Determine if {@code this} is ticking.
@@ -700,9 +700,9 @@ public abstract class AbstractMinionTileEntity extends LockableLootTileEntity
 	/**
 	 * Initializes {@link #display_name}
 	 * 
-	 * @return {@link StringTextComponent}.
+	 * @return {@link ITextComponent}.
 	 */
-	protected abstract StringTextComponent initDisplayName();
+	protected abstract ITextComponent initDisplayName();
 
 	/**
 	 * Create a 3d Array of all {@link BlockPos} that surround this.<br>

@@ -129,8 +129,8 @@ public class AcaciaMinionContainer extends AbstractMinionContainer {
 		}
 	}
 
-	protected AcaciaMinionContainer(ContainerType<AcaciaMinionContainer> containerType, int windowId,
-			PlayerInventory player, AbstractMinionTileEntity minion) {
-		super(containerType, windowId, player, minion);
+	protected AcaciaMinionContainer(ContainerType<AcaciaMinionContainer> type, int id, PlayerInventory player,
+			AbstractMinionTileEntity minion) {
+		super(type, id, player, minion);
 	}
 }

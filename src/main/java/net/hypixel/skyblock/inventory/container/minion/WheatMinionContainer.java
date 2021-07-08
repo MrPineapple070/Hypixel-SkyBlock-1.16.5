@@ -129,8 +129,8 @@ public class WheatMinionContainer extends AbstractMinionContainer {
 		}
 	}
 
-	protected WheatMinionContainer(ContainerType<? extends AbstractMinionContainer> container, int windowId,
-			PlayerInventory player, AbstractMinionTileEntity minion) {
-		super(container, windowId, player, minion);
+	protected WheatMinionContainer(ContainerType<WheatMinionContainer> container, int id, PlayerInventory player,
+			AbstractMinionTileEntity minion) {
+		super(container, id, player, minion);
 	}
 }

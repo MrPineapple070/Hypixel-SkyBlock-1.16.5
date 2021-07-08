@@ -3,6 +3,7 @@ package net.hypixel.skyblock.items.accessories;
 import java.util.List;
 
 import net.hypixel.skyblock.items.ModItemRarity;
+import net.hypixel.skyblock.util.ItemProperties;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,20 +21,22 @@ import net.minecraft.world.World;
 public class FireTalisman extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.fire");
 
-	public FireTalisman(Properties properties) {
-		super(properties, ModItemRarity.Common);
+	public FireTalisman() {
+		super(ItemProperties.combat_1, ModItemRarity.Common);
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+	public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
 		tooltip.add(info);
 	}
 
 	@Override
-	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (!(entityIn instanceof PlayerEntity))
+	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
+		if (world.isClientSide)
 			return;
-		final PlayerEntity player = (PlayerEntity) entityIn;
+		if (!(entity instanceof PlayerEntity))
+			return;
+		final PlayerEntity player = (PlayerEntity) entity;
 		if (player.getLastDamageSource().isFire())
 			return;
 	}

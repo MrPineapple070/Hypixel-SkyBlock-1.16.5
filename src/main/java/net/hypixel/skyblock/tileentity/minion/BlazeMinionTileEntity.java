@@ -22,15 +22,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 public class BlazeMinionTileEntity extends AbstractSummonerMTE {
-	@Nonnull
-	protected static final int[] speed = { 660, 660, 620, 620, 570, 570, 500, 500, 420, 420, 330 };
-	
-	@Nonnull
-	protected static final ItemStack drop = new ItemStack(Items.BLAZE_ROD);
-
 	public static class BlazeMTE1 extends BlazeMinionTileEntity {
 		public BlazeMTE1() {
 			super(ModTileEntityTypes.blaze_minion_1.get(), MinionTier.I);
@@ -96,7 +91,19 @@ public class BlazeMinionTileEntity extends AbstractSummonerMTE {
 			super(ModTileEntityTypes.blaze_minion_b.get(), MinionTier.XI);
 		}
 	}
-
+	
+	/**
+	 * Holds how frequently to interact
+	 */
+	@Nonnull
+	protected static final int[] speed = { 660, 660, 620, 620, 570, 570, 500, 500, 420, 420, 330 };
+	
+	/**
+	 * Holds {@link ItemStack} to {@link #add(int, ItemStack)}
+	 */
+	@Nonnull
+	protected static final ItemStack drop = new ItemStack(Items.BLAZE_ROD);
+	
 	public BlazeMinionTileEntity(TileEntityType<? extends AbstractSummonerMTE> type, MinionTier tier) {
 		super(type, tier, EntityType.BLAZE);
 	}
@@ -133,11 +140,11 @@ public class BlazeMinionTileEntity extends AbstractSummonerMTE {
 
 	@Override
 	protected Item[] getSuperCompactor() {
-		return new Item[] { Items.DIAMOND, Items.DIAMOND_BLOCK, ItemInit.enchanted_diamond.get(), Items.BLAZE_ROD };
+		return new Item[] { Items.DIAMOND, Items.DIAMOND_BLOCK, ItemInit.enchanted_diamond.get(), Items.BLAZE_ROD, ItemInit.enchanted_blaze_powder.get() };
 	}
 
 	@Override
-	protected StringTextComponent initDisplayName() {
+	protected ITextComponent initDisplayName() {
 		return new StringTextComponent("Blaze Minion Tier " + this.tier.name());
 	}
 
@@ -149,6 +156,6 @@ public class BlazeMinionTileEntity extends AbstractSummonerMTE {
 	@Override
 	protected void removeEntity() {
 		this.summoned.poll().remove();
-		this.addItemStacks(drop);
+		this.addItemStacks(drop.copy());
 	}
 }

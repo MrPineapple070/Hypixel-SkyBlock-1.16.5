@@ -16,6 +16,6 @@ public class MinionGroup extends ItemGroup {
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public ItemStack makeIcon() {
-		return new ItemStack(MinionBlockInit.cobblestone_minion_1.get());
+		return new ItemStack(MinionBlockInit.cobble_minion_1.get());
 	}
 }
