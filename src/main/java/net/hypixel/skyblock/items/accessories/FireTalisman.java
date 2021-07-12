@@ -8,6 +8,8 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -19,6 +21,7 @@ import net.minecraft.world.World;
  * @version 26 July 2020
  */
 public class FireTalisman extends Accessory {
+	private static final EffectInstance fire = new EffectInstance(Effects.FIRE_RESISTANCE, 1);
 	private static final ITextComponent info = new TranslationTextComponent("accessory.fire");
 
 	public FireTalisman() {
@@ -37,7 +40,6 @@ public class FireTalisman extends Accessory {
 		if (!(entity instanceof PlayerEntity))
 			return;
 		final PlayerEntity player = (PlayerEntity) entity;
-		if (player.getLastDamageSource().isFire())
-			return;
+		player.forceAddEffect(fire);
 	}
 }

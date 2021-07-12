@@ -3,7 +3,6 @@ package net.hypixel.skyblock.events.armor;
 import net.hypixel.skyblock.HypixelSkyBlockMod;
 import net.hypixel.skyblock.items.armor.ModArmorMaterial;
 import net.hypixel.skyblock.items.armor.golem.GolemSet;
-import net.hypixel.skyblock.items.armor.miner_outfit.MinerOutfitSet;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.AttributeModifier.Operation;
@@ -13,8 +12,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -71,35 +68,5 @@ public class ArmorEquipEvent {
 		}
 		max_health.addTransientModifier(
 				new AttributeModifier(Attributes.MAX_HEALTH.getDescriptionId(), health, Operation.ADDITION));
-	}
-
-	/**
-	 * Handle {@link LivingEquipmentChangeEvent} for the {@link MinerOutfitSet}.
-	 *
-	 * @param event {@code LivingEquipmentChangeEvent}
-	 */
-	@SubscribeEvent
-	public static void minerEquip(LivingEquipmentChangeEvent event) {
-		PlayerEntity p;
-		try {
-			p = (PlayerEntity) event.getEntityLiving();
-		} catch (ClassCastException cce) {
-			return;
-		}
-		for (ItemStack stack : p.getArmorSlots()) {
-			if (stack.isEmpty())
-				continue;
-			ArmorItem armor;
-			try {
-				armor = (ArmorItem) stack.getItem();
-				if (armor.getMaterial() != ModArmorMaterial.Miner) {
-					p.removeEffect(Effects.DIG_SPEED);
-					return;
-				}
-				p.addEffect(new EffectInstance(Effects.DIG_SPEED, Integer.MAX_VALUE, 1));
-			} catch (ClassCastException cce) {
-				continue;
-			}
-		}
 	}
 }

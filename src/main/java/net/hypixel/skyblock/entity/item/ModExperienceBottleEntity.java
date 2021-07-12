@@ -4,6 +4,11 @@ import net.hypixel.skyblock.items.ModExperienceBottleItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ExperienceBottleEntity;
+import net.minecraft.entity.item.ExperienceOrbEntity;
+import net.minecraft.potion.PotionUtils;
+import net.minecraft.potion.Potions;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -37,16 +42,23 @@ public class ModExperienceBottleEntity extends ExperienceBottleEntity {
 
 	@Override
 	protected void onHit(RayTraceResult result) {
-		// TODO Change this
+		RayTraceResult.Type type = result.getType();
+		if (type == RayTraceResult.Type.ENTITY)
+			this.onHitEntity((EntityRayTraceResult)result);
+		else if (type == RayTraceResult.Type.BLOCK)
+			this.onHitBlock((BlockRayTraceResult)result);
+		this.level.levelEvent(2002, this.blockPosition(), PotionUtils.getColor(Potions.WATER));
+		int amount;
 		switch (this.type) {
 		case GRAND:
-			super.onHit(result);
+			amount = 1500;
 			break;
 		case TITANIC:
-			super.onHit(result);
+			amount = 250000;
 			break;
 		default:
-			return;
+			throw new IllegalStateException("Illegal ModExperienceBottleItem.Type:\t" + this.type.name());
 		}
+		this.level.addFreshEntity(new ExperienceOrbEntity(this.level, this.getX(), this.getY(), this.getZ(), amount));
 	}
 }

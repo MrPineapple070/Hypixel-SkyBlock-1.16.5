@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "hypixelskyblockmod:blocks/oak_planks",
-		"1": "hypixelskyblockmod:blocks/stick",
-		"particle": "hypixelskyblockmod:blocks/oak_planks"
+		"0": "minecraft:block/oak_planks",
+		"1": "minecraft:item/stick",
+		"particle": "minecraft:block/oak_planks"
 	},
 	"elements": [
 		{

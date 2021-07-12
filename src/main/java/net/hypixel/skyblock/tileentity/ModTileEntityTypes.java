@@ -101,7 +101,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModTileEntityTypes {
 	public static final DeferredRegister<TileEntityType<?>> tile_entity_types = DeferredRegister
 			.create(ForgeRegistries.TILE_ENTITIES, HypixelSkyBlockMod.MOD_ID);
-
+	
 	public static final RegistryObject<TileEntityType<AcaciaMTE1>> acacia_minion_1 = tile_entity_types.register(
 			"acacia_minion_1", () -> Builder.of(AcaciaMTE1::new, MinionBlockInit.acacia_minion_1.get()).build(null));
 	public static final RegistryObject<TileEntityType<AcaciaMTE2>> acacia_minion_2 = tile_entity_types.register(
@@ -262,7 +262,7 @@ public class ModTileEntityTypes {
 			"wheat_minion_a", () -> Builder.of(WheatMTEa::new, MinionBlockInit.wheat_minion_a.get()).build(null));
 	public static final RegistryObject<TileEntityType<WheatMTEb>> wheat_minion_b = tile_entity_types.register(
 			"wheat_minion_b", () -> Builder.of(WheatMTEb::new, MinionBlockInit.wheat_minion_b.get()).build(null));
-
+	
 	public static final RegistryObject<TileEntityType<DaySaverTileEntity>> day_saver = tile_entity_types
 			.register("day_saver", () -> Builder.of(DaySaverTileEntity::new, BlockInit.day_saver.get()).build(null));
 	public static final RegistryObject<TileEntityType<NightSaverTileEntity>> night_saver = tile_entity_types.register(

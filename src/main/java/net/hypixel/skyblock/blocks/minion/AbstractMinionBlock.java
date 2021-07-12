@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 
 import net.hypixel.skyblock.tileentity.minion.AbstractMinionTileEntity;
 import net.hypixel.skyblock.tileentity.minion.AbstractMinionTileEntity.MinionTier;
+import net.hypixel.skyblock.util.BlockProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ContainerBlock;
@@ -45,9 +46,11 @@ public abstract class AbstractMinionBlock extends ContainerBlock {
 	 */
 	@Nonnull
 	protected final MinionTier tier;
-
+	
 	protected AbstractMinionBlock(Properties properties, MinionTier tier) {
-		super(properties.strength(0f, 0x800f).air());
+		super(properties.strength(0f, 0x800f).noOcclusion().isValidSpawn(BlockProperties::never)
+				.isRedstoneConductor(BlockProperties::never).isSuffocating(BlockProperties::never)
+				.isViewBlocking(BlockProperties::never));
 		this.tier = Objects.requireNonNull(tier, "Minion Block must have a Tier");
 		this.registerDefaultState(this.stateDefinition.any().setValue(facing, Direction.NORTH));
 	}
@@ -59,7 +62,7 @@ public abstract class AbstractMinionBlock extends ContainerBlock {
 
 	@Override
 	public abstract TileEntity createTileEntity(BlockState state, IBlockReader world);
-	
+
 	@Override
 	@Deprecated
 	public final TileEntity newBlockEntity(IBlockReader world) {

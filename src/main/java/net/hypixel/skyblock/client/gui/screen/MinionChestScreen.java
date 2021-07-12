@@ -28,13 +28,31 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public abstract class MinionChestScreen extends ContainerScreen<MinionChestContainer>
 		implements IHasContainer<MinionChestContainer> {
+	public static class LargeMCS extends MinionChestScreen {
+		public LargeMCS(MinionChestContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
+			super(screenContainer, inv, titleIn, MinionChestType.Large);
+		}
+	}
+
+	public static class MediumMCS extends MinionChestScreen {
+		public MediumMCS(MinionChestContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
+			super(screenContainer, inv, titleIn, MinionChestType.Medium);
+		}
+	}
+
+	public static class SmallMCS extends MinionChestScreen {
+		public SmallMCS(MinionChestContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
+			super(screenContainer, inv, titleIn, MinionChestType.Small);
+		}
+	}
+	
 	/**
-	 * Background Texture for Small Minion Chest
+	 * Background Texture for Large Minion Chest
 	 */
 	@Nonnull
-	private static final ResourceLocation small = new ResourceLocation(HypixelSkyBlockMod.MOD_ID,
-			"textures/gui/small_minion_chest_screen.png");
-
+	private static final ResourceLocation large = new ResourceLocation(HypixelSkyBlockMod.MOD_ID,
+			"textures/gui/large_minion_chest_screen.png");
+	
 	/**
 	 * Background Texture for Medium Minion Chest
 	 */
@@ -43,15 +61,22 @@ public abstract class MinionChestScreen extends ContainerScreen<MinionChestConta
 			"textures/gui/medium_minion_chest_screen.png");
 
 	/**
-	 * Background Texture for Large Minion Chest
+	 * Background Texture for Small Minion Chest
 	 */
 	@Nonnull
-	private static final ResourceLocation large = new ResourceLocation(HypixelSkyBlockMod.MOD_ID,
-			"textures/gui/large_minion_chest_screen.png");
+	private static final ResourceLocation small = new ResourceLocation(HypixelSkyBlockMod.MOD_ID,
+			"textures/gui/small_minion_chest_screen.png");
 
+	/**
+	 * Background Texture for Extra Large Minion Chest
+	 */
 	@Nonnull
 	private static final ResourceLocation xlarge = new ResourceLocation(HypixelSkyBlockMod.MOD_ID,
 			"textures/gui/x_large_minion_chest_screen.png");
+
+	/**
+	 * Background Texture for Extra Extra Large Minion Chest
+	 */
 	@Nonnull
 	private static final ResourceLocation xxlarge = new ResourceLocation(HypixelSkyBlockMod.MOD_ID,
 			"textures/gui/xx_large_minion_chest_screen.png");
@@ -70,12 +95,6 @@ public abstract class MinionChestScreen extends ContainerScreen<MinionChestConta
 		this.width = 256;
 		this.height = 256;
 		this.type = Objects.requireNonNull(type, "Type of this MinionChestScreen cannot be null.");
-	}
-
-	@Override
-	protected void renderLabels(MatrixStack stack, int mouseX, int mouseY) {
-		this.font.draw(stack, this.title.getString(), 48, 50, 0x404040);
-		this.font.draw(stack, this.inventory.getDisplayName().getString(), 48, 118, 0x404040);
 	}
 
 	@Override
@@ -105,21 +124,9 @@ public abstract class MinionChestScreen extends ContainerScreen<MinionChestConta
 				this.imageWidth, this.imageHeight);
 	}
 
-	public static class SmallMCS extends MinionChestScreen {
-		public SmallMCS(MinionChestContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
-			super(screenContainer, inv, titleIn, MinionChestType.Small);
-		}
-	}
-
-	public static class MediumMCS extends MinionChestScreen {
-		public MediumMCS(MinionChestContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
-			super(screenContainer, inv, titleIn, MinionChestType.Medium);
-		}
-	}
-
-	public static class LargeMCS extends MinionChestScreen {
-		public LargeMCS(MinionChestContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
-			super(screenContainer, inv, titleIn, MinionChestType.Large);
-		}
+	@Override
+	protected void renderLabels(MatrixStack stack, int mouseX, int mouseY) {
+		this.font.draw(stack, this.title.getString(), 48, 50, 0x404040);
+		this.font.draw(stack, this.inventory.getDisplayName().getString(), 48, 118, 0x404040);
 	}
 }

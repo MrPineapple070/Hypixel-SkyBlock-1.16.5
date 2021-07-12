@@ -11,7 +11,6 @@ import net.hypixel.skyblock.client.gui.screen.AbstractMinionScreen;
 import net.hypixel.skyblock.client.gui.screen.MinionChestScreen.LargeMCS;
 import net.hypixel.skyblock.client.gui.screen.MinionChestScreen.MediumMCS;
 import net.hypixel.skyblock.client.gui.screen.MinionChestScreen.SmallMCS;
-import net.hypixel.skyblock.client.gui.screen.ModAnvilScreen;
 import net.hypixel.skyblock.client.gui.screen.TimeSaverScreen;
 import net.hypixel.skyblock.client.render.entity.VillageNPCRender;
 import net.hypixel.skyblock.entity.ModEntityTypes;
@@ -62,15 +61,15 @@ public final class ClientEventBusSubscriber {
 		ScreenManager.register(ModContainerTypes.small_mcc.get(), SmallMCS::new);
 		ScreenManager.register(ModContainerTypes.medium_mcc.get(), MediumMCS::new);
 		ScreenManager.register(ModContainerTypes.large_mcc.get(), LargeMCS::new);
-		ScreenManager.register(ModContainerTypes.anvil.get(), ModAnvilScreen::new);
 		ScreenManager.register(ModContainerTypes.time_saver.get(), TimeSaverScreen::new);
-
-		for (RegistryObject<Block> obj : MinionBlockInit.minionBlocks.getEntries())
-			RenderTypeLookup.setRenderLayer(obj.get(), RenderType.solid());
 		
+		for (RegistryObject<Block> obj : MinionBlockInit.minionBlocks.getEntries())
+			RenderTypeLookup.setRenderLayer(obj.get(), RenderType.translucent());
+		
+		RenderTypeLookup.setRenderLayer(BlockInit.hard_glass.get(), RenderType.translucent());
 		RenderTypeLookup.setRenderLayer(BlockInit.day_saver.get(), RenderType.translucent());
 		RenderTypeLookup.setRenderLayer(BlockInit.night_saver.get(), RenderType.translucent());
-
+		
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.small_mcte.get(), ChestTileEntityRenderer::new);
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.medium_mcte.get(), ChestTileEntityRenderer::new);
 		ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.large_mcte.get(), ChestTileEntityRenderer::new);

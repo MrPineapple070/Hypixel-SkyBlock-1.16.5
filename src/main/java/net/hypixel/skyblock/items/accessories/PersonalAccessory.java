@@ -49,8 +49,9 @@ public abstract class PersonalAccessory extends Accessory {
 			break;
 		case Type7:
 			this.items = NonNullList.withSize(12, ItemStack.EMPTY);
+			break;
 		default:
-			throw new IllegalArgumentException("Illegal Personal Compactor type. Must be 4000, 5000, or 6000");
+			throw new IllegalArgumentException("Illegal Personal Compactor type:\t" + this.type.name());
 		}
 	}
 
