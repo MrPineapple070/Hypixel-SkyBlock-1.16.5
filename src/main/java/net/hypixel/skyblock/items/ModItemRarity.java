@@ -71,4 +71,30 @@ public enum ModItemRarity {
 			throw new IllegalStateException(this.name() + " does not have an upgrade.");
 		}
 	}
+	
+	/**
+	 * Determines the previous tier of {@link ModItemRarity}
+	 * 
+	 * @return the previous {@link ModItemRarity}
+	 */
+	public ModItemRarity getPrevious() {
+		switch (this) {
+		case Uncommon:
+			return Common;
+		case Rare:
+			return Uncommon;
+		case Epic:
+			return Rare;
+		case Legendary:
+			return Epic;
+		case Mythic:
+			return Legendary;
+		case Special:
+			return Mythic;
+		case Very_Special:
+			return Special;
+		default:
+			throw new IllegalStateException(this.name() + " does not have a previous.");
+		}
+	}
 }

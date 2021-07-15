@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "hypixelskyblockmod:items/personal_compactor_7000"
+	}
+}

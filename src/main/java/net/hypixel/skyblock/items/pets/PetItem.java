@@ -113,11 +113,7 @@ public abstract class PetItem extends Item {
 		if (!(entityIn instanceof PlayerEntity))
 			return;
 		PlayerEntity player = (PlayerEntity) entityIn;
-		Item item = stack.getItem();
-		if (!(item instanceof PetItem))
-			return;
-		PetItem pet = (PetItem) item;
-		pet.pet.effect(player);
+		this.pet.effect(player);
 	}
 
 	@Override

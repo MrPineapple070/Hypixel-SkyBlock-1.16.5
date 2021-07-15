@@ -23,6 +23,6 @@ public class ChickenPet extends Pet {
 
 	@Override
 	public double[] getBuffs() {
-		return null;
+		return new double[] {};
 	}
 }

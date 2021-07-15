@@ -24,27 +24,27 @@ public class CobblestoneMinion extends AbstractMinionBlock {
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
 		switch (this.tier) {
 		case I:
-			ModTileEntityTypes.cobble_minion_1.get().create();
+			return ModTileEntityTypes.cobble_minion_1.get().create();
 		case II:
-			ModTileEntityTypes.cobble_minion_2.get().create();
+			return ModTileEntityTypes.cobble_minion_2.get().create();
 		case III:
-			ModTileEntityTypes.cobble_minion_3.get().create();
+			return ModTileEntityTypes.cobble_minion_3.get().create();
 		case IV:
-			ModTileEntityTypes.cobble_minion_4.get().create();
+			return ModTileEntityTypes.cobble_minion_4.get().create();
 		case V:
-			ModTileEntityTypes.cobble_minion_5.get().create();
+			return ModTileEntityTypes.cobble_minion_5.get().create();
 		case VI:
-			ModTileEntityTypes.cobble_minion_6.get().create();
+			return ModTileEntityTypes.cobble_minion_6.get().create();
 		case VII:
-			ModTileEntityTypes.cobble_minion_7.get().create();
+			return ModTileEntityTypes.cobble_minion_7.get().create();
 		case VIII:
-			ModTileEntityTypes.cobble_minion_8.get().create();
+			return ModTileEntityTypes.cobble_minion_8.get().create();
 		case IX:
-			ModTileEntityTypes.cobble_minion_9.get().create();
+			return ModTileEntityTypes.cobble_minion_9.get().create();
 		case X:
-			ModTileEntityTypes.cobble_minion_a.get().create();
+			return ModTileEntityTypes.cobble_minion_a.get().create();
 		case XI:
-			ModTileEntityTypes.cobble_minion_b.get().create();
+			return ModTileEntityTypes.cobble_minion_b.get().create();
 		default:
 			throw new IllegalStateException("Illegal MinionTier:\t" + this.tier.name());
 		}

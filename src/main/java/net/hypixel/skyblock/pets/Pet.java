@@ -25,23 +25,23 @@ import net.minecraft.item.Item;
  */
 public abstract class Pet {
 	@Nonnull
-	protected static final ImmutableList<Integer> common = ImmutableList.copyOf(Arrays.asList(0, 100, 110, 120, 130, 145,
-			160, 175, 190, 210, 230, 250, 275, 300, 330, 360, 400, 440, 490, 540, 600, 660, 730, 800, 880, 960, 1050,
-			1150, 1260, 1380, 1510, 1650, 1800, 1960, 2130, 2310, 2500, 2700, 2920, 3160, 3420, 3700, 4000, 4350, 4750,
-			5200, 5700, 6300, 7000, 7800, 8700, 9700, 10800, 12000, 13300, 14700, 16200, 17800, 19500, 21300, 23200,
-			25200, 27400, 29800, 32400, 35200, 38200, 41400, 44800, 48400, 52200, 56200, 60400, 64800, 69400, 74200,
-			79200, 84700, 90700, 97200, 104200, 111700, 119700, 128200, 137200, 146700, 156700, 167700, 179700, 192700,
-			206700, 221700, 237700, 254700, 272700, 291700, 311700, 333700, 357700, 383700));
-	
+	protected static final ImmutableList<Integer> common = ImmutableList.copyOf(Arrays.asList(0, 100, 110, 120, 130,
+			145, 160, 175, 190, 210, 230, 250, 275, 300, 330, 360, 400, 440, 490, 540, 600, 660, 730, 800, 880, 960,
+			1050, 1150, 1260, 1380, 1510, 1650, 1800, 1960, 2130, 2310, 2500, 2700, 2920, 3160, 3420, 3700, 4000, 4350,
+			4750, 5200, 5700, 6300, 7000, 7800, 8700, 9700, 10800, 12000, 13300, 14700, 16200, 17800, 19500, 21300,
+			23200, 25200, 27400, 29800, 32400, 35200, 38200, 41400, 44800, 48400, 52200, 56200, 60400, 64800, 69400,
+			74200, 79200, 84700, 90700, 97200, 104200, 111700, 119700, 128200, 137200, 146700, 156700, 167700, 179700,
+			192700, 206700, 221700, 237700, 254700, 272700, 291700, 311700, 333700, 357700, 383700));
+
 	@Nonnull
-	protected static final ImmutableList<Integer> uncommon = ImmutableList.copyOf(Arrays.asList(0, 175, 190, 210, 230, 250,
-			275, 300, 330, 360, 400, 440, 490, 540, 600, 660, 730, 800, 880, 960, 1050, 1150, 1260, 1380, 1510, 1650,
-			1800, 1960, 2130, 2310, 2500, 2700, 2920, 3160, 3420, 3700, 4000, 4350, 4750, 5200, 5700, 6300, 7000, 7800,
-			8700, 9700, 10800, 12000, 13300, 14700, 16200, 17800, 19500, 21300, 23200, 25200, 27400, 29800, 32400,
+	protected static final ImmutableList<Integer> uncommon = ImmutableList.copyOf(Arrays.asList(0, 175, 190, 210, 230,
+			250, 275, 300, 330, 360, 400, 440, 490, 540, 600, 660, 730, 800, 880, 960, 1050, 1150, 1260, 1380, 1510,
+			1650, 1800, 1960, 2130, 2310, 2500, 2700, 2920, 3160, 3420, 3700, 4000, 4350, 4750, 5200, 5700, 6300, 7000,
+			7800, 8700, 9700, 10800, 12000, 13300, 14700, 16200, 17800, 19500, 21300, 23200, 25200, 27400, 29800, 32400,
 			35200, 38200, 41400, 44800, 48400, 52200, 56200, 60400, 64800, 69400, 74200, 79200, 84700, 90700, 97200,
 			104200, 111700, 119700, 128200, 137200, 146700, 156700, 167700, 179700, 192700, 206700, 221700, 237700,
 			254700, 272700, 291700, 311700, 333700, 357700, 383700, 411700, 441700, 476700, 516700, 561700, 611700));
-	
+
 	@Nonnull
 	protected static final ImmutableList<Integer> rare = ImmutableList.copyOf(
 			Arrays.asList(0, 275, 300, 330, 360, 400, 440, 490, 540, 600, 660, 730, 800, 880, 960, 1050, 1150, 1260,
@@ -51,7 +51,7 @@ public abstract class Pet {
 					69400, 74200, 79200, 84700, 90700, 97200, 104200, 111700, 119700, 128200, 137200, 146700, 156700,
 					167700, 179700, 192700, 206700, 221700, 237700, 254700, 272700, 291700, 311700, 333700, 357700,
 					383700, 411700, 441700, 476700, 516700, 561700, 611700, 666700, 726700, 791700, 861700, 936700));
-	
+
 	@Nonnull
 	protected static final ImmutableList<Integer> epic = ImmutableList.copyOf(Arrays.asList(0, 440, 490, 540, 600, 660,
 			730, 800, 880, 960, 1050, 1150, 1260, 1380, 1510, 1650, 1800, 1960, 2130, 2310, 2500, 2700, 2920, 3160,
@@ -61,7 +61,7 @@ public abstract class Pet {
 			156700, 167700, 179700, 192700, 206700, 221700, 237700, 254700, 272700, 291700, 311700, 333700, 357700,
 			383700, 411700, 441700, 476700, 516700, 561700, 611700, 666700, 726700, 791700, 861700, 936700, 1016700,
 			1101700, 1191700, 1286700, 1386700));
-	
+
 	@Nonnull
 	protected static final ImmutableList<Integer> legendary = ImmutableList.copyOf(Arrays.asList(0, 660, 730, 800, 880,
 			960, 1050, 1150, 1260, 1380, 1510, 1650, 1800, 1960, 2130, 2310, 2500, 2700, 2920, 3160, 3420, 3700, 4000,
@@ -72,9 +72,16 @@ public abstract class Pet {
 			441700, 476700, 516700, 561700, 611700, 666700, 726700, 791700, 861700, 936700, 1016700, 1101700, 1191700,
 			1286700, 1386700, 1496700, 1616700, 1746700, 1886700));
 
+	/**
+	 * Returns an {@link ImmutableList} of {@link Integer} holding all the
+	 * experience point requirements to level up
+	 * 
+	 * @param rarity {@link ModItemRarity}
+	 * @return {@link ImmutableList} of {@link Integer}
+	 */
 	@Nonnull
 	protected static final ImmutableList<Integer> getRequirement(@Nonnull ModItemRarity rarity) {
-		switch (rarity) {
+		switch (Objects.requireNonNull(rarity, "ModItemRarity cannot be null")) {
 		case Common:
 			return common;
 		case Uncommon:
@@ -91,13 +98,32 @@ public abstract class Pet {
 		}
 	}
 
+	/**
+	 * Gets a specific leveling requirement for a pet level
+	 * 
+	 * @param rarity {@link ModItemRarity} of {@link Pet}
+	 * @param lvl    current Level of pet
+	 * @return specific leveling requirement
+	 */
 	@Nonnegative
 	protected static final int getRequirement(@Nonnull ModItemRarity rarity, @Nonnegative int lvl) {
 		if (lvl < 0 || lvl > 99)
 			return Integer.MAX_VALUE;
 		return getRequirement(rarity).get(lvl);
 	}
-	
+
+	/**
+	 * Calculates the cost of upgraded a {@link Pet}.
+	 * 
+	 * @param pet  {@link Pet} to upgrade
+	 * @param base base price of the upgrade. Note: base prices are different for
+	 *             each {@link ModItemRarity} and {@link Pet}
+	 * @return cost
+	 */
+	protected static final int calcCost(Pet pet, int base) {
+		return (int) ((1 - .003 * pet.level) * base);
+	}
+
 	/**
 	 * {@link Random}
 	 */
@@ -127,13 +153,10 @@ public abstract class Pet {
 	public final Collection collection;
 
 	/**
-	 * Current amount of experience held.
+	 * Cumulative Experience collected.
 	 */
 	@Nonnegative
-	protected float current_xp;
-
-	@Nonnegative
-	protected int req_xp;
+	protected float cumulative_xp;
 
 	/**
 	 * {@link Item} that this pet holds.
@@ -164,8 +187,7 @@ public abstract class Pet {
 		this.petType = Objects.requireNonNull(petType, "Pet must have a PetType");
 		this.collection = Objects.requireNonNull(collection, "Pet must have a Collection");
 		this.level = 100;
-		this.current_xp = 0;
-		this.req_xp = getRequirement(this.rarity, this.level);
+		this.cumulative_xp = 0;
 	}
 
 	/**
@@ -174,14 +196,7 @@ public abstract class Pet {
 	 * @param xp amount of experience points to add.
 	 */
 	public void addExperience(float xp) {
-		ImmutableList<Integer> lvl = getRequirement(this.rarity);
-		int amount = lvl.get(this.level + 1);
-		int inc = this.level + 1;
-		while (amount < xp)
-			amount += lvl.get(++inc);
-		this.level = inc;
-		if (this.level != 100)
-			this.req_xp = lvl.get(this.level + 1);
+		this.cumulative_xp += xp;
 	}
 
 	/**
@@ -222,7 +237,7 @@ public abstract class Pet {
 	}
 
 	public float getProgress() {
-		return this.current_xp / this.req_xp;
+		return this.cumulative_xp / getRequirement(this.rarity, this.level);
 	}
 
 	/**
@@ -245,7 +260,7 @@ public abstract class Pet {
 
 	@Override
 	public String toString() {
-		return "Pet [collection=" + this.collection + ", current_xp=" + this.current_xp + ", level=" + this.level
+		return "Pet [collection=" + this.collection + ", current_xp=" + this.cumulative_xp + ", level=" + this.level
 				+ ", petType=" + this.petType + ", rarity=" + this.rarity + "]";
 	}
 
@@ -258,14 +273,23 @@ public abstract class Pet {
 	}
 
 	/**
-	 * Sets {@link #rarity} to the next tier.
+	 * Sets {@link #rarity} to the next tier.<br>
+	 * This method should be the only one to modify {@link #rarity}.<br>
+	 * Some pets can upgrade to {@link ModItemRarity#Mythic} and only through a
+	 * certain item.
 	 */
 	public void upgradeTier() {
 		switch (this.rarity) {
-		case Legendary:
+		case Mythic:
 			return;
 		default:
 			this.rarity = this.rarity.getNext();
+			int xp = 0, lvl = 0;
+			while (xp < this.cumulative_xp) {
+				xp += getRequirement(rarity, lvl);
+				lvl++;
+			}
+			this.level = lvl - 1;
 		}
 	}
 }

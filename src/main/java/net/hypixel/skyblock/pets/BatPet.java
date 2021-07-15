@@ -2,7 +2,9 @@ package net.hypixel.skyblock.pets;
 
 import net.hypixel.skyblock.items.Collection;
 import net.hypixel.skyblock.items.ModItemRarity;
+import net.hypixel.skyblock.items.init.ItemInit;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 
 /**
  * The <a href="https://hypixel-skyblock.fandom.com/wiki/Bat_Pet">Bat Pet</a>.
@@ -12,6 +14,10 @@ import net.minecraft.entity.player.PlayerEntity;
  * @since 21 February 2020
  */
 public final class BatPet extends Pet {
+	public static final int[] time = { 78000, 438000, 1734000, 5190000 };
+	public static final ItemStack[] items = new ItemStack[] { ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY,
+			new ItemStack(ItemInit.enchanted_red_mushroom.get(), 64) };
+	
 	private double scc;
 	private double intel;
 	private double speed;
