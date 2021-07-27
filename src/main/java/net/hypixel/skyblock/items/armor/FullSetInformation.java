@@ -23,10 +23,10 @@ import net.minecraft.util.text.TranslationTextComponent;
  * @since 11 June 2019
  */
 public interface FullSetInformation {
-	static final ImmutableList<IFormattableTextComponent> buff = ImmutableList
+	public static final ImmutableList<IFormattableTextComponent> buff = ImmutableList
 			.copyOf(Arrays.asList(StatString.strength, StatString.crit_chance, StatString.crit_damage,
 					StatString.health, StatString.speed, StatString.intelligence, StatString.true_def));
-	static final ITextComponent full_set_bonus = new TranslationTextComponent("armor.full_set_bonus");
+	public static final ITextComponent full_set_bonus = new TranslationTextComponent("armor.full_set_bonus");
 
 	public static double[] createBuffArray(double str, double cr_chn, double cr_dmg, double hp, double spd,
 			double intel, double tru_def) {

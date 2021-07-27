@@ -8,7 +8,6 @@ import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
-import net.hypixel.skyblock.entity.player.ModServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -122,9 +121,9 @@ public abstract class Sack extends Item {
 	/**
 	 * Sell all items in this.
 	 *
-	 * @param player {@link ModServerPlayerEntity} that holds this.
+	 * @param player {@link PlayerEntity} that holds this.
 	 */
-	public void sell(@Nonnull ModServerPlayerEntity player) {
+	public void sell(@Nonnull PlayerEntity player) {
 		this.reset();
 	}
 

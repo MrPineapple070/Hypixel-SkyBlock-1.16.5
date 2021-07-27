@@ -38,7 +38,16 @@ public class ModPickaxeItem extends ModToolItem {
 	public ModPickaxeItem(IItemTier tier, Properties properties) {
 		super(tier, DIGGABLES, properties.addToolType(ToolType.PICKAXE, tier.getLevel()));
 	}
-
+	
+	@Override
+	public boolean canHarvestBlock(ItemStack stack, BlockState state) {
+		if (DIGGABLES.contains(state.getBlock()))
+			return true;
+		if (this.getTier().getLevel() >= state.getHarvestLevel())
+			return true;
+		return false;
+	}
+	
 	@Override
 	public boolean isCorrectToolForDrops(BlockState state) {
 		int level = this.getTier().getLevel();

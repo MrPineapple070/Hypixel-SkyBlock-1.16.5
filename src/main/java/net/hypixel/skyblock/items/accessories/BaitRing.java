@@ -2,7 +2,6 @@ package net.hypixel.skyblock.items.accessories;
 
 import java.util.List;
 
-import net.hypixel.skyblock.entity.player.ModServerPlayerEntity;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.bait.Bait;
 import net.hypixel.skyblock.util.ItemProperties;
@@ -38,18 +37,18 @@ public class BaitRing extends Accessory {
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (worldIn.isClientSide)
 			return;
-		if (!(entityIn instanceof ModServerPlayerEntity))
+		if (!(entityIn instanceof PlayerEntity))
 			return;
-		final ModServerPlayerEntity player = (ModServerPlayerEntity) entityIn;
+		final PlayerEntity player = (PlayerEntity) entityIn;
 		if (player.fishing == null)
 			return;
 		if (Item.random.nextInt(100) >= 5)
-			player.consumeBait();
+			LOGGER.debug("Bait consume");
 	}
 
 	@Override
 	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		return ActionResult.success(playerIn.getItemInHand(handIn));
+		return ActionResult.pass(playerIn.getItemInHand(handIn));
 	}
 
 	@Override

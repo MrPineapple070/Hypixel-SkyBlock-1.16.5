@@ -9,7 +9,6 @@ import javax.annotation.Nullable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.hypixel.skyblock.entity.player.ModServerPlayerEntity;
 import net.hypixel.skyblock.items.Collection;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.pets.Pet;
@@ -17,7 +16,6 @@ import net.hypixel.skyblock.util.FormatingCodes;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -72,7 +70,10 @@ public abstract class PetItem extends Item {
 	@Override
 	public abstract void appendHoverText(ItemStack stack, World worldIn, List<ITextComponent> tooltip,
 			ITooltipFlag flagIn);
-
+	
+	/**
+	 * Alters {@link #lvl_progress}
+	 */
 	public void changeLevelProgress() {
 		int prog = (int) (20 * this.pet.getProgress());
 		this.lvl_progress = FormatingCodes.green;
@@ -87,7 +88,6 @@ public abstract class PetItem extends Item {
 	public ITextComponent getName(ItemStack stack) {
 		IFormattableTextComponent lvl = new StringTextComponent(String.format(level, this.pet.getLevel()))
 				.withStyle(TextFormatting.GRAY);
-		;
 		return lvl.append("\u0020")
 				.append((new TranslationTextComponent(this.getDescriptionId())).withStyle(this.getPetRarity().color));
 	}
@@ -119,11 +119,7 @@ public abstract class PetItem extends Item {
 	@Override
 	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		final ItemStack held = playerIn.getItemInHand(handIn);
-		if (playerIn instanceof ModServerPlayerEntity) {
-			((ModServerPlayerEntity) playerIn).addPet((PetItem) held.getItem());
-			playerIn.setItemSlot(EquipmentSlotType.MAINHAND, ItemStack.EMPTY);
-			return ActionResult.success(held);
-		}
+		LOGGER.debug(held.toString());
 		return ActionResult.fail(held);
 	}
 }

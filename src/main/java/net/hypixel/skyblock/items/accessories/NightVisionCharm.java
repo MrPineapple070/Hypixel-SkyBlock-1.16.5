@@ -2,11 +2,11 @@ package net.hypixel.skyblock.items.accessories;
 
 import java.util.List;
 
-import net.hypixel.skyblock.entity.player.ModServerPlayerEntity;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.util.ItemProperties;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -29,6 +29,8 @@ public class NightVisionCharm extends Accessory {
 	private static final ITextComponent info = new TranslationTextComponent("accessory.night_vision",
 			((IFormattableTextComponent) Effects.NIGHT_VISION.getDisplayName())
 					.withStyle(Style.EMPTY.withColor(Color.fromRgb(Effects.NIGHT_VISION.getColor()))));
+	
+	private static final EffectInstance night_vision = new EffectInstance(Effects.NIGHT_VISION, 1, 1);
 
 	public NightVisionCharm() {
 		super(ItemProperties.farm_1, ModItemRarity.Common);
@@ -43,7 +45,8 @@ public class NightVisionCharm extends Accessory {
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (worldIn.isClientSide)
 			return;
-		if (entityIn instanceof ModServerPlayerEntity)
-			((ModServerPlayerEntity) entityIn).addEffect(new EffectInstance(Effects.NIGHT_VISION, 1, 1));
+		if (!(entityIn instanceof PlayerEntity))
+			return;
+		((PlayerEntity) entityIn).addEffect(night_vision);
 	}
 }

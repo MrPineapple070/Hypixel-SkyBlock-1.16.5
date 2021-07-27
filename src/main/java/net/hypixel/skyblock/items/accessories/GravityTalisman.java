@@ -2,12 +2,14 @@ package net.hypixel.skyblock.items.accessories;
 
 import java.util.List;
 
-import net.hypixel.skyblock.entity.player.ModServerPlayerEntity;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.util.ItemProperties;
 import net.hypixel.skyblock.util.StatString;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.client.world.ClientWorld.ClientWorldInfo;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -38,11 +40,13 @@ public class GravityTalisman extends Accessory {
 
 	@Override
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (worldIn.isClientSide)
+		if (!(worldIn instanceof ClientWorld))
 			return;
-		if (entityIn instanceof ModServerPlayerEntity) {
-			final ModServerPlayerEntity player = (ModServerPlayerEntity) entityIn;
-			BlockPos.ZERO.distSqr(player.getX(), player.getY(), player.getZ(), true);
-		}
+		if (!(entityIn instanceof PlayerEntity))
+			return;
+		ClientWorldInfo info = ((ClientWorld) worldIn).getLevelData();
+		final PlayerEntity player = (PlayerEntity) entityIn;
+		final BlockPos spawn = new BlockPos(info.getXSpawn(), info.getYSpawn(), info.getZSpawn());
+		spawn.distSqr(player.getX(), player.getY(), player.getZ(), true);
 	}
 }

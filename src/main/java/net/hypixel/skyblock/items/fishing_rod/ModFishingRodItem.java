@@ -4,7 +4,6 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import net.hypixel.skyblock.entity.player.ModServerPlayerEntity;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.util.ItemProperties;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -45,7 +44,7 @@ public class ModFishingRodItem extends FishingRodItem {
 
 	@Override
 	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		if (!(playerIn instanceof ModServerPlayerEntity))
+		if (!(playerIn instanceof PlayerEntity))
 			return ActionResult.fail(playerIn.getItemInHand(handIn));
 		final ItemStack itemstack = playerIn.getItemInHand(handIn);
 		if (playerIn.fishing != null) {
@@ -56,7 +55,6 @@ public class ModFishingRodItem extends FishingRodItem {
 			worldIn.playSound((PlayerEntity) null, playerIn.getX(), playerIn.getY(), playerIn.getZ(),
 					SoundEvents.FISHING_BOBBER_THROW, SoundCategory.NEUTRAL, .5F,
 					.4F / (random.nextFloat() * .4F + .8F));
-			((ModServerPlayerEntity) playerIn).consumeBait();
 			if (!worldIn.isClientSide)
 				worldIn.addFreshEntity(
 						new FishingBobberEntity(playerIn, worldIn, EnchantmentHelper.getFishingLuckBonus(itemstack),

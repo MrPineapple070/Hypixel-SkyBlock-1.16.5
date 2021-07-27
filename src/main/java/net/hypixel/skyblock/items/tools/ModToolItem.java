@@ -12,7 +12,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
@@ -29,21 +28,26 @@ import net.minecraft.world.World;
  * @since 11 July 2019
  */
 public class ModToolItem extends TieredItem {
+	/**
+	 * {@link Set} of {@link Block} that this tool can break.
+	 */
 	private final Set<Block> blocks;
+	
+	/**
+	 * Speed that this tool can break.
+	 */
 	protected final float speed;
-	private final float attackDamageBaseline;
+	
+	/**
+	 * {@link Multimap} from {@link Attribute} to {@link AttributeModifier}
+	 */
 	private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
 	public ModToolItem(IItemTier tier, Set<Block> effectiveOn, Properties properties) {
 		super(tier, properties);
 		this.blocks = Objects.requireNonNull(effectiveOn, "Effective blocks cannot be null");
 		this.speed = tier.getSpeed();
-		this.attackDamageBaseline = 0f;
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier",
-				(double) this.attackDamageBaseline, AttributeModifier.Operation.ADDITION));
-		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier",
-				Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
 		this.defaultModifiers = builder.build();
 	}
 
@@ -65,16 +69,12 @@ public class ModToolItem extends TieredItem {
 			stack.hurtAndBreak(1, user, (entity) -> {
 				entity.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
 			});
-		return true;
+		return this.getTier().getLevel() <= block.getHarvestLevel();
 	}
 
 	@SuppressWarnings("deprecation")
-	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlotType p_111205_1_) {
-		return p_111205_1_ == EquipmentSlotType.MAINHAND ? this.defaultModifiers
-				: super.getDefaultAttributeModifiers(p_111205_1_);
-	}
-
-	public float getAttackDamage() {
-		return this.attackDamageBaseline;
+	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlotType slot) {
+		return slot == EquipmentSlotType.MAINHAND ? this.defaultModifiers
+				: super.getDefaultAttributeModifiers(slot);
 	}
 }

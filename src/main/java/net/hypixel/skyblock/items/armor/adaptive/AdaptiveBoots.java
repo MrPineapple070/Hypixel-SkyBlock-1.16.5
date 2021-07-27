@@ -3,10 +3,10 @@ package net.hypixel.skyblock.items.armor.adaptive;
 import java.util.List;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
-import net.hypixel.skyblock.entity.player.ModServerPlayerEntity;
 import net.hypixel.skyblock.items.armor.DungeonArmorItem;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
@@ -31,7 +31,7 @@ public class AdaptiveBoots extends DungeonArmorItem {
 	@OnlyIn(Dist.DEDICATED_SERVER)
 	@Override
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (!(entityIn instanceof ModServerPlayerEntity))
+		if (!(entityIn instanceof PlayerEntity))
 			return;
 	}
 }
