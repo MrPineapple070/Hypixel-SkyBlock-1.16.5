@@ -10,7 +10,6 @@ import javax.annotation.Nonnull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;
@@ -214,7 +213,9 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 	 * @param width  your max recipe width
 	 * @param height your max recipe height
 	 */
-	public static final void setCraftingSize(int width, int height) {
+	@SuppressWarnings("unused")
+	@Deprecated
+	private static final void setCraftingSize(int width, int height) {
 		if (MAX_WIDTH < width)
 			MAX_WIDTH = width;
 		if (MAX_HEIGHT < height)
@@ -227,8 +228,7 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 	 * @param inputs {@link String} to shrink down
 	 * @return shrunk
 	 */
-	@VisibleForTesting
-	public static final String[] shrink(String... inputs) {
+	private static final String[] shrink(String... inputs) {
 		int firstNonSpace = Integer.MAX_VALUE, lastNonSpace = 0;
 		int index = 0, length = 0;
 		for (int i = 0; i < inputs.length; ++i) {
@@ -295,11 +295,11 @@ public class EnchantmentRecipe implements IEnchantmentRecipe {
 		this.inputs = Objects.requireNonNull(input, "Inputs cannot be null");
 		this.output = Objects.requireNonNull(output, "Output cannot be null");
 		LOGGER.debug(this.inputs.toString());
-		LOGGER.debug(this.output.toString());
+		LOGGER.debug(this.output.getEnchantmentTags().toString());
 	}
 
 	@Override
-	public ItemStack assemble(CraftingInventory p_77572_1_) {
+	public ItemStack assemble(CraftingInventory inv) {
 		return this.output;
 	}
 
