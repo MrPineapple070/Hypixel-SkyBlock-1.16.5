@@ -17,6 +17,7 @@ import net.hypixel.skyblock.proxy.CommonProxy;
 import net.hypixel.skyblock.proxy.ServerProxy;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -93,5 +94,6 @@ public class HypixelSkyBlockMod {
 		LOGGER.debug("setup called");
 		proxy.init();
 		PotionInit.addRecipies();
+		MinecraftForge.EVENT_BUS.register(RegisterCommandsEvent.class);
 	}
 }

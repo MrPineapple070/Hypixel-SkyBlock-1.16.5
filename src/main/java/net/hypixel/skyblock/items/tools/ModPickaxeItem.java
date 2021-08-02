@@ -41,6 +41,17 @@ public class ModPickaxeItem extends ModToolItem {
 	
 	@Override
 	public boolean canHarvestBlock(ItemStack stack, BlockState state) {
+		/**
+		Material material = state.getMaterial();
+		if (material == Material.HEAVY_METAL)
+			return true;
+		if (material == Material.METAL)
+			return true;
+		if (material == Material.STONE)
+			return true;
+		if (material == Material.SHULKER_SHELL)
+			return true;
+		*/
 		if (DIGGABLES.contains(state.getBlock()))
 			return true;
 		if (this.getTier().getLevel() >= state.getHarvestLevel())

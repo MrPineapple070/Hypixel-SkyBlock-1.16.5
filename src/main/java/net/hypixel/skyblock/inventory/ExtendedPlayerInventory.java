@@ -25,6 +25,7 @@ import net.minecraft.util.NonNullList;
  * @author MrPineapple070
  * @version 24 July 2020
  */
+@Deprecated
 public class ExtendedPlayerInventory extends PlayerInventory {
 	/**
 	 * An {@link ImmutableList} of all possible sizes for {@link #accessories}.

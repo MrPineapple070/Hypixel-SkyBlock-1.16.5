@@ -1,10 +1,10 @@
 package net.hypixel.skyblock.events.accessories;
 
 import net.hypixel.skyblock.HypixelSkyBlockMod;
-import net.hypixel.skyblock.inventory.ExtendedPlayerInventory;
 import net.hypixel.skyblock.items.init.AccessoriesInit;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraftforge.event.entity.living.PotionEvent.PotionAddedEvent;
@@ -24,14 +24,15 @@ public class PotionAffinityAccessoryEvent {
 	private static ItemStack Talisman;
 
 	private static void initItemStack() {
-		if (Artifact != null)
+		if (Artifact == null)
 			Artifact = new ItemStack(AccessoriesInit.potion_affinity_artifact.get());
-		if (Ring != null)
+		if (Ring == null)
 			Ring = new ItemStack(AccessoriesInit.potion_affinity_ring.get());
-		if (Talisman != null)
+		if (Talisman == null)
 			Talisman = new ItemStack(AccessoriesInit.potion_affinity_talisman.get());
 	}
 
+	// TODO Change to Accessory Bag
 	@SubscribeEvent
 	public static void potionAffinityEvent(PotionAddedEvent event) {
 		initItemStack();
@@ -40,18 +41,22 @@ public class PotionAffinityAccessoryEvent {
 		if (!(entity instanceof PlayerEntity))
 			return;
 		final PlayerEntity player = (PlayerEntity) entity;
-		final ExtendedPlayerInventory inv;
-		if (player.inventory instanceof ExtendedPlayerInventory)
-			inv = (ExtendedPlayerInventory) player.inventory;
-		else
-			return;
+		final PlayerInventory inv = player.inventory;
+		float scaler = 1f;
+		for (int i = 0; i < inv.getContainerSize(); ++i) {
+			ItemStack stack = inv.getItem(i);
+			if (stack.sameItem(Artifact)) {
+				scaler = 1.5f;
+				break;
+			} else if (stack.sameItem(Ring)) {
+				scaler = 1.25f;
+				break;
+			} else if (stack.sameItem(Talisman)) {
+				scaler = 1.1f;
+			} else
+				continue;
+		}
 		int duration = effect.getDuration();
-		if (inv.contains(Artifact))
-			duration *= 1.5;
-		else if (inv.contains(Ring))
-			duration *= 1.25;
-		else if (inv.contains(Talisman))
-			duration *= 1.1;
-		effect.update(new EffectInstance(effect.getEffect(), duration, effect.getAmplifier()));
+		effect.update(new EffectInstance(effect.getEffect(), (int) (duration * scaler), effect.getAmplifier()));
 	}
 }

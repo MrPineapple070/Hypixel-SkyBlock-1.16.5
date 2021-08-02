@@ -3,6 +3,11 @@ package net.hypixel.skyblock.items.tools;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableMultimap.Builder;
 import com.google.common.collect.Multimap;
@@ -29,8 +34,15 @@ import net.minecraft.world.World;
  */
 public class ModToolItem extends TieredItem {
 	/**
+	 * {@link Logger}
+	 */
+	@Nonnull
+	protected static final Logger LOGGER = LogManager.getLogger();
+	
+	/**
 	 * {@link Set} of {@link Block} that this tool can break.
 	 */
+	@Nonnull
 	private final Set<Block> blocks;
 	
 	/**
@@ -41,6 +53,7 @@ public class ModToolItem extends TieredItem {
 	/**
 	 * {@link Multimap} from {@link Attribute} to {@link AttributeModifier}
 	 */
+	@Nonnull
 	private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
 	public ModToolItem(IItemTier tier, Set<Block> effectiveOn, Properties properties) {

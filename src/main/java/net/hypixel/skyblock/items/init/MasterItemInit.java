@@ -22,6 +22,7 @@ public class MasterItemInit {
 		MenuItemInit.items.register(bus);
 		MinionBlockItemInit.minionItems.register(bus);
 		PetItemInit.pets.register(bus);
+		ToolInit.tools.register(bus);
 		WeaponInit.weapon.register(bus);
 	}
 }
