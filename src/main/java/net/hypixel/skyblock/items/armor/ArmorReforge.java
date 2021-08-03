@@ -22,6 +22,7 @@ public enum ArmorReforge implements Reforge {
 	 * Unique
 	 */
 	Ancient(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Candied(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Clean(new double[] { 0, 5, 0, 1, 2, 0, 0, 0 }, new double[] { 0, 7, 0, 1.4, 4, 0, 0, 0 },
 			new double[] { 0, 10, 0, 2, 6, 0, 0, 0 }, new double[] { 0, 15, 0, 3, 8, 0, 0, 0 },
 			new double[] { 0, 20, 0, 4, 10, 0, 0, 0 }),
@@ -45,6 +46,7 @@ public enum ArmorReforge implements Reforge {
 	Heavy(new double[] { 0, 25, -1, 0, 0, -1, 0, 0 }, new double[] { 0, 35, -1, 0, 0, -2, 0, 0 },
 			new double[] { 0, 50, -1, 0, 0, -2, 0, 0 }, new double[] { 0, 65, -1, 0, 0, -3, 0, 0 },
 			new double[] { 0, 80, -1, 0, 0, -5, 0, 0 }),
+	Jaded(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Light(new double[] { 0, 1, 1, 1, 1, 1, 0, 1 }, new double[] { 0, 2, 2, 1.4, 1, 2, 0, 2 },
 			new double[] { 0, 3, 3, 2, 2, 3, 0, 3 }, new double[] { 0, 4, 4, 3, 2, 4, 0, 4 },
 			new double[] { 0, 5, 5, 4, 3, 5, 0, 5 }),

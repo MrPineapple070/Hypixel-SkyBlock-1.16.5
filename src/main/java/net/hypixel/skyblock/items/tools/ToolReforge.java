@@ -4,16 +4,43 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import org.openjdk.nashorn.internal.ir.annotations.Immutable;
+
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.Reforge;
+import net.hypixel.skyblock.items.reforge_stone.ReforgeStone;
+import net.minecraft.item.ToolItem;
 
+/**
+ * Holds all {@link Reforge} for {@link ToolItem}
+ * 
+ * @author MrPineapple070
+ * @version 14 July 2021
+ * @since 01 July 2020
+ */
 public enum ToolReforge implements Reforge {
-	Moil(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Ambered(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Auspicious(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Bountiful(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Blessed(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Fleet(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Fruitful(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Heated(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Magnetic(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Mithric(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Moil(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Refined(new double[0], new double[0], new double[0], new double[0], new double[0]),
+	Stellar(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Toil(new double[0], new double[0], new double[0], new double[0], new double[0]);
 
-	private static final Reforge[] unique = new Reforge[] { Magnetic };
+	/**
+	 * Empty list of {@link Reforge}.<br>
+	 * Since these {@link Reforge} are only applied through {@link ReforgeStone},
+	 * this is used in place of {@link #unique()} and {@link #nonunique()}
+	 */
+	@Nonnull
+	@Immutable
+	private static final Reforge[] empty = new Reforge[] { Magnetic };
 
 	/**
 	 * The array for {@link ModItemRarity#Common}
@@ -70,7 +97,7 @@ public enum ToolReforge implements Reforge {
 
 	@Override
 	public Reforge[] nonunique() {
-		return new Reforge[0];
+		return empty;
 	}
 
 	@Override
@@ -85,6 +112,6 @@ public enum ToolReforge implements Reforge {
 
 	@Override
 	public Reforge[] unique() {
-		return unique;
+		return empty;
 	}
 }

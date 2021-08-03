@@ -2,8 +2,16 @@ package net.hypixel.skyblock.items.tools;
 
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import org.openjdk.nashorn.internal.ir.annotations.Immutable;
+
 import com.google.common.collect.ImmutableSet;
 
+import net.hypixel.skyblock.items.ModItemRarity;
+import net.hypixel.skyblock.items.ReforgableItem;
+import net.hypixel.skyblock.items.Reforge;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,8 +20,13 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ToolType;
 
-public class ModPickaxeItem extends ModToolItem {
-	private static final Set<Block> DIGGABLES = ImmutableSet.of(Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE,
+public class ModPickaxeItem extends ModToolItem implements ReforgableItem {
+	/**
+	 * {@link ImmutableSet} of {@link Block} that this.
+	 */
+	@Nonnull
+	@Immutable
+	protected static final Set<Block> DIGGABLES = ImmutableSet.of(Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE,
 			Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE, Blocks.POWERED_RAIL,
 			Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.NETHER_GOLD_ORE, Blocks.ICE, Blocks.IRON_BLOCK, Blocks.IRON_ORE,
 			Blocks.LAPIS_BLOCK, Blocks.LAPIS_ORE, Blocks.MOSSY_COBBLESTONE, Blocks.NETHERRACK, Blocks.PACKED_ICE,
@@ -35,12 +48,23 @@ public class ModPickaxeItem extends ModToolItem {
 			Blocks.PURPLE_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.WHITE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX,
 			Blocks.PISTON, Blocks.STICKY_PISTON, Blocks.PISTON_HEAD);
 	
-	public ModPickaxeItem(IItemTier tier, Properties properties) {
-		super(tier, DIGGABLES, properties.addToolType(ToolType.PICKAXE, tier.getLevel()));
+	/**
+	 * {@link Reforge} that this has.
+	 */
+	@Nullable
+	protected Reforge reforge;
+	
+	public ModPickaxeItem(IItemTier tier, Properties properties, ModItemRarity rarity) {
+		super(tier, DIGGABLES, properties.addToolType(ToolType.PICKAXE, tier.getLevel()), rarity);
+		this.reforge = Reforge.None;
 	}
 	
 	@Override
 	public boolean canHarvestBlock(ItemStack stack, BlockState state) {
+		if (state.getHarvestTool() != ToolType.PICKAXE)
+			return false;
+		if (this.getTier().getLevel() < state.getHarvestLevel())
+			return false;
 		/**
 		Material material = state.getMaterial();
 		if (material == Material.HEAVY_METAL)
@@ -51,12 +75,10 @@ public class ModPickaxeItem extends ModToolItem {
 			return true;
 		if (material == Material.SHULKER_SHELL)
 			return true;
+		if (!DIGGABLES.contains(state.getBlock()))
+			return false;
 		*/
-		if (DIGGABLES.contains(state.getBlock()))
-			return true;
-		if (this.getTier().getLevel() >= state.getHarvestLevel())
-			return true;
-		return false;
+		return true;
 	}
 	
 	@Override
@@ -74,5 +96,20 @@ public class ModPickaxeItem extends ModToolItem {
 		return material != Material.METAL && material != Material.HEAVY_METAL && material != Material.STONE
 				? super.getDestroySpeed(stack, state)
 				: this.speed;
+	}
+
+	@Override
+	public Reforge getReforge() {
+		return this.reforge;
+	}
+
+	@Override
+	public void reforge() {
+		LOGGER.error("Reforge method called on ModPickaxeItem. This is irregular behavior");
+	}
+
+	@Override
+	public void setReforge(Reforge reforge) {
+		this.reforge = reforge;
 	}
 }

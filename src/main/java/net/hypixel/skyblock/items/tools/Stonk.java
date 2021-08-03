@@ -1,9 +1,10 @@
 package net.hypixel.skyblock.items.tools;
 
+import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.util.ItemProperties;
 
 public class Stonk extends ModPickaxeItem {
 	public Stonk() {
-		super(ModToolTier.Stonk, ItemProperties.mine);
+		super(ModToolTier.Stonk, ItemProperties.mine, ModItemRarity.Epic);
 	}
 }

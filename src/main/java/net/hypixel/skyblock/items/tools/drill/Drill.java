@@ -4,16 +4,19 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.tools.ModPickaxeItem;
 import net.hypixel.skyblock.util.ItemProperties;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
@@ -34,7 +37,7 @@ public class Drill extends ModPickaxeItem {
 	 */
 	@Nonnull
 	protected Engine engine;
-	
+
 	/**
 	 * {@link FuelTank} that this drill holds.
 	 */
@@ -57,17 +60,17 @@ public class Drill extends ModPickaxeItem {
 	@Nonnull
 	protected UpgradeModule upgrade;
 
-	public Drill(IItemTier tier) {
-		super(tier, ItemProperties.mine_1);
+	public Drill(IItemTier tier, ModItemRarity rarity) {
+		super(tier, ItemProperties.mine_1, rarity);
 		this.fuel_tank = FuelTank.None;
 		this.total_fuel = default_fuel + this.fuel_tank.fuel;
 		this.tick = 0;
 		this.engine = Engine.None;
 		this.upgrade = UpgradeModule.None;
 	}
-	
+
 	private void efficientMiner(World world, LivingEntity user) {
-		
+
 	}
 
 	@Override
@@ -75,7 +78,10 @@ public class Drill extends ModPickaxeItem {
 		if (!(user instanceof PlayerEntity))
 			return;
 		PlayerEntity player = (PlayerEntity) user;
-		player.displayClientMessage(new StringTextComponent(this.total_fuel + "/" + default_fuel), true);
+		if (selected)
+			player.displayClientMessage(
+					new StringTextComponent(this.total_fuel + "/" + default_fuel).withStyle(TextFormatting.GREEN),
+					true);
 		this.tick = ++this.tick % 100;
 		if (this.tick == 0)
 			switch (this.upgrade) {
@@ -90,10 +96,15 @@ public class Drill extends ModPickaxeItem {
 
 	@Override
 	public boolean mineBlock(ItemStack stack, World world, BlockState block, BlockPos pos, LivingEntity user) {
-		this.total_fuel--;
-		if (this.upgrade == UpgradeModule.Sunny)
-			this.total_fuel--;
-		this.efficientMiner(world, user);
+		if (user instanceof ServerPlayerEntity) {
+			ServerPlayerEntity player = (ServerPlayerEntity) user;
+			if (player.gameMode.isSurvival()) {
+				this.total_fuel--;
+				if (this.upgrade == UpgradeModule.Sunny)
+					this.total_fuel--;
+			}
+			this.efficientMiner(world, user);
+		}
 		return super.mineBlock(stack, world, block, pos, user);
 	}
 

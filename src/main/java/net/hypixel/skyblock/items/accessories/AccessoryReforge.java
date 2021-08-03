@@ -25,7 +25,6 @@ public enum AccessoryReforge implements Reforge {
 	Bloody(new double[] { 1, 0, 1, 0, 0, 3, 0, 1 }, new double[] { 1, 0, 1, 0, 0, 4, 0, 1 },
 			new double[] { 1, 0, 1, 0, 0, 5, 0, 1 }, new double[] { 2, 0, 1, 0, 0, 6, 0, 2 },
 			new double[] { 3, 0, 1, 0, 0, 9, 0, 2 }),
-	Candied(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Demonic(new double[] { 1, 0, 0, 0, 0, 0, 5, 0 }, new double[] { 2, 0, 0, 0, 0, 0, 7, 0 },
 			new double[] { 2, 0, 0, 0, 0, 0, 9, 0 }, new double[] { 3, 0, 0, 0, 0, 0, 12, 0 },
 			new double[] { 5, 0, 0, 0, 0, 0, 15, 0 }),
