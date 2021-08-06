@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import org.openjdk.nashorn.internal.ir.annotations.Immutable;
+
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.Reforge;
 import net.hypixel.skyblock.items.accessories.AccessoryReforge;
@@ -17,6 +19,7 @@ import net.hypixel.skyblock.items.reforge_stone.ReforgeStone;
  * @since 11 June 2019
  */
 public enum SwordReforge implements Reforge {
+	Bulky(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Dirty(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Epic(new double[] { 15, 0, 0, 0, 0, 10, 0, 1 }, new double[] { 20, 0, 0, 0, 0, 15, 0, 2 },
 			new double[] { 25, 0, 0, 0, 0, 20, 0, 4 }, new double[] { 32, 0, 0, 0, 0, 27, 0, 7 },
@@ -46,13 +49,13 @@ public enum SwordReforge implements Reforge {
 	Heroic(new double[] { 15, 0, 0, 0, 0, 0, 0, 0 }, new double[] { 20, 0, 0, 0, 0, 0, 0, 0 },
 			new double[] { 25, 0, 0, 0, 0, 0, 0, 0 }, new double[] { 32, 0, 0, 0, 0, 0, 0, 0 },
 			new double[] { 40, 0, 0, 0, 0, 0, 0, 0 }),
+	Jerry(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Legendary(new double[] { 3, 0, 0, 0, 5, 5, 5, 10 }, new double[] { 7, 0, 0, 0, 7, 10, 8, 3 },
 			new double[] { 12, 0, 0, 0, 9, 15, 12, 5 }, new double[] { 18, 0, 0, 0, 12, 22, 18, 7 },
 			new double[] { 25, 0, 0, 0, 15, 28, 25, 10 }),
 	Odd(new double[] { 0, 0, 0, 0, 12, 10, -5, 0 }, new double[] { 0, 0, 0, 0, 15, 15, -10, 0 },
 			new double[] { 0, 0, 0, 0, 15, 15, -18, 0 }, new double[] { 0, 0, 0, 0, 20, 22, -32, 0 },
 			new double[] { 0, 0, 0, 0, 25, 30, -50, 0 }),
-
 	Sharp(new double[] { 0, 0, 0, 0, 10, 20, 0, 0 }, new double[] { 0, 0, 0, 0, 12, 30, 0, 0 },
 			new double[] { 0, 0, 0, 0, 14, 40, 0, 0 }, new double[] { 0, 0, 0, 0, 17, 55, 0, 0 },
 			new double[] { 0, 0, 0, 0, 20, 75, 0, 0 }),
@@ -82,7 +85,8 @@ public enum SwordReforge implements Reforge {
 	 * {@link #getRandomReforge()}
 	 */
 	@Nonnull
-	private static final SwordReforge[] nonunique;
+	@Immutable
+	public static final SwordReforge[] nonunique;
 
 	/**
 	 * A primative type array of {@link AccessoryReforge} that holds all the unique
@@ -91,7 +95,8 @@ public enum SwordReforge implements Reforge {
 	 * {@link ReforgeStone}
 	 */
 	@Nonnull
-	private static final SwordReforge[] unique;
+	@Immutable
+	public static final SwordReforge[] unique;
 
 	static {
 		nonunique = new SwordReforge[] { Epic, Fair, Fast, Gentle, Heroic, Legendary, Odd, Sharp, Spicy };
@@ -159,11 +164,6 @@ public enum SwordReforge implements Reforge {
 	}
 
 	@Override
-	public Reforge[] nonunique() {
-		return nonunique;
-	}
-
-	@Override
 	public strictfp double[] rare() {
 		return this.rare;
 	}
@@ -175,6 +175,11 @@ public enum SwordReforge implements Reforge {
 
 	@Override
 	public Reforge[] unique() {
-		return unique;
+		return empty;
+	}
+
+	@Override
+	public Reforge[] nonunique() {
+		return empty;
 	}
 }

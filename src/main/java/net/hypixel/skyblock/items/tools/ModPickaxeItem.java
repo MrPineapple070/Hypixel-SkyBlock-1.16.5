@@ -1,52 +1,35 @@
 package net.hypixel.skyblock.items.tools;
 
-import java.util.Set;
+import java.io.IOException;
+import java.util.Objects;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.openjdk.nashorn.internal.ir.annotations.Immutable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import com.google.common.collect.ImmutableSet;
-
+import net.hypixel.skyblock.hotm.HOTM;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.ReforgableItem;
 import net.hypixel.skyblock.items.Reforge;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
-public class ModPickaxeItem extends ModToolItem implements ReforgableItem {
+public class ModPickaxeItem extends PickaxeItem implements ReforgableItem {
 	/**
-	 * {@link ImmutableSet} of {@link Block} that this.
+	 * {@link Logger}
 	 */
 	@Nonnull
-	@Immutable
-	protected static final Set<Block> DIGGABLES = ImmutableSet.of(Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE,
-			Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE, Blocks.POWERED_RAIL,
-			Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.NETHER_GOLD_ORE, Blocks.ICE, Blocks.IRON_BLOCK, Blocks.IRON_ORE,
-			Blocks.LAPIS_BLOCK, Blocks.LAPIS_ORE, Blocks.MOSSY_COBBLESTONE, Blocks.NETHERRACK, Blocks.PACKED_ICE,
-			Blocks.BLUE_ICE, Blocks.RAIL, Blocks.REDSTONE_ORE, Blocks.SANDSTONE, Blocks.CHISELED_SANDSTONE,
-			Blocks.CUT_SANDSTONE, Blocks.CHISELED_RED_SANDSTONE, Blocks.CUT_RED_SANDSTONE, Blocks.RED_SANDSTONE,
-			Blocks.STONE, Blocks.GRANITE, Blocks.POLISHED_GRANITE, Blocks.DIORITE, Blocks.POLISHED_DIORITE,
-			Blocks.ANDESITE, Blocks.POLISHED_ANDESITE, Blocks.STONE_SLAB, Blocks.SMOOTH_STONE_SLAB,
-			Blocks.SANDSTONE_SLAB, Blocks.PETRIFIED_OAK_SLAB, Blocks.COBBLESTONE_SLAB, Blocks.BRICK_SLAB,
-			Blocks.STONE_BRICK_SLAB, Blocks.NETHER_BRICK_SLAB, Blocks.QUARTZ_SLAB, Blocks.RED_SANDSTONE_SLAB,
-			Blocks.PURPUR_SLAB, Blocks.SMOOTH_QUARTZ, Blocks.SMOOTH_RED_SANDSTONE, Blocks.SMOOTH_SANDSTONE,
-			Blocks.SMOOTH_STONE, Blocks.STONE_BUTTON, Blocks.STONE_PRESSURE_PLATE, Blocks.POLISHED_GRANITE_SLAB,
-			Blocks.SMOOTH_RED_SANDSTONE_SLAB, Blocks.MOSSY_STONE_BRICK_SLAB, Blocks.POLISHED_DIORITE_SLAB,
-			Blocks.MOSSY_COBBLESTONE_SLAB, Blocks.END_STONE_BRICK_SLAB, Blocks.SMOOTH_SANDSTONE_SLAB,
-			Blocks.SMOOTH_QUARTZ_SLAB, Blocks.GRANITE_SLAB, Blocks.ANDESITE_SLAB, Blocks.RED_NETHER_BRICK_SLAB,
-			Blocks.POLISHED_ANDESITE_SLAB, Blocks.DIORITE_SLAB, Blocks.SHULKER_BOX, Blocks.BLACK_SHULKER_BOX,
-			Blocks.BLUE_SHULKER_BOX, Blocks.BROWN_SHULKER_BOX, Blocks.CYAN_SHULKER_BOX, Blocks.GRAY_SHULKER_BOX,
-			Blocks.GREEN_SHULKER_BOX, Blocks.LIGHT_BLUE_SHULKER_BOX, Blocks.LIGHT_GRAY_SHULKER_BOX,
-			Blocks.LIME_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.PINK_SHULKER_BOX,
-			Blocks.PURPLE_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.WHITE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX,
-			Blocks.PISTON, Blocks.STICKY_PISTON, Blocks.PISTON_HEAD);
+	private static final Logger LOGGER = LogManager.getLogger();
 	
 	/**
 	 * {@link Reforge} that this has.
@@ -54,9 +37,26 @@ public class ModPickaxeItem extends ModToolItem implements ReforgableItem {
 	@Nullable
 	protected Reforge reforge;
 	
+	/**
+	 * {@link ModItemRarity}
+	 */
+	@Nonnull
+	protected ModItemRarity rarity;
+	
+	/**
+	 * {@link HOTM} for this.
+	 */
+	private HOTM hotm;
+	
 	public ModPickaxeItem(IItemTier tier, Properties properties, ModItemRarity rarity) {
-		super(tier, DIGGABLES, properties.addToolType(ToolType.PICKAXE, tier.getLevel()), rarity);
+		super(tier, 0, Float.POSITIVE_INFINITY, properties);
+		this.rarity = Objects.requireNonNull(rarity, "ModItemRarity cannot be null");
 		this.reforge = Reforge.None;
+	}
+	
+	@Override
+	public boolean isDamageable(ItemStack stack) {
+		return false;
 	}
 	
 	@Override
@@ -81,13 +81,14 @@ public class ModPickaxeItem extends ModToolItem implements ReforgableItem {
 		return true;
 	}
 	
-	@Override
-	public boolean isCorrectToolForDrops(BlockState state) {
-		int level = this.getTier().getLevel();
-		if (state.getHarvestTool() == ToolType.PICKAXE)
-			return level >= state.getHarvestLevel();
-		Material material = state.getMaterial();
-		return material == Material.STONE || material == Material.METAL || material == Material.HEAVY_METAL;
+	private void hotm(World world, PlayerEntity player) {
+		if (this.hotm == null)
+			try {
+				this.hotm = new HOTM(player, world);
+			} catch (IOException e) {
+				LOGGER.error(e.getLocalizedMessage());
+				return;
+			}
 	}
 	
 	@Override
@@ -97,10 +98,28 @@ public class ModPickaxeItem extends ModToolItem implements ReforgableItem {
 				? super.getDestroySpeed(stack, state)
 				: this.speed;
 	}
-
+	
 	@Override
 	public Reforge getReforge() {
 		return this.reforge;
+	}
+	
+	@Override
+	public boolean isCorrectToolForDrops(BlockState state) {
+		int level = this.getTier().getLevel();
+		if (state.getHarvestTool() == ToolType.PICKAXE)
+			return level >= state.getHarvestLevel();
+		Material material = state.getMaterial();
+		return material == Material.STONE || material == Material.METAL || material == Material.HEAVY_METAL;
+	}
+
+	@Override
+	public boolean mineBlock(ItemStack stack, World world, BlockState block, BlockPos pos, LivingEntity user) {
+		if (user instanceof PlayerEntity) {
+			PlayerEntity player = (PlayerEntity) user;
+			this.hotm(world, player);
+		}
+		return true;
 	}
 
 	@Override

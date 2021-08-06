@@ -2,6 +2,9 @@ package net.hypixel.skyblock.items.reforge_stone;
 
 import net.hypixel.skyblock.items.accessories.AccessoryReforge;
 import net.hypixel.skyblock.items.armor.ArmorReforge;
+import net.hypixel.skyblock.items.bows.BowReforge;
+import net.hypixel.skyblock.items.fishing_rod.FishingRodReforge;
+import net.hypixel.skyblock.items.swords.SwordReforge;
 import net.hypixel.skyblock.items.tools.ToolReforge;
 import net.hypixel.skyblock.util.ItemProperties;
 
@@ -37,9 +40,39 @@ public class ReforgeStones {
 	public static final ReforgeStone sadan_brooch		= new ReforgeStone(ItemProperties.mine_64		, ArmorReforge.Empowered);
 	public static final ReforgeStone precursor_gear		= new ReforgeStone(ItemProperties.mine_64		, ArmorReforge.Ancient);
 	
-	// Axe / How Reforge Stones
+	// Axe / Hoe Reforge Stones
 	public static final ReforgeStone moil_log		= new ReforgeStone(ItemProperties.foraging_64	, ToolReforge.Moil);
 	public static final ReforgeStone blessed_fruit	= new ReforgeStone(ItemProperties.farm_64		, ToolReforge.Blessed);
 	public static final ReforgeStone toil_log		= new ReforgeStone(ItemProperties.foraging_64	, ToolReforge.Toil);
 	public static final ReforgeStone golden_ball	= new ReforgeStone(ItemProperties.farm_64		, ToolReforge.Bountiful);
+	
+	// Bow Reforge Stones
+	public static final ReforgeStone salmon_opal	= new ReforgeStone(ItemProperties.mine_64	, BowReforge.Headstrong);
+	public static final ReforgeStone optical_lens	= new ReforgeStone(ItemProperties.dungeon_64, BowReforge.Precise);
+	public static final ReforgeStone spirit_stone	= new ReforgeStone(ItemProperties.dungeon_64, BowReforge.Spiritual);
+	
+	// Pickaxe Reforge Stones
+	public static final ReforgeStone onyx				= new ReforgeStone(ItemProperties.mine_64, ToolReforge.Fruitful);
+	public static final ReforgeStone lapis_crystal		= new ReforgeStone(ItemProperties.mine_64, ToolReforge.Magnetic);
+	public static final ReforgeStone diamonite			= new ReforgeStone(ItemProperties.mine_64, ToolReforge.Fleet);
+	public static final ReforgeStone pure_mithril		= new ReforgeStone(ItemProperties.mine_64, ToolReforge.Mithric);
+	public static final ReforgeStone rock_gemstone		= new ReforgeStone(ItemProperties.mine_64, ToolReforge.Auspicious);
+	public static final ReforgeStone refined_amber		= new ReforgeStone(ItemProperties.mine_64, ToolReforge.Refined);
+	public static final ReforgeStone petrified_starfall	= new ReforgeStone(ItemProperties.mine_64, ToolReforge.Stellar);
+	public static final ReforgeStone hot_stuff			= new ReforgeStone(ItemProperties.mine_64, ToolReforge.Heated);
+	public static final ReforgeStone amber_material		= new ReforgeStone(ItemProperties.mine_64, ToolReforge.Ambered);
+	
+	// Sword Reforge Stones
+	public static final ReforgeStone jerry_stone		= new ReforgeStone(ItemProperties.combat_64, SwordReforge.Jerry);
+	public static final ReforgeStone dirt_bottle		= new ReforgeStone(ItemProperties.combat_64, SwordReforge.Dirty);
+	public static final ReforgeStone dragon_claw		= new ReforgeStone(ItemProperties.combat_64, SwordReforge.Fabled);
+	public static final ReforgeStone suspicious_vial	= new ReforgeStone(ItemProperties.combat_64, SwordReforge.Suspicious);
+	public static final ReforgeStone midas_jewel		= new ReforgeStone(ItemProperties.combat_64, SwordReforge.Gilded);
+	public static final ReforgeStone warped_stone		= new ReforgeStone(ItemProperties.combat_64, SwordReforge.Warped);
+	public static final ReforgeStone wither_blood		= new ReforgeStone(ItemProperties.combat_64, SwordReforge.Withered);
+	public static final ReforgeStone bulky_stone		= new ReforgeStone(ItemProperties.combat_64, SwordReforge.Bulky);
+	
+	// Fishing Rod Reforge Stones
+	public static final ReforgeStone hardened_wood	= new ReforgeStone(ItemProperties.fish_64, FishingRodReforge.Stiff);
+	public static final ReforgeStone lucky_dice		= new ReforgeStone(ItemProperties.fish_64, FishingRodReforge.Lucky);
 }

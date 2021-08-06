@@ -4,6 +4,8 @@ import java.util.Random;
 
 import javax.annotation.Nonnull;
 
+import org.openjdk.nashorn.internal.ir.annotations.Immutable;
+
 import net.hypixel.skyblock.items.accessories.Accessory;
 import net.hypixel.skyblock.items.armor.ModArmorItem;
 import net.hypixel.skyblock.items.bows.ModBowItem;
@@ -21,53 +23,61 @@ public interface Reforge {
 	/**
 	 * Index for attack speed buff.
 	 */
-	int attack_speed = 0x7;
+	public static final int attack_speed = 0x7;
 
 	/**
 	 * Index for crit chance buff.
 	 */
-	int crit_chance = 0x4;
+	public static final int crit_chance = 0x4;
 
 	/**
 	 * Index for crit damage buff.
 	 */
-	int crit_damage = 0x5;
+	public static final int crit_damage = 0x5;
 
 	/**
 	 * Index for defense buff.
 	 */
-	int defense = 0x1;
+	public static final int defense = 0x1;
+	
+	/**
+	 * Empty list of {@link Reforge}.<br>
+	 * Used for {@link #unique()} and {@link #nonunique()}
+	 */
+	@Nonnull
+	@Immutable
+	public static final Reforge[] empty = new Reforge[0];
 
 	/**
 	 * Index for health buff.
 	 */
-	int health = 0x3;
+	public static final int health = 0x3;
 
 	/**
 	 * Index for intelligence buff.
 	 */
-	int intelligence = 0x6;
+	public static final int intelligence = 0x6;
 
 	/**
 	 * When the current Item has no {@code Reforge}
 	 */
-	Reforge None = null;
+	public static final Reforge None = null;
 
 	/**
 	 * {@link Random} to chose a random Reforge.
 	 */
 	@Nonnull
-	Random rand = new Random();
+	public static final Random rand = new Random();
 
 	/**
 	 * Index for strength buff.
 	 */
-	int strength = 0x0;
-
+	public static final int strength = 0x0;
+	
 	/**
 	 * Index for walkspeed buff.
 	 */
-	int walkspeed = 0x2;
+	public static final int walkspeed = 0x2;
 
 	/**
 	 * Creates a buff array from inputs and index;
@@ -77,7 +87,7 @@ public interface Reforge {
 	 * @return the created buff array.
 	 */
 	@Nonnull
-	static strictfp double[] create(double[] inputs, int[] index) {
+	public static strictfp double[] create(double[] inputs, int[] index) {
 		if (inputs.length != index.length)
 			throw new IllegalArgumentException("input and index arrays must be the same length");
 		final double[] temp = new double[8];
@@ -90,13 +100,13 @@ public interface Reforge {
 	 * @return The array for {@link ModItemRarity#Common}
 	 */
 	@Nonnull
-	double[] common();
+	public double[] common();
 
 	/**
 	 * @return The array for {@link ModItemRarity#Epic}
 	 */
 	@Nonnull
-	double[] epic();
+	public double[] epic();
 
 	/**
 	 *
@@ -106,7 +116,7 @@ public interface Reforge {
 	 * @return the appropriate buff array from the given {@link ModItemRarity}
 	 */
 	@Nonnull
-	default strictfp double[] getBuffArray(ModItemRarity rarity) {
+	public default strictfp double[] getBuffArray(ModItemRarity rarity) {
 		switch (rarity) {
 		case Common:
 			return this.common();
@@ -127,29 +137,27 @@ public interface Reforge {
 	 * @return The array for {@link ModItemRarity#Legendary}
 	 */
 	@Nonnull
-	double[] legendary();
+	public double[] legendary();
 
-	/**
-	 * @return nonunique {@link Reforge} stored in {@link Enum}.
-	 */
-	@Nonnull
-	Reforge[] nonunique();
+	@Deprecated
+	default Reforge[] nonunique() {
+		return empty;
+	}
 
 	/**
 	 * @return The array for {@link ModItemRarity#Rare}
 	 */
 	@Nonnull
-	double[] rare();
-
+	public double[] rare();
+	
 	/**
 	 * @return The array for {@link ModItemRarity#Uncommon}
 	 */
 	@Nonnull
-	double[] uncommon();
-
-	/**
-	 * @return unique {@link Reforge} stored in {@link Enum}.
-	 */
-	@Nonnull
-	Reforge[] unique();
+	public double[] uncommon();
+	
+	@Deprecated
+	default Reforge[] unique() {
+		return empty;
+	}
 }

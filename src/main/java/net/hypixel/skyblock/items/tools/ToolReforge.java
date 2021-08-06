@@ -4,11 +4,8 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import org.openjdk.nashorn.internal.ir.annotations.Immutable;
-
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.Reforge;
-import net.hypixel.skyblock.items.reforge_stone.ReforgeStone;
 import net.minecraft.item.ToolItem;
 
 /**
@@ -32,15 +29,6 @@ public enum ToolReforge implements Reforge {
 	Refined(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Stellar(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Toil(new double[0], new double[0], new double[0], new double[0], new double[0]);
-
-	/**
-	 * Empty list of {@link Reforge}.<br>
-	 * Since these {@link Reforge} are only applied through {@link ReforgeStone},
-	 * this is used in place of {@link #unique()} and {@link #nonunique()}
-	 */
-	@Nonnull
-	@Immutable
-	private static final Reforge[] empty = new Reforge[] { Magnetic };
 
 	/**
 	 * The array for {@link ModItemRarity#Common}
@@ -96,11 +84,6 @@ public enum ToolReforge implements Reforge {
 	}
 
 	@Override
-	public Reforge[] nonunique() {
-		return empty;
-	}
-
-	@Override
 	public double[] rare() {
 		return this.rare;
 	}
@@ -112,6 +95,11 @@ public enum ToolReforge implements Reforge {
 
 	@Override
 	public Reforge[] unique() {
+		return empty;
+	}
+
+	@Override
+	public Reforge[] nonunique() {
 		return empty;
 	}
 }

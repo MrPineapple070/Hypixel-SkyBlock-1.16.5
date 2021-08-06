@@ -31,6 +31,7 @@ public enum BowReforge implements Reforge {
 	Hasty(new double[] { 3, 0, 0, 0, 20, 0, 0, 0 }, new double[] { 5, 0, 0, 0, 25, 0, 0, 0 },
 			new double[] { 7, 0, 0, 0, 30, 0, 0, 0 }, new double[] { 10, 0, 0, 0, 40, 0, 0, 0 },
 			new double[] { 15, 0, 0, 0, 50, 0, 0, 0 }),
+	Headstrong(new double[0], new double[0], new double[0], new double[0], new double[0]),
 	Neat(new double[] { 0, 0, 0, 0, 10, 4, 3, 0 }, new double[] { 0, 0, 0, 0, 12, 8, 8, 0 },
 			new double[] { 0, 0, 0, 0, 14, 14, 10, 0 }, new double[] { 0, 0, 0, 0, 17, 20, 15, 0 },
 			new double[] { 0, 0, 0, 0, 20, 30, 20, 0 }),

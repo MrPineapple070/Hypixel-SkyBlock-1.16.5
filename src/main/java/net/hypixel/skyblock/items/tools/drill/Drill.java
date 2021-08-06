@@ -68,9 +68,9 @@ public class Drill extends ModPickaxeItem {
 		this.engine = Engine.None;
 		this.upgrade = UpgradeModule.None;
 	}
-
-	private void efficientMiner(World world, LivingEntity user) {
-
+	
+	public void incrementFuel(int fuel) {
+		this.total_fuel += fuel;
 	}
 
 	@Override
@@ -80,7 +80,7 @@ public class Drill extends ModPickaxeItem {
 		PlayerEntity player = (PlayerEntity) user;
 		if (selected)
 			player.displayClientMessage(
-					new StringTextComponent(this.total_fuel + "/" + default_fuel).withStyle(TextFormatting.GREEN),
+					new StringTextComponent(this.total_fuel + "/3k").withStyle(TextFormatting.DARK_GREEN),
 					true);
 		this.tick = ++this.tick % 100;
 		if (this.tick == 0)
@@ -103,7 +103,6 @@ public class Drill extends ModPickaxeItem {
 				if (this.upgrade == UpgradeModule.Sunny)
 					this.total_fuel--;
 			}
-			this.efficientMiner(world, user);
 		}
 		return super.mineBlock(stack, world, block, pos, user);
 	}
