@@ -12,5 +12,5 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ToolInit {
 	public static final DeferredRegister<Item> tools = DeferredRegister.create(ForgeRegistries.ITEMS, HypixelSkyBlockMod.MOD_ID);
 	
-	public static final RegistryObject<Item> divian_drill = tools.register("divian_drill", () -> new Drill(ModToolTier.Divian, ModItemRarity.Mythic));
+	public static final RegistryObject<Item> divian_drill = tools.register("divan_drill", () -> new Drill(ModToolTier.Divan, ModItemRarity.Mythic));
 }

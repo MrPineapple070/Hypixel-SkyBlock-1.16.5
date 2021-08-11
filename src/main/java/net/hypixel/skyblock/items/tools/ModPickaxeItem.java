@@ -21,6 +21,8 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
@@ -29,7 +31,7 @@ public class ModPickaxeItem extends PickaxeItem implements ReforgableItem {
 	 * {@link Logger}
 	 */
 	@Nonnull
-	private static final Logger LOGGER = LogManager.getLogger();
+	protected static final Logger LOGGER = LogManager.getLogger();
 	
 	/**
 	 * {@link Reforge} that this has.
@@ -46,7 +48,7 @@ public class ModPickaxeItem extends PickaxeItem implements ReforgableItem {
 	/**
 	 * {@link HOTM} for this.
 	 */
-	private HOTM hotm;
+	protected HOTM hotm;
 	
 	public ModPickaxeItem(IItemTier tier, Properties properties, ModItemRarity rarity) {
 		super(tier, 0, Float.POSITIVE_INFINITY, properties);
@@ -81,6 +83,17 @@ public class ModPickaxeItem extends PickaxeItem implements ReforgableItem {
 		return true;
 	}
 	
+	@Override
+	public ITextComponent getName(ItemStack stack) {
+		return new TranslationTextComponent(this.getOrCreateDescriptionId()).withStyle(this.rarity.color);
+	}
+	
+	/**
+	 * Initializes {@link #hotm}
+	 * 
+	 * @param world {@link World} for {@link HOTM}
+	 * @param player {@link PlayerEntity} for {@link HOTM}
+	 */
 	private void hotm(World world, PlayerEntity player) {
 		if (this.hotm == null)
 			try {
@@ -118,6 +131,11 @@ public class ModPickaxeItem extends PickaxeItem implements ReforgableItem {
 		if (user instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity) user;
 			this.hotm(world, player);
+			try {
+				this.hotm.save();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		return true;
 	}

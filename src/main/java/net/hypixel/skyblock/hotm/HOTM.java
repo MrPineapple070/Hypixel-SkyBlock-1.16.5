@@ -34,38 +34,36 @@ public class HOTM {
 	public FileWriter writer;
 	
 	/**
+	 * {@link PlayerEntity}
+	 */
+	@Nonnull
+	public final PlayerEntity player;
+	
+	/**
 	 * {@link File}
 	 */
 	@Nonnull
 	public final File file;
 	
-	/**
-	 * {@link World}
-	 */
-	@Nonnull
-	public final World world;
-	
 	public HOTM(PlayerEntity player, World world) throws IOException {
-		this.world = Objects.requireNonNull(world, "World cannot be null");
-		String name = this.world.toString();
+		this.player = Objects.requireNonNull(player, "Player cannot be null");
+		String name = this.player.level.toString();
 		name = name.substring(12, name.length() - 1);
-		this.file = new File("./saves/" + name + "/hotm.txt");
+		this.file = new File("./saves/" + name + "/" + this.player.getStringUUID() + ".hotm");
 		if (!this.file.exists())
 			file.createNewFile();
-		LOGGER.debug(this.file.getCanonicalPath());
-		this.writer = new FileWriter(this.file);
 	}
 	
-	public void save() {
-		
+	public void save() throws IOException {
+		LOGGER.debug("Saving");
+		this.writer = new FileWriter(this.file, true);
+		this.writer.write(0x41);
+		this.writer.close();
 	}
 	
-	public void load(File file) {
-		
-	}
-
-	@Override
-	public String toString() {
-		return "HOTM [writer=" + this.writer.toString() + ", file=" + this.file.toString() + ", world=" + this.world.toString() + "]";
+	public void load() {
+		LOGGER.debug("Loading");
+		if (this.file.exists())
+			return;
 	}
 }

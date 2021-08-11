@@ -1,5 +1,6 @@
 package net.hypixel.skyblock.items.tools.drill;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.annotation.Nonnull;
@@ -8,6 +9,7 @@ import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.tools.ModPickaxeItem;
 import net.hypixel.skyblock.util.ItemProperties;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,6 +17,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -93,9 +96,16 @@ public class Drill extends ModPickaxeItem {
 				return;
 			}
 	}
+	
+	@Override
+	public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip,	ITooltipFlag flag) {
+		
+	}
 
 	@Override
 	public boolean mineBlock(ItemStack stack, World world, BlockState block, BlockPos pos, LivingEntity user) {
+		if (this.total_fuel < 1)
+			return false;
 		if (user instanceof ServerPlayerEntity) {
 			ServerPlayerEntity player = (ServerPlayerEntity) user;
 			if (player.gameMode.isSurvival()) {

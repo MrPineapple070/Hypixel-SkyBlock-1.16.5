@@ -36,6 +36,7 @@ import net.minecraft.world.World;
  * @version 03 December 2020
  * @since 11 July 2019
  */
+@Deprecated
 public class ModToolItem extends TieredItem implements UpgradableItem {
 	/**
 	 * {@link Logger}

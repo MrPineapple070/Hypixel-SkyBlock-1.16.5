@@ -11,7 +11,7 @@ import net.minecraft.item.crafting.Ingredient;
 public enum ModToolTier implements IItemTier {
 	Stonk(0, 35 * 510f),
 	Pickonimbus(7, 35 * 1500),
-	Divian(10, 35 * 1800)
+	Divan(10, 35 * 1800)
 	;
 
 	private final int harvest_lvl;
