@@ -15,8 +15,16 @@ import com.google.common.collect.Lists;
  * @since 11 July 2019
  * @param <T> consumer type
  */
+@Deprecated
 public abstract class DelayedConsumer<T> {
+	/**
+	 * A {@link List} of {@link Consumer}
+	 */
 	private List<Consumer<T>> tasks = Lists.newArrayList();
+	
+	/**
+	 * The key held by this.
+	 */
 	private T key = null;
 
 	/**

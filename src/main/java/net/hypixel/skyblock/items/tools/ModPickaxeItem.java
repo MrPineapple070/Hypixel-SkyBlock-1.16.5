@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openjdk.nashorn.internal.ir.annotations.Immutable;
 
 import net.hypixel.skyblock.hotm.HOTM;
 import net.hypixel.skyblock.items.ModItemRarity;
@@ -22,15 +23,24 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
 public class ModPickaxeItem extends PickaxeItem implements ReforgableItem {
 	/**
+	 * {@link StringTextComponent} holding just a newline character.
+	 */
+	@Nonnull
+	@Immutable
+	protected static final StringTextComponent blank = new StringTextComponent("\u0020");
+	
+	/**
 	 * {@link Logger}
 	 */
 	@Nonnull
+	@Immutable
 	protected static final Logger LOGGER = LogManager.getLogger();
 	
 	/**

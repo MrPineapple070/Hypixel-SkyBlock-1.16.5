@@ -159,7 +159,7 @@ public abstract class Pet {
 	 *         randomly.
 	 */
 	protected static ModItemRarity getRandomRarityHigh() {
-		return ModItemRarity.high.get(rand.nextInt(ModItemRarity.high.size()));
+		return ModItemRarity.high[rand.nextInt(ModItemRarity.high.length)];
 	}
 
 	/**
@@ -167,7 +167,7 @@ public abstract class Pet {
 	 *         {@link ModItemRarity#Rare} randomly.
 	 */
 	protected static ModItemRarity getRandomRarityLow() {
-		return ModItemRarity.low.get(rand.nextInt(ModItemRarity.low.size()));
+		return ModItemRarity.low[rand.nextInt(ModItemRarity.low.length)];
 	}
 
 	/**

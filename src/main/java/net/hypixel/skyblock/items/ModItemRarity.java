@@ -1,8 +1,16 @@
 package net.hypixel.skyblock.items;
 
+import java.util.Objects;
+
+import javax.annotation.Nonnull;
+
+import org.openjdk.nashorn.internal.ir.annotations.Immutable;
+
 import com.google.common.collect.ImmutableList;
 
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 
 /**
  * A mod version of {@link net.minecraft.item.Rarity}
@@ -13,36 +21,53 @@ import net.minecraft.util.text.TextFormatting;
 public enum ModItemRarity {
 	Common(TextFormatting.WHITE, 0), Uncommon(TextFormatting.GREEN, 1), Rare(TextFormatting.BLUE, 2),
 	Epic(TextFormatting.DARK_PURPLE, 3), Legendary(TextFormatting.GOLD, 4), Mythic(TextFormatting.LIGHT_PURPLE, 5),
-	Special(TextFormatting.RED, 6), Very_Special(TextFormatting.DARK_RED, 7);
+	Supreme(TextFormatting.DARK_RED, 5), Special(TextFormatting.RED, 6), Very_Special(TextFormatting.RED, 7);
+	
+	public static final ITextComponent common		= new TranslationTextComponent("rarity.common").withStyle(Common.color);
+	public static final ITextComponent uncommon		= new TranslationTextComponent("rarity.uncommon").withStyle(Uncommon.color);
+	public static final ITextComponent rare			= new TranslationTextComponent("rarity.rare").withStyle(Rare.color);
+	public static final ITextComponent epic			= new TranslationTextComponent("rarity.epic").withStyle(Epic.color);
+	public static final ITextComponent legendary	= new TranslationTextComponent("rarity.legendary").withStyle(Legendary.color);
+	public static final ITextComponent mythic		= new TranslationTextComponent("rarity.mythic").withStyle(Mythic.color);
+	public static final ITextComponent supreme		= new TranslationTextComponent("rarity.supreme").withStyle(Supreme.color);
+	public static final ITextComponent special		= new TranslationTextComponent("rarity.special").withStyle(Special.color);
+	public static final ITextComponent very_special	= new TranslationTextComponent("rarity.very_special").withStyle(Very_Special.color);
 
 	/**
 	 * A {@link ImmutableList} of {@link ModItemRarity} that are higher rarities.
 	 */
-	public static final ImmutableList<ModItemRarity> high = ImmutableList
-			.copyOf(new ModItemRarity[] { Epic, Legendary });
+	@Nonnull
+	@Immutable
+	public static final ModItemRarity[] high = new ModItemRarity[] { Epic, Legendary, Mythic };
 
 	/**
 	 * A {@link ImmutableList} of {@link ModItemRarity} that are lower rarities.
 	 */
-	public static final ImmutableList<ModItemRarity> low = ImmutableList
-			.copyOf(new ModItemRarity[] { Common, Uncommon, Rare });
+	@Nonnull
+	@Immutable
+	public static final ModItemRarity[] low = new ModItemRarity[] { Common, Uncommon, Rare };
 
 	/**
 	 * A {@link ImmutableList} of {@link ModItemRarity} that are only obtained
 	 * through artificial means.
 	 */
-	public static final ImmutableList<ModItemRarity> special = ImmutableList
-			.copyOf(new ModItemRarity[] { Mythic, Special, Very_Special });
+	@Nonnull
+	@Immutable
+	public static final ModItemRarity[] artificial = new ModItemRarity[] { Supreme, Special, Very_Special };
 
 	/**
 	 * The {@link TextFormatting} of this {@code ModItemRarity}
 	 */
+	@Nonnull
 	public final TextFormatting color;
-
+	
+	/**
+	 * This number should be identical to {@link #ordinal()}
+	 */
 	public final int rank;
 
 	private ModItemRarity(TextFormatting color, int rank) {
-		this.color = color;
+		this.color = Objects.requireNonNull(color, "TextFormatting cannot be null");
 		this.rank = rank;
 	}
 
@@ -64,7 +89,7 @@ public enum ModItemRarity {
 		case Legendary:
 			return Mythic;
 		case Mythic:
-			return Special;
+			return Supreme;
 		case Special:
 			return Very_Special;
 		default:
@@ -89,7 +114,7 @@ public enum ModItemRarity {
 			return Epic;
 		case Mythic:
 			return Legendary;
-		case Special:
+		case Supreme:
 			return Mythic;
 		case Very_Special:
 			return Special;

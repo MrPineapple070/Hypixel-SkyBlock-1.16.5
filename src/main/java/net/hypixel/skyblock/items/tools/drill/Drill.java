@@ -1,13 +1,17 @@
 package net.hypixel.skyblock.items.tools.drill;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import org.openjdk.nashorn.internal.ir.annotations.Immutable;
+
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.tools.ModPickaxeItem;
 import net.hypixel.skyblock.util.ItemProperties;
+import net.hypixel.skyblock.util.StatString;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -20,9 +24,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 /**
+ * <a href="https://hypixel-skyblock.fandom.com/wiki/Drills">Drill</a>.<br>
  * 
  * 
  * @author MrPineapple070
@@ -33,7 +39,39 @@ public class Drill extends ModPickaxeItem {
 	/**
 	 * The default amount of fuel in a drill.
 	 */
+	@Immutable
 	protected static final int default_fuel = 3000;
+
+	/**
+	 * 
+	 */
+	@Nonnull
+	@Immutable
+	protected static final List<ITextComponent> ft_none = Arrays.asList(new TranslationTextComponent("drill.ft.1"),
+			new TranslationTextComponent("drill.ft.2"));
+	
+	/**
+	 * 
+	 */
+	@Nonnull
+	@Immutable
+	protected static final List<ITextComponent> de_none = Arrays.asList(new TranslationTextComponent("drill.de.1"),
+			new TranslationTextComponent("drill.de.2", StatString.mining_speed));
+	
+	/**
+	 * 
+	 */
+	@Nonnull
+	@Immutable
+	protected static final List<ITextComponent> up_none = Arrays.asList(new TranslationTextComponent("drill.up.1"),
+			new TranslationTextComponent("drill.up.2"));
+	
+	/**
+	 * 
+	 */
+	@Nonnull
+	@Immutable
+	protected static final ITextComponent drill_dm = new TranslationTextComponent("drill.dm");
 
 	/**
 	 * {@link Engine} that this drill holds.
@@ -71,7 +109,7 @@ public class Drill extends ModPickaxeItem {
 		this.engine = Engine.None;
 		this.upgrade = UpgradeModule.None;
 	}
-	
+
 	public void incrementFuel(int fuel) {
 		this.total_fuel += fuel;
 	}
@@ -83,8 +121,7 @@ public class Drill extends ModPickaxeItem {
 		PlayerEntity player = (PlayerEntity) user;
 		if (selected)
 			player.displayClientMessage(
-					new StringTextComponent(this.total_fuel + "/3k").withStyle(TextFormatting.DARK_GREEN),
-					true);
+					new StringTextComponent(this.total_fuel + "/3k").withStyle(TextFormatting.DARK_GREEN), true);
 		this.tick = ++this.tick % 100;
 		if (this.tick == 0)
 			switch (this.upgrade) {
@@ -96,10 +133,69 @@ public class Drill extends ModPickaxeItem {
 				return;
 			}
 	}
-	
+
 	@Override
-	public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip,	ITooltipFlag flag) {
-		
+	public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+		tooltip.add(new TranslationTextComponent("pick.bp", this.getTier().getLevel()));
+		tooltip.add(blank);
+		tooltip.add(new TranslationTextComponent("pick.ms", this.getTier().getSpeed()));
+		tooltip.add(new TranslationTextComponent("pick.mf", 0));
+		tooltip.add(blank);
+		switch (this.fuel_tank) {
+		case Gemstone:
+			break;
+		case Mithril:
+			break;
+		case None:
+			tooltip.addAll(ft_none);
+			break;
+		case Perfect:
+			break;
+		case Titanium:
+			break;
+		default:
+			throw new IllegalStateException("Illegal FuelTank:\t" + this.fuel_tank.name());
+		}
+		tooltip.add(blank);
+		switch (this.engine) {
+		case Amber:
+			break;
+		case Mithril:
+			break;
+		case None:
+			tooltip.addAll(de_none);
+			break;
+		case Ruby:
+			break;
+		case Sapphire:
+			break;
+		case Titanium:
+			break;
+		default:
+			throw new IllegalStateException("Illegal Engine:\t" + this.engine.name());
+		}
+		tooltip.add(blank);
+		switch (this.upgrade) {
+		case Blue:
+			break;
+		case Goblin:
+			break;
+		case None:
+			tooltip.addAll(up_none);
+			break;
+		case Pesto:
+			break;
+		case Spicy:
+			break;
+		case Sunny:
+			break;
+		default:
+			throw new IllegalStateException("Illegal UpgradeModule:\t" + this.upgrade.name());
+		}
+		tooltip.add(blank);
+		tooltip.add(drill_dm);
+		tooltip.add(new TranslationTextComponent("drill.fuel",
+				new StringTextComponent(String.valueOf(this.total_fuel)).withStyle(TextFormatting.DARK_GREEN)));
 	}
 
 	@Override

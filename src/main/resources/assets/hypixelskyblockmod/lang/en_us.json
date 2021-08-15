@@ -316,12 +316,12 @@
 	"item.hypixelskyblockmod.flint_shovel": "Flint Shovel",
 	"item.hypixelskyblockmod.rookie_hoe": "Rookie How",
 	
-	"item.hypixelskyblockmod.mithril_drill_sx_r226": "Mithril Drill SX-R226",
-	"item.hypixelskyblockmod.mithril_drill_sx_r326": "Mithril Drill SX-R326",
-	"item.hypixelskyblockmod.titanium_drill_dr_x355": "Titanium Drill DR-X355",
-	"item.hypixelskyblockmod.titanium_drill_dr_x455": "Titanium Drill DR-X455",
-	"item.hypixelskyblockmod.titanium_drill_dr_x555": "Titanium Drill DR-X555",
-	"item.hypixelskyblockmod.titanium_drill_dr_x655": "Titanium Drill DR-X655",
+	"item.hypixelskyblockmod.mithril_drill_1": "Mithril Drill SX-R226",
+	"item.hypixelskyblockmod.mithril_drill_2": "Mithril Drill SX-R326",
+	"item.hypixelskyblockmod.titanium_drill_1": "Titanium Drill DR-X355",
+	"item.hypixelskyblockmod.titanium_drill_2": "Titanium Drill DR-X455",
+	"item.hypixelskyblockmod.titanium_drill_3": "Titanium Drill DR-X555",
+	"item.hypixelskyblockmod.titanium_drill_4": "Titanium Drill DR-X655",
 	"item.hypixelskyblockmod.ruby_drill": "Ruby Dril Model TX-15",
 	"item.hypixelskyblockmod.gemstone_drill": "Gemstone Drill Model LT-522",
 	"item.hypixelskyblockmod.topaz_drill": "Topaz Drill KGR-12",
@@ -2200,6 +2200,24 @@
 	"commission.1.8": "2x Mithril Powder Collector",
 	"commission.1.8.disc": "Collect 500 Mithril Powder during the 2x Powder event.",
 	
+	"drill.ft.1": "Fuel Tank: §cNot Instaled§r",
+	"drill.ft.2": "Increases fuel capacity with part instaled.",
+	"drill.null": "",
+	
+	"drill.de.1": "Drill Engine: §cNot Instaled§r",
+	"drill.de.2": "Increases %1$s with part instaled.",
+	
+	
+	"drill.up.1": "Upgrade Module: §cNot Instaled§r",
+	"drill.up.2": "Applies a passive upgrade with part instaled.",
+	
+	
+	"drill.dm": "Apply Drill Parts to this drill by talking to a §2Drill Mechanic§r!",
+	"drill.fuel": "Fuel: %1$s/3k",
+	
+	"item.reforge": "This item can be reforged",
+	"item.requirement": "§4❣Requires§r %2$s",
+	
 	"npc.andrew": "Andrew",
 	"npc.andrew.0": "This game is still under heavy development, don't forget to check the §aforums§r often for updates!",
 	"npc.andrew.1": "If you'd like to discuss SkyBlock with other players then check out the SkyBlock section of the §aforums§f!",
@@ -2297,6 +2315,10 @@
 	"npc.marco.complete.0": "Before spraying on a wall, consider previewing it in the menu! Right-click on any spray of your choice and it'll magically appear in your hand.",
 	"npc.marco.complete.0": "Don't forget to refill your spray can with dye! You can pick some of the flowers in my garden if you want to.",
 	"npc.marco.complete.0": "You can select sprays by left-clicking with your Spray Can!",
+	
+	"pick.bp": "Breaking Power %1$s",
+	"pick.ms": "Mining Speed: %1$s",
+	"pick.mf": "Mining Fortune: %1$s",
 
 	"pet.max_level": "MAX LEVEL",
 
@@ -2309,6 +2331,17 @@
 	"pet.bat.ability.1.discription": "During night, gain %1$s %2$s, %3$s %4$s, and %5$s",
 	"pet.bat.ability.2.discription": "Deals +%1$s%% damage to Spooky enemies during the Spooky Festival.",
 	"pet.bat.ability.3.discription": "+%1$s%% chance to fish up spooky sea creatures",
+	
+	"rarity.common": "COMMON",
+	"rarity.uncommon": "UNCOMMON",
+	"rarity.rare": "RARE",
+	"rarity.epic": "EPIC",
+	"rarity.legendary": "LEGENDARY",
+	"rarity.mythic": "MYTHIC",
+	"rarity.supreme": "SUPREME",
+	"rarity.special": "SPECIAL",
+	"rarity.very_special": "VERY SPECIAL",
+	"rarity.upgraded": "§ka§r %1$s §ka§r",
 	
 	"stat.attack_speed": "⚔ Attack Speed",
 	"stat.ability_damage": "✹ Ability Damage",
@@ -2333,6 +2366,7 @@
 	"stat.true_defense": "❂ True Defense",
 	
 	"sword.ability": "Item Ability: ",
+
 	"sword.aotd.ability": "Dragon Rage",
 	"sword.aotd.0": "Deal 12000 %1$s to all Monsters in front of you.",
 	"sword.aotd.1": "Damaged Monsters take huge Knockback.",

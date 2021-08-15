@@ -9,9 +9,19 @@ import net.minecraft.item.crafting.Ingredient;
  * @since 11 July 2019
  */
 public enum ModToolTier implements IItemTier {
-	Stonk(0, 35 * 510f),
-	Pickonimbus(7, 35 * 1500),
-	Divan(10, 35 * 1800)
+	Stonk(0, 510/35f),
+	Pickonimbus(7, 1500/35f),
+	Mithril1(5, 450/35f),
+	Mithril2(6, 600/35f),
+	Titanium1(7, 700/35f),
+	Titanium2(8, 900/35f),
+	Titanium3(9, 1200/35f),
+	Titanium4(9, 1600/35f),
+	Divan(10, 1800/35f),
+	Ruby(7, 150/35f),
+	Gemstone(8, 300/35f),
+	Topaz(9, 450/35f),
+	Jasper(9, 600/35f)
 	;
 
 	private final int harvest_lvl;
