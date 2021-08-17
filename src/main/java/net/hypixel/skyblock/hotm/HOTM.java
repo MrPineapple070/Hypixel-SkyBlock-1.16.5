@@ -11,7 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.world.World;
 
 /**
  * Handle Heart of the Mountain Logic.
@@ -45,7 +44,7 @@ public class HOTM {
 	@Nonnull
 	public final File file;
 	
-	public HOTM(PlayerEntity player, World world) throws IOException {
+	public HOTM(PlayerEntity player) throws IOException {
 		this.player = Objects.requireNonNull(player, "Player cannot be null");
 		String name = this.player.level.toString();
 		name = name.substring(12, name.length() - 1);
@@ -56,14 +55,14 @@ public class HOTM {
 	
 	public void save() throws IOException {
 		LOGGER.debug("Saving");
-		this.writer = new FileWriter(this.file, true);
-		this.writer.write(0x41);
+		this.writer = new FileWriter(this.file, false);
 		this.writer.close();
 	}
 	
 	public void load() {
 		LOGGER.debug("Loading");
-		if (this.file.exists())
+		if (!this.file.exists())
 			return;
+		
 	}
 }

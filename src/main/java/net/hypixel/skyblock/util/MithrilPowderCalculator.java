@@ -95,7 +95,7 @@ public final class MithrilPowderCalculator {
 	}
 	
 	/**
-	 * <a href="https://hypixel-skyblock.fandom.com/wiki/Heart_of_the_Mountain#Quick Forge">Quick Forge</a>.
+	 * <a href="https://hypixel-skyblock.fandom.com/wiki/Heart_of_the_Mountain#Quick_Forge">Quick Forge</a>.
 	 * 
 	 * @param level the level being upgraded to.
 	 * @return Mithril Cost

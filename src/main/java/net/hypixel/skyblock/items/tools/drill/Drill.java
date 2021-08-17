@@ -6,10 +6,10 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import org.openjdk.nashorn.internal.ir.annotations.Immutable;
-
+import net.hypixel.skyblock.blocks.ModMaterial;
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.tools.ModPickaxeItem;
+import net.hypixel.skyblock.items.tools.ModToolTier;
 import net.hypixel.skyblock.util.ItemProperties;
 import net.hypixel.skyblock.util.StatString;
 import net.minecraft.block.BlockState;
@@ -37,16 +37,27 @@ import net.minecraft.world.World;
  */
 public class Drill extends ModPickaxeItem {
 	/**
+	 * 
+	 */
+	@Nonnull
+	protected static final List<ITextComponent> de_none = Arrays.asList(new TranslationTextComponent("drill.de.1"),
+			new TranslationTextComponent("drill.de.2", StatString.mining_speed));
+
+	/**
 	 * The default amount of fuel in a drill.
 	 */
-	@Immutable
 	protected static final int default_fuel = 3000;
-
+	
 	/**
 	 * 
 	 */
 	@Nonnull
-	@Immutable
+	protected static final ITextComponent drill_dm = new TranslationTextComponent("drill.dm");
+	
+	/**
+	 * 
+	 */
+	@Nonnull
 	protected static final List<ITextComponent> ft_none = Arrays.asList(new TranslationTextComponent("drill.ft.1"),
 			new TranslationTextComponent("drill.ft.2"));
 	
@@ -54,24 +65,8 @@ public class Drill extends ModPickaxeItem {
 	 * 
 	 */
 	@Nonnull
-	@Immutable
-	protected static final List<ITextComponent> de_none = Arrays.asList(new TranslationTextComponent("drill.de.1"),
-			new TranslationTextComponent("drill.de.2", StatString.mining_speed));
-	
-	/**
-	 * 
-	 */
-	@Nonnull
-	@Immutable
 	protected static final List<ITextComponent> up_none = Arrays.asList(new TranslationTextComponent("drill.up.1"),
 			new TranslationTextComponent("drill.up.2"));
-	
-	/**
-	 * 
-	 */
-	@Nonnull
-	@Immutable
-	protected static final ITextComponent drill_dm = new TranslationTextComponent("drill.dm");
 
 	/**
 	 * {@link Engine} that this drill holds.
@@ -108,30 +103,6 @@ public class Drill extends ModPickaxeItem {
 		this.tick = 0;
 		this.engine = Engine.None;
 		this.upgrade = UpgradeModule.None;
-	}
-
-	public void incrementFuel(int fuel) {
-		this.total_fuel += fuel;
-	}
-
-	@Override
-	public void inventoryTick(ItemStack stack, World world, Entity user, int slot, boolean selected) {
-		if (!(user instanceof PlayerEntity))
-			return;
-		PlayerEntity player = (PlayerEntity) user;
-		if (selected)
-			player.displayClientMessage(
-					new StringTextComponent(this.total_fuel + "/3k").withStyle(TextFormatting.DARK_GREEN), true);
-		this.tick = ++this.tick % 100;
-		if (this.tick == 0)
-			switch (this.upgrade) {
-			case Goblin:
-				this.total_fuel += 1;
-			case Pesto:
-				this.total_fuel += 5;
-			default:
-				return;
-			}
 	}
 
 	@Override
@@ -199,6 +170,39 @@ public class Drill extends ModPickaxeItem {
 	}
 
 	@Override
+	public float getDestroySpeed(ItemStack stack, BlockState state) {
+		float speed = super.getDestroySpeed(stack, state);
+		if (state.getMaterial() == ModMaterial.Gemstone) {
+			speed += ModToolTier.speed(this.getTier());
+		}
+		return speed;
+	}
+
+	public void incrementFuel(int fuel) {
+		this.total_fuel += fuel;
+	}
+
+	@Override
+	public void inventoryTick(ItemStack stack, World world, Entity user, int slot, boolean selected) {
+		if (!(user instanceof PlayerEntity))
+			return;
+		PlayerEntity player = (PlayerEntity) user;
+		if (selected)
+			player.displayClientMessage(
+					new StringTextComponent(this.total_fuel + "/3k").withStyle(TextFormatting.DARK_GREEN), true);
+		this.tick = ++this.tick % 100;
+		if (this.tick == 0)
+			switch (this.upgrade) {
+			case Goblin:
+				this.total_fuel += 1;
+			case Pesto:
+				this.total_fuel += 5;
+			default:
+				return;
+			}
+	}
+
+	@Override
 	public boolean mineBlock(ItemStack stack, World world, BlockState block, BlockPos pos, LivingEntity user) {
 		if (this.total_fuel < 1)
 			return false;
@@ -212,7 +216,7 @@ public class Drill extends ModPickaxeItem {
 		}
 		return super.mineBlock(stack, world, block, pos, user);
 	}
-
+	
 	/**
 	 * Set {@link Engine}
 	 * 

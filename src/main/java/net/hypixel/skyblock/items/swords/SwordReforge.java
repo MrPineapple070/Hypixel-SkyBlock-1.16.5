@@ -4,8 +4,6 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import org.openjdk.nashorn.internal.ir.annotations.Immutable;
-
 import net.hypixel.skyblock.items.ModItemRarity;
 import net.hypixel.skyblock.items.Reforge;
 import net.hypixel.skyblock.items.accessories.AccessoryReforge;
@@ -85,7 +83,6 @@ public enum SwordReforge implements Reforge {
 	 * {@link #getRandomReforge()}
 	 */
 	@Nonnull
-	@Immutable
 	public static final SwordReforge[] nonunique;
 
 	/**
@@ -95,7 +92,6 @@ public enum SwordReforge implements Reforge {
 	 * {@link ReforgeStone}
 	 */
 	@Nonnull
-	@Immutable
 	public static final SwordReforge[] unique;
 
 	static {

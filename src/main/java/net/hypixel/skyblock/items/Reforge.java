@@ -4,8 +4,6 @@ import java.util.Random;
 
 import javax.annotation.Nonnull;
 
-import org.openjdk.nashorn.internal.ir.annotations.Immutable;
-
 import net.hypixel.skyblock.items.accessories.Accessory;
 import net.hypixel.skyblock.items.armor.ModArmorItem;
 import net.hypixel.skyblock.items.bows.ModBowItem;
@@ -45,7 +43,6 @@ public interface Reforge {
 	 * Used for {@link #unique()} and {@link #nonunique()}
 	 */
 	@Nonnull
-	@Immutable
 	public static final Reforge[] empty = new Reforge[0];
 
 	/**

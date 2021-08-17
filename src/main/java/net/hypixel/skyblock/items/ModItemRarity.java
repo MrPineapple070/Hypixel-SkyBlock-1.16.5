@@ -4,8 +4,6 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import org.openjdk.nashorn.internal.ir.annotations.Immutable;
-
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.util.text.ITextComponent;
@@ -37,14 +35,12 @@ public enum ModItemRarity {
 	 * A {@link ImmutableList} of {@link ModItemRarity} that are higher rarities.
 	 */
 	@Nonnull
-	@Immutable
 	public static final ModItemRarity[] high = new ModItemRarity[] { Epic, Legendary, Mythic };
 
 	/**
 	 * A {@link ImmutableList} of {@link ModItemRarity} that are lower rarities.
 	 */
 	@Nonnull
-	@Immutable
 	public static final ModItemRarity[] low = new ModItemRarity[] { Common, Uncommon, Rare };
 
 	/**
@@ -52,7 +48,6 @@ public enum ModItemRarity {
 	 * through artificial means.
 	 */
 	@Nonnull
-	@Immutable
 	public static final ModItemRarity[] artificial = new ModItemRarity[] { Supreme, Special, Very_Special };
 
 	/**

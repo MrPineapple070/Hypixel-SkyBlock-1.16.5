@@ -25,7 +25,6 @@ import net.minecraftforge.common.ToolType;
 /**
  * When this block exists in the world, the world will remain at the indicated
  * time.<br>
- * Extended by {@link DaySaver} and {@link NightSaver}.<br>
  * If both of these blocks exist in the world, both blocks have no effect.
  *
  * @author MrPineapple070

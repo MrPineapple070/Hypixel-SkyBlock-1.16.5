@@ -8,15 +8,16 @@ net.hypixel.skyblock.client.render
 net.hypixel.skyblock.client.render.entity
 net.hypixel.skyblock.client.render.entity.model
 net.hypixel.skyblock.client.render.tileentity
+net.hypixel.skyblock.command
 net.hypixel.skyblock.enchantment
 net.hypixel.skyblock.entity
 net.hypixel.skyblock.entity.item
 net.hypixel.skyblock.entity.npc
-net.hypixel.skyblock.entity.player
 net.hypixel.skyblock.events
 net.hypixel.skyblock.events.accessories
 net.hypixel.skyblock.events.armor
 net.hypixel.skyblock.events.enchantments
+net.hypixel.skyblock.hotm
 net.hypixel.skyblock.inventory
 net.hypixel.skyblock.inventory.container
 net.hypixel.skyblock.inventory.container.init
@@ -85,6 +86,7 @@ net.hypixel.skyblock.items.reforge_stone
 net.hypixel.skyblock.items.sacks
 net.hypixel.skyblock.items.swords
 net.hypixel.skyblock.items.tools
+net.hypixel.skyblock.items.tools.drill
 net.hypixel.skyblock.pets
 net.hypixel.skyblock.potion
 net.hypixel.skyblock.proxy
