@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 /**
+ * Initializes all commands.
  * 
  * @author MrPineapple070
  * @version 31 July 2021
@@ -21,5 +22,6 @@ public class CommandInit {
 	public static void register(RegisterCommandsEvent event) {
 		CommandDispatcher<CommandSource> dispatcher = event.getDispatcher();
 		HOTMCommand.register(dispatcher);
+		WarpCommand.register(dispatcher);
 	}
 }

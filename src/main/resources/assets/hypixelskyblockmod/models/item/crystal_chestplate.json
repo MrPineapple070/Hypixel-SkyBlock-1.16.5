@@ -1,6 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "hypixelskyblockmod:items/crystal_chestplate"
+		"layer0": "hypixelskyblockmod:items/crystal_chestplate",
+		"layer1": "hypixelskyblockmod:items/crystal_chestplate_overlay"
 	}
 }

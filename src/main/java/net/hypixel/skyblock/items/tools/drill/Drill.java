@@ -8,18 +8,21 @@ import javax.annotation.Nonnull;
 
 import net.hypixel.skyblock.blocks.ModMaterial;
 import net.hypixel.skyblock.items.ModItemRarity;
+import net.hypixel.skyblock.items.Reforge;
 import net.hypixel.skyblock.items.tools.ModPickaxeItem;
 import net.hypixel.skyblock.items.tools.ModToolTier;
 import net.hypixel.skyblock.util.ItemProperties;
 import net.hypixel.skyblock.util.StatString;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -29,7 +32,18 @@ import net.minecraft.world.World;
 
 /**
  * <a href="https://hypixel-skyblock.fandom.com/wiki/Drills">Drill</a>.<br>
- * 
+ * <p>
+ * Drills are mining tools for rock-based materials.<br>
+ * They can use the same {@link Enchantment} and {@link Reforge} as
+ * {@link PickaxeItem} do.<br>
+ * Drills require Drill Fuel to function. Each block mined costs 1 Drill Fuel.
+ * Drill Parts are additional upgrades for Drills.<br>
+ * There are currently three available categories of Drill Parts, being
+ * {@link FuelTank}, {@link Engine}, and {@link UpgradeModule}.<br>
+ * Fuel Tanks are used to increase the amount of fuel a drill can store; Drill
+ * Engines gives bonus Mining Speed for the drill; Upgrade
+ * Modules provide miscellaneous buffs to a drill.
+ * </p>
  * 
  * @author MrPineapple070
  * @version 01 August 2021
@@ -37,7 +51,8 @@ import net.minecraft.world.World;
  */
 public class Drill extends ModPickaxeItem {
 	/**
-	 * 
+	 * {@link List} of {@link ITextComponent} holding information about when engine
+	 * is {@link Engine#None}
 	 */
 	@Nonnull
 	protected static final List<ITextComponent> de_none = Arrays.asList(new TranslationTextComponent("drill.de.1"),
@@ -47,22 +62,24 @@ public class Drill extends ModPickaxeItem {
 	 * The default amount of fuel in a drill.
 	 */
 	protected static final int default_fuel = 3000;
-	
+
 	/**
-	 * 
+	 * {@link ITextComponent} informing user how to equip this with upgrades
 	 */
 	@Nonnull
 	protected static final ITextComponent drill_dm = new TranslationTextComponent("drill.dm");
-	
+
 	/**
-	 * 
+	 * {@link List} of {@link ITextComponent} holding information about when fuel
+	 * tank is {@link FuelTank#None}
 	 */
 	@Nonnull
 	protected static final List<ITextComponent> ft_none = Arrays.asList(new TranslationTextComponent("drill.ft.1"),
 			new TranslationTextComponent("drill.ft.2"));
-	
+
 	/**
-	 * 
+	 * {@link List} of {@link ITextComponent} holding information about when upgrade
+	 * module if {@link UpgradeModule#None}
 	 */
 	@Nonnull
 	protected static final List<ITextComponent> up_none = Arrays.asList(new TranslationTextComponent("drill.up.1"),
@@ -175,7 +192,7 @@ public class Drill extends ModPickaxeItem {
 		if (state.getMaterial() == ModMaterial.Gemstone) {
 			speed += ModToolTier.speed(this.getTier());
 		}
-		return speed;
+		return speed + this.engine.speed;
 	}
 
 	public void incrementFuel(int fuel) {
@@ -216,7 +233,7 @@ public class Drill extends ModPickaxeItem {
 		}
 		return super.mineBlock(stack, world, block, pos, user);
 	}
-	
+
 	/**
 	 * Set {@link Engine}
 	 * 

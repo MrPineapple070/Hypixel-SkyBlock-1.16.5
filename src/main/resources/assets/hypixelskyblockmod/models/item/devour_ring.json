@@ -1,6 +1,6 @@
 {
-	"parent": "hypixelskyblockmod:item/custom",
+	"parent": "item/generated",
 	"textures": {
-		"0": "hypixelskyblockmod:items/devour_ring"
+		"layer0": "hypixelskyblockmod:items/devour_ring"
 	}
 }

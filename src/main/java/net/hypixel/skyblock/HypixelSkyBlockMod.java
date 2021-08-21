@@ -16,6 +16,7 @@ import net.hypixel.skyblock.proxy.ClientProxy;
 import net.hypixel.skyblock.proxy.CommonProxy;
 import net.hypixel.skyblock.proxy.ServerProxy;
 import net.hypixel.skyblock.tileentity.ModTileEntityTypes;
+import net.hypixel.skyblock.util.ModSoundEvents;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -66,7 +67,7 @@ public class HypixelSkyBlockMod {
 		bus.addListener(EventPriority.HIGH, this::setup);
 
 		// ParticleInit.particle_types.register(bus);
-		// SoundInit.sounds.register(bus);
+		ModSoundEvents.sounds.register(bus);
 		
 		PotionInit.register(bus);
 

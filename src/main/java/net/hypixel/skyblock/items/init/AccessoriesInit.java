@@ -34,6 +34,7 @@ import net.hypixel.skyblock.items.accessories.GravityTalisman;
 import net.hypixel.skyblock.items.accessories.HasteRing;
 import net.hypixel.skyblock.items.accessories.HealingRing;
 import net.hypixel.skyblock.items.accessories.HealingTalisman;
+import net.hypixel.skyblock.items.accessories.HegemonyArtifact;
 import net.hypixel.skyblock.items.accessories.HunterRing;
 import net.hypixel.skyblock.items.accessories.HunterTalisman;
 import net.hypixel.skyblock.items.accessories.IntimidationArtifact;
@@ -154,6 +155,7 @@ public class AccessoriesInit {
 	public static final RegistryObject<Item> haste_ring					= accessories.register("haste_ring"					, HasteRing::new);
 	public static final RegistryObject<Item> healing_ring				= accessories.register("healing_ring"				, HealingRing::new);
 	public static final RegistryObject<Item> healing_talisman			= accessories.register("healing_talisman"			, HealingTalisman::new);
+	public static final RegistryObject<Item> hegemony_artifact			= accessories.register("hegemony_artifact"			, HegemonyArtifact::new);
 	public static final RegistryObject<Item> hunter_ring				= accessories.register("hunter_ring"				, HunterRing::new);
 	public static final RegistryObject<Item> hunter_talisman			= accessories.register("hunter_talisman"			, HunterTalisman::new);
 	public static final RegistryObject<Item> intimidation_artifact		= accessories.register("intimidation_artifact"		, IntimidationArtifact::new);

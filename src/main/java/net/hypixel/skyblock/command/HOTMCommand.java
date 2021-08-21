@@ -28,7 +28,7 @@ public class HOTMCommand {
 	public static final void register(CommandDispatcher<CommandSource> dispatcher) {
 		LOGGER.debug("Register /hotm");
 		LiteralArgumentBuilder<CommandSource> command = Commands.literal("hotm")
-				.requires((commandSource) -> commandSource.hasPermission(0)).executes(HOTMCommand::execute);
+				.requires((source) -> source.hasPermission(0)).executes(HOTMCommand::execute);
 		dispatcher.register(command);
 	}
 
