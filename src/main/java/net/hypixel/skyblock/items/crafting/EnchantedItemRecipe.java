@@ -13,6 +13,7 @@ import com.google.gson.JsonParseException;
 import net.hypixel.skyblock.items.enchanted_items.EnchantedItem;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
@@ -39,10 +40,10 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 		@Override
 		public EnchantedItemRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
 			String group = JSONUtils.getAsString(json, "group", "");
-			ItemStack stack = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "input"), true);
-			if (stack.isEmpty())
+			ItemStack input = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "input"), true);
+			if (input.isEmpty())
 				throw new JsonParseException("No ingredients for recipe");
-			return new EnchantedItemRecipe(recipeId, group, stack,
+			return new EnchantedItemRecipe(recipeId, group, input,
 					CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "output"), true));
 		}
 
@@ -114,10 +115,15 @@ public class EnchantedItemRecipe implements IEnchantedItemRecipe {
 	public ItemStack getInput() {
 		return this.input;
 	}
-
+	
 	@Override
 	public ItemStack getResultItem() {
 		return this.output;
+	}
+	
+	@Override
+	public ItemStack getToastSymbol() {
+		return new ItemStack(Items.CRAFTING_TABLE);
 	}
 
 	@Override

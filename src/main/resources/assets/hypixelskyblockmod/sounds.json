@@ -1,0 +1,147 @@
+{
+	"entity.goblin.grunt": {
+		"category": "entity",
+		"subtitle": "subtitles.entity.goblin.grunt",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:entity/goblin/grunt",
+				"stream": true
+			}	
+		]
+	},
+	"music.gold": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/ambient_caves",
+				"stream": true
+			}
+		]
+	},
+	"music.park": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/sky_of_trees",
+				"stream": true
+			}
+		]
+	},
+	"music.wilderness": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/abstract_ringing",
+				"stream": true
+			}
+		]
+	},
+	"music.spooky": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/hallow_hallow",
+				"stream": true
+			}
+		]
+	},
+	"music.jerry": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/let_them_eat_cake",
+				"stream": true
+			}
+		]
+	},
+	"music.dwarven": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/dwarven_mines",
+				"stream": true
+			}
+		]
+	},
+	"music.crystal": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/going_even_deeper",
+				"stream": true
+			}
+		]
+	},
+	"music.spider": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/journey_in_the_sky",
+				"stream": true
+			}
+		]
+	},
+	"music.barn": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/light_from_afar",
+				"stream": true
+			}
+		]
+	},
+	"music.jerry_boss": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/blastin_banter_battle",
+				"stream": true
+			}
+		]
+	},
+	"music.watcher": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/the_watcher",
+				"stream": true
+			}
+		]
+	},
+	"music.bonzo": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/superior_judgement",
+				"stream": true
+			}
+		]
+	},
+	"music.dungeon": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/dungeon_drama",
+				"stream": true
+			}
+		]
+	},
+	"music.necron": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/necron_doom",
+				"stream": true
+			}
+		]
+	},
+	"music.ender_dragon": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "hypixelskyblockmod:music/mythic_warfare",
+				"stream": true
+			}
+		]
+	}
+}

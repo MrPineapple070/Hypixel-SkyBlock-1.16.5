@@ -35,9 +35,11 @@ import net.minecraftforge.registries.ForgeRegistries;
  */
 public class ItemInit {
 	public static final DeferredRegister<Item> items = DeferredRegister.create(ForgeRegistries.ITEMS, HypixelSkyBlockMod.MOD_ID);
-
+	
 	public static final RegistryObject<Item> auto_smelter						= items.register("auto_smelter"						, () -> new UpgradeItem(ItemProperties.mine_64));
+	public static final RegistryObject<Item> bejeweled_handle					= items.register("bejeweled_handle"					, () -> new Item(ItemProperties.mine_64));
 	public static final RegistryObject<Item> blessed_bait						= items.register("blessed_bait"						, BlessedBait::new);
+	public static final RegistryObject<Item> blue_cheese_goblin_omelette		= items.register("blue_cheese_goblin_omelette"		, () -> new Item(ItemProperties.mine_64));
 	public static final RegistryObject<Item> budget_hopper						= items.register("budget_hopper"					, () -> new EnchantedItem(ItemProperties.mine_64));
 	public static final RegistryObject<Item> carrot_bait						= items.register("carrot_bait"						, CarrotBait::new);
 	public static final RegistryObject<Item> catalyst							= items.register("catalyst"							, () -> new EnchantedFuelItem(ItemProperties.mine_64, 216000, 1 / 3d));
@@ -45,6 +47,12 @@ public class ItemInit {
 	public static final RegistryObject<Item> dark_bait							= items.register("dark_bait"						, DarkBait::new);
 	public static final RegistryObject<Item> desert_biome_stick					= items.register("desert_biome_stick"				, DesertBiomeStick::new);
 	public static final RegistryObject<Item> diamond_spreading					= items.register("diamond_spreading"				, () -> new UpgradeItem(ItemProperties.mine_64));
+	public static final RegistryObject<Item> drill_engine						= items.register("drill_engine"						, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> drill_engine_0						= items.register("drill_engine.0"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> drill_engine_1						= items.register("drill_engine.1"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> drill_engine_2						= items.register("drill_engine.2"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> drill_engine_3						= items.register("drill_engine.3"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> drill_engine_4						= items.register("drill_engine.4"					, () -> new Item(ItemProperties.mine_64));
 	public static final RegistryObject<Item> enchanted_acacia_log				= items.register("enchanted_acacia_log"				, () -> new EnchantedItem(ItemProperties.foraging_64));
 	public static final RegistryObject<Item> enchanted_ancient_claw				= items.register("enchanted_ancient_claw"			, () -> new EnchantedItem(ItemProperties.combat_64));
 	public static final RegistryObject<Item> enchanted_baked_potato				= items.register("enchanted_baked_potato"			, () -> new EnchantedItem(ItemProperties.farm_64));
@@ -54,14 +62,14 @@ public class ItemInit {
 	public static final RegistryObject<Item> enchanted_bone						= items.register("enchanted_bone"					, () -> new EnchantedItem(ItemProperties.combat_64));
 	public static final RegistryObject<Item> enchanted_bone_meal				= items.register("enchanted_bone_meal"				, () -> new EnchantedItem(ItemProperties.combat_64));
 	public static final RegistryObject<Item> enchanted_bookshelf				= items.register("enchanted_bookshelf"				, () -> new EnchantedItem(ItemProperties.farm_64));
+	public static final RegistryObject<Item> enchanted_borwn_mushroom_block		= items.register("enchanted_brown_mushroom_block"	, () -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_bread					= items.register("enchanted_bread"					, () -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_brown_mushroom			= items.register("enchanted_brown_mushroom"			, () -> new EnchantedItem(ItemProperties.farm_64));
-	public static final RegistryObject<Item> enchanted_borwn_mushroom_block		= items.register("enchanted_brown_mushroom_block"	, () -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_cactus					= items.register("enchanted_cactus"					, () -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_cake						= items.register("enchanted_cake"					, () -> new EnchantedItem(ItemProperties.farm_1));
 	public static final RegistryObject<Item> enchanted_carrot					= items.register("enchanted_carrot"					, () -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_charcoal					= items.register("enchanted_charcoal"				, () -> new EnchantedFuelItem(ItemProperties.mine_64, 2592000, .8));
-	public static final RegistryObject<Item> enchnated_chicken					= items.register("enchanted_chicken"				, () -> new EnchantedItem(ItemProperties.farm_64));
+	public static final RegistryObject<Item> enchanted_chicken					= items.register("enchanted_chicken"				, () -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_clay						= items.register("enchanted_clay"					, () -> new EnchantedItem(ItemProperties.fish_64));
 	public static final RegistryObject<Item> enchanted_clownfish				= items.register("enchanted_clownfish"				, () -> new EnchantedItem(ItemProperties.fish_64));
 	public static final RegistryObject<Item> enchanted_coal						= items.register("enchanted_coal"					, () -> new EnchantedFuelItem(ItemProperties.mine_64, 1728000, .9));
@@ -84,8 +92,8 @@ public class ItemInit {
 	public static final RegistryObject<Item> enchanted_ender_pearl				= items.register("enchanted_ender_pearl"			, () -> new EnchantedItem(ItemProperties.combat_64));
 	public static final RegistryObject<Item> enchanted_feather					= items.register("enchanted_feather"				, () -> new EnchantedItem(ItemProperties.farm_64));
 	public static final RegistryObject<Item> enchanted_fermented_spider_eye		= items.register("enchanted_fermented_spider_eye"	, () -> new EnchantedItem(ItemProperties.combat_64));
-	public static final RegistryObject<Item> enchanted_fish						= items.register("enchanted_fish"					, () -> new EnchantedItem(ItemProperties.fish_64));
 	public static final RegistryObject<Item> enchanted_firework_rocket			= items.register("enchanted_firework_rocket"		, () -> new EnchantedItem(ItemProperties.combat_64));
+	public static final RegistryObject<Item> enchanted_fish						= items.register("enchanted_fish"					, () -> new EnchantedItem(ItemProperties.fish_64));
 	public static final RegistryObject<Item> enchanted_flint					= items.register("enchanted_flint"					, () -> new EnchantedItem(ItemProperties.mine_64));
 	public static final RegistryObject<Item> enchanted_ghast_tear				= items.register("enchanted_ghast_tear"				, () -> new EnchantedItem(ItemProperties.combat_64));
 	public static final RegistryObject<Item> enchanted_glistering_melon_slice	= items.register("enchanted_glistering_melon_slice"	, () -> new EnchantedItem(ItemProperties.farm_64));
@@ -142,6 +150,15 @@ public class ItemInit {
 	public static final RegistryObject<Item> flint_shovel						= items.register("flint_shovel"						, () -> new ShovelItem(ItemTier.NETHERITE, 0, Float.POSITIVE_INFINITY, ItemProperties.mine_1));
 	public static final RegistryObject<Item> flycatcher							= items.register("flycatcher"						, () -> new UpgradeItem(ItemProperties.combat_64));
 	public static final RegistryObject<Item> foul_flesh							= items.register("foul_flesh"						, () -> new MinionFuelItem(ItemProperties.combat_64, 0x57e40, .9));
+	public static final RegistryObject<Item> fuel_tank							= items.register("fuel_tank"						, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> fuel_tank_0						= items.register("fuel_tank.0"						, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> fuel_tank_1						= items.register("fuel_tank.1"						, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> fuel_tank_2						= items.register("fuel_tank.2"						, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> fuel_tank_3						= items.register("fuel_tank.3"						, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> gemstone_chamber					= items.register("gemstone_chamber"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> gemstone_mixture					= items.register("gemstone_mixture"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> goblin_omelette					= items.register("goblin_omelette"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> golden_plate						= items.register("golden_plate"						, () -> new Item(ItemProperties.mine_64));
 	public static final RegistryObject<Item> grand_xp_bottle					= items.register("grand_xp_bottle"					, () -> new ModExperienceBottleItem(ItemProperties.mine_64, Type.GRAND));
 	public static final RegistryObject<Item> hamster_wheel						= items.register("hamster_wheel"					, () -> new MinionFuelItem(ItemProperties.combat_64, 0x1a5e00, .5));
 	public static final RegistryObject<Item> hyper_catalyst						= items.register("hyper_catalyst"					, () -> new MinionFuelItem(ItemProperties.mine_1, 0x69780, 3));
@@ -151,11 +168,26 @@ public class ItemInit {
 	public static final RegistryObject<Item> magma_bucket						= items.register("magma_bucket"						, () -> new MinionFuelItem(ItemProperties.mine_1, -1, .3));
 	public static final RegistryObject<Item> minion_expander					= items.register("minion_expander"					, () -> new UpgradeItem(ItemProperties.mine_64));
 	public static final RegistryObject<Item> minnow_bait						= items.register("minnow_bait"						, MinnowBait::new);
+	public static final RegistryObject<Item> mithril_plate						= items.register("mithril_plate"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> pesto_goblin_omelette				= items.register("pesto_goblin_omelette"			, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> perfect_amber						= items.register("perfect_amber"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> perfect_amethyst					= items.register("perfect_amethyst"					, () -> new Item(ItemProperties.mine_64));
 	public static final RegistryObject<Item> perfect_hopper						= items.register("perfect_hopper"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> perfect_jade						= items.register("perfect_jade"						, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> perfect_jasper						= items.register("perfect_jasper"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> perfect_ruby						= items.register("perfect_ruby"						, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> perfect_sapphire					= items.register("perfect_sapphire"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> perfect_topaz						= items.register("perfect_topaz"					, () -> new Item(ItemProperties.mine_64));
 	public static final RegistryObject<Item> plasma_bucket						= items.register("plasma_bucket"					, () -> new MinionFuelItem(ItemProperties.mine_1, -1, .35));
+	public static final RegistryObject<Item> power_crystal						= items.register("power_crystal"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> refined_diamond					= items.register("refined_diamond"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> refined_mithril					= items.register("refined_mithril"					, () -> new Item(ItemProperties.mine_64));
+	public static final RegistryObject<Item> refined_titanium					= items.register("refined_titanium"					, () -> new Item(ItemProperties.mine_64));
 	public static final RegistryObject<Item> solar_panel						= items.register("solar_panel"						, () -> new UpgradeItem(ItemProperties.mine_64));
 	public static final RegistryObject<Item> spiked_bait						= items.register("spiked_bait"						, SpikedBait::new);
+	public static final RegistryObject<Item> spicy_goblin_omelette				= items.register("spicy_goblin_omelette"			, () -> new Item(ItemProperties.mine_64));
 	public static final RegistryObject<Item> spooky_bait						= items.register("spooky_bait"						, SpookyBait::new);
+	public static final RegistryObject<Item> sunny_side_goblin_omelette			= items.register("sunny_side_goblin_omelette"		, () -> new Item(ItemProperties.mine_64));
 	public static final RegistryObject<Item> super_compactor_3000				= items.register("super_compactor_3000"				, () -> new UpgradeItem(ItemProperties.mine_64));
 	public static final RegistryObject<Item> titanic_xp_bottle					= items.register("titanic_xp_bottle"				, () -> new ModExperienceBottleItem(ItemProperties.mine_64, Type.TITANIC));
 	public static final RegistryObject<Item> true_essence						= items.register("true_essence"						, () -> new EnchantedItem(ItemProperties.mine_64));

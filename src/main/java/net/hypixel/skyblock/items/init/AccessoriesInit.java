@@ -21,6 +21,7 @@ import net.hypixel.skyblock.items.accessories.CrookedArtifact;
 import net.hypixel.skyblock.items.accessories.DayCrystal;
 import net.hypixel.skyblock.items.accessories.DevourRing;
 import net.hypixel.skyblock.items.accessories.EnderArtifact;
+import net.hypixel.skyblock.items.accessories.EnderRelic;
 import net.hypixel.skyblock.items.accessories.ExperienceArtifact;
 import net.hypixel.skyblock.items.accessories.FarmerOrb;
 import net.hypixel.skyblock.items.accessories.FarmingTalisman;
@@ -142,6 +143,7 @@ public class AccessoriesInit {
 	public static final RegistryObject<Item> day_crystal				= accessories.register("day_crystal"				, DayCrystal::new);
 	public static final RegistryObject<Item> devour_ring				= accessories.register("devour_ring"				, DevourRing::new);
 	public static final RegistryObject<Item> ender_artifact				= accessories.register("ender_artifact"				, EnderArtifact::new);
+	public static final RegistryObject<Item> ender_relic				= accessories.register("ender_relic"				, EnderRelic::new);
 	public static final RegistryObject<Item> experience_artifact		= accessories.register("experience_artifact"		, ExperienceArtifact::new);
 	public static final RegistryObject<Item> farmer_orb					= accessories.register("farmer_orb"					, FarmerOrb::new);
 	public static final RegistryObject<Item> farming_talisman			= accessories.register("farming_talisman"			, FarmingTalisman::new);

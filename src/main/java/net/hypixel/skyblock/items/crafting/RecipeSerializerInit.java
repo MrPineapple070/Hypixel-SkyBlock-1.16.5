@@ -23,6 +23,7 @@ public class RecipeSerializerInit {
 	 *
 	 * @param <T> {@link IRecipe}
 	 */
+	@Deprecated
 	private static class RecipeType<T extends IRecipe<?>> implements IRecipeType<T> {
 		@Override
 		public String toString() {
@@ -35,16 +36,20 @@ public class RecipeSerializerInit {
 
 	public static final RegistryObject<IRecipeSerializer<?>> enchanted_item_serializer = recipe_serializer
 			.register("enchanted_item", Serializer::new);
-
-	public static final IRecipeType<IEnchantedItemRecipe> enchanted_item_type = Registry.register(Registry.RECIPE_TYPE,
-			IEnchantedItemRecipe.recipe_type_id, new RecipeType<IEnchantedItemRecipe>());
-	public static final RegistryObject<IRecipeSerializer<?>> enchantment_serializer = recipe_serializer
-			.register("enchantment", EnchantmentRecipe.Serializer::new);
-	public static final IRecipeType<IEnchantmentRecipe> enchantment_type = Registry.register(Registry.RECIPE_TYPE,
-			IEnchantmentRecipe.recipe_type_id, new RecipeType<IEnchantmentRecipe>());
-
 	public static final RegistryObject<IRecipeSerializer<?>> pet_item_serializer = recipe_serializer
 			.register("pet_item", PetItemRecipe.Serializer::new);
+	public static final RegistryObject<IRecipeSerializer<?>> forge_serializer = recipe_serializer.register("forge",
+			ForgeRecipe.Serializer::new);
+	public static final RegistryObject<IRecipeSerializer<?>> enchantment_serializer = recipe_serializer
+			.register("enchantment", EnchantmentRecipe.Serializer::new);
+	
+	@Deprecated
+	public static final IRecipeType<IEnchantedItemRecipe> enchanted_item_type = Registry.register(Registry.RECIPE_TYPE,
+			IEnchantedItemRecipe.recipe_type_id, new RecipeType<IEnchantedItemRecipe>());
+	@Deprecated
+	public static final IRecipeType<IEnchantmentRecipe> enchantment_type = Registry.register(Registry.RECIPE_TYPE,
+			IEnchantmentRecipe.recipe_type_id, new RecipeType<IEnchantmentRecipe>());
+	@Deprecated
 	public static final IRecipeType<IPetRecipe> pet_item_type = Registry.register(Registry.RECIPE_TYPE,
 			IPetRecipe.recipe_type_id, new RecipeType<IPetRecipe>());
 }
